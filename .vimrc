@@ -254,7 +254,6 @@ au BufNewFile,BufRead *.less set filetype=less
 au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 
 "swap colors in solarized
-call togglebg#map("<F6>")
 
 " For the conque shell plugin
 nnoremap <LocalLeader>c :ConqueTermTab bash<CR>                            
