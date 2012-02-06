@@ -1,9 +1,9 @@
  #!/bin/sh
 
-      cd ..
+cd ..
 
-      ln -sn etc/bash .bash
-      ln -sn etc/bashrc .bashrc
-      ln -sn etc/bash_profile .bash_profile
-      ln -sn etc/vim .vim
-      ln -sn etc/vimrc .vimrc
+ln -sn dotfiles/.bash .bash
+ln -sn dotfiles/.bashrc .bashrc
+ln -sn dotfiles/.bash_profile .bash_profile
+ln -sn dotfiles/.vim .vim
+ln -sn dotfiles/.vimrc .vimrc
