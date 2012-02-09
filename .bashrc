@@ -101,4 +101,5 @@ fi
 
 eval `ssh-agent -s` > /dev/null
 ssh-add > /dev/null 
-
+if [ -f git-flow-completion.bash ]; then 
+  . /git-flow-completion.bash
