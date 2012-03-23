@@ -86,6 +86,7 @@ if has("gui_running")
       "colorscheme rdark
       "colorscheme Mustang
       ""colorscheme solarized   " yum candy
+      colorscheme zenburn   " yum candy
       let rdark_current_line=1  " highlight current line
       set background=dark
       set noantialias
