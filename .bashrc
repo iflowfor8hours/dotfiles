@@ -14,6 +14,8 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
+# so ctrl-a and whatnot will work
+set -o emacs
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 
 # check the window size after each command and, if necessary,
@@ -99,6 +101,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+rvm use 1.9.2 > /dev/null
 eval `ssh-agent -s` > /dev/null
 ssh-add > /dev/null 
 

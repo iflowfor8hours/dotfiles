@@ -61,7 +61,7 @@ let maplocalleader=','        " all my shortcuts start with ,
 set whichwrap+=<,>,h,l        " backspaces and cursor keys wrap to
 set visualbell t_vb=          " Disable ALL bells
 set cursorline                " show the cursor line
-set list                      " show whitespace where I care"
+"set list                      " show whitespace where I care"
 set matchpairs+=<:>           " add < and > to match pairs
 
 "don't use the backup files or swap files, they are annoying to look at
@@ -69,7 +69,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 set ai
-set textwidth=79
+"set textwidth=79
 set comments=b:#
 
 " jump to the beginning and end of functions
@@ -85,16 +85,16 @@ set dictionary=/usr/share/dict/words " more words!
 if has("gui_running")
       "colorscheme rdark
       "colorscheme Mustang
-      colorscheme solarized   " yum candy
+      ""colorscheme solarized   " yum candy
       let rdark_current_line=1  " highlight current line
       set background=dark
       set noantialias
       set guioptions-=T        " no toolbar
       set guifont=Inconsolata\ Medium\ 12
-"      set guioptions-=l        " no left scrollbar
-"      set guioptions-=L        " no left scrollbar
-"      set guioptions-=r        " no right scrollbar
-"      set guioptions-=R        " no right scrollbar
+      set guioptions-=l        " no left scrollbar
+      set guioptions-=L        " no left scrollbar
+      set guioptions-=r        " no right scrollbar
+      set guioptions-=R        " no right scrollbar
       set lines=40
       set columns=115
 
@@ -273,3 +273,6 @@ nnoremap <silent> <LocalLeader>b :CommandTBuffer<CR>
 " control+/ shows up in the terminal as ^_, so map C-_ to make it happen.
 nnoremap <silent> <C-_> :execute "CommandT " . b:gitroot<CR>
 
+" change tab completion to ctrl-space
+let g:SuperTabMappingForward = '<c-space>'
+let g:SuperTabMappingBackward = '<s-c-space>'
