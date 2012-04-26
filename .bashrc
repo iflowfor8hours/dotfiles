@@ -101,8 +101,12 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-rvm use 1.9.2 > /dev/null
+rvm use 1.9.3 > /dev/null
 eval `ssh-agent -s` > /dev/null
 ssh-add > /dev/null 
 if [ -f git-flow-completion.bash ]; then 
-  . /git-flow-completion.bash
+  git-flow-completion.bash
+fi
+
+declare -x PATH="/home/matt/android-sdks/tools:/home/matt/.rvm/gems/ruby-1.9.2-p290/bin:/home/matt/.rvm/gems/ruby-1.9.2-p290@global/bin:/home/matt/.rvm/rubies/ruby-1.9.2-p290/bin:/home/matt/.rvm/bin:/home/matt/bin:/usr/sbin:/sbin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/games"
+export PATH="$PATH:$HOME/android-sdks/tools:$HOME/android-sdks/platform-tools"

@@ -1,19 +1,10 @@
 let g:netrw_dirhistmax  =10
-<<<<<<< HEAD
 let g:netrw_dirhist_cnt =8
-=======
-let g:netrw_dirhist_cnt =7
->>>>>>> e11b2db07ee3d75c7663280599cd2841a5e8481e
 let g:netrw_dirhist_1='/home/matt/oldhome/.config/google-chrome/Default'
 let g:netrw_dirhist_2='/home/matt/.config/chromium'
 let g:netrw_dirhist_3='/home/matt/.purple/logs/jabber/matt.urbanski@im.steeprockinc.com'
 let g:netrw_dirhist_4='/home/matt/src/.git'
 let g:netrw_dirhist_5='/home/matt/src/iflowfor8hours-blog/_site/2011/11/fixing-windows-for-fun'
-<<<<<<< HEAD
-let g:netrw_dirhist_6='/home/matt/src/ror_learn/autisticbackup'
-let g:netrw_dirhist_7='/home/matt/.rvm'
-let g:netrw_dirhist_8='/home/matt/Dropbox/docs'
-=======
 let g:netrw_dirhist_6='/home/matt/src/mine/ror_learn/tshirt/app/views/pages'
 let g:netrw_dirhist_7='/home/matt/src/mine/ror_learn/tshirt/app'
->>>>>>> e11b2db07ee3d75c7663280599cd2841a5e8481e
+let g:netrw_dirhist_8='/home/matt/work/victorykit/config'
