@@ -1,4 +1,4 @@
-#!bash
+#!/bin/bash
 #
 # git-flow-completion
 # ===================
