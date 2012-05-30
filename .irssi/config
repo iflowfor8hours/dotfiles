@@ -18,6 +18,14 @@ servers = (
     autoconnect = "yes";
   },
   {
+    address = "irc.datawhore.net";
+    chatnet = "datawhore";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
     address = "irc.wikkedwire.com";
     chatnet = "wikkedwire";
     port = "6667";
@@ -108,28 +116,32 @@ chatnets = {
   SILC = { type = "SILC"; };
   Ubuntu = { type = "IRC"; };
   wikkedwire = { type = "IRC"; };
-  freenode = { type = "IRC"; 
-    autosendcmd = "/^msg nickserv identify c0k32099;wait 2000";
+  freenode = {
+    type = "IRC";
+    autosendcmd = "/^msg nickserv identify whatawaster;wait 2000";
   };
   shroomery = {
     type = "IRC";
-    autosendcmd = "/^msg nickserv identify c0k32099;wait 2000";
+    autosendcmd = "/^msg nickserv identify whatawaster;wait 2000";
   };
   "corrupt-net" = { type = "IRC"; };
+  datawhore = { type = "IRC"; };
 };
 
 channels = (
+  { name = "#nsb_radio"; chatnet = "wikkedwire"; autojoin = "yes"; },
+  { name = "#fux0r"; chatnet = "corrupt-net"; autojoin = "yes"; },
+  { name = "#puppet"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#startups"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "##trackers"; chatnet = "freenode"; autojoin = "yes"; },
   #  { name = "#bismark"; chatnet = "freenode"; autojoin = "yes"; },
   #  { name = "#openwrt"; chatnet = "freenode"; autojoin = "yes"; },
-  #{ name = "#bufferbloat"; chatnet = "freenode"; autojoin = "yes"; },
-  #{ name = "#nsb_radio"; chatnet = "wikkedwire"; autojoin = "yes"; },
-  #{ name = "#shroomery"; chatnet = "shroomery"; autojoin = "yes"; },
-  { name = "#fux0r"; chatnet = "corrupt-net"; autojoin = "yes"; },
-  #{ name = "#clojure"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#puppet"; chatnet = "freenode"; autojoin = "yes"; },
-  #{ name = "#reddit"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#madhatterz"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#startups"; chatnet = "freenode"; autojoin = "yes"; }
+  #  { name = "#bufferbloat"; chatnet = "freenode"; autojoin = "yes"; },
+  #  { name = "#reddit"; chatnet = "freenode"; autojoin = "yes"; },
+  #  { name = "#madhatterz"; chatnet = "freenode"; autojoin = "yes"; },
+  #  { name = "#clojure"; chatnet = "freenode"; autojoin = "yes"; },
+  #  { name = "#shroomery"; chatnet = "shroomery"; autojoin = "yes"; },
+  { name = "#opensc"; chatnet = "datawhore"; autojoin = "yes"; }
 );
 
 aliases = {
