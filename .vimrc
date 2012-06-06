@@ -257,7 +257,7 @@ au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 "swap colors in solarized
 
 " For the conque shell plugin
-nnoremap <LocalLeader>c :ConqueTermTab bash<CR>                            
+nnoremap <LocalLeader>te :ConqueTermSplit bash<CR>                            
 
 " Don't go into insert mode when the buffer is focused
 let g:ConqueTerm_InsertOnEnter = 0

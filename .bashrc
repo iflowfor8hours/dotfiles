@@ -110,3 +110,6 @@ export PATH="$PATH:$HOME/android-sdks/tools:$HOME/android-sdks/platform-tools"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 source ~/.rvm/scripts/rvm
+
+shopt -s histappend
+
