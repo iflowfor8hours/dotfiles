@@ -57,6 +57,7 @@ set ttyfast                   " we have a fast terminal
 filetype on                   " Enable filetype detection
 filetype indent on            " Enable filetype-specific indenting
 filetype plugin on            " Enable filetype-specific plugins
+let mapleader=','
 let maplocalleader=','        " all my shortcuts start with ,
 set whichwrap+=<,>,h,l        " backspaces and cursor keys wrap to
 set visualbell t_vb=          " Disable ALL bells
