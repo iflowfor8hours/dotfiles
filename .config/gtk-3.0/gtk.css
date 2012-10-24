@@ -1,5 +1,6 @@
 @binding-set NoKeyboardNavigation {
   unbind "<shift>F10"
+  unbind "<shift>F1"
 }
 
 * {

@@ -1,0 +1,449 @@
+# Lots of command examples (especially heroku) lead command docs with '$' which
+# make it kind of annoying to copy/paste, especially when there's multiple
+# commands to copy.
+#
+# This hacks around the problem by making a '$' command that simply runs
+# whatever arguments are passed to it. So you can copy
+#   '$ echo hello world'
+# and it will run 'echo hello world'
+function \$() { 
+  "$@"
+}
+
+function loadrvm() {
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
+}
+
+loadrvm
+rvm use 1.9.3 > /dev/null
+
+export LANG=en_US.utf8
+
+# Revision Control
+
+# Defaults
+PSARGS=-ax
+
+# Some useful defaults
+HISTSIZE=1048576
+SAVEHIST=$HISTSIZE
+HISTFILE=~/.history_zsh
+
+# ^S and ^Q cause problems and I don't use them. Disable stty stop.
+stty stop ""
+stty start ""
+
+# Check if we're using screen, set our term to xterm...# UGLY BAD HACK
+# I only need this on Solaris machines with screen(1) but no screen
+# terminfo entry. I don't use it much anymore.
+# Really, it should check if 'screen' is set and there is no screen terminfo
+# then set TERM=xtemr.
+#[ $TERM = "screen" ] && TERM=xterm
+
+# Some environment defaults
+export CVS_RSH=ssh
+export RSYNC_RSH=ssh
+export EDITOR=vim
+export PAGER=less
+export LESS="-nX"
+
+## zsh options settings
+setopt no_beep                   # Beeping is annoying. Die.
+setopt no_prompt_cr              # Don't print a carraige return before the prompt 
+setopt interactivecomments       # Enable comments in interactive mode (useful)
+setopt extended_glob             # More powerful glob features
+
+# history settings
+setopt append_history            # Append to history on exit, don't overwrite it.
+setopt extended_history          # Save timestamps with history
+setopt hist_no_store             # Don't store history commands
+setopt hist_save_no_dups         # Don't save duplicate history entries
+#setopt hist_expire_dups_first
+setopt hist_ignore_all_dups      # Ignore old command duplicates (in current session)
+
+# These two history options don't flow with my history usage.
+#setopt inc_append_history
+#setopt share_history
+
+# changing directories
+setopt auto_pushd                # Automatically pushd when I cd
+setopt nocdable_vars               # Let me do cd ~foo if $foo is a directory
+
+WORDCHARS='*?_-[]~=&;!#$%^(){}<>' # chars as part of filename
+
+autoload -U compinit && compinit # enables extra auto-completion
+
+# -- Bindings --
+bindkey -e # emacs mode line editting
+bindkey '\e[1~' beginning-of-line
+bindkey '\e[4~' end-of-line
+bindkey '\e[3~' delete-char
+bindkey '^[[Z' reverse-menu-complete
+
+# completion madness
+compctl -g '*(-/D)' cd
+compctl -g '*.ps' ghostview gv
+compctl -g '*.pdf' acroread xpdf
+compctl -g '/var/db/pkg/*(/:t)' pkg_delete pkg_info
+compctl -j -P '%' kill bg fg
+compctl -v export unset vared
+
+function up {
+  if [ "$#" -eq 0 ] ; then
+    echo "Up to where?"
+    return 1
+  fi
+
+  times=$1
+  target="$2"
+  while [ $times -gt 0 ] ; do
+    target="../$target"
+    times=$((times - 1))
+  done
+  cd $target
+}
+
+# Set up $PATH
+function notinpath {
+  for tmp in $path; do
+    [ $tmp = $1 ] && return 1
+  done
+
+  return 0
+}
+
+function addpaths {
+  for i in $*; do
+    i=${~i}
+    if [ -d "$i" ]; then
+      notinpath $i && path+=$i
+    fi
+  done
+}
+
+function delpaths {
+  for i in $*; do
+    i=${~i}
+    PATH="$(echo "$PATH" | tr ':' '\n' | grep -v "$i" | tr '\n' ':')"
+  done
+}
+
+# Wrap git so it's easier to wrangle.
+function git {
+  case $1 in
+    clone) git-clone "$@" ;;
+    *) =git "$@" ;;
+  esac
+}
+
+function git-clone {
+  if [ "${2##*/*}" != "$2" ] ; then
+    # Replace github/<thing> with 'git clone ... proper github url'
+    repo="$2"
+    =git clone git@github.com:$repo.git
+    cd $(basename $repo)
+  else
+    =git "$@"
+  fi
+}
+
+# Make sure things are in my paths
+BASE_PATHS="/bin /usr/bin /sbin /usr/sbin"
+X_PATHS="/usr/X11R6/bin /usr/dt/bin /usr/X/bin"
+LOCAL_PATHS="/usr/local/bin /usr/local/gnu/bin"
+HOME_PATHS="~/bin"
+addpaths $=BASE_PATHS $=X_PATHS $=LOCAL_PATHS $=SOLARIS_PATHS $=HOME_PATHS
+PATH="$HOME/bin:$HOME/local/bin:$PATH"
+
+
+# Periodic Reminder!
+PERIOD=3600                       # Every hour, call periodic()
+function periodic() {
+  [ -f ~/.plan ] || return
+
+  echo
+  echo "= Todo List"
+  sed -e 's/^/   /' ~/.plan
+  echo "= End"
+}
+
+# Completion
+function screen-sessions {
+  typeset -a sessions
+  for i in /tmp/screens/S-${USER}/*(p:t);  do
+    sessions+=(${i#*.})
+  done
+
+  reply=($sessions)
+}
+
+compctl -g '*(-/D)' cd 
+compctl -c which
+compctl -o setopt unsetopt
+compctl -v export unset vared
+compctl -g '/u9/psionic/Mail/*(/:t)' -P '+' folder
+compctl -g '/var/db/pkg/*(/:t)' pkg_delete pkg_info
+compctl -g '*.pdf' xpdf acroread
+#compctl -g "/tmp/screens/S-${USER}/*(p:t)" + -g "/tmp/screens/S-${USER}/*(:e)" screen
+#compctl -g "/tmp/screens/S-${USER}/*(p:tW:.:)" screen
+compctl -K screen-sessions screen
+compctl -g "*(-/D)" + -g "*.class(.:r)" java
+
+# The Prompt
+PS1='%m(%35<...<%~) %# '
+unset RPROMPT RPS1
+
+# This section sets useful variables for various things...
+HOST="$(hostname)"
+HOST="${HOST%%.*}"
+UNAME="$(uname)"
+
+# title/precmd/postcmd
+function precmd() {
+  title "zsh - $PWD"
+  duration=$(( $(date +%s) - cmd_start_time ))
+
+  # Notify if the previous command took more than 5 seconds.
+  if [ $duration -gt 5 ] ; then
+    case "$lastcmd" in
+      vi*) ;; # vi, don't notify
+      "") ;; # no previous command, don't notify
+      *) 
+        tmux display-message "($duration secs): $lastcmd"
+    esac
+  fi
+  lastcmd=""
+}
+
+function preexec() {
+  # The full command line comes in as "$1"
+  local cmd="$1"
+  local -a args
+
+  # add '--' in case $1 is only one word to work around a bug in ${(z)foo}
+  # in zsh 4.3.9.
+  tmpcmd="$1 --"
+  args=${(z)tmpcmd}
+
+  # remove the '--' we added as a bug workaround..
+  # per zsh manpages, removing an element means assigning ()
+  args[${#args}]=()
+  if [ "${args[1]}" = "fg" ] ; then
+    local jobnum="${args[2]}"
+    if [ -z "$jobnum" ] ; then
+      # If no jobnum specified, find the current job.
+      for i in ${(k)jobtexts}; do
+        [ -z "${jobstates[$i]%%*:+:*}" ] && jobnum=$i
+      done
+    fi
+    cmd="${jobtexts[${jobnum#%}]}"
+  fi
+
+  # These are used in precmd
+  cmd_start_time=$(date +%s)
+  lastcmd="$cmd"
+
+  title "$cmd"
+}
+
+function title() {
+  # This is madness.
+  # We replace literal '%' with '%%'
+  # Also use ${(V) ...} to make nonvisible chars printable (think cat -v)
+  # Replace newlines with '; '
+  local value="${${${(V)1//\%/\%\%}//'\n'/; }//'\t'/ }"
+  local location
+
+  location="$HOST"
+  [ "$USERNAME" != "$LOGNAME" ] && location="${USERNAME}@${location}"
+
+  # Special format for use with print -Pn
+  value="%70>...>$value%<<"
+  unset PROMPT_SUBST
+  case $TERM in
+    screen|screen-256color)
+      # Put this in your .screenrc:
+      # hardstatus string "[%n] %h - %t"
+      # termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen (not title yet)\007'
+      print -Pn "\ek${value}\e\\"     # screen title (in windowlist)
+      print -Pn "\e_${location}\e\\"  # screen location
+      ;;
+    xterm*)
+      print -Pn "\e]0;$value\a"
+      ;;
+  esac
+  setopt LOCAL_OPTIONS
+}
+
+function config_Linux() {
+  PSARGS=ax
+}
+
+case $UNAME in
+  FreeBSD) config_FreeBSD ;;
+  SunOS) config_SunOS ;;
+  Linux) config_Linux ;;
+esac
+
+## Useful functions
+
+function psg() {
+  ps $PSARGS | egrep "$@" | fgrep -v egrep
+}
+
+function findenv() {
+  ps aexww | sed -ne "/$1/ { s/.*\($1[^ ]*\).*/\1/; p; }" | sort | uniq -c $2
+}
+
+function _awk_col() {
+  echo "$1" | egrep -v '^[0-9]+$' || echo "\$$1"
+}
+
+function sum() {
+  [ "${1#-F}" != "$1" ] && SP=${1} && shift
+  [ "$#" -eq 0 ] && set -- 0
+  key="$(_awk_col "$1")"
+  awk $SP "{ x+=$key } END { printf(\"%d\n\", x) }"
+}
+
+function sumby() {
+  [ "${1#-F}" != "$1" ] && SP=${1} && shift
+  [ "$#" -lt 0 ] && set -- 0 1
+  key="$(_awk_col "$1")"
+  val="$(_awk_col "$2")"
+  awk $SP "{ a[$key] += $val } END { for (i in a) { printf(\"%d %s\\n\", a[i], i) } }"
+}
+
+function countby() {
+  [ "${1#-F}" != "$1" ] && SP=${1} && shift
+  [ "$#" -eq 0 ] && set -- 0
+  key="$(_awk_col "$1")"
+  awk $SP "{ a[$key]++ } END { for (i in a) { printf(\"%d %s\\n\", a[i], i) } }"
+}
+
+function bytes() {
+  if [ $# -gt 0 ]; then
+    while [ $# -gt 0 ]; do
+      echo -n "${1}B = "
+      byteconv "$1"
+      shift
+    done
+  else
+    while read a; do
+      byteconv "$a"
+    done
+  fi
+}
+
+function byteconv() {
+  a=$1
+  ORDER=BKMGTPE
+  while [ $(echo "$a >= 1024" | bc) -eq 1 -a $#ORDER -gt 1 ]; do
+    a=$(echo "scale=2; $a / 1024" | bc)
+    ORDER="${ORDER#?}"
+  done
+  echo "${a}$(echo "$ORDER" | cut -b1)"
+}
+
+function datelog() {
+  [ $# -eq 0 ] && set -- "%F %H:%M:%S]"
+  perl -MPOSIX -e 'while (sysread(STDIN,$_,1,length($_)) > 0) { while (s/^(.*?\n)//) { printf("%s %s", strftime($ARGV[0], localtime), $1); } }' "$@"
+}
+
+# From petef's zshrc
+function scp() {
+  found=false
+  for arg; do
+    if [ "${arg%%:*}" != "${arg}" ]; then
+      found=true
+      break
+    fi
+  done
+
+  if ! $found; then
+    echo "scp: no remote location specified" >&2
+    return 1
+  fi
+
+  =scp "$@"
+}
+
+# Any special local config?
+if [ -r ~/.zshrc_local ] ; then
+  . ~/.zshrc_local
+fi
+
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path $HOME/.zsh/cache
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+zstyle ':completion:*:match:*' original only
+zstyle ':completion::prefix-1:*' completer _complete
+zstyle ':completion:predict:*' completer _complete
+zstyle ':completion:incremental:*' completer _complete _correct
+zstyle ':completion:*' completer _complete _prefix _correct _prefix _match _approximate
+zstyle ':completion:*' expand true
+zstyle ':completion:*' squeeze-shlashes true
+zstyle ':completion::complete:*' '\\'
+zstyle ':completion:*:*:*:default' menu yes select
+zstyle ':completion:*:*:default' force-list always
+zmodload  zsh/complist
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+
+compdef pkill=kill
+compdef pkill=killall
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:processes' command 'ps -au$USER'
+
+zstyle ':completion:*:matches' group 'yes'
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*:options' auto-description '%d'
+zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m'
+zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
+zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
+
+# -- Aliases --
+alias ls='ls -G --color=auto'
+alias ll='ls -alh'
+alias mkdir='mkdir -p'
+alias cp='cp -R'
+alias chown='chown -R'
+alias chmod='chmod -R'
+alias pp='cd ~/Projects'
+alias grep='grep --color=auto --exclude-dir=.git --exclude-dir=.svn'
+alias vm='VBoxManage'
+alias rspec='rspec --color --format documentation'
+alias e='subl -n'
+alias df='df -h'
+alias du='du -sh'
+alias import=python_import
+alias cls='clear'
+alias gradle='gradle --daemon'
+alias less='less -FXR'
+alias sublime="/home/matt/dev/Sublime\ Text\ 2/sublime_text &"
+unalias rm mv cp 2> /dev/null || true # no -i madness
+
+which vim > /dev/null 2>&1 && alias vi=vim
+
+# -- Variables --
+# export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
+# export GROOVY_HOME=/usr/local/Cellar/groovy/2.0.0/libexec
+
+# -- Proxy Settings --
+function enable_proxy() {
+   export http_proxy="http://qaproxy.gid.gap.com:8080/"
+   export https_proxy="http://qaproxy.gid.gap.com:8080/"
+   export ftp_proxy="http://qaproxy.gid.gap.com:8080/"
+   export no_proxy="localhost,.gap.com,.gap.dev,127.0.0.0/8,10.0.0.0/8,192.168.0.0/16"
+}
+
+function disable_proxy() {
+   export http_proxy=""
+   export https_proxy=""
+   export ftp_proxy=""
+   export no_proxy=""
+}

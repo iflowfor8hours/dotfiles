@@ -9,3 +9,5 @@ ln -sn dotfiles/.vim ~/.vim
 ln -sn dotfiles/.vimrc ~/.vimrc
 ln -sn dotfiles/.irssi ~/.irssi
 ln -sn dotfiles/.gitconfig ~/.gitconfig
+ln -sn dev/.gitconfig ~/.gitconfig
+ln -sn dev/Sublime\ Text\ 2/sublime_text dotfiles/bin/sublime
