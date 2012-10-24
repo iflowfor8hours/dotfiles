@@ -1,0 +1,36 @@
+{
+   "checksum": "0c9e0cd464399631992ba71a64a2b45c",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "12995501913267696",
+            "id": "4",
+            "name": "Hippie Hacker",
+            "type": "url",
+            "url": "http://www.hippiehacker.org/"
+         } ],
+         "date_added": "12995492186087805",
+         "date_modified": "12995501913267696",
+         "id": "1",
+         "name": "Bookmarks Bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "12995492186087822",
+         "date_modified": "0",
+         "id": "2",
+         "name": "Other Bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "12995492186087824",
+         "date_modified": "0",
+         "id": "3",
+         "name": "Mobile Bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

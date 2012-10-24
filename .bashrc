@@ -106,10 +106,10 @@ if [ -f "$HOME/dotfiles/git-flow-completion.bash" ]; then
 fi
 
 declare -x PATH="/home/matt/android-sdks/tools:/home/matt/bin:/usr/sbin:/sbin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/games"
-export PATH="$PATH:$HOME/android-sdks/tools:$HOME/android-sdks/platform-tools"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+declare -x PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 source ~/.rvm/scripts/rvm
 
 shopt -s histappend
+
 
