@@ -41,8 +41,6 @@ stty start ""
 #[ $TERM = "screen" ] && TERM=xterm
 
 # Some environment defaults
-export CVS_RSH=ssh
-export RSYNC_RSH=ssh
 export EDITOR=vim
 export PAGER=less
 export LESS="-nX"
@@ -72,6 +70,8 @@ setopt nocdable_vars               # Let me do cd ~foo if $foo is a directory
 WORDCHARS='*?_-[]~=&;!#$%^(){}<>' # chars as part of filename
 
 autoload -U compinit && compinit # enables extra auto-completion
+setopt prompt_subst
+autoload -U colors && colors
 
 # -- Bindings --
 bindkey -e # emacs mode line editting
@@ -82,9 +82,6 @@ bindkey '^[[Z' reverse-menu-complete
 
 # completion madness
 compctl -g '*(-/D)' cd
-compctl -g '*.ps' ghostview gv
-compctl -g '*.pdf' acroread xpdf
-compctl -g '/var/db/pkg/*(/:t)' pkg_delete pkg_info
 compctl -j -P '%' kill bg fg
 compctl -v export unset vared
 
@@ -128,25 +125,6 @@ function delpaths {
   done
 }
 
-# Wrap git so it's easier to wrangle.
-function git {
-  case $1 in
-    clone) git-clone "$@" ;;
-    *) =git "$@" ;;
-  esac
-}
-
-function git-clone {
-  if [ "${2##*/*}" != "$2" ] ; then
-    # Replace github/<thing> with 'git clone ... proper github url'
-    repo="$2"
-    =git clone git@github.com:$repo.git
-    cd $(basename $repo)
-  else
-    =git "$@"
-  fi
-}
-
 # Make sure things are in my paths
 BASE_PATHS="/bin /usr/bin /sbin /usr/sbin"
 X_PATHS="/usr/X11R6/bin /usr/dt/bin /usr/X/bin"
@@ -181,39 +159,12 @@ compctl -g '*(-/D)' cd
 compctl -c which
 compctl -o setopt unsetopt
 compctl -v export unset vared
-compctl -g '/u9/psionic/Mail/*(/:t)' -P '+' folder
-compctl -g '/var/db/pkg/*(/:t)' pkg_delete pkg_info
-compctl -g '*.pdf' xpdf acroread
-#compctl -g "/tmp/screens/S-${USER}/*(p:t)" + -g "/tmp/screens/S-${USER}/*(:e)" screen
-#compctl -g "/tmp/screens/S-${USER}/*(p:tW:.:)" screen
-compctl -K screen-sessions screen
 compctl -g "*(-/D)" + -g "*.class(.:r)" java
-
-# The Prompt
-PS1='%m(%35<...<%~) %# '
-unset RPROMPT RPS1
 
 # This section sets useful variables for various things...
 HOST="$(hostname)"
 HOST="${HOST%%.*}"
 UNAME="$(uname)"
-
-# title/precmd/postcmd
-function precmd() {
-  title "zsh - $PWD"
-  duration=$(( $(date +%s) - cmd_start_time ))
-
-  # Notify if the previous command took more than 5 seconds.
-  if [ $duration -gt 5 ] ; then
-    case "$lastcmd" in
-      vi*) ;; # vi, don't notify
-      "") ;; # no previous command, don't notify
-      *) 
-        tmux display-message "($duration secs): $lastcmd"
-    esac
-  fi
-  lastcmd=""
-}
 
 function preexec() {
   # The full command line comes in as "$1"
@@ -417,7 +368,7 @@ alias pp='cd ~/Projects'
 alias grep='grep --color=auto --exclude-dir=.git --exclude-dir=.svn'
 alias vm='VBoxManage'
 alias rspec='rspec --color --format documentation'
-alias e='subl -n'
+alias e='sublime -n'
 alias df='df -h'
 alias du='du -sh'
 alias import=python_import
@@ -447,3 +398,28 @@ function disable_proxy() {
    export ftp_proxy=""
    export no_proxy=""
 }
+
+# THIS IS ISA.THEME 
+#
+autoload -Uz vcs_info
+
+
+function prompt_char {
+   WARN="%{$fg[green]%}"
+   if test "$UID" = 0; then
+      WARN="%{$fg[red]%}"
+   fi
+
+   git branch >/dev/null 2>/dev/null && echo "${WARN}$" && return
+   hg root >/dev/null 2>/dev/null && echo "${WARN}☿" && return
+   svn info >/dev/null 2>/dev/null && echo "${WARN}$" && return
+   echo "${WARN}$"
+}
+
+PROMPT='%m %{$fg[yellow]%}${PWD/#$HOME/~}${vcs_info_msg_0_}%{$reset_color%}%(!.%{$fg[green]%}.%{$fg[red]%}) $(prompt_char)%{$reset_color%} '
+
+# -- Loop prompt --
+PROMPT2='{%_}  '
+
+# -- Selection prompt --
+PROMPT3='{ … }  '
