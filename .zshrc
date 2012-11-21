@@ -79,6 +79,8 @@ bindkey '\e[1~' beginning-of-line
 bindkey '\e[4~' end-of-line
 bindkey '\e[3~' delete-char
 bindkey '^[[Z' reverse-menu-complete
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
 
 # completion madness
 compctl -g '*(-/D)' cd
@@ -135,15 +137,7 @@ PATH="$HOME/bin:$HOME/local/bin:$PATH"
 
 
 # Periodic Reminder!
-PERIOD=3600                       # Every hour, call periodic()
-function periodic() {
-  [ -f ~/.plan ] || return
-
-  echo
-  echo "= Todo List"
-  sed -e 's/^/   /' ~/.plan
-  echo "= End"
-}
+# PERIOD=3600                       # Every hour, call periodic()
 
 # Completion
 function screen-sessions {
@@ -373,7 +367,7 @@ alias df='df -h'
 alias du='du -sh'
 alias import=python_import
 alias cls='clear'
-alias gradle='gradle --daemon'
+alias gradle='/home/matt/bin/gradle-1.2/bin/gradle --daemon'
 alias less='less -FXR'
 alias sublime="/home/matt/dev/Sublime\ Text\ 2/sublime_text &"
 unalias rm mv cp 2> /dev/null || true # no -i madness
@@ -384,12 +378,14 @@ which vim > /dev/null 2>&1 && alias vi=vim
 # export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
 # export GROOVY_HOME=/usr/local/Cellar/groovy/2.0.0/libexec
 
+
 # -- Proxy Settings --
 function enable_proxy() {
    export http_proxy="http://qaproxy.gid.gap.com:8080/"
    export https_proxy="http://qaproxy.gid.gap.com:8080/"
    export ftp_proxy="http://qaproxy.gid.gap.com:8080/"
    export no_proxy="localhost,.gap.com,.gap.dev,127.0.0.0/8,10.0.0.0/8,192.168.0.0/16"
+   sed '/^#\ \ ProxyCommand/ s/^//' ~/.ssh/config > /dev/null
 }
 
 function disable_proxy() {
@@ -397,10 +393,9 @@ function disable_proxy() {
    export https_proxy=""
    export ftp_proxy=""
    export no_proxy=""
+   sed '/^\ \ ProxyCommand/ s/^/#/' ~/.ssh/config > /dev/null
 }
 
-# THIS IS ISA.THEME 
-#
 autoload -Uz vcs_info
 
 

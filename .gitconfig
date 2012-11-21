@@ -22,29 +22,10 @@
   dump = cat-file -p
   incoming = !git fetch && git log master ^origin/master
   outgoing = !git fetch && git log origin/master ^master
-[color]
-  branch = auto
-  diff = auto
-  status = auto
-  interactive = auto
-  ui = auto
-[color "branch"]
-  current = yellow
-  local = blue
-  remote = green
-[color "diff"]
-  meta = white
-  frag = blue
-  old = magenta
-  new = green
-[color "status"]
-  added = green
-  changed = blue
-  untracked = magenta
 [difftool]
      prompt = false
 [core]
-  editor = subl -w
+  editor = vim
   quotepath = false
   excludesfile = /home/matt/.gitignore
   autocrlf = false
@@ -53,5 +34,16 @@
      auto = 1
 [merge]
      summary = true
+[color]
+ ui = true
+[color "branch"]
+ current = yellow black
+ local = yellow
+ remote = magenta
+[color "status"]
+ added = yellow
+ changed = green
+ untracked = cyan reverse
+ branch = magenta
 [diff]
 	external = ~/dotfiles/bin/melddiff
