@@ -365,11 +365,11 @@ alias rspec='rspec --color --format documentation'
 alias e='sublime -n'
 alias df='df -h'
 alias du='du -sh'
-alias import=python_import
 alias cls='clear'
 alias gradle='/home/matt/bin/gradle-1.2/bin/gradle --daemon'
 alias less='less -FXR'
 alias sublime="/home/matt/dev/Sublime\ Text\ 2/sublime_text &"
+alias git push="git pull --rebase && git push"
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
 which vim > /dev/null 2>&1 && alias vi=vim
@@ -384,7 +384,7 @@ function enable_proxy() {
    export http_proxy="http://qaproxy.gid.gap.com:8080/"
    export https_proxy="http://qaproxy.gid.gap.com:8080/"
    export ftp_proxy="http://qaproxy.gid.gap.com:8080/"
-   export no_proxy="localhost,.gap.com,.gap.dev,127.0.0.0/8,10.0.0.0/8,192.168.0.0/16"
+   export no_proxy="localhost,.gapinc.dev,.gap.com,.gap.dev,127.0.0.0/8,10.0.0.0/8,192.168.0.0/16"
    sed '/^#\ \ ProxyCommand/ s/^//' ~/.ssh/config > /dev/null
 }
 
@@ -394,6 +394,15 @@ function disable_proxy() {
    export ftp_proxy=""
    export no_proxy=""
    sed '/^\ \ ProxyCommand/ s/^/#/' ~/.ssh/config > /dev/null
+}
+
+function verizon_on() {
+  sudo wvdial wvdial Verizon4GLTE
+  echo 8.8.8.8 > /etc/resolv.conf
+}
+
+function verizon_off() {
+  sudo rm /etc/resolv.conf
 }
 
 autoload -Uz vcs_info
@@ -418,3 +427,7 @@ PROMPT2='{%_}  '
 
 # -- Selection prompt --
 PROMPT3='{ … }  '
+
+# autojump
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+
