@@ -369,7 +369,6 @@ alias cls='clear'
 alias gradle='/home/matt/bin/gradle-1.2/bin/gradle --daemon'
 alias less='less -FXR'
 alias sublime="/home/matt/dev/Sublime\ Text\ 2/sublime_text &"
-alias git push="git pull --rebase && git push"
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
 which vim > /dev/null 2>&1 && alias vi=vim
