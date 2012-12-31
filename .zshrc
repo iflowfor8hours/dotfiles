@@ -33,13 +33,6 @@ HISTFILE=~/.history_zsh
 stty stop ""
 stty start ""
 
-# Check if we're using screen, set our term to xterm...# UGLY BAD HACK
-# I only need this on Solaris machines with screen(1) but no screen
-# terminfo entry. I don't use it much anymore.
-# Really, it should check if 'screen' is set and there is no screen terminfo
-# then set TERM=xtemr.
-#[ $TERM = "screen" ] && TERM=xterm
-
 # Some environment defaults
 export EDITOR=vim
 export PAGER=less
@@ -396,16 +389,17 @@ function disable_proxy() {
 }
 
 function verizon_on() {
-  sudo wvdial wvdial Verizon4GLTE
-  echo 8.8.8.8 > /etc/resolv.conf
+  sudo service network-manager stop
+  echo 'nameserver 8.8.8.8' | sudo tee -a /etc/resolv.conf
+  sudo wvdial Verizon4GLTE &
 }
 
 function verizon_off() {
-  sudo rm /etc/resolv.conf
+  sudo service network-manager start
+  echo '' | sudo tee -a /etc/resolv.conf
 }
 
 autoload -Uz vcs_info
-
 
 function prompt_char {
    WARN="%{$fg[green]%}"
