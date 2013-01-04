@@ -1,7 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/home/matt/.rvm/gems/ruby-1.9.3-p286'
 let g:netrw_dirhist_2='/home/matt/work/gap/gapChef/cookbooks/gapBuildTools'
 let g:netrw_dirhist_3='/home/matt/work/gap/merchpay'
 let g:netrw_dirhist_4='/home/matt/work/gap/runway'
 let g:netrw_dirhist_5='/home/matt/.rvm/gems/ruby-1.9.3-p286/gems'
+let g:netrw_dirhist_6='/home/matt/work/gap/runway/trunk/deploy'

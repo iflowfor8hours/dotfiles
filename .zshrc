@@ -36,7 +36,7 @@ stty start ""
 # Some environment defaults
 export EDITOR=vim
 export PAGER=less
-export LESS="-nX"
+export LESS="-RnX"
 
 ## zsh options settings
 setopt no_beep                   # Beeping is annoying. Die.
