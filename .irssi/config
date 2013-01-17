@@ -33,14 +33,6 @@ servers = (
     ssl_verify = "no";
     autoconnect = "yes";
   },
-  #{
-  #  address = "irc.shroomery.org";
-  #  chatnet = "shroomery";
-  #  port = "9999";
-  #  use_ssl = "yes";
-  #  ssl_verify = "no";
-  #  autoconnect = "yes";
-  #},
   {
     address = "clojure";
     chatnet = "freenode";
@@ -120,10 +112,6 @@ chatnets = {
     type = "IRC";
     autosendcmd = "/^msg nickserv identify whatawaster;wait 2000";
   };
-  shroomery = {
-    type = "IRC";
-    autosendcmd = "/^msg nickserv identify whatawaster;wait 2000";
-  };
   "corrupt-net" = { type = "IRC"; };
   datawhore = { type = "IRC"; };
 };
@@ -132,15 +120,14 @@ channels = (
   { name = "#nsb_radio"; chatnet = "wikkedwire"; autojoin = "yes"; },
   { name = "#fux0r"; chatnet = "corrupt-net"; autojoin = "yes"; },
   { name = "#puppet"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#chef"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#startups"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "##trackers"; chatnet = "freenode"; autojoin = "yes"; },
   #  { name = "#bismark"; chatnet = "freenode"; autojoin = "yes"; },
   #  { name = "#openwrt"; chatnet = "freenode"; autojoin = "yes"; },
   #  { name = "#bufferbloat"; chatnet = "freenode"; autojoin = "yes"; },
   #  { name = "#reddit"; chatnet = "freenode"; autojoin = "yes"; },
   #  { name = "#madhatterz"; chatnet = "freenode"; autojoin = "yes"; },
   #  { name = "#clojure"; chatnet = "freenode"; autojoin = "yes"; },
-  #  { name = "#shroomery"; chatnet = "shroomery"; autojoin = "yes"; },
   { name = "#opensc"; chatnet = "datawhore"; autojoin = "yes"; }
 );
 
