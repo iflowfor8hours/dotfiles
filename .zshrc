@@ -362,6 +362,7 @@ alias cls='clear'
 alias gradle='/home/matt/bin/gradle-1.2/bin/gradle --daemon'
 alias less='less -FXR'
 alias sublime="/home/matt/dev/Sublime\ Text\ 2/sublime_text &"
+alias tasks='task ls | sort -n'
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
 which vim > /dev/null 2>&1 && alias vi=vim
@@ -396,7 +397,11 @@ function verizon_on() {
 
 function verizon_off() {
   sudo service network-manager start
-  echo '' | sudo tee -a /etc/resolv.conf
+  echo '' | sudo tee /etc/resolv.conf
+}
+
+function work_offline() {
+  sudo /etc/init.d/pulse stop 
 }
 
 autoload -Uz vcs_info

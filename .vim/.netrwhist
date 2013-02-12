@@ -1,11 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/matt/.rvm/gems/ruby-1.9.3-p286'
-let g:netrw_dirhist_2='/home/matt/work/gap/gapChef/cookbooks/gapBuildTools'
-let g:netrw_dirhist_3='/home/matt/work/gap/merchpay'
-let g:netrw_dirhist_4='/home/matt/work/gap/runway'
-let g:netrw_dirhist_5='/home/matt/.rvm/gems/ruby-1.9.3-p286/gems'
-let g:netrw_dirhist_6='/home/matt/work/gap/runway/trunk/deploy'
-let g:netrw_dirhist_7='/home/matt/work/gap/local-chef/ec-local/cookbooks'
-let g:netrw_dirhist_8='/home/matt/work/gap/gapChef/cookbooks/gapBuildTools/test/kitchen'
-let g:netrw_dirhist_9='/home/matt/work/gap/gapNFS/test/kitchen'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/etc/freemind'
+let g:netrw_dirhist_2='/home/matt/Dropbox/documents/HOD_chef/landslide/docs'
