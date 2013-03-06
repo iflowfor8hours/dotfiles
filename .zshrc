@@ -14,6 +14,10 @@ function loadrvm() {
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
 }
 
+function fixflash() {
+pulseaudio -k
+}
+
 loadrvm
 rvm use 1.9.3 > /dev/null
 
@@ -331,6 +335,7 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
+zstyle ':completion:*' hosts off
 
 compdef pkill=kill
 compdef pkill=killall
@@ -377,16 +382,16 @@ function enable_proxy() {
    export http_proxy="http://qaproxy.gid.gap.com:8080/"
    export https_proxy="http://qaproxy.gid.gap.com:8080/"
    export ftp_proxy="http://qaproxy.gid.gap.com:8080/"
-   export no_proxy="localhost,.gapinc.dev,.gap.com,.gap.dev,127.0.0.0/8,10.0.0.0/8,192.168.0.0/16"
-   sed '/^#\ \ ProxyCommand/ s/^//' ~/.ssh/config > /dev/null
+   export no_proxy="ci.gap.dev,localhost,.gapinc.dev,.gap.com,.gap.dev,127.0.0.0/8,10.0.0.0/8,192.168.0.0/16,10.10.10.1"
+   sed '/^#\ \ ProxyCommand/ s/^//g' ~/.ssh/config > /dev/null
 }
 
 function disable_proxy() {
-   export http_proxy=""
-   export https_proxy=""
-   export ftp_proxy=""
-   export no_proxy=""
-   sed '/^\ \ ProxyCommand/ s/^/#/' ~/.ssh/config > /dev/null
+   unset http_proxy
+   unset https_proxy
+   unset ftp_proxy
+   unset no_proxy
+   sed '/^\ \ ProxyCommand/ s/^/#/g' ~/.ssh/config > /dev/null
 }
 
 function verizon_on() {
