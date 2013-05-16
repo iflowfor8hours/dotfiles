@@ -25,7 +25,7 @@
 [difftool]
      prompt = false
 [core]
-  editor = vim
+  editor = /usr/bin/vim
   quotepath = false
   excludesfile = /home/matt/.gitignore
   autocrlf = false

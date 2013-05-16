@@ -368,6 +368,7 @@ alias gradle='/home/matt/bin/gradle-1.2/bin/gradle --daemon'
 alias less='less -FXR'
 alias sublime="/home/matt/dev/Sublime\ Text\ 2/sublime_text &"
 alias tasks='task ls | sort -n'
+alias open='gnome-open'
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
 which vim > /dev/null 2>&1 && alias vi=vim
@@ -434,3 +435,5 @@ PROMPT3='{ … }  '
 # autojump
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
 
+# fish highlighting
+source /home/matt/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
