@@ -1,0 +1,17 @@
+{
+	"auto_upgrade_last_run": null,
+	"installed_packages":
+	[
+		"BeautifyRuby",
+		"FileDiffs",
+		"Git",
+		"JSLint",
+		"Markdown Preview",
+		"Meld diff",
+		"Package Control",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"Theme - Refined",
+		"Theme - Soda"
+	]
+}

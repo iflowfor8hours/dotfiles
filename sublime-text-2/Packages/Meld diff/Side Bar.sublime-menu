@@ -1,0 +1,3 @@
+[
+    { "caption": "Diff Files in Meld…", "command": "meld_diff", "args": {"files": []} }
+]

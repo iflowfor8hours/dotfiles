@@ -1,5 +1,5 @@
 [user]
-	name = matt
+	name = matt urbanski
 	email = matt@iflowfor8hours.info
 [alias]
   ll = "!source ~/.githelpers && pretty_git_log"

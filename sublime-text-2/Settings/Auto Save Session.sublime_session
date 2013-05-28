@@ -1,0 +1,3075 @@
+{
+	"folder_history":
+	[
+		"/home/matt/gap/deploy_strategy",
+		"/home/matt/gap/gapChef",
+		"/tmp/groovy/groovykoans-master",
+		"/home/matt/gap/scmspo",
+		"/home/matt/gap/regional-inventory",
+		"/home/matt/Dropbox/documents",
+		"/home/matt/gap/gapChef/cookbooks",
+		"/home/matt/work/gap/gapChef",
+		"/home/matt/gap/ci-repo",
+		"/home/matt/Dropbox/documents/chef-tutorial",
+		"/home/matt/gap/ci-repo/trunk/gradle-plugins",
+		"/home/matt/Dropbox/documents/HOD_chef",
+		"/home/matt/work/chef-testing-local/minitest-handler-cookbook",
+		"/home/matt/work/gap/ci-repo/trunk/samples/multi-module-app",
+		"/home/matt/gap/merchpay/merchpay_svn",
+		"/home/matt/Downloads/artifactory-2.6.7",
+		"/home/matt/artifactory_test",
+		"/home/matt/Dropbox/documents/chef_tutorial",
+		"/home/matt/gap/local-chef/scmspo",
+		"/home/matt/work/gap/scmspo",
+		"/home/matt/work/gap/merchpay/merchpay_svn",
+		"/home/matt/work/gap/service-platform/platform-metrics",
+		"/home/matt/gap/RMS",
+		"/home/matt/work/gap/local-chef/geeknight",
+		"/home/matt/gap/local-chef/jruby-test",
+		"/home/matt/gap/merchpay",
+		"/home/matt/gap/ci-repo/trunk/local-chef",
+		"/home/matt/gap/local-chef",
+		"/home/matt/gap/ci-repo/trunk/samples/multi-module-app/ci",
+		"/home/matt/Downloads/dgphxaciap006.phx.gapinc.dev",
+		"/home/matt/gap/stores",
+		"/home/matt/src/mine/chef-workflow-spike",
+		"/home/matt/gap/minitest-chef-handler",
+		"/home/matt/work/gap/gapChef/cookbooks/gapBuildTools",
+		"/home/matt/gap/stores/cm",
+		"/home/matt/gap/gapChef/cookbooks/mongodb",
+		"/home/matt/gap/runway",
+		"/home/matt/gap/runway/trunk/deploy/chef/cookbooks/runway",
+		"/home/matt/Dropbox/documents/chef_HOD",
+		"/home/matt/Dropbox/documents/trainthem",
+		"/home/matt/gap/ri_chef/chefNewChandler/cookbooks/regional_inventory_mongodb",
+		"/home/matt/Dropbox/documents/resume",
+		"/home/matt/src/mine/RubymineProjects/newexpensereader",
+		"/home/matt/gap/ec-local",
+		"/home/matt/gap/mp-local",
+		"/home/matt/gap/ri_chef",
+		"/home/matt/gap/merchpay/merchpay_git",
+		"/home/matt/gap/ci-repo/trunk/samples/multi-module-app",
+		"/home/matt/gap/runway/trunk",
+		"/home/matt/Downloads/tmux-master",
+		"/home/matt/gap/ri_chef/chefNewChandler/roles",
+		"/home/matt/src/mine/iflowfor8hours-blog",
+		"/home/matt/Dropbox/documents/blog",
+		"/home/matt/src/cat_factz",
+		"/home/matt/gap/local-chef/cookbooks/merchPay",
+		"/home/matt/gap/gapChef/cookbooks/gapBuildTools",
+		"/home/matt/Dropbox/documents/opscode",
+		"/home/matt/Downloads/MP",
+		"/home/matt/work/gap/ci/trunk",
+		"/home/matt/nusrc",
+		"/home/matt/nusrc/chef",
+		"/home/matt/nusrc/cat_factz"
+	],
+	"last_window_id": 61,
+	"settings":
+	{
+		"new_window_height": 0.0,
+		"new_window_settings":
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+					[
+						"cucumber",
+						"cucumberRuntime"
+					],
+					[
+						"depends",
+						"dependsOn"
+					],
+					[
+						"depen",
+						"dependsOn"
+					],
+					[
+						"stubby",
+						"stubby_temp_dir"
+					],
+					[
+						"stu",
+						"stubby_temp_dir"
+					],
+					[
+						"electriccom",
+						"electriccommander"
+					],
+					[
+						"electric",
+						"electriccommander"
+					],
+					[
+						"inclu",
+						"include_recipe"
+					],
+					[
+						"tom",
+						"tomcat_group"
+					],
+					[
+						"tomca",
+						"tomcat_user"
+					],
+					[
+						"ngf_",
+						"ngf_unzip_dir"
+					],
+					[
+						"ngf",
+						"ngf_dir"
+					],
+					[
+						"ngf-",
+						"ngf-service-linux"
+					],
+					[
+						"mer",
+						"merchPay"
+					],
+					[
+						"Fil",
+						"FileTest"
+					]
+				]
+			},
+			"build_system": "Packages/JSLint/JSLint.sublime-build",
+			"command_palette":
+			{
+				"height": 375.0,
+				"selected_items":
+				[
+					[
+						":w",
+						":w - Save"
+					],
+					[
+						":e",
+						":$ - EOF"
+					],
+					[
+						"package",
+						"Package Control: Remove Package"
+					],
+					[
+						":trail",
+						"Trailing Spaces: Delete Trailing Spaces"
+					],
+					[
+						":tra",
+						"Trailing Spaces: Delete Trailing Spaces"
+					],
+					[
+						"train",
+						"Trailing Spaces: Toggle Trailing Spaces Highlighting"
+					],
+					[
+						"in",
+						"Package Control: Install Package"
+					],
+					[
+						"git status",
+						"Git: Status"
+					],
+					[
+						"snippet do",
+						"Snippet: Insert do |variable| … end"
+					],
+					[
+						"git commit",
+						"Git: Commit"
+					],
+					[
+						"git stat",
+						"Git: Status"
+					],
+					[
+						"pre",
+						"Markdown Preview: preview in Browser"
+					],
+					[
+						"preve",
+						"Markdown Preview: preview in Browser"
+					],
+					[
+						"previ",
+						"Markdown Preview: preview in Browser"
+					],
+					[
+						":W",
+						":w - Save"
+					],
+					[
+						":ew",
+						"HTML: Wrap Selection With Tag"
+					],
+					[
+						"prevew",
+						"Markdown Preview: preview in Browser"
+					],
+					[
+						"preview",
+						"Markdown Preview: preview in Browser"
+					],
+					[
+						":preview",
+						"Markdown Preview: preview in Browser"
+					],
+					[
+						"log",
+						"Git: Log Current File"
+					],
+					[
+						"git pull",
+						"Git: Pull"
+					],
+					[
+						":",
+						":w - Save"
+					],
+					[
+						":2",
+						"Snippet: step(2) { |e| .. }"
+					],
+					[
+						":diff",
+						"Git: Diff Current File"
+					],
+					[
+						"comment",
+						"Toggle Comment"
+					],
+					[
+						"commen",
+						"Toggle Comment"
+					],
+					[
+						"comen",
+						"Toggle Comment"
+					],
+					[
+						"beau",
+						"BeautifyRuby"
+					],
+					[
+						":q",
+						"Set Syntax: SQL"
+					],
+					[
+						"js",
+						"JSLint"
+					],
+					[
+						"json",
+						"Set Syntax: JSON"
+					],
+					[
+						":commen",
+						"Git: Commit Selected Hunk"
+					],
+					[
+						"git st",
+						"Git: Status"
+					],
+					[
+						"gitp",
+						"Git: Pull"
+					],
+					[
+						"git log",
+						"Git: Log Current File"
+					],
+					[
+						":git",
+						"Set Syntax: Git Blame"
+					],
+					[
+						"packa",
+						"Package Control: List Packages"
+					],
+					[
+						"toggle",
+						"View: Toggle Minimap"
+					],
+					[
+						":satu",
+						"Git: Status"
+					],
+					[
+						":dif",
+						"Git: Diff Current File"
+					],
+					[
+						"git status ",
+						"Git: Status"
+					],
+					[
+						"git add",
+						"Git: Add Current File"
+					],
+					[
+						"commit",
+						"Git: Commit"
+					],
+					[
+						": status",
+						"Git: Status"
+					],
+					[
+						"git add ",
+						"Git: Add Current File"
+					],
+					[
+						":add ",
+						"Git: Add Current File"
+					],
+					[
+						":save as",
+						"Project: Save As"
+					],
+					[
+						":git blame",
+						"Set Syntax: Git Blame"
+					],
+					[
+						":git bla",
+						"Set Syntax: Git Blame"
+					],
+					[
+						"install ",
+						"Package Control: Install Package"
+					],
+					[
+						"diff cu",
+						"Git: Diff Current File"
+					],
+					[
+						"git diff",
+						"Git: Diff Staged"
+					],
+					[
+						"install",
+						"Package Control: Install Package"
+					],
+					[
+						"mini",
+						"View: Toggle Minimap"
+					],
+					[
+						"bea",
+						"BeautifyRuby"
+					],
+					[
+						"",
+						"BeautifyRuby"
+					],
+					[
+						"comm",
+						"Toggle Comment"
+					],
+					[
+						":s",
+						":w - Save"
+					],
+					[
+						":ind",
+						"Indentation: Reindent Lines"
+					],
+					[
+						"diff",
+						"Snippet: assert_difference"
+					],
+					[
+						"ruby",
+						"BeautifyRuby"
+					],
+					[
+						":inde",
+						"Indentation: Reindent Lines"
+					],
+					[
+						"indent",
+						"Indentation: Reindent Lines"
+					],
+					[
+						"mark",
+						"Markdown Preview: open Markdown Cheat sheet"
+					],
+					[
+						":Lw",
+						"Convert Case: Lower Case"
+					],
+					[
+						":ww",
+						"HTML: Wrap Selection With Tag"
+					],
+					[
+						":ind	",
+						"Indentation: Reindent Lines"
+					],
+					[
+						":indn",
+						"Indentation: Reindent Lines"
+					],
+					[
+						":inden",
+						"Indentation: Reindent Lines"
+					],
+					[
+						":indent",
+						"Indentation: Reindent Lines"
+					],
+					[
+						"cheat",
+						"Markdown Preview: open Markdown Cheat sheet"
+					],
+					[
+						"install pack",
+						"Package Control: Install Package"
+					],
+					[
+						"package: insta",
+						"Package Control: Install Package"
+					],
+					[
+						"inden",
+						"Indentation: Reindent Lines"
+					],
+					[
+						"inde",
+						"Indentation: Reindent Lines"
+					],
+					[
+						"packages",
+						"Preferences: Browse Packages"
+					],
+					[
+						":10",
+						"Snippet: Array.new(10) { |i| .. }"
+					],
+					[
+						":ruby",
+						"Set Syntax: Ruby on Rails"
+					],
+					[
+						"toggle mini",
+						"View: Toggle Minimap"
+					],
+					[
+						"togg",
+						"View: Toggle Open Files in Side Bar"
+					]
+				],
+				"width": 435.0
+			},
+			"console":
+			{
+				"height": 139.0
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+				"/home/matt/gap/gapChef/cookbooks/mysql/recipes/server.rb",
+				"/home/matt/gap/gapChef/nodes/dgphxscmap003.phx.gapinc.dev.json",
+				"/home/matt/gap/gapChef/roles/scmspo-app.json",
+				"/home/matt/gap/scmspo/deploy-local/Vagrantfile",
+				"/home/matt/gap/gapChef/cookbooks/scmspoMongodb/attributes/default.rb",
+				"/home/matt/gap/regional-inventory/deploy/chefNewChandler/cookbooks/regionalInventoryMongodb/recipes/initialize_replicaset.rb",
+				"/home/matt/gap/regional-inventory/deploy/chefNewChandler/cookbooks/regionalInventoryMongodb/attributes/default.rb",
+				"/home/matt/gap/scmspo/contract-tests/src/main/java/com/gap/scms/tiny/domain/ItemStatus.java",
+				"/home/matt/gap/gapChef/cookbooks/scmspoApp/recipes/cleanup_mysql.rb",
+				"/home/matt/gap/gapChef/cookbooks/scmspoMongodb/files/default/replicaset_members.json",
+				"/home/matt/gap/regional-inventory/deploy/chefNewChandler/cookbooks/regionalInventoryMongodb/recipes/initialize_auth_mongod_instance.rb",
+				"/home/matt/gap/gapChef/cookbooks/mongodb/resources/configuration.rb",
+				"/home/matt/gap/gapChef/cookbooks/scmspoMongodb/recipes/initialize_replicaset.rb",
+				"/home/matt/gap/gapChef/cookbooks/scmspoApp/metadata.rb",
+				"/home/matt/Dropbox/documents/gap_post_mortem",
+				"/home/matt/gap/scmspo/deploy-local/Berksfile",
+				"/home/matt/gap/scmspo/ci/cookbook-segment.gradle",
+				"/home/matt/gap/gapChef/cookbooks/mongodb/attributes/default.rb",
+				"/home/matt/gap/gapChef/cookbooks/scmspoApp/recipes/default.rb",
+				"/home/matt/gap/scmspo/ci/cookbook-segment.properties",
+				"/home/matt/gap/gapChef/cookbooks/iptMonitoring/recipes/monitorlogs.rb",
+				"/home/matt/gap/gapChef/cookbooks/gapNagios/templates/default/nrpe.cfg.erb",
+				"/home/matt/gap/gapChef/cookbooks/scmspoMongodb/recipes/initialize_auth_mongod_instance.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/README.md",
+				"/home/matt/Dropbox/documents/chef-tutorial/introduction/cookbooks/apache2/specs/install_spec.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/cookbooks/workstation_cookbook/recipes/workstation_setup.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/vagrantbox_tutorials/introduction/cookbooks/vim/specs/vimrc_spec.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/vagrantbox_tutorials/introduction/cookbooks/vim/recipes/vimrc.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/vagrantbox_tutorials/introduction/cookbooks/apache2/specs/install_spec.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/vagrantbox_tutorials/introduction/cookbooks/apache2/recipes/index.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/vagrantbox_tutorials/introduction/cookbooks/apache2/specs/index_spec.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/cookbooks/workstation_cookbook/attributes/default.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/introduction/cookbooks/apache2/specs/configuration_spec.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/cookbooks/workstation_cookbook/recipes/ssh_config.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/vagrantbox_tutorials/introduction/cookbooks/vim/files/default/vimrc",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/vagrantbox_tutorials/introduction/cookbooks/apache2/specs/file_spec.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/vagrantbox_tutorials/introduction/cookbooks/vim/recipes/install.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/cookbooks/workstation_cookbook/files/default/insecure_private_key",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/minitest-handler-cookbook/libraries/default.rb",
+				"/home/matt/Dropbox/documents/kevin_review",
+				"/home/matt/gap/scmspo/ci/component-segment.properties",
+				"/home/matt/gap/scmspo/service/ci/component-segment.properties",
+				"/home/matt/gap/scmspo/functional-tests/build.gradle",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/webapp/resources/web_app.rb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/webapp/providers/apache.rb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/files/default/client.pem",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/templates/default/hosts.erb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/templates/default/knife.rb.erb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/files/default/validation.pem",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/templates/default/client.rb.erb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/apache2/README.md",
+				"/home/matt/gap/setuplocal.markdown",
+				"/home/matt/gap/local-chef/scmspo/Berksfile",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/webapp/providers/nginx.rb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/recipes/client.rb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/recipes/default.rb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/files/default/vagrant.pem",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/recipes/server.rb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/files/default/webui.pem",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/files/default/hosts",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/TODO",
+				"/home/matt/KC",
+				"/home/matt/gap/gapChef/cookbooks/iptables/recipes/default.rb",
+				"/home/matt/work/gap/scmspo/deploy/puppet/modules/iptables/templates/iptables.erb",
+				"/home/matt/gap/gapChef/cookbooks/iptables/metadata.rb",
+				"/home/matt/gap/gapChef/cookbooks/scmspoApp/templates/default/web.xml.erb",
+				"/home/matt/gap/gapChef/roles/mohanvm.json",
+				"/home/matt/work/gap/scmspo/deploy/puppet/modules/mongodbconfig/manifests/init.pp",
+				"/home/matt/work/gap/scmspo/deploy/puppet/modules/dbserver/manifests/init.pp",
+				"/home/matt/work/gap/scmspo/deploy/puppet/manifests/nodes.pp",
+				"/home/matt/gap/gapChef/cookbooks/costingIntegration/recipes/default.rb",
+				"/home/matt/gap/local-chef/jruby-test/cookbooks/chef-jruby/recipes/default.rb",
+				"/home/matt/gap/gapChef/cookbooks/gapCommander/recipes/server.rb",
+				"/home/matt/gap/gapChef/cookbooks/gapBuildTools/metadata.rb",
+				"/home/matt/gap/gapChef/cookbooks/merchPay/recipes/node-modules.rb",
+				"/home/matt/gap/gapChef/cookbooks/gapBuildTools/recipes/phantomjs.rb",
+				"/home/matt/gap/gapChef/cookbooks/merchPay/metadata.rb",
+				"/home/matt/gap/gapChef/nodes/dgphxcstap002.phx.gapinc.dev.json",
+				"/home/matt/gap/gapChef/nodes/dgphxaciap007.phx.gapinc.dev.json",
+				"/home/matt/work/gap/merchpay/merchpay_svn/ci/app-segment.properties",
+				"/home/matt/gap/gapChef/nodes/dgphxaciap002.phx.gapinc.dev.json",
+				"/home/matt/gap/RMS/ci/component-segment.properties",
+				"/home/matt/gap/gapChef/nodes/dgphxaciap005.phx.gapinc.dev.json",
+				"/home/matt/gap/ci-repo/trunk/local-chef/cookbooks/vagrant/recipes/default.rb",
+				"/home/matt/gap/ci-repo/trunk/local-chef/cookbooks/vagrant/recipes/client.rb",
+				"/home/matt/gap/gapChef/roles/ec-agent.json",
+				"/home/matt/gap/gapChef/nodes/dgphxaciap001.phx.gapinc.dev.json",
+				"/home/matt/gap/gapChef/roles/costingIntegration.json",
+				"/home/matt/gap/gapChef/roles/costing.json",
+				"/home/matt/work/gap/service-platform/platform-metrics/build.gradle",
+				"/home/matt/gap/gapChef/cookbooks/gapCommander/attributes/default.rb",
+				"/home/matt/gap/RMS/build.gradle",
+				"/home/matt/work/gap/service-platform/platform-metrics/ci/component-segment.properties",
+				"/home/matt/gap/gapChef/cookbooks/costingIntegration/attributes/default.rb",
+				"/home/matt/gap/something.json",
+				"/home/matt/gap/gapChef/nodes/dgphxaciap004.phx.gapinc.dev.json",
+				"/home/matt/gap/gapChef/nodes/dgphxaciap003.phx.gapinc.dev.json",
+				"/home/matt/gap/ci-repo/trunk/samples/multi-module-app/ci/iso-segment.properties",
+				"/home/matt/gap/RMS/ivy.xml",
+				"/home/matt/work/gap/service-platform/platform-metrics/ci/app-segment.properties",
+				"/home/matt/gap/gapChef/cookbooks/gapBuildTools/recipes/infragems.rb",
+				"/home/matt/gap/gapChef/roles/merchpay-dev.json",
+				"/home/matt/gap/gapChef/roles/merchpay-build.json",
+				"/home/matt/gap/gapChef/roles/jruby.json",
+				"/home/matt/gap/gapChef/nodes/dgphxscmap011.phx.gapinc.dev.json",
+				"/home/matt/gap/local-chef/jruby-test/cookbooks/install_from/metadata.rb",
+				"/home/matt/gap/local-chef/jruby-test/cookbooks/chef-jruby/recipes/proxy.rb",
+				"/home/matt/gap/gapChef/cookbooks/gapBuildTools/templates/default/Gemfile-infra.erb",
+				"/home/matt/gap/gapChef/cookbooks/rms/ci/cookbook-segment.gradle",
+				"/home/matt/gap/gapChef/cookbooks/gapBuildTools/templates/default/Gemfile-build.erb",
+				"/home/matt/gap/gapChef/cookbooks/gapBuildTools/recipes/bundler.rb",
+				"/home/matt/gap/gapChef/cookbooks/gapBuildTools/recipes/buildgems.rb",
+				"/home/matt/gap/gapChef/cookbooks/gapBuildTools/spec/phantomjs_spec.rb",
+				"/home/matt/gap/local-chef/jruby-test/cookbooks/chef-jruby/attributes/default.rb",
+				"/home/matt/gap/gapChef/roles/merchpay-release.json",
+				"/home/matt/gap/local-chef/jruby-test/Vagrantfile",
+				"/home/matt/gap/local-chef/costing/getlatest.rb",
+				"/home/matt/gap/gapChef/cookbooks/costingApp/recipes/default.rb",
+				"/home/matt/gap/local-chef/costing/Vagrantfile",
+				"/home/matt/gap/local-chef/jruby-test/cookbooks/chef-jruby/metadata.rb",
+				"/home/matt/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+				"/home/matt/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+				"/home/matt/gap/ci-repo/trunk/local-chef/README",
+				"/home/matt/gap/ci-repo/trunk/local-chef/FAQ",
+				"/home/matt/gap/gapChef/cookbooks/costingindexApp/attributes/default.rb",
+				"/home/matt/gap/Current.sublime-project",
+				"/home/matt/gap/gapChef/roles/mongorepsetMP.json",
+				"/home/matt/gap/gapChef/cookbooks/gapCommander/recipes/agent.rb"
+			],
+			"find":
+			{
+				"height": 35.0
+			},
+			"find_in_files":
+			{
+				"height": 0.0,
+				"where_history":
+				[
+					"/home/matt/gap/gapChef",
+					"/home/matt/gap/gapChef/nodes",
+					"",
+					"<project>",
+					"/home/matt/gap/gapChef/cookbooks/",
+					"/home/matt/gap/gapChef/cookbooks/scmspoApp",
+					"<project>",
+					"/home/matt/gap/gapChef/cookbooks",
+					"/home/matt/gap/gapChef/roles",
+					"/home/matt/gap/gapChef/",
+					"/home/matt/gap/merchpay/merchpay_git",
+					"/home/matt/gap/gapChef",
+					"/home/matt/gap/runway/trunk/deploy/chef/cookbooks/",
+					"/home/matt/gap/runway/trunk/deploy/chef/cookbooks/runway",
+					"<project>",
+					"killall",
+					"/home/matt/gap/gapChef/cookbooks/gapNagios",
+					"/home/matt/gap/ri_chef/chefNewChandler/cookbooks/regional_inventory_mongodb",
+					"/home/matt/gap/ri_chef/chefNewChandler/cookbooks/regional_inventory_mongodb/chefNewChandler/cookbooks/regional_inventory_mongodb",
+					"/home/matt/gap/gapChef/cookbooks/mongodb",
+					"/home/matt/gap/gapChef/",
+					"/home/matt/gap/gapChef/nodes/",
+					"/home/matt/gap/gapChef/cookbooks/gapCommander",
+					"/cookbooks/gapCommander",
+					"/home/matt/gap/gapChef/roles",
+					"/home/matt/gap/gapChef/cookbooks/gapCommander",
+					"/home/matt/gap/gapChef/nodes/",
+					"/home/matt/gap/gapChef/",
+					"<project>",
+					"/home/matt/gap/gapChef/",
+					"/home/matt/gap/gapChef/cookbooks",
+					"/home/matt/gap/gapChef/",
+					"/home/matt/gap/runway/trunk/deploy/chef/cookbooks/runway",
+					"<project>",
+					"/home/matt/gap/runway/trunk/deploy/chef/cookbooks/runway",
+					"<open files>",
+					"<project>",
+					"/home/matt/gap/ci-repo/trunk/samples/",
+					"/home/matt/gap/runway",
+					"/home/matt/gap/merchpay/merchpay_git",
+					"/home/matt/gap/gapChef/cookbooks/gapTomcat",
+					"/home/matt/gap/gapChef",
+					"/home/matt/gap/merchpay/merchpay_git",
+					"/home/matt/gap/gapChef/cookbooks/mongodb",
+					"/home/matt/gap/merchpay/merchpay_git",
+					"/home/matt/gap/merchpay/*.gradle",
+					"/home/matt/gap/merchpay/merchpay_git",
+					"/home/matt/gap/gapChef/",
+					"/home/matt/gap/merchpay/merchpay_git",
+					"/home/matt/gap/merchpay/merchpay_git/modules",
+					"/home/matt/gap/gapChef/cookbooks/",
+					"/home/matt/gap/gapChef/cookbooks/mongodb",
+					"/home/matt/gap/gapChef/cookbooks/merchPay",
+					"<project>",
+					"/home/matt/gap/gapChef/mongodb",
+					"/home/matt/gap/gapChef/gapNagios",
+					"/home/matt/gap/gapChef/",
+					"/home/matt/gap/gapChef/cookbooks/",
+					"/home/matt/gap/gapChef/cookbooks/merchPay",
+					"/home/matt/gap/gapChef/cookbooks/",
+					"/home/matt/gap/gapChef/cookbooks/merchPay",
+					"/home/matt/gap/gapChef/cookbooks/getThere",
+					"/home/matt/gap/gapChef/cookbooks/merchPay",
+					"/home/matt/gap/gapChef/cookbooks/",
+					"/home/matt/gap/gapChef/cookbooks/gapNagios",
+					"/home/matt/gap/gapChef/cookbooks/merchPay",
+					"/home/matt/gap/gapChef/cookbooks",
+					"/home/matt/gap/gapChef/cookbooks/merchPay",
+					"/home/matt/gap/gapChef/cookbooks/",
+					"/home/matt/gap/gapChef/cookbooks/gapTomcat",
+					"/home/matt/gap/gapChef/cookbooks/gaptomcat",
+					"/home/matt/gap/gapChef/cookbooks/merchPay",
+					"/home/matt/gap/gapChef/cookbooks",
+					"/home/matt/gap/gapChef/cookbooks/storeredirectApp",
+					"/home/matt/gap/gapChef/cookbooks/gapTomcat",
+					"/home/matt/gap/gapChef/cookbooks/merchPay/recipes",
+					"/home/matt/gap/gapChef",
+					"/home/matt/gap/gapChef/cookbooks",
+					"/home/matt/gap/gapChef/cookbooks/mongodb"
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+					"action",
+					"password",
+					"backup",
+					"mount ",
+					"regional-inventory-mongodb-replicaset*",
+					"repl",
+					"check_log",
+					"regional_inventory_mongodb",
+					"patient",
+					"con",
+					"vagrant",
+					"vagrantHome",
+					"datainiti",
+					"chef",
+					"87f13b59b22890f9ca3f98fa5dc9d4ca1fc86e9e",
+					"logback",
+					"log",
+					"*logback*",
+					"logback",
+					"repo_server",
+					"[\"netboot\"][\"repo_server\"]",
+					"[netboot][repo_server]",
+					"hosts",
+					"costing",
+					"costingIntegration",
+					"role[mongodb]",
+					"node-modules",
+					"war",
+					"deploy",
+					"ivy",
+					"ldap",
+					"gid",
+					"usernameatt",
+					"filter",
+					"cobertura",
+					"gradle",
+					"redline",
+					"sonar",
+					"include_recipe",
+					"chef-client",
+					"gem",
+					"rvm",
+					"!",
+					"jruby",
+					"*jruby*",
+					"timeout",
+					"conn",
+					"password",
+					"root",
+					"artifact",
+					"gradle",
+					"gradle-1.1-bin.zip",
+					"qt-x11",
+					"x11",
+					"MerchPayDeployNode1",
+					"checkout",
+					"MerchPayDeployNode1",
+					"sudo",
+					"info",
+					"ba5s8i8",
+					"runway",
+					"/revision",
+					"json",
+					"getCookbookVersion",
+					"install",
+					"webkit",
+					"install",
+					"installmissing",
+					"install",
+					"gems",
+					"path",
+					"version",
+					"tomcat_url",
+					"sudoers",
+					"sudo",
+					"gapSudo",
+					"sudo",
+					"sudoers",
+					"password",
+					"sudo",
+					"-DEV",
+					"Chef",
+					"DEV",
+					"chef",
+					"Chef",
+					"-DEV",
+					"ssl",
+					"java_app",
+					"\\[.+\\]",
+					"[.+]",
+					"notifies",
+					"app_user",
+					"gapECServer",
+					"gapECAgent",
+					"ecServer",
+					"killall",
+					"/home/matt/gap/gapChef",
+					"merchpay",
+					"json",
+					"configuration",
+					"regional_inventory_mongodb",
+					"credential",
+					"credentials",
+					"merchpay_mongodb",
+					"credentials",
+					"regional_inventory_mongodb",
+					"libxml2",
+					"merchpay",
+					"bundler",
+					"merchPay::bundler",
+					"gapECAgent",
+					"ECserver",
+					"gapECAgent",
+					"']",
+					"']['",
+					"\"][\"",
+					"[\"",
+					"node.",
+					"node[",
+					"node.",
+					"node[",
+					"node.",
+					":",
+					"node.",
+					"nodedata_directory",
+					"root",
+					"gapECAgent",
+					"'ecagent'"
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": true,
+				"replace_history":
+				[
+					"scmspoMongodb",
+					"gapCommander",
+					"'gapcommander'",
+					"runway",
+					"Link:",
+					"Cons:",
+					"Pros:",
+					":mongodb",
+					"mongod"
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"incremental_find":
+			{
+				"height": 34.0
+			},
+			"input":
+			{
+				"height": 33.0
+			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					],
+					[
+						1,
+						0,
+						2,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					0.367370858976,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
+			"menu_visible": true,
+			"output.exec":
+			{
+				"height": 185.0
+			},
+			"output.git":
+			{
+				"height": 174.0
+			},
+			"replace":
+			{
+				"height": 66.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+					[
+						"gaptomcat/",
+						"gapChef/cookbooks/gapTomcat/attributes/default.rb"
+					],
+					[
+						"",
+						"gapChef/roles/scmspo-ci-databases.json"
+					],
+					[
+						"mysql/meta",
+						"gapChef/cookbooks/mysql/metadata.rb"
+					],
+					[
+						"mysql/server",
+						"gapChef/cookbooks/mysql/recipes/server.rb"
+					],
+					[
+						"mysql/ser",
+						"gapChef/cookbooks/mysql/recipes/server.rb"
+					],
+					[
+						"dgphxscmap003",
+						"gapChef/nodes/dgphxscmap003.phx.gapinc.dev.json"
+					],
+					[
+						"role/scmspo-da",
+						"gapChef/roles/scmspo-ci-databases.json"
+					],
+					[
+						"roles/scmspo",
+						"gapChef/roles/scmspo-app.json"
+					],
+					[
+						"rol/scmspo-ci",
+						"gapChef/roles/scmspo-ci-databases.json"
+					],
+					[
+						"dgspo001",
+						"gapChef/nodes/dgphxspoap001.phx.gapinc.dev.json"
+					],
+					[
+						"dgphxspo",
+						"gapChef/nodes/dgphxspoap001.phx.gapinc.dev.json"
+					],
+					[
+						"mongodb/att/def",
+						"cookbooks/mongodb/attributes/default.rb"
+					],
+					[
+						"local/vag",
+						"scmspo/deploy-local/Vagrantfile"
+					],
+					[
+						"berks",
+						"scmspo/deploy-local/Berksfile"
+					],
+					[
+						"cookbook",
+						"scmspo/ci/cookbook-segment.properties"
+					],
+					[
+						"scmsmong/att",
+						"cookbooks/scmspoMongodb/attributes/default.rb"
+					],
+					[
+						"scmspoapp/default",
+						"scmspoApp/recipes/default.rb"
+					],
+					[
+						"files/conf",
+						"workstation/cookbooks/workstation_cookbook/files/default/config"
+					],
+					[
+						"mongorepset",
+						"gapChef/roles/mongorepsetMP.json"
+					],
+					[
+						"merchpa/rec/clea",
+						"gapChef/cookbooks/merchPay/recipes/cleanup.rb"
+					],
+					[
+						"scmap011",
+						"gapChef/nodes/dgphxscmap011.phx.gapinc.dev.json"
+					],
+					[
+						"merchpay/templats/log",
+						"cookbooks/merchPay/templates/default/logback.xml.erb"
+					],
+					[
+						"ec-server",
+						"roles/ec-server.json"
+					],
+					[
+						"ciap21",
+						"nodes/dgphxaciap021.phx.gapinc.dev.json"
+					],
+					[
+						"gapjava/defaul",
+						"cookbooks/gapJava/recipes/default.rb"
+					],
+					[
+						"iptables/templates",
+						"scmspo/deploy/puppet/modules/iptables/templates/iptables.erb"
+					],
+					[
+						"iptables/default",
+						"gapChef/cookbooks/iptables/recipes/default.rb"
+					],
+					[
+						"iptables/metada",
+						"gapChef/cookbooks/iptables/metadata.rb"
+					],
+					[
+						"gaptomcat/metadata",
+						"gapChef/cookbooks/gapTomcat/metadata.rb"
+					],
+					[
+						"recipes/default",
+						"gapChef/cookbooks/scmspoApp/recipes/default.rb"
+					],
+					[
+						"scmspo/metadata",
+						"gapChef/cookbooks/scmspoApp/metadata.rb"
+					],
+					[
+						"gaptomcat/server",
+						"gapChef/cookbooks/gapTomcat/recipes/server.rb"
+					],
+					[
+						"scmspo/berks",
+						"scmspo/Berksfile"
+					],
+					[
+						"costingintegration/rec",
+						"gapChef/cookbooks/costingIntegration/recipes/default.rb"
+					],
+					[
+						"mongodb/stanb",
+						"gapChef/cookbooks/mongodb/recipes/standalone.rb"
+					],
+					[
+						"merchpay/metadata",
+						"gapChef/cookbooks/merchPay/metadata.rb"
+					],
+					[
+						"gapbuildtools/metadata",
+						"gapChef/cookbooks/gapBuildTools/metadata.rb"
+					],
+					[
+						"vagrant/client",
+						"local-chef/cookbooks/vagrant/recipes/client.rb"
+					],
+					[
+						"vagrant/recipes",
+						"local-chef/cookbooks/vagrant/recipes/default.rb"
+					],
+					[
+						"stap002",
+						"gapChef/nodes/dgphxcstap002.phx.gapinc.dev.json"
+					],
+					[
+						"ciap002",
+						"gapChef/nodes/dgphxaciap002.phx.gapinc.dev.json"
+					],
+					[
+						"ciap007",
+						"gapChef/nodes/dgphxaciap007.phx.gapinc.dev.json"
+					],
+					[
+						"ciap001",
+						"gapChef/nodes/dgphxaciap001.phx.gapinc.dev.json"
+					],
+					[
+						"role/costing",
+						"gapChef/roles/costingIntegration.json"
+					],
+					[
+						"roles/ec-age",
+						"gapChef/roles/ec-agent.json"
+					],
+					[
+						"roles/costing",
+						"gapChef/roles/costing.json"
+					],
+					[
+						"ciap004",
+						"gapChef/nodes/dgphxaciap004.phx.gapinc.dev.json"
+					],
+					[
+						"ciap003",
+						"gapChef/nodes/dgphxaciap003.phx.gapinc.dev.json"
+					],
+					[
+						"sciap005",
+						"gapChef/nodes/dgphxaciap005.phx.gapinc.dev.json"
+					],
+					[
+						"sciap002",
+						"gapChef/nodes/dgphxaciap002.phx.gapinc.dev.json"
+					],
+					[
+						"costingintegration",
+						"gapChef/cookbooks/costingIntegration/attributes/default.rb"
+					],
+					[
+						"commander/attributes",
+						"gapChef/cookbooks/gapCommander/attributes/default.rb"
+					],
+					[
+						"commander/server",
+						"gapChef/cookbooks/gapCommander/recipes/server.rb"
+					],
+					[
+						"gradle",
+						"gapChef/cookbooks/rms/ci/cookbook-segment.gradle"
+					],
+					[
+						"buildtoo/metada",
+						"gapChef/cookbooks/gapBuildTools/metadata.rb"
+					],
+					[
+						"gemfile-infra",
+						"gapChef/cookbooks/gapBuildTools/templates/default/Gemfile-infra.erb"
+					],
+					[
+						"infra",
+						"gapChef/cookbooks/gapBuildTools/recipes/infragems.rb"
+					],
+					[
+						"gemfile-in",
+						"gapChef/cookbooks/gapBuildTools/templates/default/Gemfile-infra.erb"
+					],
+					[
+						"commander/attributes/defa",
+						"gapChef/cookbooks/gapCommander/attributes/default.rb"
+					],
+					[
+						"commander/recipes/server",
+						"gapChef/cookbooks/gapCommander/recipes/server.rb"
+					],
+					[
+						"bundler",
+						"gapChef/cookbooks/gapBuildTools/recipes/bundler.rb"
+					],
+					[
+						"buildgems",
+						"gapChef/cookbooks/gapBuildTools/recipes/buildgems.rb"
+					],
+					[
+						"gapbuildtools/bundler",
+						"gapChef/cookbooks/gapBuildTools/recipes/bundler.rb"
+					],
+					[
+						"role/merchpay-dev",
+						"gapChef/roles/merchpay-dev.json"
+					],
+					[
+						"roles/merchpa",
+						"gapChef/roles/merchpay-build.json"
+					],
+					[
+						"roles/merchpay",
+						"gapChef/roles/merchpay-release.json"
+					],
+					[
+						"costing/default.rb",
+						"gapChef/cookbooks/costingApp/recipes/default.rb"
+					],
+					[
+						"gaptomcat/server.xml",
+						"gapChef/cookbooks/gapTomcat/templates/default/server.xml.erb"
+					],
+					[
+						"buildtools/",
+						"gapBuildTools/recipes/bundler.rb"
+					],
+					[
+						"gapbuild/rec",
+						"gapBuildTools/recipes/phantomjs.rb"
+					],
+					[
+						"gapbuild/",
+						"gapBuildTools/recipes/bundler.rb"
+					],
+					[
+						"rol/mongorep",
+						"gapChef/roles/mongorepsetMP.json"
+					],
+					[
+						"merchpay/",
+						"merchpay_git/chef/cookbooks/merchPay/recipes/deployappRPM.rb"
+					],
+					[
+						"merchpay/attribu",
+						"merchpay_git/chef/cookbooks/merchPay/attributes/default.rb"
+					],
+					[
+						"merchpay/cookbooks/deploy",
+						"merchpay_git/chef/cookbooks/merchPay/recipes/deployapp.rb"
+					],
+					[
+						"phantom",
+						"gapBuildTools/recipes/phantomjs.rb"
+					],
+					[
+						"cookbooks/gradle/default",
+						"gapChef/cookbooks/gradle/recipes/default.rb"
+					],
+					[
+						"merchpay-build",
+						"gapChef/roles/merchpay-build.json"
+					],
+					[
+						"roles/gradle",
+						"gapChef/roles/gradle.json"
+					],
+					[
+						"migration",
+						"merchpay_git/chef/cookbooks/merchPay/recipes/migrations.rb"
+					],
+					[
+						"gapbuild/meta",
+						"gapBuildTools/metadata.rb"
+					],
+					[
+						"phantomjs",
+						"gapBuildTools/recipes/phantomjs.rb"
+					],
+					[
+						"gapsof",
+						"gapBuildTools/templates/default/gapSoftware-phantomjs.repo.erb"
+					],
+					[
+						"phantomjs.",
+						"gapBuildTools/spec/phantomjs_spec.rb"
+					],
+					[
+						"roles/mongorepsetmp",
+						"gapChef/roles/mongorepsetMP.json"
+					],
+					[
+						"scmdb004",
+						"gapChef/nodes/dgphxscmdb004.phx.gapinc.dev.json"
+					],
+					[
+						"scmap005",
+						"gapChef/nodes/pgphxscmap005.phx.gapinc.com.json"
+					],
+					[
+						"pgphxscmap",
+						"gapChef/nodes/pgphxscmap001.phx.gapinc.com.json"
+					],
+					[
+						"roles/mongo",
+						"ri_chef/chefNewChandler/roles/regional-inventory-mongodb-replicaset.rb"
+					],
+					[
+						"roles/mongodb",
+						"gapChef/roles/merchpay-mongodb-primary-secondary.rb"
+					],
+					[
+						"roles/merchpay-",
+						"gapChef/roles/merchpay-mongodb-primary-secondary.rb"
+					],
+					[
+						"gapbuildtools/phantom",
+						"gapBuildTools/recipes/phantomjs.rb"
+					],
+					[
+						"gapbuildtools/templates",
+						"gapBuildTools/templates/default/Gemfile-build.erb"
+					],
+					[
+						"gapbuild/build",
+						"gapBuildTools/recipes/buildgems.rb"
+					],
+					[
+						"roles/merchpay-bu",
+						"gapChef/roles/merchpay-build.json"
+					],
+					[
+						"scmap012",
+						"gapChef/nodes/dgphxscmap012.phx.gapinc.dev.json"
+					],
+					[
+						"nodes/scmap011",
+						"gapChef/nodes/dgphxscmap011.phx.gapinc.dev.json"
+					],
+					[
+						"gapbuildtools/recipes",
+						"gapChef/cookbooks/gapBuildTools/recipes/minitest.rb"
+					],
+					[
+						"merchpay/ci/",
+						"merchpay_git/ci/app-segment.properties"
+					],
+					[
+						"merchpay/app.",
+						"merchpay_git/conf/templates/ngf/app.properties.erb"
+					],
+					[
+						"ec-agent",
+						"gapChef/roles/ec-agent.json"
+					],
+					[
+						"dgphxscm",
+						"gapChef/nodes/dgphxscmap011.phx.gapinc.dev.json"
+					],
+					[
+						"gapbase",
+						"gapChef/roles/base.json"
+					],
+					[
+						"roles/base",
+						"gapChef/roles/base.json"
+					],
+					[
+						"gapcommander/attri",
+						"gapChef/cookbooks/gapCommander/attributes/default.rb"
+					],
+					[
+						"knife",
+						"gapChef/pem/chefdev/knife.rb"
+					],
+					[
+						"commander/",
+						"gapChef/cookbooks/gapCommander/recipes/agent.rb"
+					],
+					[
+						"runway-watch",
+						"trunk/deploy/chef/roles/runway-watchmen.json"
+					],
+					[
+						"runway/att",
+						"trunk/deploy/chef/cookbooks/runway/attributes/default.rb"
+					],
+					[
+						"deployapp",
+						"gapChef/cookbooks/merchPay/recipes/deployapp.rb"
+					],
+					[
+						"iso",
+						"trunk/ci/iso-segment.properties"
+					],
+					[
+						"infra-seg",
+						"trunk/ci/infra-segment.gradle"
+					],
+					[
+						"infra-segment",
+						"trunk/ci/infra-segment.properties"
+					],
+					[
+						"environments/tdev",
+						"gapChef/environments/tdev.json"
+					],
+					[
+						"gapsudo/metada",
+						"gapChef/cookbooks/gapSudo/metadata.rb"
+					],
+					[
+						"ci_group",
+						"gapChef/cookbooks/gapSudo/files/default/sudoers.d/ci_group"
+					],
+					[
+						"sudoers.d/cibuild",
+						"gapChef/cookbooks/gapSudo/files/default/sudoers.d/cibuild"
+					],
+					[
+						"sudoers.d/webad",
+						"gapChef/cookbooks/gapSudo/files/default/sudoers.d/webadm"
+					],
+					[
+						"sudoers.d/ci",
+						"gapChef/cookbooks/gapSudo/files/default/sudoers.d/ci_group"
+					],
+					[
+						"role/ngf",
+						"gapChef/roles/MPNgfClient.json"
+					],
+					[
+						"dgphxscmap013",
+						"gapChef/nodes/dgphxscmap013.phx.gapinc.dev.json"
+					],
+					[
+						"runway/attri",
+						"runway/attributes/default.rb"
+					],
+					[
+						"gaptomcat/meta",
+						"gapChef/cookbooks/gapTomcat/metadata.rb"
+					],
+					[
+						"tomcat/",
+						"gapChef/cookbooks/ciTomcat/metadata.json"
+					],
+					[
+						"readme.md",
+						"gapChef/cookbooks/avalanche/README.md"
+					],
+					[
+						"runway/meta",
+						"trunk/deploy/chef/cookbooks/runway/metadata.rb"
+					],
+					[
+						"runway/metada",
+						"trunk/deploy/chef/cookbooks/runway/metadata.rb"
+					],
+					[
+						"gapcommande/meta",
+						"gapChef/cookbooks/gapCommander/metadata.rb"
+					]
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"show_minimap": false,
+			"show_open_files": true,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 249.0,
+			"status_bar_visible": true
+		},
+		"new_window_width": 0.0
+	},
+	"windows":
+	[
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+					[
+						"cucumber",
+						"cucumberRuntime"
+					],
+					[
+						"depends",
+						"dependsOn"
+					],
+					[
+						"depen",
+						"dependsOn"
+					],
+					[
+						"stubby",
+						"stubby_temp_dir"
+					],
+					[
+						"stu",
+						"stubby_temp_dir"
+					],
+					[
+						"electriccom",
+						"electriccommander"
+					],
+					[
+						"electric",
+						"electriccommander"
+					],
+					[
+						"inclu",
+						"include_recipe"
+					],
+					[
+						"tom",
+						"tomcat_group"
+					],
+					[
+						"tomca",
+						"tomcat_user"
+					],
+					[
+						"ngf_",
+						"ngf_unzip_dir"
+					],
+					[
+						"ngf",
+						"ngf_dir"
+					],
+					[
+						"ngf-",
+						"ngf-service-linux"
+					],
+					[
+						"mer",
+						"merchPay"
+					],
+					[
+						"Fil",
+						"FileTest"
+					]
+				]
+			},
+			"buffers":
+			[
+				{
+					"contents": "why doe we use repolicasets with isolan? \nfind out reliability of filessystem? \nHow can w eknow which nodes our db nodes are on\nupgrade mongo out of band\nshared mongod processes \n/opt/apps/different mounts for snapshots on per ap",
+					"settings":
+					{
+						"buffer_size": 229,
+						"line_ending": "Unix",
+						"name": "why doe we use repolicasets with isolan?"
+					}
+				},
+				{
+					"file": "/home/matt/.config/sublime-text-2/Packages/Markdown Preview/sample.md",
+					"settings":
+					{
+						"buffer_size": 3978,
+						"line_ending": "Unix"
+					}
+				}
+			],
+			"build_system": "Packages/JSLint/JSLint.sublime-build",
+			"command_palette":
+			{
+				"height": 286.0,
+				"selected_items":
+				[
+					[
+						":w",
+						":w - Save"
+					],
+					[
+						"git commit",
+						"Git: Quick Commit"
+					],
+					[
+						"git add",
+						"Git: Add..."
+					],
+					[
+						"git status",
+						"Git: Status"
+					],
+					[
+						":mark",
+						"Markdown Preview: open Markdown Cheat sheet"
+					],
+					[
+						":q",
+						"Set Syntax: SQL"
+					],
+					[
+						"git pull",
+						"Git: Pull"
+					],
+					[
+						"git stat",
+						"Git: Status"
+					],
+					[
+						"pre",
+						"Markdown Preview: preview in Browser"
+					],
+					[
+						"preve",
+						"Markdown Preview: preview in Browser"
+					],
+					[
+						"previ",
+						"Markdown Preview: preview in Browser"
+					],
+					[
+						":W",
+						":w - Save"
+					],
+					[
+						":ew",
+						"HTML: Wrap Selection With Tag"
+					],
+					[
+						"prevew",
+						"Markdown Preview: preview in Browser"
+					],
+					[
+						"preview",
+						"Markdown Preview: preview in Browser"
+					],
+					[
+						":preview",
+						"Markdown Preview: preview in Browser"
+					],
+					[
+						"log",
+						"Git: Log Current File"
+					],
+					[
+						":",
+						":w - Save"
+					],
+					[
+						":2",
+						"Snippet: step(2) { |e| .. }"
+					],
+					[
+						":diff",
+						"Git: Diff Current File"
+					],
+					[
+						"comment",
+						"Toggle Comment"
+					],
+					[
+						"commen",
+						"Toggle Comment"
+					],
+					[
+						"comen",
+						"Toggle Comment"
+					],
+					[
+						"beau",
+						"BeautifyRuby"
+					],
+					[
+						"js",
+						"JSLint"
+					],
+					[
+						"json",
+						"Set Syntax: JSON"
+					],
+					[
+						":commen",
+						"Git: Commit Selected Hunk"
+					],
+					[
+						"git st",
+						"Git: Status"
+					],
+					[
+						"gitp",
+						"Git: Pull"
+					],
+					[
+						"git log",
+						"Git: Log Current File"
+					],
+					[
+						":git",
+						"Set Syntax: Git Blame"
+					],
+					[
+						"packa",
+						"Package Control: List Packages"
+					],
+					[
+						"package",
+						"Package Control: Install Package"
+					],
+					[
+						"toggle",
+						"View: Toggle Minimap"
+					],
+					[
+						":satu",
+						"Git: Status"
+					],
+					[
+						":dif",
+						"Git: Diff Current File"
+					],
+					[
+						"git status ",
+						"Git: Status"
+					],
+					[
+						":e",
+						":$ - EOF"
+					],
+					[
+						"commit",
+						"Git: Commit"
+					],
+					[
+						": status",
+						"Git: Status"
+					],
+					[
+						"git add ",
+						"Git: Add Current File"
+					],
+					[
+						":add ",
+						"Git: Add Current File"
+					],
+					[
+						":save as",
+						"Project: Save As"
+					],
+					[
+						":git blame",
+						"Set Syntax: Git Blame"
+					],
+					[
+						":git bla",
+						"Set Syntax: Git Blame"
+					],
+					[
+						"install ",
+						"Package Control: Install Package"
+					],
+					[
+						"diff cu",
+						"Git: Diff Current File"
+					],
+					[
+						"git diff",
+						"Git: Diff Staged"
+					],
+					[
+						"install",
+						"Package Control: Install Package"
+					],
+					[
+						"mini",
+						"View: Toggle Minimap"
+					],
+					[
+						"bea",
+						"BeautifyRuby"
+					],
+					[
+						"",
+						"BeautifyRuby"
+					],
+					[
+						"comm",
+						"Toggle Comment"
+					],
+					[
+						":s",
+						":w - Save"
+					],
+					[
+						":ind",
+						"Indentation: Reindent Lines"
+					],
+					[
+						"diff",
+						"Snippet: assert_difference"
+					],
+					[
+						"ruby",
+						"BeautifyRuby"
+					],
+					[
+						":inde",
+						"Indentation: Reindent Lines"
+					],
+					[
+						"indent",
+						"Indentation: Reindent Lines"
+					],
+					[
+						"mark",
+						"Markdown Preview: open Markdown Cheat sheet"
+					],
+					[
+						":Lw",
+						"Convert Case: Lower Case"
+					],
+					[
+						":ww",
+						"HTML: Wrap Selection With Tag"
+					],
+					[
+						":ind	",
+						"Indentation: Reindent Lines"
+					],
+					[
+						":indn",
+						"Indentation: Reindent Lines"
+					],
+					[
+						":inden",
+						"Indentation: Reindent Lines"
+					],
+					[
+						":indent",
+						"Indentation: Reindent Lines"
+					],
+					[
+						"cheat",
+						"Markdown Preview: open Markdown Cheat sheet"
+					],
+					[
+						"install pack",
+						"Package Control: Install Package"
+					],
+					[
+						"package: insta",
+						"Package Control: Install Package"
+					],
+					[
+						"inden",
+						"Indentation: Reindent Lines"
+					],
+					[
+						"inde",
+						"Indentation: Reindent Lines"
+					],
+					[
+						"packages",
+						"Preferences: Browse Packages"
+					],
+					[
+						":10",
+						"Snippet: Array.new(10) { |i| .. }"
+					],
+					[
+						":ruby",
+						"Set Syntax: Ruby on Rails"
+					],
+					[
+						"toggle mini",
+						"View: Toggle Minimap"
+					],
+					[
+						"togg",
+						"View: Toggle Open Files in Side Bar"
+					]
+				],
+				"width": 435.0
+			},
+			"console":
+			{
+				"height": 139.0
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+				"/home/matt/gap/deploy_strategy/gapissues",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/TODO",
+				"/home/matt/Dropbox/documents/chef-tutorial/introduction/cookbooks/postgresql/specs/configure_spec.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/cookbooks/workstation_cookbook/specs/ssh_config_spec.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/my_TODO",
+				"/home/matt/Dropbox/documents/chef-tutorial/introduction/cookbooks/apache2/README.md",
+				"/home/matt/Dropbox/documents/chef-tutorial/introduction/README.md",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/cookbooks/workstation_cookbook/recipes/ssh_config.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/cookbooks/workstation_cookbook/files/default/config",
+				"/home/matt/Dropbox/documents/chef-tutorial/my_TODO'",
+				"/home/matt/Dropbox/documents/sfforsale",
+				"/home/matt/Dropbox/documents/chef-tutorial/introduction/test-sync-run-solo.sh",
+				"/home/matt/Dropbox/stereotypes",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/README.md",
+				"/home/matt/Dropbox/documents/chef-tutorial/introduction/cookbooks/apache2/specs/install_spec.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/cookbooks/workstation_cookbook/recipes/workstation_setup.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/vagrantbox_tutorials/introduction/cookbooks/vim/specs/vimrc_spec.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/vagrantbox_tutorials/introduction/cookbooks/vim/recipes/vimrc.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/vagrantbox_tutorials/introduction/cookbooks/apache2/specs/install_spec.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/vagrantbox_tutorials/introduction/cookbooks/apache2/recipes/index.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/vagrantbox_tutorials/introduction/cookbooks/apache2/specs/index_spec.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/cookbooks/workstation_cookbook/attributes/default.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/introduction/cookbooks/apache2/specs/configuration_spec.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/vagrantbox_tutorials/introduction/cookbooks/vim/files/default/vimrc",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/vagrantbox_tutorials/introduction/cookbooks/apache2/specs/file_spec.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/vagrantbox_tutorials/introduction/cookbooks/vim/recipes/install.rb",
+				"/home/matt/Dropbox/documents/chef-tutorial/workstation/cookbooks/workstation_cookbook/files/default/insecure_private_key",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/minitest-handler-cookbook/libraries/default.rb",
+				"/home/matt/Dropbox/documents/kevin_review",
+				"/home/matt/gap/scmspo/ci/component-segment.properties",
+				"/home/matt/gap/scmspo/service/ci/component-segment.properties",
+				"/home/matt/gap/scmspo/functional-tests/build.gradle",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/webapp/resources/web_app.rb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/webapp/providers/apache.rb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/files/default/client.pem",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/templates/default/hosts.erb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/templates/default/knife.rb.erb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/files/default/validation.pem",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/templates/default/client.rb.erb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/apache2/README.md",
+				"/home/matt/gap/setuplocal.markdown",
+				"/home/matt/gap/local-chef/scmspo/Berksfile",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/webapp/providers/nginx.rb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/recipes/client.rb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/recipes/default.rb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/files/default/vagrant.pem",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/recipes/server.rb",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/files/default/webui.pem",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/cookbooks/vagrant/files/default/hosts",
+				"/home/matt/Dropbox/documents/HOD_chef/tutorial/vagrant/TODO",
+				"/home/matt/KC",
+				"/home/matt/gap/gapChef/cookbooks/iptables/recipes/default.rb",
+				"/home/matt/work/gap/scmspo/deploy/puppet/modules/iptables/templates/iptables.erb",
+				"/home/matt/gap/gapChef/cookbooks/iptables/metadata.rb",
+				"/home/matt/gap/gapChef/cookbooks/scmspoApp/templates/default/web.xml.erb",
+				"/home/matt/gap/gapChef/roles/mohanvm.json",
+				"/home/matt/work/gap/scmspo/deploy/puppet/modules/mongodbconfig/manifests/init.pp",
+				"/home/matt/work/gap/scmspo/deploy/puppet/modules/dbserver/manifests/init.pp",
+				"/home/matt/work/gap/scmspo/deploy/puppet/manifests/nodes.pp",
+				"/home/matt/gap/gapChef/cookbooks/costingIntegration/recipes/default.rb",
+				"/home/matt/gap/local-chef/jruby-test/cookbooks/chef-jruby/recipes/default.rb",
+				"/home/matt/gap/gapChef/cookbooks/gapCommander/recipes/server.rb",
+				"/home/matt/gap/gapChef/cookbooks/gapBuildTools/metadata.rb",
+				"/home/matt/gap/gapChef/cookbooks/merchPay/recipes/node-modules.rb",
+				"/home/matt/gap/gapChef/cookbooks/gapBuildTools/recipes/phantomjs.rb",
+				"/home/matt/gap/gapChef/cookbooks/merchPay/metadata.rb",
+				"/home/matt/gap/gapChef/nodes/dgphxcstap002.phx.gapinc.dev.json",
+				"/home/matt/gap/gapChef/nodes/dgphxaciap007.phx.gapinc.dev.json",
+				"/home/matt/work/gap/merchpay/merchpay_svn/ci/app-segment.properties",
+				"/home/matt/gap/gapChef/nodes/dgphxaciap002.phx.gapinc.dev.json",
+				"/home/matt/gap/RMS/ci/component-segment.properties",
+				"/home/matt/gap/gapChef/nodes/dgphxaciap005.phx.gapinc.dev.json",
+				"/home/matt/gap/ci-repo/trunk/local-chef/cookbooks/vagrant/recipes/default.rb",
+				"/home/matt/gap/ci-repo/trunk/local-chef/cookbooks/vagrant/recipes/client.rb",
+				"/home/matt/gap/gapChef/roles/ec-agent.json",
+				"/home/matt/gap/gapChef/nodes/dgphxaciap001.phx.gapinc.dev.json",
+				"/home/matt/gap/gapChef/roles/costingIntegration.json",
+				"/home/matt/gap/gapChef/roles/costing.json",
+				"/home/matt/work/gap/service-platform/platform-metrics/build.gradle",
+				"/home/matt/gap/gapChef/cookbooks/gapCommander/attributes/default.rb",
+				"/home/matt/gap/RMS/build.gradle",
+				"/home/matt/work/gap/service-platform/platform-metrics/ci/component-segment.properties",
+				"/home/matt/gap/gapChef/cookbooks/costingIntegration/attributes/default.rb",
+				"/home/matt/gap/something.json",
+				"/home/matt/gap/gapChef/nodes/dgphxaciap004.phx.gapinc.dev.json",
+				"/home/matt/gap/gapChef/nodes/dgphxaciap003.phx.gapinc.dev.json",
+				"/home/matt/gap/ci-repo/trunk/samples/multi-module-app/ci/iso-segment.properties",
+				"/home/matt/gap/RMS/ivy.xml",
+				"/home/matt/work/gap/service-platform/platform-metrics/ci/app-segment.properties",
+				"/home/matt/gap/gapChef/cookbooks/gapBuildTools/recipes/infragems.rb",
+				"/home/matt/gap/gapChef/roles/merchpay-dev.json",
+				"/home/matt/gap/gapChef/roles/merchpay-build.json",
+				"/home/matt/gap/gapChef/roles/jruby.json",
+				"/home/matt/gap/gapChef/nodes/dgphxscmap011.phx.gapinc.dev.json",
+				"/home/matt/gap/local-chef/jruby-test/cookbooks/install_from/metadata.rb",
+				"/home/matt/gap/local-chef/jruby-test/cookbooks/chef-jruby/recipes/proxy.rb",
+				"/home/matt/gap/gapChef/cookbooks/gapBuildTools/templates/default/Gemfile-infra.erb",
+				"/home/matt/gap/gapChef/cookbooks/rms/ci/cookbook-segment.gradle",
+				"/home/matt/gap/gapChef/cookbooks/gapBuildTools/templates/default/Gemfile-build.erb",
+				"/home/matt/gap/gapChef/cookbooks/gapBuildTools/recipes/bundler.rb",
+				"/home/matt/gap/gapChef/cookbooks/gapBuildTools/recipes/buildgems.rb",
+				"/home/matt/gap/gapChef/cookbooks/gapBuildTools/spec/phantomjs_spec.rb",
+				"/home/matt/gap/local-chef/jruby-test/cookbooks/chef-jruby/attributes/default.rb",
+				"/home/matt/gap/gapChef/roles/merchpay-release.json",
+				"/home/matt/gap/local-chef/jruby-test/Vagrantfile",
+				"/home/matt/gap/local-chef/costing/getlatest.rb",
+				"/home/matt/gap/gapChef/cookbooks/costingApp/recipes/default.rb",
+				"/home/matt/gap/local-chef/costing/Vagrantfile",
+				"/home/matt/gap/local-chef/jruby-test/cookbooks/chef-jruby/metadata.rb",
+				"/home/matt/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+				"/home/matt/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+				"/home/matt/gap/ci-repo/trunk/local-chef/README",
+				"/home/matt/gap/ci-repo/trunk/local-chef/FAQ",
+				"/home/matt/gap/gapChef/cookbooks/costingindexApp/attributes/default.rb",
+				"/home/matt/gap/Current.sublime-project",
+				"/home/matt/gap/gapChef/roles/mongorepsetMP.json",
+				"/home/matt/gap/gapChef/cookbooks/gapCommander/recipes/agent.rb",
+				"/home/matt/gap/gapChef/cookbooks/gapTomcat/templates/default/server.xml.erb",
+				"/home/matt/hosts",
+				"/home/matt/gap/cleanupbox",
+				"/home/matt/gap/solo.json",
+				"/home/matt/work/gap/gapChef/cookbooks/gapBuildTools/recipes/phantomjs.rb",
+				"/home/matt/work/gap/gapChef/cookbooks/gapBuildTools/recipes/bundler.rb",
+				"/home/matt/gap/merchpay/merchpay_git/chef/cookbooks/merchPay/recipes/migrations.rb",
+				"/home/matt/gap/gapChef/roles/gradle.json",
+				"/home/matt/gap/gapChef/cookbooks/gradle/metadata.rb",
+				"/home/matt/gap/gapChef/cookbooks/gradle/recipes/default.rb",
+				"/home/matt/gap/merchpay/merchpay_git/chef/cookbooks/merchPay/recipes/deployapp.rb"
+			],
+			"find":
+			{
+				"height": 35.0
+			},
+			"find_in_files":
+			{
+				"height": 0.0,
+				"where_history":
+				[
+					"<project>",
+					"/home/matt/gap/gapChef/cookbooks/",
+					"/home/matt/gap/gapChef/cookbooks/scmspoApp",
+					"<project>",
+					"/home/matt/gap/gapChef/cookbooks",
+					"/home/matt/gap/gapChef/roles",
+					"/home/matt/gap/gapChef/",
+					"/home/matt/gap/merchpay/merchpay_git",
+					"/home/matt/gap/gapChef",
+					"/home/matt/gap/runway/trunk/deploy/chef/cookbooks/",
+					"/home/matt/gap/runway/trunk/deploy/chef/cookbooks/runway",
+					"<project>",
+					"killall",
+					"/home/matt/gap/gapChef/cookbooks/gapNagios",
+					"/home/matt/gap/ri_chef/chefNewChandler/cookbooks/regional_inventory_mongodb",
+					"/home/matt/gap/ri_chef/chefNewChandler/cookbooks/regional_inventory_mongodb/chefNewChandler/cookbooks/regional_inventory_mongodb",
+					"/home/matt/gap/gapChef/cookbooks/mongodb",
+					"/home/matt/gap/gapChef/",
+					"/home/matt/gap/gapChef/nodes/",
+					"/home/matt/gap/gapChef/cookbooks/gapCommander",
+					"/cookbooks/gapCommander",
+					"/home/matt/gap/gapChef/roles",
+					"/home/matt/gap/gapChef/cookbooks/gapCommander",
+					"/home/matt/gap/gapChef/nodes/",
+					"/home/matt/gap/gapChef/",
+					"<project>",
+					"/home/matt/gap/gapChef/",
+					"/home/matt/gap/gapChef/cookbooks",
+					"/home/matt/gap/gapChef/",
+					"/home/matt/gap/runway/trunk/deploy/chef/cookbooks/runway",
+					"<project>",
+					"/home/matt/gap/runway/trunk/deploy/chef/cookbooks/runway",
+					"<open files>",
+					"<project>",
+					"/home/matt/gap/ci-repo/trunk/samples/",
+					"/home/matt/gap/runway",
+					"/home/matt/gap/merchpay/merchpay_git",
+					"/home/matt/gap/gapChef/cookbooks/gapTomcat",
+					"/home/matt/gap/gapChef",
+					"/home/matt/gap/merchpay/merchpay_git",
+					"/home/matt/gap/gapChef/cookbooks/mongodb",
+					"/home/matt/gap/merchpay/merchpay_git",
+					"/home/matt/gap/merchpay/*.gradle",
+					"/home/matt/gap/merchpay/merchpay_git",
+					"/home/matt/gap/gapChef/",
+					"/home/matt/gap/merchpay/merchpay_git",
+					"/home/matt/gap/merchpay/merchpay_git/modules",
+					"/home/matt/gap/gapChef/cookbooks/",
+					"/home/matt/gap/gapChef/cookbooks/mongodb",
+					"/home/matt/gap/gapChef/cookbooks/merchPay",
+					"<project>",
+					"/home/matt/gap/gapChef/mongodb",
+					"/home/matt/gap/gapChef/gapNagios",
+					"/home/matt/gap/gapChef/",
+					"/home/matt/gap/gapChef/cookbooks/",
+					"/home/matt/gap/gapChef/cookbooks/merchPay",
+					"/home/matt/gap/gapChef/cookbooks/",
+					"/home/matt/gap/gapChef/cookbooks/merchPay",
+					"/home/matt/gap/gapChef/cookbooks/getThere",
+					"/home/matt/gap/gapChef/cookbooks/merchPay",
+					"/home/matt/gap/gapChef/cookbooks/",
+					"/home/matt/gap/gapChef/cookbooks/gapNagios",
+					"/home/matt/gap/gapChef/cookbooks/merchPay",
+					"/home/matt/gap/gapChef/cookbooks",
+					"/home/matt/gap/gapChef/cookbooks/merchPay",
+					"/home/matt/gap/gapChef/cookbooks/",
+					"/home/matt/gap/gapChef/cookbooks/gapTomcat",
+					"/home/matt/gap/gapChef/cookbooks/gaptomcat",
+					"/home/matt/gap/gapChef/cookbooks/merchPay",
+					"/home/matt/gap/gapChef/cookbooks",
+					"/home/matt/gap/gapChef/cookbooks/storeredirectApp",
+					"/home/matt/gap/gapChef/cookbooks/gapTomcat",
+					"/home/matt/gap/gapChef/cookbooks/merchPay/recipes",
+					"/home/matt/gap/gapChef",
+					"/home/matt/gap/gapChef/cookbooks",
+					"/home/matt/gap/gapChef/cookbooks/mongodb"
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+					"patient",
+					"con",
+					"vagrant",
+					"vagrantHome",
+					"datainiti",
+					"chef",
+					"87f13b59b22890f9ca3f98fa5dc9d4ca1fc86e9e",
+					"logback",
+					"log",
+					"*logback*",
+					"logback",
+					"repo_server",
+					"[\"netboot\"][\"repo_server\"]",
+					"[netboot][repo_server]",
+					"hosts",
+					"costing",
+					"costingIntegration",
+					"role[mongodb]",
+					"node-modules",
+					"war",
+					"deploy",
+					"ivy",
+					"ldap",
+					"gid",
+					"usernameatt",
+					"filter",
+					"cobertura",
+					"gradle",
+					"redline",
+					"sonar",
+					"include_recipe",
+					"chef-client",
+					"gem",
+					"rvm",
+					"!",
+					"jruby",
+					"*jruby*",
+					"timeout",
+					"conn",
+					"password",
+					"root",
+					"artifact",
+					"gradle",
+					"gradle-1.1-bin.zip",
+					"qt-x11",
+					"x11",
+					"MerchPayDeployNode1",
+					"checkout",
+					"MerchPayDeployNode1",
+					"sudo",
+					"info",
+					"ba5s8i8",
+					"runway",
+					"/revision",
+					"json",
+					"getCookbookVersion",
+					"install",
+					"webkit",
+					"install",
+					"installmissing",
+					"install",
+					"gems",
+					"path",
+					"version",
+					"tomcat_url",
+					"sudoers",
+					"sudo",
+					"gapSudo",
+					"sudo",
+					"sudoers",
+					"password",
+					"sudo",
+					"-DEV",
+					"Chef",
+					"DEV",
+					"chef",
+					"Chef",
+					"-DEV",
+					"ssl",
+					"java_app",
+					"\\[.+\\]",
+					"[.+]",
+					"notifies",
+					"app_user",
+					"gapECServer",
+					"gapECAgent",
+					"ecServer",
+					"killall",
+					"/home/matt/gap/gapChef",
+					"merchpay",
+					"json",
+					"configuration",
+					"regional_inventory_mongodb",
+					"credential",
+					"credentials",
+					"merchpay_mongodb",
+					"credentials",
+					"regional_inventory_mongodb",
+					"libxml2",
+					"merchpay",
+					"bundler",
+					"merchPay::bundler",
+					"gapECAgent",
+					"ECserver",
+					"gapECAgent",
+					"']",
+					"']['",
+					"\"][\"",
+					"[\"",
+					"node.",
+					"node[",
+					"node.",
+					"node[",
+					"node.",
+					":",
+					"node.",
+					"nodedata_directory",
+					"root",
+					"gapECAgent",
+					"'ecagent'",
+					"gapECAgent",
+					"automysqlbackup",
+					"gapECAgent",
+					"ruby",
+					"ldap",
+					"run_list",
+					"mount",
+					"mounts"
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+					"gapCommander",
+					"'gapcommander'",
+					"runway",
+					"Link:",
+					"Cons:",
+					"Pros:",
+					":mongodb",
+					"mongod"
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"folders":
+			[
+				{
+					"path": "/home/matt/Dropbox/documents/chef-tutorial"
+				},
+				{
+					"path": "/home/matt/gap/deploy_strategy"
+				}
+			],
+			"groups":
+			[
+				{
+					"selected": 0,
+					"sheets":
+					[
+						{
+							"buffer": 0,
+							"settings":
+							{
+								"buffer_size": 229,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										229,
+										229
+									]
+								],
+								"settings":
+								{
+									"annotations":
+									[
+										"TODO",
+										"README",
+										"FIXME"
+									],
+									"auto_name": "why doe we use repolicasets with isolan?",
+									"csslint_options":
+									{
+										"adjoining-classes": "warning",
+										"box-model": true,
+										"box-sizing": "warning",
+										"compatible-vendor-prefixes": "warning",
+										"display-property-grouping": true,
+										"duplicate-background-images": "warning",
+										"duplicate-properties": true,
+										"empty-rules": true,
+										"errors": true,
+										"fallback-colors": "warning",
+										"floats": "warning",
+										"font-faces": "warning",
+										"font-sizes": "warning",
+										"gradients": "warning",
+										"ids": "warning",
+										"import": "warning",
+										"important": "warning",
+										"known-properties": true,
+										"outline-none": "warning",
+										"overqualified-elements": "warning",
+										"qualified-headings": "warning",
+										"regex-selectors": "warning",
+										"rules-count": "warning",
+										"shorthand": "warning",
+										"star-property-hack": "warning",
+										"text-indent": "warning",
+										"underscore-property-hack": "warning",
+										"unique-headings": "warning",
+										"universal-selector": "warning",
+										"vendor-prefix": true,
+										"zero-units": "warning"
+									},
+									"gjslint_ignore":
+									[
+										110
+									],
+									"gjslint_options":
+									[
+									],
+									"javascript_linter": "jshint",
+									"jshint_options":
+									{
+										"browser": true,
+										"evil": true,
+										"regexdash": true,
+										"sub": true,
+										"trailing": true,
+										"wsh": true
+									},
+									"pep8": true,
+									"pep8_ignore":
+									[
+										"E501"
+									],
+									"perl_linter": "perlcritic",
+									"pyflakes_ignore":
+									[
+									],
+									"pyflakes_ignore_import_*": true,
+									"sublimelinter": true,
+									"sublimelinter_delay": 2,
+									"sublimelinter_disable":
+									[
+									],
+									"sublimelinter_executable_map":
+									{
+									},
+									"sublimelinter_fill_outlines": false,
+									"sublimelinter_gutter_marks": false,
+									"sublimelinter_mark_style": "outline",
+									"sublimelinter_notes": false,
+									"sublimelinter_objj_check_ascii": false,
+									"sublimelinter_popup_errors_on_save": false,
+									"sublimelinter_syntax_map":
+									{
+										"C++": "c",
+										"Python Django": "python",
+										"Ruby on Rails": "ruby"
+									},
+									"sublimelinter_wrap_find": true,
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/home/matt/.config/sublime-text-2/Packages/Markdown Preview/sample.md",
+							"settings":
+							{
+								"buffer_size": 3978,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"annotations":
+									[
+										"TODO",
+										"README",
+										"FIXME"
+									],
+									"csslint_options":
+									{
+										"adjoining-classes": "warning",
+										"box-model": true,
+										"box-sizing": "warning",
+										"compatible-vendor-prefixes": "warning",
+										"display-property-grouping": true,
+										"duplicate-background-images": "warning",
+										"duplicate-properties": true,
+										"empty-rules": true,
+										"errors": true,
+										"fallback-colors": "warning",
+										"floats": "warning",
+										"font-faces": "warning",
+										"font-sizes": "warning",
+										"gradients": "warning",
+										"ids": "warning",
+										"import": "warning",
+										"important": "warning",
+										"known-properties": true,
+										"outline-none": "warning",
+										"overqualified-elements": "warning",
+										"qualified-headings": "warning",
+										"regex-selectors": "warning",
+										"rules-count": "warning",
+										"shorthand": "warning",
+										"star-property-hack": "warning",
+										"text-indent": "warning",
+										"underscore-property-hack": "warning",
+										"unique-headings": "warning",
+										"universal-selector": "warning",
+										"vendor-prefix": true,
+										"zero-units": "warning"
+									},
+									"gjslint_ignore":
+									[
+										110
+									],
+									"gjslint_options":
+									[
+									],
+									"javascript_linter": "jshint",
+									"jshint_options":
+									{
+										"browser": true,
+										"evil": true,
+										"regexdash": true,
+										"sub": true,
+										"trailing": true,
+										"wsh": true
+									},
+									"pep8": true,
+									"pep8_ignore":
+									[
+										"E501"
+									],
+									"perl_linter": "perlcritic",
+									"pyflakes_ignore":
+									[
+									],
+									"pyflakes_ignore_import_*": true,
+									"sublimelinter": true,
+									"sublimelinter_delay": 2,
+									"sublimelinter_disable":
+									[
+									],
+									"sublimelinter_executable_map":
+									{
+									},
+									"sublimelinter_fill_outlines": false,
+									"sublimelinter_gutter_marks": true,
+									"sublimelinter_gutter_marks_theme": "simple",
+									"sublimelinter_mark_style": "none",
+									"sublimelinter_notes": false,
+									"sublimelinter_objj_check_ascii": false,
+									"sublimelinter_popup_errors_on_save": false,
+									"sublimelinter_syntax_map":
+									{
+										"C++": "c",
+										"Python Django": "python",
+										"Ruby on Rails": "ruby"
+									},
+									"sublimelinter_wrap_find": true,
+									"syntax": "Packages/Markdown/Markdown.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						}
+					]
+				}
+			],
+			"incremental_find":
+			{
+				"height": 34.0
+			},
+			"input":
+			{
+				"height": 33.0
+			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
+			"menu_visible": true,
+			"output.exec":
+			{
+				"height": 164.0
+			},
+			"output.git":
+			{
+				"height": 168.0
+			},
+			"position": "0,1,0,0,0,0,0,0,0,1366,768",
+			"replace":
+			{
+				"height": 64.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+					[
+						"files/conf",
+						"workstation/cookbooks/workstation_cookbook/files/default/config"
+					],
+					[
+						"",
+						"workstation/cookbooks/workstation_cookbook/recipes/ssh_config.rb"
+					],
+					[
+						"mongorepset",
+						"gapChef/roles/mongorepsetMP.json"
+					],
+					[
+						"merchpa/rec/clea",
+						"gapChef/cookbooks/merchPay/recipes/cleanup.rb"
+					],
+					[
+						"scmap011",
+						"gapChef/nodes/dgphxscmap011.phx.gapinc.dev.json"
+					],
+					[
+						"merchpay/templats/log",
+						"cookbooks/merchPay/templates/default/logback.xml.erb"
+					],
+					[
+						"ec-server",
+						"roles/ec-server.json"
+					],
+					[
+						"ciap21",
+						"nodes/dgphxaciap021.phx.gapinc.dev.json"
+					],
+					[
+						"gapjava/defaul",
+						"cookbooks/gapJava/recipes/default.rb"
+					],
+					[
+						"iptables/templates",
+						"scmspo/deploy/puppet/modules/iptables/templates/iptables.erb"
+					],
+					[
+						"iptables/default",
+						"gapChef/cookbooks/iptables/recipes/default.rb"
+					],
+					[
+						"iptables/metada",
+						"gapChef/cookbooks/iptables/metadata.rb"
+					],
+					[
+						"gaptomcat/metadata",
+						"gapChef/cookbooks/gapTomcat/metadata.rb"
+					],
+					[
+						"recipes/default",
+						"gapChef/cookbooks/scmspoApp/recipes/default.rb"
+					],
+					[
+						"scmspo/metadata",
+						"gapChef/cookbooks/scmspoApp/metadata.rb"
+					],
+					[
+						"gaptomcat/server",
+						"gapChef/cookbooks/gapTomcat/recipes/server.rb"
+					],
+					[
+						"scmspo/berks",
+						"scmspo/Berksfile"
+					],
+					[
+						"costingintegration/rec",
+						"gapChef/cookbooks/costingIntegration/recipes/default.rb"
+					],
+					[
+						"mongodb/stanb",
+						"gapChef/cookbooks/mongodb/recipes/standalone.rb"
+					],
+					[
+						"merchpay/metadata",
+						"gapChef/cookbooks/merchPay/metadata.rb"
+					],
+					[
+						"gapbuildtools/metadata",
+						"gapChef/cookbooks/gapBuildTools/metadata.rb"
+					],
+					[
+						"vagrant/client",
+						"local-chef/cookbooks/vagrant/recipes/client.rb"
+					],
+					[
+						"vagrant/recipes",
+						"local-chef/cookbooks/vagrant/recipes/default.rb"
+					],
+					[
+						"stap002",
+						"gapChef/nodes/dgphxcstap002.phx.gapinc.dev.json"
+					],
+					[
+						"ciap002",
+						"gapChef/nodes/dgphxaciap002.phx.gapinc.dev.json"
+					],
+					[
+						"ciap007",
+						"gapChef/nodes/dgphxaciap007.phx.gapinc.dev.json"
+					],
+					[
+						"ciap001",
+						"gapChef/nodes/dgphxaciap001.phx.gapinc.dev.json"
+					],
+					[
+						"role/costing",
+						"gapChef/roles/costingIntegration.json"
+					],
+					[
+						"roles/ec-age",
+						"gapChef/roles/ec-agent.json"
+					],
+					[
+						"roles/costing",
+						"gapChef/roles/costing.json"
+					],
+					[
+						"ciap004",
+						"gapChef/nodes/dgphxaciap004.phx.gapinc.dev.json"
+					],
+					[
+						"ciap003",
+						"gapChef/nodes/dgphxaciap003.phx.gapinc.dev.json"
+					],
+					[
+						"sciap005",
+						"gapChef/nodes/dgphxaciap005.phx.gapinc.dev.json"
+					],
+					[
+						"sciap002",
+						"gapChef/nodes/dgphxaciap002.phx.gapinc.dev.json"
+					],
+					[
+						"costingintegration",
+						"gapChef/cookbooks/costingIntegration/attributes/default.rb"
+					],
+					[
+						"commander/attributes",
+						"gapChef/cookbooks/gapCommander/attributes/default.rb"
+					],
+					[
+						"commander/server",
+						"gapChef/cookbooks/gapCommander/recipes/server.rb"
+					],
+					[
+						"gradle",
+						"gapChef/cookbooks/rms/ci/cookbook-segment.gradle"
+					],
+					[
+						"buildtoo/metada",
+						"gapChef/cookbooks/gapBuildTools/metadata.rb"
+					],
+					[
+						"gemfile-infra",
+						"gapChef/cookbooks/gapBuildTools/templates/default/Gemfile-infra.erb"
+					],
+					[
+						"infra",
+						"gapChef/cookbooks/gapBuildTools/recipes/infragems.rb"
+					],
+					[
+						"gemfile-in",
+						"gapChef/cookbooks/gapBuildTools/templates/default/Gemfile-infra.erb"
+					],
+					[
+						"commander/attributes/defa",
+						"gapChef/cookbooks/gapCommander/attributes/default.rb"
+					],
+					[
+						"commander/recipes/server",
+						"gapChef/cookbooks/gapCommander/recipes/server.rb"
+					],
+					[
+						"bundler",
+						"gapChef/cookbooks/gapBuildTools/recipes/bundler.rb"
+					],
+					[
+						"buildgems",
+						"gapChef/cookbooks/gapBuildTools/recipes/buildgems.rb"
+					],
+					[
+						"gapbuildtools/bundler",
+						"gapChef/cookbooks/gapBuildTools/recipes/bundler.rb"
+					],
+					[
+						"role/merchpay-dev",
+						"gapChef/roles/merchpay-dev.json"
+					],
+					[
+						"roles/merchpa",
+						"gapChef/roles/merchpay-build.json"
+					],
+					[
+						"roles/merchpay",
+						"gapChef/roles/merchpay-release.json"
+					],
+					[
+						"costing/default.rb",
+						"gapChef/cookbooks/costingApp/recipes/default.rb"
+					],
+					[
+						"gaptomcat/server.xml",
+						"gapChef/cookbooks/gapTomcat/templates/default/server.xml.erb"
+					],
+					[
+						"buildtools/",
+						"gapBuildTools/recipes/bundler.rb"
+					],
+					[
+						"gapbuild/rec",
+						"gapBuildTools/recipes/phantomjs.rb"
+					],
+					[
+						"gapbuild/",
+						"gapBuildTools/recipes/bundler.rb"
+					],
+					[
+						"rol/mongorep",
+						"gapChef/roles/mongorepsetMP.json"
+					],
+					[
+						"merchpay/",
+						"merchpay_git/chef/cookbooks/merchPay/recipes/deployappRPM.rb"
+					],
+					[
+						"merchpay/attribu",
+						"merchpay_git/chef/cookbooks/merchPay/attributes/default.rb"
+					],
+					[
+						"merchpay/cookbooks/deploy",
+						"merchpay_git/chef/cookbooks/merchPay/recipes/deployapp.rb"
+					],
+					[
+						"phantom",
+						"gapBuildTools/recipes/phantomjs.rb"
+					],
+					[
+						"cookbooks/gradle/default",
+						"gapChef/cookbooks/gradle/recipes/default.rb"
+					],
+					[
+						"merchpay-build",
+						"gapChef/roles/merchpay-build.json"
+					],
+					[
+						"roles/gradle",
+						"gapChef/roles/gradle.json"
+					],
+					[
+						"migration",
+						"merchpay_git/chef/cookbooks/merchPay/recipes/migrations.rb"
+					],
+					[
+						"gapbuild/meta",
+						"gapBuildTools/metadata.rb"
+					],
+					[
+						"phantomjs",
+						"gapBuildTools/recipes/phantomjs.rb"
+					],
+					[
+						"gapsof",
+						"gapBuildTools/templates/default/gapSoftware-phantomjs.repo.erb"
+					],
+					[
+						"phantomjs.",
+						"gapBuildTools/spec/phantomjs_spec.rb"
+					],
+					[
+						"roles/mongorepsetmp",
+						"gapChef/roles/mongorepsetMP.json"
+					],
+					[
+						"scmdb004",
+						"gapChef/nodes/dgphxscmdb004.phx.gapinc.dev.json"
+					],
+					[
+						"scmap005",
+						"gapChef/nodes/pgphxscmap005.phx.gapinc.com.json"
+					],
+					[
+						"pgphxscmap",
+						"gapChef/nodes/pgphxscmap001.phx.gapinc.com.json"
+					],
+					[
+						"roles/mongo",
+						"ri_chef/chefNewChandler/roles/regional-inventory-mongodb-replicaset.rb"
+					],
+					[
+						"roles/mongodb",
+						"gapChef/roles/merchpay-mongodb-primary-secondary.rb"
+					],
+					[
+						"roles/merchpay-",
+						"gapChef/roles/merchpay-mongodb-primary-secondary.rb"
+					],
+					[
+						"gapbuildtools/phantom",
+						"gapBuildTools/recipes/phantomjs.rb"
+					],
+					[
+						"gapbuildtools/templates",
+						"gapBuildTools/templates/default/Gemfile-build.erb"
+					],
+					[
+						"gapbuild/build",
+						"gapBuildTools/recipes/buildgems.rb"
+					],
+					[
+						"roles/merchpay-bu",
+						"gapChef/roles/merchpay-build.json"
+					],
+					[
+						"scmap012",
+						"gapChef/nodes/dgphxscmap012.phx.gapinc.dev.json"
+					],
+					[
+						"nodes/scmap011",
+						"gapChef/nodes/dgphxscmap011.phx.gapinc.dev.json"
+					],
+					[
+						"gapbuildtools/recipes",
+						"gapChef/cookbooks/gapBuildTools/recipes/minitest.rb"
+					],
+					[
+						"merchpay/ci/",
+						"merchpay_git/ci/app-segment.properties"
+					],
+					[
+						"merchpay/app.",
+						"merchpay_git/conf/templates/ngf/app.properties.erb"
+					],
+					[
+						"ec-agent",
+						"gapChef/roles/ec-agent.json"
+					],
+					[
+						"dgphxscm",
+						"gapChef/nodes/dgphxscmap011.phx.gapinc.dev.json"
+					],
+					[
+						"gapbase",
+						"gapChef/roles/base.json"
+					],
+					[
+						"roles/base",
+						"gapChef/roles/base.json"
+					],
+					[
+						"gapcommander/attri",
+						"gapChef/cookbooks/gapCommander/attributes/default.rb"
+					],
+					[
+						"knife",
+						"gapChef/pem/chefdev/knife.rb"
+					],
+					[
+						"commander/",
+						"gapChef/cookbooks/gapCommander/recipes/agent.rb"
+					],
+					[
+						"runway-watch",
+						"trunk/deploy/chef/roles/runway-watchmen.json"
+					],
+					[
+						"runway/att",
+						"trunk/deploy/chef/cookbooks/runway/attributes/default.rb"
+					],
+					[
+						"deployapp",
+						"gapChef/cookbooks/merchPay/recipes/deployapp.rb"
+					],
+					[
+						"iso",
+						"trunk/ci/iso-segment.properties"
+					],
+					[
+						"infra-seg",
+						"trunk/ci/infra-segment.gradle"
+					],
+					[
+						"infra-segment",
+						"trunk/ci/infra-segment.properties"
+					],
+					[
+						"environments/tdev",
+						"gapChef/environments/tdev.json"
+					],
+					[
+						"cookbook",
+						"gapChef/cookbooks/gapKnifeManage/files/default/managecookbook.rb"
+					],
+					[
+						"gapsudo/metada",
+						"gapChef/cookbooks/gapSudo/metadata.rb"
+					],
+					[
+						"ci_group",
+						"gapChef/cookbooks/gapSudo/files/default/sudoers.d/ci_group"
+					],
+					[
+						"sudoers.d/cibuild",
+						"gapChef/cookbooks/gapSudo/files/default/sudoers.d/cibuild"
+					],
+					[
+						"sudoers.d/webad",
+						"gapChef/cookbooks/gapSudo/files/default/sudoers.d/webadm"
+					],
+					[
+						"sudoers.d/ci",
+						"gapChef/cookbooks/gapSudo/files/default/sudoers.d/ci_group"
+					],
+					[
+						"role/ngf",
+						"gapChef/roles/MPNgfClient.json"
+					],
+					[
+						"dgphxscmap013",
+						"gapChef/nodes/dgphxscmap013.phx.gapinc.dev.json"
+					],
+					[
+						"runway/attri",
+						"runway/attributes/default.rb"
+					],
+					[
+						"berks",
+						"local-chef/runway-local/Berksfile"
+					],
+					[
+						"gaptomcat/meta",
+						"gapChef/cookbooks/gapTomcat/metadata.rb"
+					],
+					[
+						"tomcat/",
+						"gapChef/cookbooks/ciTomcat/metadata.json"
+					],
+					[
+						"readme.md",
+						"gapChef/cookbooks/avalanche/README.md"
+					],
+					[
+						"runway/meta",
+						"trunk/deploy/chef/cookbooks/runway/metadata.rb"
+					],
+					[
+						"runway/metada",
+						"trunk/deploy/chef/cookbooks/runway/metadata.rb"
+					],
+					[
+						"gapcommande/meta",
+						"gapChef/cookbooks/gapCommander/metadata.rb"
+					],
+					[
+						"gapcommander/",
+						"gapChef/cookbooks/gapCommander/recipes/agent.rb"
+					],
+					[
+						"commander/reci/",
+						"gapChef/cookbooks/gapCommander/recipes/agent.rb"
+					],
+					[
+						"ecagent",
+						"gapChef/cookbooks/gapCommander/recipes/agent.rb"
+					],
+					[
+						"jenkins01",
+						"gapChef/nodes/jenkins01.phx.gapinc.dev.json"
+					],
+					[
+						"iso-",
+						"trunk/ci/iso-segment.properties"
+					],
+					[
+						"killall",
+						"gapChef/cookbooks/runway/recipes/killall.rb"
+					],
+					[
+						"mongodb/replica",
+						"gapChef/cookbooks/merchpayMongoDB/recipes/replicaset_mongod_instance.rb"
+					],
+					[
+						"merchpay/metada",
+						"gapChef/cookbooks/merchPay/metadata.rb"
+					],
+					[
+						"merchpay/deploy",
+						"gapChef/cookbooks/merchPay/recipes/deployapp.rb"
+					],
+					[
+						"mongodb/",
+						"gapChef/cookbooks/mongodb/libraries/mongodb.rb"
+					],
+					[
+						"roles/regional",
+						"ri_chef/chefNewChandler/roles/regional-inventory-db.rb"
+					],
+					[
+						"mongodb/metadata",
+						"gapChef/cookbooks/mongodb/metadata.rb"
+					],
+					[
+						"regional-inventory-db",
+						"ri_chef/chefNewChandler/roles/regional-inventory-db.rb"
+					],
+					[
+						"role/merchpay",
+						"gapChef/roles/merchPay.json"
+					]
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"show_minimap": false,
+			"show_open_files": true,
+			"show_tabs": true,
+			"side_bar_visible": false,
+			"side_bar_width": 232.0,
+			"status_bar_visible": true,
+			"window_id": 54,
+			"workspace_name": ""
+		}
+	],
+	"workspaces":
+	{
+		"recent_workspaces":
+		[
+			"/home/matt/gap/gapChef/cookbooks/gapJava/recipes/asdf.sublime-project",
+			"/home/matt/gap/Current.sublime-project",
+			"/home/matt/hod.sublime-project"
+		]
+	}
+}
