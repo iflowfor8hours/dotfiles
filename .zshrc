@@ -397,13 +397,23 @@ function disable_proxy() {
 
 function verizon_on() {
   sudo service network-manager stop
-  echo 'nameserver 8.8.8.8' | sudo tee -a /etc/resolv.conf
+  echo 'nameserver 8.8.8.8 \nnameserver 198.224.182.135 \nnameserver 198.224.183.185' | sudo tee -a /etc/resolv.conf
   sudo wvdial Verizon4GLTE &
 }
 
 function verizon_off() {
   sudo service network-manager start
+  sudo killall wvdial
   echo '' | sudo tee /etc/resolv.conf
+}
+
+function colemak() {
+  setxkbmap us -variant colemak
+}
+
+function qwfpg() {
+  setxkbmap us
+  xset -r 66
 }
 
 function work_offline() {

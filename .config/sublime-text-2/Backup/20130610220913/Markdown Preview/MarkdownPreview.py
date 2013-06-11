@@ -11,10 +11,7 @@ import json
 import urllib2
 
 
-try:
-    settings = sublime.load_settings('MarkdownPreview.sublime-settings')
-except:
-    settings = {}
+settings = sublime.load_settings('MarkdownPreview.sublime-settings')
 
 
 def getTempMarkdownPreviewPath(view):

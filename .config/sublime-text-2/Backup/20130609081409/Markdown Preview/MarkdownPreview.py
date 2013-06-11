@@ -11,10 +11,7 @@ import json
 import urllib2
 
 
-try:
-    settings = sublime.load_settings('MarkdownPreview.sublime-settings')
-except:
-    settings = {}
+settings = sublime.load_settings('MarkdownPreview.sublime-settings')
 
 
 def getTempMarkdownPreviewPath(view):
@@ -190,10 +187,7 @@ class MarkdownPreviewCommand(sublime_plugin.TextCommand):
                 sublime.status_message('converted markdown with github API successfully')
         else:
             # convert the markdown
-            if settings.get("enable_mathjax") is True or settings.get("enable_highlight") is True:
-                markdown_html = markdown2.markdown(markdown, extras=['footnotes', 'toc', 'fenced-code-blocks', 'cuddled-lists', 'code-friendly'])
-            else:
-                markdown_html = markdown2.markdown(markdown, extras=['footnotes', 'toc', 'fenced-code-blocks', 'cuddled-lists'])
+            markdown_html = markdown2.markdown(markdown, extras=['footnotes', 'toc', 'fenced-code-blocks', 'cuddled-lists'])
             toc_html = markdown_html.toc_html
             if toc_html:
                 toc_markers = ['[toc]', '[TOC]', '<!--TOC-->']
