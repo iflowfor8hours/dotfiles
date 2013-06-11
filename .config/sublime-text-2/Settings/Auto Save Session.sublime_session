@@ -1537,13 +1537,13 @@
 					}
 				},
 				{
-					"contents": "default[\"tomcat\"][\"user\"] = \"webadm\"\ndefault[\"tomcat\"][\"group\"] = \"webadm\"\ndefault[\"tomcat\"][\"home\"] = \"/opt/tomcat#{node[\"tomcat\"][\"base_version\"]}\"\ndefault[\"tomcat\"][\"base\"] = \"/opt/tomcat#{node[\"tomcat\"][\"base_version\"]}\"\ndefault[\"tomcat\"][\"config_dir\"] = \"/opt/tomcat#{node[\"tomcat\"][\"base_version\"]}/conf\"\ndefault[\"tomcat\"][\"log_dir\"] = \"/opt/tomcat#{node[\"tomcat\"][\"base_version\"]}\"\ndefault[\"tomcat\"][\"tmp_dir\"] = \"/opt/tomcat#{node[\"tomcat\"][\"base_version\"]}/temp\"\ndefault[\"tomcat\"][\"work_dir\"] = \"/opt/tomcat/#{node[\"tomcat\"][\"base_version\"]}/work\"\ndefault[\"tomcat\"][\"context_dir\"] = \"#{node[\"tomcat\"][\"config_dir\"]}/Catalina/localhost\"\ndefault[\"tomcat\"][\"webapp_dir\"] = \"/opt/tomcat/ib/tomcat#{node[\"tomcat\"][\"base_version\"]}/webapps\"\n\nsometi:attr_writer :attr_names",
+					"contents": "default[\"tomcat\"][\"user\"] = \"webadm\"\ndefault[\"tomcat\"][\"group\"] = \"webadm\"\ndefault[\"tomcat\"][\"home\"] = \"/opt/tomcat#{node[\"tomcat\"][\"base_version\"]}\"\ndefault[\"tomcat\"][\"base\"] = \"/opt/tomcat#{node[\"tomcat\"][\"base_version\"]}\"\ndefault[\"tomcat\"][\"config_dir\"] = \"/opt/tomcat#{node[\"tomcat\"][\"base_version\"]}/conf\"\ndefault[\"tomcat\"][\"log_dir\"] = \"/opt/tomcat#{node[\"tomcat\"][\"base_version\"]}\"\ndefault[\"tomcat\"][\"tmp_dir\"] = \"/opt/tomcat#{node[\"tomcat\"][\"base_version\"]}/temp\"\ndefault[\"tomcat\"][\"work_dir\"] = \"/opt/tomcat/#{node[\"tomcat\"][\"base_version\"]}/work\"\ndefault[\"tomcat\"][\"context_dir\"] = \"#{node[\"tomcat\"][\"config_dir\"]}/Catalina/localhost\"\ndefault[\"tomcat\"][\"webapp_dir\"] = \"/opt/tomcat/ib/tomcat#{node[\"tomcat\"][\"base_version\"]}/webapps\"\n",
 					"file": "/home/matt/gap/deploy_strategy_ext_chef11/cookbooks/tomcat_app_wrapper/attributes/default.rb",
 					"file_size": 744,
-					"file_write_time": 1370986608000000,
+					"file_write_time": 1370986872000000,
 					"settings":
 					{
-						"buffer_size": 775,
+						"buffer_size": 744,
 						"line_ending": "Unix"
 					}
 				}
@@ -2747,15 +2747,15 @@
 							"file": "/home/matt/gap/deploy_strategy_ext_chef11/cookbooks/tomcat_app_wrapper/attributes/default.rb",
 							"settings":
 							{
-								"buffer_size": 775,
+								"buffer_size": 744,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										765,
-										775
+										744,
+										744
 									]
 								],
 								"settings":
