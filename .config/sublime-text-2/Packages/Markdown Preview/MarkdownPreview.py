@@ -190,10 +190,10 @@ class MarkdownPreviewCommand(sublime_plugin.TextCommand):
                 sublime.status_message('converted markdown with github API successfully')
         else:
             # convert the markdown
+            enabled_extras = set(settings.get('enabled_extensions', ['footnotes', 'toc', 'fenced-code-blocks', 'cuddled-lists']))
             if settings.get("enable_mathjax") is True or settings.get("enable_highlight") is True:
-                markdown_html = markdown2.markdown(markdown, extras=['footnotes', 'toc', 'fenced-code-blocks', 'cuddled-lists', 'code-friendly'])
-            else:
-                markdown_html = markdown2.markdown(markdown, extras=['footnotes', 'toc', 'fenced-code-blocks', 'cuddled-lists'])
+                enabled_extras.add('code-friendly')
+            markdown_html = markdown2.markdown(markdown, extras=list(enabled_extras))
             toc_html = markdown_html.toc_html
             if toc_html:
                 toc_markers = ['[toc]', '[TOC]', '<!--TOC-->']
@@ -254,9 +254,12 @@ class MarkdownPreviewCommand(sublime_plugin.TextCommand):
             # create a new buffer and paste the output HTML
             new_view = self.view.window().new_file()
             new_view.set_scratch(True)
-            new_edit = new_view.begin_edit()
-            new_view.insert(new_edit, 0, markdown_html)
-            new_view.end_edit(new_edit)
+            new_view.run_command('append', {
+                'characters': markdown_html,
+            })
+            #new_edit = new_view.begin_edit()
+            #new_view.insert(new_edit, 0, markdown_html)
+            #new_view.end_edit(new_edit)
             sublime.status_message('Markdown preview launched in sublime')
         elif target == 'clipboard':
             # clipboard copy the full HTML

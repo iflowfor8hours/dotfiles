@@ -2,12 +2,12 @@
 " => Moving around, tabs and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Open and close the NERDTree
-map <F10> :NERDTreeToggle<CR>
-map <F11> :NERDTreeClose<CR>
+map <F4> :NERDTreeToggle<CR>
+map <F5> :NERDTreeClose<CR>
 map <F1> <Esc>
 imap <F1> <Esc>
 let NERDTreeWinPos="left"
-let NERDTreeWinSize=35
+let NERDTreeWinSize=20
 " fold the numbers column
 map <F2> :set invnumber<CR>
 
@@ -26,7 +26,6 @@ map <C-l> <C-W>l
 noremap <C-n> :tabnext<CR>                                            
 noremap <C-p> :tabprev<CR>
 set guicursor=a:block-blinkoff1
-
 
 " Use the arrows to something usefull
 map <right> :bnext!<cr>
@@ -80,61 +79,26 @@ nnoremap ][ /}<CR>b99]}
 nnoremap ]] j0[[%/{<CR>
 nnoremap [] k$][%?}<CR>
 
-
 set dictionary=/usr/share/dict/words " more words!
 
 if has("gui_running")
-      "colorscheme rdark
-      "colorscheme Mustang
-      ""colorscheme solarized   " yum candy
-      colorscheme zenburn   " yum candy
+      colorscheme zenburn   
       let rdark_current_line=1  " highlight current line
       set background=dark
       set noantialias
       set guioptions-=T        " no toolbar
-      set guifont=Inconsolata\ Medium\ 12
+      set guifont=Source\ Code\ Pro\ 10
       set guioptions-=l        " no left scrollbar
       set guioptions-=L        " no left scrollbar
       set guioptions-=r        " no right scrollbar
       set guioptions-=R        " no right scrollbar
       set lines=40
       set columns=115
-
 end
 
 set t_Co=256 
-colorscheme zenburn   " yum candy
+colorscheme zenburn
 
-" Settings for taglist.vim
-let Tlist_Use_Right_Window=1
-let Tlist_Auto_Open=0
-let Tlist_Enable_Fold_Column=0
-let Tlist_Show_One_File = 1         " Only show tags for current buffer
-let Tlist_Compact_Format=0
-let Tlist_WinWidth=28
-let Tlist_Exit_OnlyWindow=1
-let Tlist_File_Fold_Auto_Close = 1
-
-" Settings for VimClojure
-let g:vimclojure#HighlightBuiltins=1   " Highlight Clojure's builtins
-let g:vimclojure#ParenRainbow=1        " Rainbow parentheses'!
-let g:vimclojure#DynamicHighlighting=1 " Dynamically highlight functions
-let vimclojure#SplitPos = "right"
-"let vimclojure#SplitSize = 15
-"let g:clj_want_gorilla=1            " Bananas! (Make sure nailgun in is your path)
-"let vimclojure#WantNailgun=1
-"let vimclojure#NailgunClient = "/home/murbanski/bin/ng"
-
-
-
-" Showmarks settings
-let g:showmarks_ignore_type="hmprq"
-let g:showmarks_enable=0
-
-" Changes.vim settings
-let g:changes_autocmd=1      " Autoshow changes on cursorpause
-let g:changes_verbose=0      " Don't show what symbols mean
-" ---------------------------------------------------------------------------
 " status line 
 set laststatus=2
 if has('statusline')
@@ -177,6 +141,7 @@ if v:version >= 700
 
       setlocal spell spelllang=en
       nmap <LocalLeader>ss :set spell!<CR>
+      nmap <F6> :set spell!<CR>
 
 endif
 " default to no spelling
@@ -189,7 +154,6 @@ map <LocalLeader>sa zg
 map <LocalLeader>s? z=
 " When I'm pretty sure that the first suggestion is correct
 map <LocalLeader>st 1z=
-
 
 " ---------------------------------------------------------------------------
 " Turn on omni-completion for the appropriate file types.
@@ -232,49 +196,23 @@ inoremap # X<BS>#
 " When I forget I'm in Insert mode, how often do you type 'jj' anyway?:
 imap jj <Esc>
 
-" ---------------------------------------------------------------------------
-      autocmd BufReadPost *
-                        \ if line("'\"") > 0|
-                        \       if line("'\"") <= line("$")|
-                        \               exe("norm '\"")|
-                        \       else|
-                        \               exe "norm $"|
-                        \       endif|
-                        \ endif
-
-      " configure various extensions
-      let git_diff_spawn_mode=2
-
-      " improved formatting for markdown
-      " http://plasticboy.com/markdown-vim-mode/
-      autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:>
+" improved formatting for markdown
+autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:>
 
 " set list to activate whitespace detection mode
 au BufNewFile,BufRead *.less set filetype=less
 
-" CoffeeScript compiler stuff
-au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
-
-"swap colors in solarized
+au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 
 " For the conque shell plugin
-nnoremap <LocalLeader>te :ConqueTermSplit bash<CR>                            
+nnoremap <LocalLeader>te :ConqueTermSplit zsh<CR>                            
 
 " Don't go into insert mode when the buffer is focused
 let g:ConqueTerm_InsertOnEnter = 0
 let g:ConqueTerm_ReadUnfocused = 1
 let g:ConqueTerm_TERM = 'xterm'
 
-" Tagbar plugin
-nnoremap <silent> <LocalLeader>f :TagbarToggle<CR>
-
 " Command-T plugin
-set wildignore+=*.o,*.so,*.6,*.pyc,build,vendor,tmp
+set wildignore+=*.o,*.so,*.6,*.pyc,build,vendor,tmp,.git
 nnoremap <silent> <LocalLeader>t :execute "CommandT " . b:gitroot<CR>
 nnoremap <silent> <LocalLeader>b :CommandTBuffer<CR>
-" control+/ shows up in the terminal as ^_, so map C-_ to make it happen.
-nnoremap <silent> <C-_> :execute "CommandT " . b:gitroot<CR>
-
-" change tab completion to ctrl-space
-let g:SuperTabMappingForward = '<c-space>'
-let g:SuperTabMappingBackward = '<s-c-space>'

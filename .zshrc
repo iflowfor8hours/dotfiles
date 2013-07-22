@@ -420,6 +420,15 @@ function work_offline() {
   sudo /etc/init.d/pulse stop 
 }
 
+function enable_status_bar() {
+  i3status -c ~/.i3/i3status.conf | dzen2 -fg white -fn "-misc-fixed-medium-r-normal--10-100-75-75-c-60-iso8859-1" -bg black -ta r -w 800 -x 568 -y 756
+}
+
+function disable_status_bar() {
+  pkill i3status
+  pkill dzen2
+}
+
 autoload -Uz vcs_info
 
 function prompt_char {

@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/i3status -c ~/.i3/i3status.conf | /usr/bin/dzen2 -fg white -fn "-misc-fixed-medium-r-normal--10-100-75-75-c-60-iso8859-1" -bg black -ta r -w 650 -x 500 -y 750
