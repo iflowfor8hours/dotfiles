@@ -153,7 +153,7 @@ map <LocalLeader>sp [s
 map <LocalLeader>sa zg
 map <LocalLeader>s? z=
 " When I'm pretty sure that the first suggestion is correct
-map <LocalLeader>st 1z=
+map <LocalLeader>s! 1z=
 
 " ---------------------------------------------------------------------------
 " Turn on omni-completion for the appropriate file types.
