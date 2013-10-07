@@ -202,7 +202,7 @@ autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:>
 " set list to activate whitespace detection mode
 au BufNewFile,BufRead *.less set filetype=less
 
-au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
+au BufRead,BufNewFile {Vagrantfile,Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 
 " For the conque shell plugin
 nnoremap <LocalLeader>te :ConqueTermSplit zsh<CR>                            

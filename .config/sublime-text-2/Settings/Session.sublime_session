@@ -1,6 +1,8 @@
 {
 	"folder_history":
 	[
+		"/home/matt/work/shop_africa_web",
+		"/home/matt/work/mpedigree",
 		"/home/matt/Dropbox/documents",
 		"/home/matt/gap/gapChef",
 		"/home/matt/gap/deploy_strategy_ext_chef11",
@@ -1498,51 +1500,20 @@
 			"buffers":
 			[
 				{
-					"file": "/home/matt/gap/deploy_strategy_ext/cookbooks/java/recipes/oracle.rb",
+					"file": "/home/matt/work/shop_africa_web/puppet/manifests/webserver.pp",
 					"settings":
 					{
-						"buffer_size": 1711,
+						"buffer_size": 4922,
 						"line_ending": "Unix"
 					}
 				},
 				{
-					"file": "/home/matt/gap/deploy_strategy_ext_chef11/Vagrantfile",
+					"contents": "do some mocks for functionality but build the UI for the features they want.\n\ntesting batch contains one or more Collection batch\n1 Day = collection starts end of day collection batch ends\n\ndifferent views for different users, as the Lab vs the collection need different visibility\n",
 					"settings":
 					{
-						"buffer_size": 1381,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/home/matt/gap/deploy_strategy_ext_chef11/cookbooks/rifs/recipes/default.rb",
-					"settings":
-					{
-						"buffer_size": 368,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/home/matt/gap/deploy_strategy_ext_chef11/cookbooks/tomcat_app_wrapper/metadata.rb",
-					"settings":
-					{
-						"buffer_size": 238,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/home/matt/gap/deploy_strategy_ext_chef11/cookbooks/tomcat_app_wrapper/attributes/default.rb",
-					"settings":
-					{
-						"buffer_size": 738,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/home/matt/gap/deploy_strategy_ext_chef11/cookbooks/tomcat_app_wrapper/recipes/default.rb",
-					"settings":
-					{
-						"buffer_size": 257,
-						"line_ending": "Unix"
+						"buffer_size": 282,
+						"line_ending": "Unix",
+						"name": "do some mocks for functionality but build the UI f"
 					}
 				}
 			],
@@ -1554,6 +1525,22 @@
 				[
 					[
 						":w",
+						":w - Save"
+					],
+					[
+						"git diff",
+						"Git: Diff Current File"
+					],
+					[
+						"insta",
+						"Package Control: Install Package"
+					],
+					[
+						"packa",
+						"Package Control: Upgrade Package"
+					],
+					[
+						":W",
 						":w - Save"
 					],
 					[
@@ -1579,10 +1566,6 @@
 					[
 						":Lw",
 						"Convert Case: Lower Case"
-					],
-					[
-						":W",
-						":w - Save"
 					],
 					[
 						"mark",
@@ -1701,10 +1684,6 @@
 						"Set Syntax: Git Blame"
 					],
 					[
-						"packa",
-						"Package Control: List Packages"
-					],
-					[
 						"package",
 						"Package Control: Install Package"
 					],
@@ -1759,10 +1738,6 @@
 					[
 						"diff cu",
 						"Git: Diff Current File"
-					],
-					[
-						"git diff",
-						"Git: Diff Staged"
 					],
 					[
 						"install",
@@ -1861,7 +1836,7 @@
 						"View: Toggle Minimap"
 					]
 				],
-				"width": 435.0
+				"width": 633.0
 			},
 			"console":
 			{
@@ -1878,6 +1853,17 @@
 			},
 			"file_history":
 			[
+				"/home/matt/src/documents/more_h",
+				"/home/matt/work/shop_africa_web/puppet/modules/postgresql/manifests/database_grant.pp",
+				"/home/matt/work/mpedigree/infrastructure_and_deployment/modules/mongodb/manifests/replicaset.pp",
+				"/home/matt/work/mpedigree/infrastructure_and_deployment/modules/mongodb/manifests/init.pp",
+				"/home/matt/Dropbox/documents/attractiveAnna",
+				"/home/matt/gap/deploy_strategy_ext_chef11/cookbooks/tomcat_app_wrapper/recipes/default.rb",
+				"/home/matt/gap/deploy_strategy_ext_chef11/cookbooks/tomcat_app_wrapper/metadata.rb",
+				"/home/matt/gap/deploy_strategy_ext_chef11/cookbooks/rifs/recipes/default.rb",
+				"/home/matt/gap/deploy_strategy_ext_chef11/Vagrantfile",
+				"/home/matt/gap/deploy_strategy_ext/cookbooks/java/recipes/oracle.rb",
+				"/home/matt/gap/deploy_strategy_ext_chef11/cookbooks/tomcat_app_wrapper/attributes/default.rb",
 				"/home/matt/dotfiles/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 				"/home/matt/gap/deploy_strategy_ext_chef11/cookbooks/rifs/metadata.rb",
 				"/home/matt/gap/deploy_strategy_ext_chef11/cookbooks/rifs/README.md",
@@ -1994,18 +1980,7 @@
 				"/home/matt/gap/gapChef/cookbooks/gapCommander/attributes/default.rb",
 				"/home/matt/gap/RMS/build.gradle",
 				"/home/matt/work/gap/service-platform/platform-metrics/ci/component-segment.properties",
-				"/home/matt/gap/gapChef/cookbooks/costingIntegration/attributes/default.rb",
-				"/home/matt/gap/something.json",
-				"/home/matt/gap/gapChef/nodes/dgphxaciap004.phx.gapinc.dev.json",
-				"/home/matt/gap/gapChef/nodes/dgphxaciap003.phx.gapinc.dev.json",
-				"/home/matt/gap/ci-repo/trunk/samples/multi-module-app/ci/iso-segment.properties",
-				"/home/matt/gap/RMS/ivy.xml",
-				"/home/matt/work/gap/service-platform/platform-metrics/ci/app-segment.properties",
-				"/home/matt/gap/gapChef/cookbooks/gapBuildTools/recipes/infragems.rb",
-				"/home/matt/gap/gapChef/roles/merchpay-dev.json",
-				"/home/matt/gap/gapChef/roles/merchpay-build.json",
-				"/home/matt/gap/gapChef/roles/jruby.json",
-				"/home/matt/gap/gapChef/nodes/dgphxscmap011.phx.gapinc.dev.json"
+				"/home/matt/gap/gapChef/cookbooks/costingIntegration/attributes/default.rb"
 			],
 			"find":
 			{
@@ -2101,6 +2076,10 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"gem",
+					"username",
+					"download",
+					"file",
 					"snipp",
 					"var",
 					"usr/share",
@@ -2224,11 +2203,7 @@
 					"regional_inventory_mongodb",
 					"credential",
 					"credentials",
-					"merchpay_mongodb",
-					"credentials",
-					"regional_inventory_mongodb",
-					"libxml2",
-					"merchpay"
+					"merchpay_mongodb"
 				],
 				"highlight": true,
 				"in_selection": false,
@@ -2255,41 +2230,32 @@
 			"folders":
 			[
 				{
-					"path": "/home/matt/Dropbox/documents/chef-tutorial"
+					"path": "/home/matt/work/mpedigree"
 				},
 				{
-					"path": "/home/matt/gap/deploy_strategy"
-				},
-				{
-					"path": "/home/matt/gap/scmspo/deploy-local"
-				},
-				{
-					"path": "/home/matt/gap/deploy_strategy_ext"
-				},
-				{
-					"path": "/home/matt/gap/deploy_strategy_ext_chef11"
+					"path": "/home/matt/work/shop_africa_web"
 				}
 			],
 			"groups":
 			[
 				{
-					"selected": 5,
+					"selected": 1,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/home/matt/gap/deploy_strategy_ext/cookbooks/java/recipes/oracle.rb",
+							"file": "/home/matt/work/shop_africa_web/puppet/manifests/webserver.pp",
 							"settings":
 							{
-								"buffer_size": 1711,
+								"buffer_size": 4922,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										1554,
-										1554
+										2271,
+										2271
 									]
 								],
 								"settings":
@@ -2383,590 +2349,35 @@
 										"Ruby on Rails": "ruby"
 									},
 									"sublimelinter_wrap_find": true,
-									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"syntax": "Packages/Puppet/Syntaxes/Puppet.tmLanguage",
 									"tab_size": 2,
 									"translate_tabs_to_spaces": true
 								},
 								"translation.x": 0.0,
-								"translation.y": 379.0,
+								"translation.y": 1349.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
 						},
 						{
 							"buffer": 1,
-							"file": "/home/matt/gap/deploy_strategy_ext_chef11/Vagrantfile",
 							"settings":
 							{
-								"buffer_size": 1381,
+								"buffer_size": 282,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										897,
-										897
+										282,
+										282
 									]
 								],
 								"settings":
 								{
-									"annotations":
-									[
-										"TODO",
-										"README",
-										"FIXME"
-									],
-									"csslint_options":
-									{
-										"adjoining-classes": "warning",
-										"box-model": true,
-										"box-sizing": "warning",
-										"compatible-vendor-prefixes": "warning",
-										"display-property-grouping": true,
-										"duplicate-background-images": "warning",
-										"duplicate-properties": true,
-										"empty-rules": true,
-										"errors": true,
-										"fallback-colors": "warning",
-										"floats": "warning",
-										"font-faces": "warning",
-										"font-sizes": "warning",
-										"gradients": "warning",
-										"ids": "warning",
-										"import": "warning",
-										"important": "warning",
-										"known-properties": true,
-										"outline-none": "warning",
-										"overqualified-elements": "warning",
-										"qualified-headings": "warning",
-										"regex-selectors": "warning",
-										"rules-count": "warning",
-										"shorthand": "warning",
-										"star-property-hack": "warning",
-										"text-indent": "warning",
-										"underscore-property-hack": "warning",
-										"unique-headings": "warning",
-										"universal-selector": "warning",
-										"vendor-prefix": true,
-										"zero-units": "warning"
-									},
-									"gjslint_ignore":
-									[
-										110
-									],
-									"gjslint_options":
-									[
-									],
-									"javascript_linter": "jshint",
-									"jshint_options":
-									{
-										"browser": true,
-										"evil": true,
-										"regexdash": true,
-										"sub": true,
-										"trailing": true,
-										"wsh": true
-									},
-									"pep8": true,
-									"pep8_ignore":
-									[
-										"E501"
-									],
-									"perl_linter": "perlcritic",
-									"pyflakes_ignore":
-									[
-									],
-									"pyflakes_ignore_import_*": true,
-									"sublimelinter": true,
-									"sublimelinter_delay": 2,
-									"sublimelinter_disable":
-									[
-									],
-									"sublimelinter_executable_map":
-									{
-									},
-									"sublimelinter_fill_outlines": false,
-									"sublimelinter_gutter_marks": true,
-									"sublimelinter_gutter_marks_theme": "simple",
-									"sublimelinter_mark_style": "none",
-									"sublimelinter_notes": false,
-									"sublimelinter_objj_check_ascii": false,
-									"sublimelinter_popup_errors_on_save": false,
-									"sublimelinter_syntax_map":
-									{
-										"C++": "c",
-										"Python Django": "python",
-										"Ruby on Rails": "ruby"
-									},
-									"sublimelinter_wrap_find": true,
-									"syntax": "Packages/Text/Plain text.tmLanguage",
-									"tab_size": 2,
-									"translate_tabs_to_spaces": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 2,
-							"file": "/home/matt/gap/deploy_strategy_ext_chef11/cookbooks/rifs/recipes/default.rb",
-							"settings":
-							{
-								"buffer_size": 368,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										364,
-										364
-									]
-								],
-								"settings":
-								{
-									"annotations":
-									[
-										"TODO",
-										"README",
-										"FIXME"
-									],
-									"csslint_options":
-									{
-										"adjoining-classes": "warning",
-										"box-model": true,
-										"box-sizing": "warning",
-										"compatible-vendor-prefixes": "warning",
-										"display-property-grouping": true,
-										"duplicate-background-images": "warning",
-										"duplicate-properties": true,
-										"empty-rules": true,
-										"errors": true,
-										"fallback-colors": "warning",
-										"floats": "warning",
-										"font-faces": "warning",
-										"font-sizes": "warning",
-										"gradients": "warning",
-										"ids": "warning",
-										"import": "warning",
-										"important": "warning",
-										"known-properties": true,
-										"outline-none": "warning",
-										"overqualified-elements": "warning",
-										"qualified-headings": "warning",
-										"regex-selectors": "warning",
-										"rules-count": "warning",
-										"shorthand": "warning",
-										"star-property-hack": "warning",
-										"text-indent": "warning",
-										"underscore-property-hack": "warning",
-										"unique-headings": "warning",
-										"universal-selector": "warning",
-										"vendor-prefix": true,
-										"zero-units": "warning"
-									},
-									"gjslint_ignore":
-									[
-										110
-									],
-									"gjslint_options":
-									[
-									],
-									"javascript_linter": "jshint",
-									"jshint_options":
-									{
-										"browser": true,
-										"evil": true,
-										"regexdash": true,
-										"sub": true,
-										"trailing": true,
-										"wsh": true
-									},
-									"pep8": true,
-									"pep8_ignore":
-									[
-										"E501"
-									],
-									"perl_linter": "perlcritic",
-									"pyflakes_ignore":
-									[
-									],
-									"pyflakes_ignore_import_*": true,
-									"sublimelinter": true,
-									"sublimelinter_delay": 2,
-									"sublimelinter_disable":
-									[
-									],
-									"sublimelinter_executable_map":
-									{
-									},
-									"sublimelinter_fill_outlines": false,
-									"sublimelinter_gutter_marks": true,
-									"sublimelinter_gutter_marks_theme": "simple",
-									"sublimelinter_mark_style": "none",
-									"sublimelinter_notes": false,
-									"sublimelinter_objj_check_ascii": false,
-									"sublimelinter_popup_errors_on_save": false,
-									"sublimelinter_syntax_map":
-									{
-										"C++": "c",
-										"Python Django": "python",
-										"Ruby on Rails": "ruby"
-									},
-									"sublimelinter_wrap_find": true,
-									"syntax": "Packages/Ruby/Ruby.tmLanguage"
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 3,
-							"file": "/home/matt/gap/deploy_strategy_ext_chef11/cookbooks/tomcat_app_wrapper/metadata.rb",
-							"settings":
-							{
-								"buffer_size": 238,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										232,
-										232
-									]
-								],
-								"settings":
-								{
-									"annotations":
-									[
-										"TODO",
-										"README",
-										"FIXME"
-									],
-									"csslint_options":
-									{
-										"adjoining-classes": "warning",
-										"box-model": true,
-										"box-sizing": "warning",
-										"compatible-vendor-prefixes": "warning",
-										"display-property-grouping": true,
-										"duplicate-background-images": "warning",
-										"duplicate-properties": true,
-										"empty-rules": true,
-										"errors": true,
-										"fallback-colors": "warning",
-										"floats": "warning",
-										"font-faces": "warning",
-										"font-sizes": "warning",
-										"gradients": "warning",
-										"ids": "warning",
-										"import": "warning",
-										"important": "warning",
-										"known-properties": true,
-										"outline-none": "warning",
-										"overqualified-elements": "warning",
-										"qualified-headings": "warning",
-										"regex-selectors": "warning",
-										"rules-count": "warning",
-										"shorthand": "warning",
-										"star-property-hack": "warning",
-										"text-indent": "warning",
-										"underscore-property-hack": "warning",
-										"unique-headings": "warning",
-										"universal-selector": "warning",
-										"vendor-prefix": true,
-										"zero-units": "warning"
-									},
-									"gjslint_ignore":
-									[
-										110
-									],
-									"gjslint_options":
-									[
-									],
-									"javascript_linter": "jshint",
-									"jshint_options":
-									{
-										"browser": true,
-										"evil": true,
-										"regexdash": true,
-										"sub": true,
-										"trailing": true,
-										"wsh": true
-									},
-									"pep8": true,
-									"pep8_ignore":
-									[
-										"E501"
-									],
-									"perl_linter": "perlcritic",
-									"pyflakes_ignore":
-									[
-									],
-									"pyflakes_ignore_import_*": true,
-									"sublimelinter": true,
-									"sublimelinter_delay": 2,
-									"sublimelinter_disable":
-									[
-									],
-									"sublimelinter_executable_map":
-									{
-									},
-									"sublimelinter_fill_outlines": false,
-									"sublimelinter_gutter_marks": true,
-									"sublimelinter_gutter_marks_theme": "simple",
-									"sublimelinter_mark_style": "none",
-									"sublimelinter_notes": false,
-									"sublimelinter_objj_check_ascii": false,
-									"sublimelinter_popup_errors_on_save": false,
-									"sublimelinter_syntax_map":
-									{
-										"C++": "c",
-										"Python Django": "python",
-										"Ruby on Rails": "ruby"
-									},
-									"sublimelinter_wrap_find": true,
-									"syntax": "Packages/Ruby/Ruby.tmLanguage"
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 4,
-							"file": "/home/matt/gap/deploy_strategy_ext_chef11/cookbooks/tomcat_app_wrapper/attributes/default.rb",
-							"settings":
-							{
-								"buffer_size": 738,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										738,
-										738
-									]
-								],
-								"settings":
-								{
-									"annotations":
-									[
-										"TODO",
-										"README",
-										"FIXME"
-									],
-									"csslint_options":
-									{
-										"adjoining-classes": "warning",
-										"box-model": true,
-										"box-sizing": "warning",
-										"compatible-vendor-prefixes": "warning",
-										"display-property-grouping": true,
-										"duplicate-background-images": "warning",
-										"duplicate-properties": true,
-										"empty-rules": true,
-										"errors": true,
-										"fallback-colors": "warning",
-										"floats": "warning",
-										"font-faces": "warning",
-										"font-sizes": "warning",
-										"gradients": "warning",
-										"ids": "warning",
-										"import": "warning",
-										"important": "warning",
-										"known-properties": true,
-										"outline-none": "warning",
-										"overqualified-elements": "warning",
-										"qualified-headings": "warning",
-										"regex-selectors": "warning",
-										"rules-count": "warning",
-										"shorthand": "warning",
-										"star-property-hack": "warning",
-										"text-indent": "warning",
-										"underscore-property-hack": "warning",
-										"unique-headings": "warning",
-										"universal-selector": "warning",
-										"vendor-prefix": true,
-										"zero-units": "warning"
-									},
-									"gjslint_ignore":
-									[
-										110
-									],
-									"gjslint_options":
-									[
-									],
-									"javascript_linter": "jshint",
-									"jshint_options":
-									{
-										"browser": true,
-										"evil": true,
-										"regexdash": true,
-										"sub": true,
-										"trailing": true,
-										"wsh": true
-									},
-									"pep8": true,
-									"pep8_ignore":
-									[
-										"E501"
-									],
-									"perl_linter": "perlcritic",
-									"pyflakes_ignore":
-									[
-									],
-									"pyflakes_ignore_import_*": true,
-									"sublimelinter": true,
-									"sublimelinter_delay": 2,
-									"sublimelinter_disable":
-									[
-									],
-									"sublimelinter_executable_map":
-									{
-									},
-									"sublimelinter_fill_outlines": false,
-									"sublimelinter_gutter_marks": true,
-									"sublimelinter_gutter_marks_theme": "simple",
-									"sublimelinter_mark_style": "none",
-									"sublimelinter_notes": false,
-									"sublimelinter_objj_check_ascii": false,
-									"sublimelinter_popup_errors_on_save": false,
-									"sublimelinter_syntax_map":
-									{
-										"C++": "c",
-										"Python Django": "python",
-										"Ruby on Rails": "ruby"
-									},
-									"sublimelinter_wrap_find": true,
-									"syntax": "Packages/Ruby/Ruby.tmLanguage",
-									"tab_size": 2,
-									"translate_tabs_to_spaces": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 5,
-							"file": "/home/matt/gap/deploy_strategy_ext_chef11/cookbooks/tomcat_app_wrapper/recipes/default.rb",
-							"settings":
-							{
-								"buffer_size": 257,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										233,
-										233
-									]
-								],
-								"settings":
-								{
-									"annotations":
-									[
-										"TODO",
-										"README",
-										"FIXME"
-									],
-									"csslint_options":
-									{
-										"adjoining-classes": "warning",
-										"box-model": true,
-										"box-sizing": "warning",
-										"compatible-vendor-prefixes": "warning",
-										"display-property-grouping": true,
-										"duplicate-background-images": "warning",
-										"duplicate-properties": true,
-										"empty-rules": true,
-										"errors": true,
-										"fallback-colors": "warning",
-										"floats": "warning",
-										"font-faces": "warning",
-										"font-sizes": "warning",
-										"gradients": "warning",
-										"ids": "warning",
-										"import": "warning",
-										"important": "warning",
-										"known-properties": true,
-										"outline-none": "warning",
-										"overqualified-elements": "warning",
-										"qualified-headings": "warning",
-										"regex-selectors": "warning",
-										"rules-count": "warning",
-										"shorthand": "warning",
-										"star-property-hack": "warning",
-										"text-indent": "warning",
-										"underscore-property-hack": "warning",
-										"unique-headings": "warning",
-										"universal-selector": "warning",
-										"vendor-prefix": true,
-										"zero-units": "warning"
-									},
-									"gjslint_ignore":
-									[
-										110
-									],
-									"gjslint_options":
-									[
-									],
-									"javascript_linter": "jshint",
-									"jshint_options":
-									{
-										"browser": true,
-										"evil": true,
-										"regexdash": true,
-										"sub": true,
-										"trailing": true,
-										"wsh": true
-									},
-									"pep8": true,
-									"pep8_ignore":
-									[
-										"E501"
-									],
-									"perl_linter": "perlcritic",
-									"pyflakes_ignore":
-									[
-									],
-									"pyflakes_ignore_import_*": true,
-									"sublimelinter": true,
-									"sublimelinter_delay": 2,
-									"sublimelinter_disable":
-									[
-									],
-									"sublimelinter_executable_map":
-									{
-									},
-									"sublimelinter_fill_outlines": false,
-									"sublimelinter_gutter_marks": true,
-									"sublimelinter_gutter_marks_theme": "simple",
-									"sublimelinter_mark_style": "none",
-									"sublimelinter_notes": false,
-									"sublimelinter_objj_check_ascii": false,
-									"sublimelinter_popup_errors_on_save": false,
-									"sublimelinter_syntax_map":
-									{
-										"C++": "c",
-										"Python Django": "python",
-										"Ruby on Rails": "ruby"
-									},
-									"sublimelinter_wrap_find": true,
-									"syntax": "Packages/Ruby/Ruby.tmLanguage",
-									"tab_size": 2,
-									"translate_tabs_to_spaces": true
+									"auto_name": "do some mocks for functionality but build the UI f",
+									"syntax": "Packages/Text/Plain text.tmLanguage"
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
@@ -3016,7 +2427,7 @@
 			{
 				"height": 168.0
 			},
-			"position": "0,1,0,0,0,0,0,0,0,1366,768",
+			"position": "0,1,0,0,0,534,0,1359,714,1366,768",
 			"replace":
 			{
 				"height": 64.0
@@ -3027,6 +2438,10 @@
 				"height": 0.0,
 				"selected_items":
 				[
+					[
+						"post/man/gra",
+						"shop_africa_web/puppet/modules/postgresql/manifests/database_grant.pp"
+					],
 					[
 						"vag",
 						"deploy_strategy_ext/Vagrantfile"
@@ -3534,27 +2949,23 @@
 					[
 						"merchpay/deploy",
 						"gapChef/cookbooks/merchPay/recipes/deployapp.rb"
-					],
-					[
-						"mongodb/",
-						"gapChef/cookbooks/mongodb/libraries/mongodb.rb"
 					]
 				],
 				"width": 0.0
 			},
 			"select_project":
 			{
-				"height": 0.0,
+				"height": 500.0,
 				"selected_items":
 				[
 				],
-				"width": 0.0
+				"width": 380.0
 			},
 			"show_minimap": false,
 			"show_open_files": true,
 			"show_tabs": true,
 			"side_bar_visible": true,
-			"side_bar_width": 232.0,
+			"side_bar_width": 205.0,
 			"status_bar_visible": true,
 			"window_id": 54,
 			"workspace_name": ""

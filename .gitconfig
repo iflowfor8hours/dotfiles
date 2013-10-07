@@ -47,3 +47,5 @@
  branch = magenta
 [diff]
 	external = ~/dotfiles/bin/melddiff
+[push]
+	default = matching

@@ -555,7 +555,7 @@
 				<key>name</key>
 				<string>css.id</string>
 				<key>scope</key>
-				<string>meta.selector.css entity.other.attribute-name.id</string>
+				<string>entity.other.attribute-name.id.css</string>
 				<key>settings</key>
 				<dict>
 					<key>foreground</key>
@@ -599,7 +599,7 @@
 				<key>name</key>
 				<string>css.string</string>
 				<key>scope</key>
-				<string>meta.attribute-selector.css string</string>
+				<string>meta.attribute-selector.css</string>
 				<key>settings</key>
 				<dict>
 					<key>foreground</key>
