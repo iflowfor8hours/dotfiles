@@ -379,13 +379,6 @@ which vim > /dev/null 2>&1 && alias vi=vim
 
 
 # -- Proxy Settings --
-function enable_proxy() {
-   export http_proxy="http://qaproxy.gid.gap.com:8080/"
-   export https_proxy="http://qaproxy.gid.gap.com:8080/"
-   export ftp_proxy="http://qaproxy.gid.gap.com:8080/"
-   export no_proxy="ci.gap.dev,localhost,.gapinc.dev,.gap.com,.gap.dev,127.0.0.0/8,10.0.0.0/8,192.168.0.0/16,10.10.10.1"
-   sed '/^#\ \ ProxyCommand/ s/^//g' ~/.ssh/config > /dev/null
-}
 
 function disable_proxy() {
    unset http_proxy
