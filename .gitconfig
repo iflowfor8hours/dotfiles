@@ -28,8 +28,8 @@
   editor = /usr/bin/vim
   quotepath = false
   excludesfile = /home/matt/.gitignore
-  autocrlf = false
-  safecrlf = true
+	autocrlf = input
+  # safecrlf = true
 [gc]
      auto = 1
 [merge]

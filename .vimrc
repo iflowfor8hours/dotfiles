@@ -102,15 +102,18 @@ colorscheme zenburn
 " status line 
 set laststatus=2
 if has('statusline')
-      function! SetStatusLineStyle()
-            let &stl="%F%m%r%h%w\ [%{&ff}]\ [%Y]\ %P\ %=[a=\%03.3b]\ [h=\%02.2B]\ [%l,%v]"
-      endfunc
-      " Not using it at the moment, using a different one
-      call SetStatusLineStyle()
+  function! SetStatusLineStyle()
+    let &stl="%F%m%r%h%w\ [%{&ff}]\ [%Y]\ %P [%{SyntasticStatuslineFlag()}] [%#warningmsg]\ #%=[a=\%03.3b]\ [h=\%02.2B]\ [%l,%v]"
+    set statusline+=
+    set statusline+=
+    set statusline+=%*
+  endfunc
+  " Not using it at the moment, using a different one
+  call SetStatusLineStyle()
 
-      if has('title')
-            set titlestring=%t%(\ [%R%M]%)
-      endif
+  if has('title')
+    set titlestring=%t%(\ [%R%M]%)
+  endif
 
 endif
 
@@ -216,3 +219,6 @@ let g:ConqueTerm_TERM = 'xterm'
 set wildignore+=*.o,*.so,*.6,*.pyc,build,vendor,tmp,.git
 nnoremap <silent> <LocalLeader>t :execute "CommandT " . b:gitroot<CR>
 nnoremap <silent> <LocalLeader>b :CommandTBuffer<CR>
+
+" Format json
+nmap <LocalLeader>js  :%!python -m json.tool<cr>

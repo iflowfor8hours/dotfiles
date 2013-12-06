@@ -1,6 +1,8 @@
 {
 	"folder_history":
 	[
+		"/home/matt/src/mine/iflowfor8hours-blog",
+		"/home/matt/.berkshelf/default/vagrant",
 		"/home/matt/work/shop_africa_web",
 		"/home/matt/work/mpedigree",
 		"/home/matt/Dropbox/documents",
@@ -57,7 +59,6 @@
 		"/home/matt/gap/runway/trunk",
 		"/home/matt/Downloads/tmux-master",
 		"/home/matt/gap/ri_chef/chefNewChandler/roles",
-		"/home/matt/src/mine/iflowfor8hours-blog",
 		"/home/matt/Dropbox/documents/blog",
 		"/home/matt/src/cat_factz",
 		"/home/matt/gap/local-chef/cookbooks/merchPay",
@@ -1500,20 +1501,11 @@
 			"buffers":
 			[
 				{
-					"file": "/home/matt/work/shop_africa_web/puppet/manifests/webserver.pp",
+					"file": "/home/matt/src/mine/iflowfor8hours-blog/presentations.markdown",
 					"settings":
 					{
-						"buffer_size": 4922,
+						"buffer_size": 1244,
 						"line_ending": "Unix"
-					}
-				},
-				{
-					"contents": "do some mocks for functionality but build the UI for the features they want.\n\ntesting batch contains one or more Collection batch\n1 Day = collection starts end of day collection batch ends\n\ndifferent views for different users, as the Lab vs the collection need different visibility\n",
-					"settings":
-					{
-						"buffer_size": 282,
-						"line_ending": "Unix",
-						"name": "do some mocks for functionality but build the UI f"
 					}
 				}
 			],
@@ -1526,6 +1518,22 @@
 					[
 						":w",
 						":w - Save"
+					],
+					[
+						":mark bro",
+						"Markdown Preview: Python Markdown: Preview in Browser"
+					],
+					[
+						"preview",
+						"Markdown Preview: Python Markdown: Preview in Browser"
+					],
+					[
+						"install",
+						"Package Control: Install Package"
+					],
+					[
+						"packa in",
+						"Package Control: Install Package"
 					],
 					[
 						"git diff",
@@ -1621,10 +1629,6 @@
 					],
 					[
 						"prevew",
-						"Markdown Preview: preview in Browser"
-					],
-					[
-						"preview",
 						"Markdown Preview: preview in Browser"
 					],
 					[
@@ -1740,10 +1744,6 @@
 						"Git: Diff Current File"
 					],
 					[
-						"install",
-						"Package Control: Install Package"
-					],
-					[
 						"mini",
 						"View: Toggle Minimap"
 					],
@@ -1853,6 +1853,12 @@
 			},
 			"file_history":
 			[
+				"/home/matt/src/mine/iflowfor8hours-blog/_posts/2013/2013-11-01-vagrant-and-databags-learning-experience.markdown",
+				"/home/matt/Dropbox/documents/typing/allofthem",
+				"/home/matt/Dropbox/documents/coursera/worldhistory/blackdeath",
+				"/home/matt/.berkshelf/default/vagrant/berkshelf-20131029-13878-1h9mb12-default/nginx/attributes/default.rb",
+				"/home/matt/work/mpedigree/sometihng",
+				"/home/matt/work/shop_africa_web/puppet/manifests/webserver.pp",
 				"/home/matt/src/documents/more_h",
 				"/home/matt/work/shop_africa_web/puppet/modules/postgresql/manifests/database_grant.pp",
 				"/home/matt/work/mpedigree/infrastructure_and_deployment/modules/mongodb/manifests/replicaset.pp",
@@ -1974,13 +1980,7 @@
 				"/home/matt/gap/ci-repo/trunk/local-chef/cookbooks/vagrant/recipes/client.rb",
 				"/home/matt/gap/gapChef/roles/ec-agent.json",
 				"/home/matt/gap/gapChef/nodes/dgphxaciap001.phx.gapinc.dev.json",
-				"/home/matt/gap/gapChef/roles/costingIntegration.json",
-				"/home/matt/gap/gapChef/roles/costing.json",
-				"/home/matt/work/gap/service-platform/platform-metrics/build.gradle",
-				"/home/matt/gap/gapChef/cookbooks/gapCommander/attributes/default.rb",
-				"/home/matt/gap/RMS/build.gradle",
-				"/home/matt/work/gap/service-platform/platform-metrics/ci/component-segment.properties",
-				"/home/matt/gap/gapChef/cookbooks/costingIntegration/attributes/default.rb"
+				"/home/matt/gap/gapChef/roles/costingIntegration.json"
 			],
 			"find":
 			{
@@ -2076,6 +2076,7 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"euras",
 					"gem",
 					"username",
 					"download",
@@ -2202,8 +2203,7 @@
 					"configuration",
 					"regional_inventory_mongodb",
 					"credential",
-					"credentials",
-					"merchpay_mongodb"
+					"credentials"
 				],
 				"highlight": true,
 				"in_selection": false,
@@ -2234,28 +2234,34 @@
 				},
 				{
 					"path": "/home/matt/work/shop_africa_web"
+				},
+				{
+					"path": "/home/matt/.berkshelf/default/vagrant"
+				},
+				{
+					"path": "/home/matt/src/mine/iflowfor8hours-blog"
 				}
 			],
 			"groups":
 			[
 				{
-					"selected": 1,
+					"selected": 0,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/home/matt/work/shop_africa_web/puppet/manifests/webserver.pp",
+							"file": "/home/matt/src/mine/iflowfor8hours-blog/presentations.markdown",
 							"settings":
 							{
-								"buffer_size": 4922,
+								"buffer_size": 1244,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										2271,
-										2271
+										386,
+										386
 									]
 								],
 								"settings":
@@ -2327,6 +2333,7 @@
 									[
 									],
 									"pyflakes_ignore_import_*": true,
+									"spell_check": true,
 									"sublimelinter": true,
 									"sublimelinter_delay": 2,
 									"sublimelinter_disable":
@@ -2349,35 +2356,7 @@
 										"Ruby on Rails": "ruby"
 									},
 									"sublimelinter_wrap_find": true,
-									"syntax": "Packages/Puppet/Syntaxes/Puppet.tmLanguage",
-									"tab_size": 2,
-									"translate_tabs_to_spaces": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 1349.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"settings":
-							{
-								"buffer_size": 282,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										282,
-										282
-									]
-								],
-								"settings":
-								{
-									"auto_name": "do some mocks for functionality but build the UI f",
-									"syntax": "Packages/Text/Plain text.tmLanguage"
+									"syntax": "Packages/Markdown/Markdown.tmLanguage"
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
@@ -2427,7 +2406,7 @@
 			{
 				"height": 168.0
 			},
-			"position": "0,1,0,0,0,534,0,1359,714,1366,768",
+			"position": "0,1,0,0,0,0,0,0,0,1366,768",
 			"replace":
 			{
 				"height": 64.0
@@ -2965,7 +2944,7 @@
 			"show_open_files": true,
 			"show_tabs": true,
 			"side_bar_visible": true,
-			"side_bar_width": 205.0,
+			"side_bar_width": 310.0,
 			"status_bar_visible": true,
 			"window_id": 54,
 			"workspace_name": ""
