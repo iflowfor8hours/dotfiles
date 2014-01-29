@@ -388,6 +388,10 @@ function disable_proxy() {
    sed '/^\ \ ProxyCommand/ s/^/#/g' ~/.ssh/config > /dev/null
 }
 
+fundtion enable_proxy() {
+  export http_proxy http://qaproxy.gid.gap.com
+}
+
 function verizon_on() {
   sudo service network-manager stop
   echo 'nameserver 8.8.8.8 \nnameserver 198.224.182.135 \nnameserver 198.224.183.185' | sudo tee -a /etc/resolv.conf
