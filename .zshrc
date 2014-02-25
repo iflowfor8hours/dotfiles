@@ -10,16 +10,9 @@ function \$() {
   "$@"
 }
 
-function loadrvm() {
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
-}
-
 function fixflash() {
 pulseaudio -k
 }
-
-loadrvm
-rvm use 1.9.3 > /dev/null
 
 export LANG=en_US.utf8
 
@@ -369,6 +362,7 @@ alias less='less -FXR'
 alias sublime="/home/matt/dev/Sublime\ Text\ 2/sublime_text &"
 alias tasks='task ls | sort -n'
 alias open='gnome-open'
+alias be='bundle exec'
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
 which vim > /dev/null 2>&1 && alias vi=vim
@@ -449,7 +443,14 @@ PROMPT2='{%_}  '
 PROMPT3='{ … }  '
 
 # autojump
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+. /usr/share/autojump/autojump.sh
 
 # fish highlighting
 source /home/matt/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+
+# no one cares, none of this matters.

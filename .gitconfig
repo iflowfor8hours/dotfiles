@@ -2,7 +2,7 @@
 	name = matt urbanski
 	email = matt@iflowfor8hours.info
 [alias]
-  ll = "!source ~/.githelpers && pretty_git_log"
+  ll = log --oneline --graph --decorate --all
   lm = "!source ~/.githelpers && pretty_git_merges"
   addall = !git add . && git add -u
   co = checkout
@@ -23,7 +23,7 @@
   incoming = !git fetch && git log master ^origin/master
   outgoing = !git fetch && git log origin/master ^master
 [difftool]
-     prompt = false
+  prompt = false
 [core]
   editor = /usr/bin/vim
   quotepath = false
@@ -45,7 +45,5 @@
  changed = green
  untracked = cyan reverse
  branch = magenta
-[diff]
-	external = ~/dotfiles/bin/melddiff
 [push]
 	default = matching
