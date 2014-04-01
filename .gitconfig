@@ -18,6 +18,7 @@
   kill = reset --hard HEAD^
   ps = push -u origin
   br = branch
+  pp = log --oneline --decorate --graph
   type = cat-file -t
   dump = cat-file -p
   incoming = !git fetch && git log master ^origin/master
