@@ -16,6 +16,11 @@ pulseaudio -k
 
 export LANG=en_US.utf8
 
+# go stuff
+export GOPATH="$HOME/src/gospace"
+export PATH=~/src/gospace/bin:$PATH
+export PKG_CONFIG_PATH=/usr/bin/pkg-config
+
 # Revision Control
 
 # Defaults
@@ -50,7 +55,7 @@ setopt hist_save_no_dups         # Don't save duplicate history entries
 setopt hist_ignore_all_dups      # Ignore old command duplicates (in current session)
 
 # These two history options don't flow with my history usage.
-#setopt inc_append_history
+setopt inc_append_history
 #setopt share_history
 
 # changing directories
@@ -448,5 +453,7 @@ source /home/matt/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-
 # no one cares, none of this matters.
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

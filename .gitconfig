@@ -48,3 +48,9 @@
  branch = magenta
 [push]
 	default = matching
+[credential]
+	helper = /home/matt/bin/git-credential-gnome-keyring
+[credential "https://github.rackspace.com"]
+	username = matt1451
+[diff]
+	external = /home/matt/bin/meld-diff

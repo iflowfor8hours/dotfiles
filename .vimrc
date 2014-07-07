@@ -222,3 +222,8 @@ nnoremap <silent> <LocalLeader>b :CommandTBuffer<CR>
 
 " Format json
 nmap <LocalLeader>js  :%!python -m json.tool<cr>
+
+let g:pymode_rope_lookup_project = 0
+
+" Don't fold please
+set foldlevelstart=99
