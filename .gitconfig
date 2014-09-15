@@ -23,6 +23,7 @@
   dump = cat-file -p
   incoming = !git fetch && git log master ^origin/master
   outgoing = !git fetch && git log origin/master ^master
+  sed = ! git grep -z --full-name -l '.' | xargs -0 sed -i -e
 [difftool]
   prompt = false
 [core]
@@ -52,5 +53,5 @@
 	helper = /home/matt/bin/git-credential-gnome-keyring
 [credential "https://github.rackspace.com"]
 	username = matt1451
-[diff]
-	external = /home/matt/bin/meld-diff
+[gitreview]
+	username = iflowfor8hours

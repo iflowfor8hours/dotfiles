@@ -364,6 +364,7 @@ alias sublime="/home/matt/dev/Sublime\ Text\ 2/sublime_text &"
 alias tasks='task ls | sort -n'
 alias open='gnome-open'
 alias be='bundle exec'
+alias t='task'
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
 which vim > /dev/null 2>&1 && alias vi=vim
@@ -457,3 +458,10 @@ eval "$(rbenv init -)"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# aws crap
+source /home/matt/.ssh/awscreds
+export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.1.0
+export PATH=$PATH:$EC2_HOME/bin 
+setxkbmap -option caps:ctrl_modifier
+source ~/.fzf.zsh
