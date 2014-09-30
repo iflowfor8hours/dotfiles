@@ -365,6 +365,8 @@ alias tasks='task ls | sort -n'
 alias open='gnome-open'
 alias be='bundle exec'
 alias t='task'
+alias dim='redshift -o'
+
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
 which vim > /dev/null 2>&1 && alias vi=vim
