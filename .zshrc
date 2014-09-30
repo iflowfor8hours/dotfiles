@@ -366,6 +366,7 @@ alias open='gnome-open'
 alias be='bundle exec'
 alias t='task'
 alias dim='redshift -o'
+alias undim='redshift -x'
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
