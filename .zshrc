@@ -10,18 +10,12 @@ function \$() {
   "$@"
 }
 
-function fixflash() {
-pulseaudio -k
-}
-
 export LANG=en_US.utf8
 
 # go stuff
 export GOPATH="$HOME/src/gospace"
 export PATH=~/src/gospace/bin:$PATH
 export PKG_CONFIG_PATH=/usr/bin/pkg-config
-
-# Revision Control
 
 # Defaults
 PSARGS=-ax
@@ -367,29 +361,15 @@ alias be='bundle exec'
 alias t='task'
 alias dim='redshift -o'
 alias undim='redshift -x'
+alias mandim='redshift -c /home/matt/.config/redshift.conf'
+alias dockercleanimages='docker rmi $(docker images -q --filter "dangling=true")'
+# alias dockercleanps='docker rm $(docker ps -a | grep Exited | awk \'{print $1}\')'
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
 which vim > /dev/null 2>&1 && alias vi=vim
 
-# -- Variables --
-# export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
-# export GROOVY_HOME=/usr/local/Cellar/groovy/2.0.0/libexec
-
-
 # -- Proxy Settings --
-
-function disable_proxy() {
-   unset http_proxy
-   unset https_proxy
-   unset ftp_proxy
-   unset no_proxy
-   sed '/^\ \ ProxyCommand/ s/^/#/g' ~/.ssh/config > /dev/null
-}
-
-fundtion enable_proxy() {
-  export http_proxy http://qaproxy.gid.gap.com
-}
 
 function verizon_on() {
   sudo service network-manager stop
@@ -410,10 +390,6 @@ function colemak() {
 function qwfpg() {
   setxkbmap us
   xset -r 66
-}
-
-function work_offline() {
-  sudo /etc/init.d/pulse stop 
 }
 
 function enable_status_bar() {
