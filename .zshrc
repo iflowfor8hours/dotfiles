@@ -1,4 +1,4 @@
-# Lots of command examples (especially heroku) lead command docs with '$' which
+#Lots of command examples (especially heroku) lead command docs with '$' which
 # make it kind of annoying to copy/paste, especially when there's multiple
 # commands to copy.
 #
@@ -13,8 +13,9 @@ function \$() {
 export LANG=en_US.utf8
 
 # go stuff
+export GOROOT="$HOME/dev/go"
 export GOPATH="$HOME/src/gospace"
-export PATH=~/src/gospace/bin:$PATH
+export PATH="/home/matt/dev/go/bin:$HOME/src/gospace/bin:$PATH"
 export PKG_CONFIG_PATH=/usr/bin/pkg-config
 
 # Defaults
@@ -352,7 +353,7 @@ alias e='sublime -n'
 alias df='df -h'
 alias du='du -sh'
 alias cls='clear'
-alias gradle='/home/matt/bin/gradle-1.2/bin/gradle --daemon'
+alias gradle='/home/matt/bin/gradle-2.1/bin/gradle --daemon'
 alias less='less -FXR'
 alias sublime="/home/matt/dev/Sublime\ Text\ 2/sublime_text &"
 alias tasks='task ls | sort -n'
@@ -363,7 +364,7 @@ alias dim='redshift -o'
 alias undim='redshift -x'
 alias mandim='redshift -c /home/matt/.config/redshift.conf'
 alias dockercleanimages='docker rmi $(docker images -q --filter "dangling=true")'
-# alias dockercleanps='docker rm $(docker ps -a | grep Exited | awk \'{print $1}\')'
+alias dockercleanps='docker rm `docker ps --no-trunc -aq`'
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
