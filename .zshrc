@@ -17,6 +17,7 @@ export GOROOT="$HOME/dev/go"
 export GOPATH="$HOME/src/gospace"
 export PATH="/home/matt/dev/go/bin:$HOME/src/gospace/bin:$PATH"
 export PKG_CONFIG_PATH=/usr/bin/pkg-config
+export VAGRANT_DEFALT_PROVIDER="virtualbox"
 
 # Defaults
 PSARGS=-ax
@@ -378,6 +379,14 @@ function verizon_on() {
   sudo wvdial Verizon4GLTE &
 }
 
+function apple_keys() {
+echo 1 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd
+}
+
+function no_apple_keys() {
+echo 0 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd
+}
+
 function verizon_off() {
   sudo service network-manager start
   sudo killall wvdial
@@ -425,7 +434,7 @@ PROMPT2='{%_}  '
 PROMPT3='{ … }  '
 
 # autojump
-. /usr/share/autojump/autojump.sh
+. /usr/share/autojump/autojump.zsh
 
 # fish highlighting
 source /home/matt/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -440,8 +449,8 @@ eval "$(rbenv init -)"
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # aws crap
-source /home/matt/.ssh/awscreds
-export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.1.0
-export PATH=$PATH:$EC2_HOME/bin 
+#source /home/matt/.ssh/awscreds
+#export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.1.0
+#export PATH=$PATH:$EC2_HOME/bin 
 setxkbmap -option caps:ctrl_modifier
 source ~/.fzf.zsh

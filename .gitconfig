@@ -29,7 +29,6 @@
 [core]
   editor = /usr/bin/vim
   quotepath = false
-  excludesfile = /home/matt/.gitignore
 	autocrlf = input
   # safecrlf = true
 [gc]

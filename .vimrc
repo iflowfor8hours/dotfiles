@@ -63,6 +63,7 @@ set visualbell t_vb=          " Disable ALL bells
 set cursorline                " show the cursor line
 "set list                      " show whitespace where I care"
 set matchpairs+=<:>           " add < and > to match pairs
+set shell=bash
 
 "don't use the backup files or swap files, they are annoying to look at
 set nobackup
