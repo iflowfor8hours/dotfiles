@@ -49,8 +49,14 @@
 [push]
 	default = matching
 [credential]
-	helper = /home/matt/bin/git-credential-gnome-keyring
+	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 [credential "https://github.rackspace.com"]
 	username = matt1451
 [gitreview]
 	username = iflowfor8hours
+
+[pull]
+  rebase = true
+
+[rebase]
+  stat = true

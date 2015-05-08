@@ -14,10 +14,13 @@ export LANG=en_US.utf8
 
 # go stuff
 export GOROOT="$HOME/dev/go"
-export GOPATH="$HOME/src/gospace"
+export GOPATH="$HOME/dev/gospace"
 export PATH="/home/matt/dev/go/bin:$HOME/src/gospace/bin:$PATH"
 export PKG_CONFIG_PATH=/usr/bin/pkg-config
 export VAGRANT_DEFALT_PROVIDER="virtualbox"
+
+# java stuff
+export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:bin/javac::")
 
 # Defaults
 PSARGS=-ax
@@ -122,7 +125,7 @@ function delpaths {
 BASE_PATHS="/bin /usr/bin /sbin /usr/sbin"
 X_PATHS="/usr/X11R6/bin /usr/dt/bin /usr/X/bin"
 LOCAL_PATHS="/usr/local/bin /usr/local/gnu/bin"
-HOME_PATHS="~/bin ~/.screenlayout"
+HOME_PATHS="~/bin ~/.screenlayout ~/.local/bin"
 addpaths $=BASE_PATHS $=X_PATHS $=LOCAL_PATHS $=SOLARIS_PATHS $=HOME_PATHS
 PATH="$HOME/bin:$HOME/local/bin:$PATH"
 
@@ -338,6 +341,8 @@ zstyle ':completion:*:options' auto-description '%d'
 zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m'
 zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
 zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
+zstyle ':completion:*:*:git:*' script ~/dotfiles/zsh/git-completion.zsh           
+
 
 # -- Aliases --
 alias ls='ls -G --color=auto'
@@ -354,9 +359,7 @@ alias e='sublime -n'
 alias df='df -h'
 alias du='du -sh'
 alias cls='clear'
-alias gradle='/home/matt/bin/gradle-2.1/bin/gradle --daemon'
 alias less='less -FXR'
-alias sublime="/home/matt/dev/Sublime\ Text\ 2/sublime_text &"
 alias tasks='task ls | sort -n'
 alias open='gnome-open'
 alias be='bundle exec'
@@ -373,24 +376,12 @@ which vim > /dev/null 2>&1 && alias vi=vim
 
 # -- Proxy Settings --
 
-function verizon_on() {
-  sudo service network-manager stop
-  echo 'nameserver 8.8.8.8 \nnameserver 198.224.182.135 \nnameserver 198.224.183.185' | sudo tee -a /etc/resolv.conf
-  sudo wvdial Verizon4GLTE &
-}
-
 function apple_keys() {
 echo 1 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd
 }
 
 function no_apple_keys() {
 echo 0 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd
-}
-
-function verizon_off() {
-  sudo service network-manager start
-  sudo killall wvdial
-  echo '' | sudo tee /etc/resolv.conf
 }
 
 function colemak() {
@@ -425,6 +416,11 @@ function prompt_char {
    echo "${WARN}$"
 }
 
+function gds-release {
+  export IDAP_BUILD_TOKEN=1885dee81c1ccc099719e6f0a4f47bf3
+  export IDAP_BUILD_USER=matturbanski
+}
+
 PROMPT='%m %{$fg[yellow]%}${PWD/#$HOME/~}${vcs_info_msg_0_}%{$reset_color%}%(!.%{$fg[green]%}.%{$fg[red]%}) $(prompt_char)%{$reset_color%} '
 
 # -- Loop prompt --
@@ -452,5 +448,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 #source /home/matt/.ssh/awscreds
 #export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.1.0
 #export PATH=$PATH:$EC2_HOME/bin 
+export ANSIBLE_NOCOWS=1
 setxkbmap -option caps:ctrl_modifier
 source ~/.fzf.zsh

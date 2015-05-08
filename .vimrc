@@ -28,8 +28,8 @@ noremap <C-p> :tabprev<CR>
 set guicursor=a:block-blinkoff1
 
 " Use the arrows to something usefull
-map <right> :bnext!<cr>
-map <left> :bprevious!<cr>
+" map <right> :bnext!<cr>
+" map <left> :bprevious!<cr>
 map <C-D> :bd<cr>
 
 " operational settings
