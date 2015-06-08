@@ -227,4 +227,7 @@ nmap <LocalLeader>js  :%!python -m json.tool<cr>
 let g:pymode_rope_lookup_project = 0
 
 " Don't fold please
-set foldlevelstart=99
+set foldlevelstart=10
+" disable folding
+set nofoldenable
+let g:vim_markdown_folding_disabled=1

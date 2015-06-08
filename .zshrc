@@ -125,7 +125,7 @@ function delpaths {
 BASE_PATHS="/bin /usr/bin /sbin /usr/sbin"
 X_PATHS="/usr/X11R6/bin /usr/dt/bin /usr/X/bin"
 LOCAL_PATHS="/usr/local/bin /usr/local/gnu/bin"
-HOME_PATHS="~/bin ~/.screenlayout ~/.local/bin"
+HOME_PATHS="~/bin ~/.screenlayout ~/.local/bin ~/.cask/bin"
 addpaths $=BASE_PATHS $=X_PATHS $=LOCAL_PATHS $=SOLARIS_PATHS $=HOME_PATHS
 PATH="$HOME/bin:$HOME/local/bin:$PATH"
 
