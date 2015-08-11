@@ -369,6 +369,8 @@ alias undim='redshift -x'
 alias mandim='redshift -c /home/matt/.config/redshift.conf'
 alias dockercleanimages='docker rmi $(docker images -q --filter "dangling=true")'
 alias dockercleanps='docker rm `docker ps --no-trunc -aq`'
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
@@ -451,3 +453,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export ANSIBLE_NOCOWS=1
 setxkbmap -option caps:ctrl_modifier
 source ~/.fzf.zsh
+
+
+export IDAP_BUILD_TOKEN=1885dee81c1ccc099719e6f0a4f47bf3
+export IDAP_BUILD_USER=matturbanski

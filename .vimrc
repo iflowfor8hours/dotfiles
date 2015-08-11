@@ -79,6 +79,7 @@ nnoremap [[ ?{<CR>w99[{
 nnoremap ][ /}<CR>b99]}
 nnoremap ]] j0[[%/{<CR>
 nnoremap [] k$][%?}<CR>
+nnoremap ; :
 
 set dictionary=/usr/share/dict/words " more words!
 
