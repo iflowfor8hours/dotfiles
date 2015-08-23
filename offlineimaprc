@@ -1,0 +1,37 @@
+[general]
+accounts = FastMail
+metadata = ~/mail/.offlineimap
+maxsyncaccounts = 3
+
+#ui = quiet
+ui = ttyui
+
+[Account FastMail]
+localrepository = LocalFM
+remoterepository = RemoteFM
+autorefresh = 5
+quick = 5
+presynchook = date -Is
+postsynchook = /usr/bin/notmuch new
+
+[Repository LocalFM]
+type = Maildir
+localfolders = ~/mail/fastmail
+restoreatime = no
+createfolders = True
+#subscribedonly = no
+#sep = /
+
+[Repository RemoteFM]
+type = IMAP
+remotehost = mail.messagingengine.com
+remoteuser = matthewurbanski@fastmail.com
+remotepassfile = ~/.config/offlineimap/matt.iflowfor8hours.info
+ssl = yes
+cert_fingerprint = 958b1601563aef92607a41eb5bad22e3cace8431
+holdconnectionopen = yes
+expunge = no
+#folderfilter = lambda foldername: foldername not in ['INBOX.Trash']
+#folderfilter = lambda foldername: foldername not in ['[Gmail]/Spam','[Gmail]/Trash']
+maxconnections = 10
+createfolders = False

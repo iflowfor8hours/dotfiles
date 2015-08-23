@@ -125,7 +125,7 @@ function delpaths {
 BASE_PATHS="/bin /usr/bin /sbin /usr/sbin"
 X_PATHS="/usr/X11R6/bin /usr/dt/bin /usr/X/bin"
 LOCAL_PATHS="/usr/local/bin /usr/local/gnu/bin"
-HOME_PATHS="~/bin ~/.screenlayout ~/.local/bin ~/.cask/bin"
+HOME_PATHS="~/bin ~/.screenlayout ~/.local/bin"
 addpaths $=BASE_PATHS $=X_PATHS $=LOCAL_PATHS $=SOLARIS_PATHS $=HOME_PATHS
 PATH="$HOME/bin:$HOME/local/bin:$PATH"
 
@@ -418,11 +418,6 @@ function prompt_char {
    echo "${WARN}$"
 }
 
-function gds-release {
-  export IDAP_BUILD_TOKEN=1885dee81c1ccc099719e6f0a4f47bf3
-  export IDAP_BUILD_USER=matturbanski
-}
-
 PROMPT='%m %{$fg[yellow]%}${PWD/#$HOME/~}${vcs_info_msg_0_}%{$reset_color%}%(!.%{$fg[green]%}.%{$fg[red]%}) $(prompt_char)%{$reset_color%} '
 
 # -- Loop prompt --
@@ -453,7 +448,3 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export ANSIBLE_NOCOWS=1
 setxkbmap -option caps:ctrl_modifier
 source ~/.fzf.zsh
-
-
-export IDAP_BUILD_TOKEN=1885dee81c1ccc099719e6f0a4f47bf3
-export IDAP_BUILD_USER=matturbanski
