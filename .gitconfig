@@ -1,6 +1,6 @@
 [user]
 	name = matt urbanski
-	email = matt@iflowfor8hours.info
+	email = matt.urbanski@digital.cabinet-office.gov.uk
 [alias]
   ll = log --oneline --graph --decorate --all
   lm = "!source ~/.githelpers && pretty_git_merges"
