@@ -28,8 +28,8 @@ noremap <C-p> :tabprev<CR>
 set guicursor=a:block-blinkoff1
 
 " Use the arrows to something usefull
-" map <right> :bnext!<cr>
-" map <left> :bprevious!<cr>
+map <right> :bnext!<cr>
+map <left> :bprevious!<cr>
 map <C-D> :bd<cr>
 
 " operational settings
@@ -141,7 +141,7 @@ set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
 set history=2000
 
 " ---------------------------------------------------------------------------
-" spelling...
+" spelling checker, toggle with ,ss or F6
 if v:version >= 700
 
       setlocal spell spelllang=en
