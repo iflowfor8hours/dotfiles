@@ -218,7 +218,7 @@ let g:ConqueTerm_ReadUnfocused = 1
 let g:ConqueTerm_TERM = 'xterm'
 
 " Command-T plugin
-set wildignore+=*.o,*.so,*.6,*.pyc,build,vendor,tmp,.git
+set wildignore+=*.o,*.so,*.6,*.pyc,build,tmp,.git
 nnoremap <silent> <LocalLeader>t :execute "CommandT " . b:gitroot<CR>
 nnoremap <silent> <LocalLeader>b :CommandTBuffer<CR>
 
