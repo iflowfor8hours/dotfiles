@@ -203,6 +203,8 @@ imap jj <Esc>
 
 " improved formatting for markdown
 autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:>
+au! BufRead,BufNewFile *.markdown set filetype=mkd
+au! BufRead,BufNewFile *.md       set filetype=mkd
 
 " set list to activate whitespace detection mode
 au BufNewFile,BufRead *.less set filetype=less
