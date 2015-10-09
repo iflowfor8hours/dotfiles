@@ -351,11 +351,9 @@ alias mkdir='mkdir -p'
 alias cp='cp -R'
 alias chown='chown -R'
 alias chmod='chmod -R'
-alias pp='cd ~/Projects'
 alias grep='grep --color=auto --exclude-dir=.git --exclude-dir=.svn'
 alias vm='VBoxManage'
 alias rspec='rspec --color --format documentation'
-alias e='sublime -n'
 alias df='df -h'
 alias du='du -sh'
 alias cls='clear'
@@ -376,8 +374,7 @@ unalias rm mv cp 2> /dev/null || true # no -i madness
 
 which vim > /dev/null 2>&1 && alias vi=vim
 
-# -- Proxy Settings --
-
+# Keyboard nonsense
 function apple_keys() {
 echo 1 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd
 }
@@ -393,15 +390,6 @@ function colemak() {
 function qwfpg() {
   setxkbmap us
   xset -r 66
-}
-
-function enable_status_bar() {
-  i3status -c ~/.i3/i3status.conf | dzen2 -fg white -fn "-misc-fixed-medium-r-normal--10-100-75-75-c-60-iso8859-1" -bg black -ta r -w 800 -x 568 -y 756
-}
-
-function disable_status_bar() {
-  pkill i3status
-  pkill dzen2
 }
 
 autoload -Uz vcs_info
@@ -442,9 +430,6 @@ eval "$(rbenv init -)"
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # aws crap
-#source /home/matt/.ssh/awscreds
-#export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.1.0
-#export PATH=$PATH:$EC2_HOME/bin 
 export ANSIBLE_NOCOWS=1
 setxkbmap -option caps:ctrl_modifier
 source ~/.fzf.zsh

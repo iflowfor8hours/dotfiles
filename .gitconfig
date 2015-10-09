@@ -1,16 +1,14 @@
 [user]
 	name = matt urbanski
-	email = matt.urbanski@digital.cabinet-office.gov.uk
+	email = matt.urbanski@iflowfor8hours.info
 [alias]
   ll = log --oneline --graph --decorate --all
-  lm = "!source ~/.githelpers && pretty_git_merges"
   addall = !git add . && git add -u
   co = checkout
   dt = difftool
   st = status
   ss = status -s
   ci = !git add -A && git pull --rebase && git commit
-  aci = "!source ~/.githelpers && what_the_commit"
   amend = commit --amend
   cp = cherry-pick -x
   unstage = reset HEAD
@@ -19,8 +17,6 @@
   ps = push -u origin
   br = branch
   pp = log --oneline --decorate --graph
-  type = cat-file -t
-  dump = cat-file -p
   incoming = !git fetch && git log master ^origin/master
   outgoing = !git fetch && git log origin/master ^master
   sed = ! git grep -z --full-name -l '.' | xargs -0 sed -i -e
@@ -30,7 +26,6 @@
   editor = /usr/bin/vim
   quotepath = false
 	autocrlf = input
-  # safecrlf = true
 [gc]
      auto = 1
 [merge]
@@ -50,8 +45,6 @@
 	default = matching
 [credential]
 	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
-[credential "https://github.rackspace.com"]
-	username = matt1451
 [gitreview]
 	username = iflowfor8hours
 

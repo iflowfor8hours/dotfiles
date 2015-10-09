@@ -208,16 +208,7 @@ au! BufRead,BufNewFile *.md       set filetype=mkd
 
 " set list to activate whitespace detection mode
 au BufNewFile,BufRead *.less set filetype=less
-
 au BufRead,BufNewFile {Vagrantfile,Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
-
-" For the conque shell plugin
-nnoremap <LocalLeader>te :ConqueTermSplit zsh<CR>                            
-
-" Don't go into insert mode when the buffer is focused
-let g:ConqueTerm_InsertOnEnter = 0
-let g:ConqueTerm_ReadUnfocused = 1
-let g:ConqueTerm_TERM = 'xterm'
 
 " Command-T plugin
 set wildignore+=*.o,*.so,*.6,*.pyc,build,tmp,.git
@@ -234,3 +225,5 @@ set foldlevelstart=10
 " disable folding
 set nofoldenable
 let g:vim_markdown_folding_disabled=1
+
+set rtp+=~/.fzf
