@@ -2,6 +2,7 @@
 
 # install fzf rbenv ruby-build
 # automate ctrl to caps rebind
+# map f1 to escape somehow
 
 sudo add-apt-repo ppa:git-core/ppa
 sudo apt-get update

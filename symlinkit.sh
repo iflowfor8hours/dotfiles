@@ -11,5 +11,5 @@ ln -sn dotfiles/.irssi ~/.irssi
 ln -sn dotfiles/.gitconfig ~/.gitconfig
 ln -sn dotfiles/.zshrc ~/.zshrc
 ln -sn ~/dotfiles/redshift.conf ~/.config/redshift.conf
-ln -sn dev/.gitconfig ~/.gitconfig
-ln -sn dev/Sublime\ Text\ 2/sublime_text dotfiles/bin/sublime
+ln -sn ~/dotfiles/.Xresources ~/.Xresources
+ln -sn ~/dotfiles/.config/terminator ~/.config/terminator
