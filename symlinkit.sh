@@ -13,3 +13,5 @@ ln -sn dotfiles/.zshrc ~/.zshrc
 ln -sn ~/dotfiles/redshift.conf ~/.config/redshift.conf
 ln -sn ~/dotfiles/.Xresources ~/.Xresources
 ln -sn ~/dotfiles/.config/terminator ~/.config/terminator
+ln -sn ~/dotfiles/muttrc ~/.muttrc
+ln -sn ~/dotfiles/offlineimaprc ~/.offlineimaprc

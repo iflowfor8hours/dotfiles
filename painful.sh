@@ -3,11 +3,12 @@
 # install fzf rbenv ruby-build
 # automate ctrl to caps rebind
 # map f1 to escape somehow
+# add notmuch config
 
 sudo add-apt-repo ppa:git-core/ppa
 sudo apt-get update
 
-sudo apt-get install mc gnome-commander git vim zsh htop kupfer libgnutls-dev build-essential cmake libuuid1 libuu-dev libuu0 uuid-dev terminator autojump mutt-patched exuberant-ctags offlineimap redshift
+sudo apt-get install mc gnome-commander git vim zsh htop kupfer libgnutls-dev build-essential cmake libuuid1 libuu-dev libuu0 uuid-dev terminator autojump mutt-patched exuberant-ctags offlineimap redshift sqlite notmuch-mutt
 
 # Taskwarrior
 mkdir -p /tmp/taskinstaller
@@ -26,4 +27,11 @@ git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-bu
 # fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+
+# mail stuff
+mkdir -p ~/Mail/fastmail
+mkdir -p /home/matt/Mail/.offlineimap
+mkdir -p ~/.config/offlineimap/
+touch ~/.config/offlineimap/matt.iflowfor8hours.info
+echo "Add your password to ~/.config/offlineimap/matt.iflowfor8hours.info"
 
