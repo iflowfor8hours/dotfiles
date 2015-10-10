@@ -1,26 +1,29 @@
 [global_config]
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, Logger, LaunchpadBugURLHandler
+  suppress_multiple_term_dialog = True
+  borderless = True
 [keybindings]
+  toggle_zoom = <Primary><Shift>x
   go_up = <Alt>k
-  switch_to_tab_10 = <Alt>0
+  switch_to_tab_10 = XF86WakeUp
   switch_to_tab_4 = <Alt>4
-  switch_to_tab_6 = <Alt>6
-  switch_to_tab_7 = <Alt>7
   go_down = <Alt>j
-  switch_to_tab_5 = <Alt>5
   switch_to_tab_2 = <Alt>2
   go_right = <Alt>l
   switch_to_tab_1 = <Alt>1
   go_left = <Alt>h
-  switch_to_tab_9 = <Alt>9
-  switch_to_tab_8 = <Alt>8
   switch_to_tab_3 = <Alt>3
 [profiles]
   [[default]]
+    scrollbar_position = hidden
     use_system_font = False
-    font = Source Code Pro Medium 10
+    background_image = None
+    foreground_color = "#b3b3b3"
+    scroll_on_output = False
+    show_titlebar = False
+    font = Source Code Pro Medium 14
+    background_color = "#131926"
     scrollback_infinite = True
-    cursor_color = "#ffffff"
-    cursor_blink = False
 [layouts]
   [[default]]
     [[[child1]]]
@@ -29,20 +32,20 @@
     [[[window0]]]
       type = Window
       parent = ""
-  [[godlike]]
+  [[perfect]]
     [[[child0]]]
       position = 0:0
       type = Window
       order = 0
       parent = ""
-      size = 1366, 715
+      size = 1366, 719
     [[[child1]]]
-      position = 683
+      position = 682
       type = HPaned
       order = 0
       parent = child0
     [[[child3]]]
-      position = 357
+      position = 359
       type = VPaned
       order = 1
       parent = child1
