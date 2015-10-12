@@ -6,7 +6,7 @@
 sudo add-apt-repo ppa:git-core/ppa
 sudo apt-get update
 
-sudo apt-get install mc gnome-commander git vim zsh htop kupfer libgnutls-dev build-essential cmake libuuid1 libuu-dev libuu0 uuid-dev terminator autojump mutt-patched exuberant-ctags offlineimap redshift sqlite notmuch-mutt urlview pgp abook tmux python-pip ack-grep
+sudo apt-get install mc gnome-commander git vim zsh htop kupfer libgnutls-dev build-essential cmake libuuid1 libuu-dev libuu0 uuid-dev terminator autojump mutt-patched exuberant-ctags offlineimap redshift sqlite notmuch-mutt urlview pgp abook tmux python-pip ack-grep arandr python-virtualenv msmtp
 
 # Taskwarrior
 mkdir -p /home/matt/.task/
@@ -19,8 +19,6 @@ cmake -DCMAKE_BUILD_TYPE=release .
 make
 sudo make install
 
-
-
 # rbenv
 cd ~
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
@@ -30,10 +28,15 @@ git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-bu
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
+# logging
+mkdir -p ~/.logs
+
 # mail stuff
 mkdir -p ~/Mail/fastmail
 mkdir -p /home/matt/Mail/.mutt/mailboxes
 mkdir -p /home/matt/Mail/.offlineimap
 mkdir -p ~/.config/offlineimap/
+mkdir -p ~/.logs/msmtp
+touch ~/.logs/msmtp/fastmail.log
 touch ~/.config/offlineimap/matt.iflowfor8hours.info
 echo "Add your password to ~/.config/offlineimap/matt.iflowfor8hours.info"

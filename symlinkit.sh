@@ -14,6 +14,7 @@ ln -sn dotfiles/.tmux.conf ~/.tmux.conf
 ln -sn ~/dotfiles/redshift.conf ~/.config/redshift.conf
 ln -sn ~/dotfiles/.Xresources ~/.Xresources
 ln -sn ~/dotfiles/.config/terminator ~/.config/terminator
-ln -sn ~/dotfiles/muttrc ~/.muttrc
-ln -sn ~/dotfiles/offlineimaprc ~/.offlineimaprc
+ln -sn ~/dotfiles/.muttrc ~/.muttrc
+ln -sn ~/dotfiles/.offlineimaprc ~/.offlineimaprc
 ln -sn ~/dotfiles/.taskrc ~/.taskrc
+ln -sn ~/dotfiles/.msmtprc ~/.msmtprc

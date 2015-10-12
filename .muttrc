@@ -5,7 +5,6 @@ set sidebar_delim=' |'
 mailboxes =fastmail/INBOX
 macro index b '<enter-command>toggle sidebar_visible<enter>'
 macro pager b '<enter-command>toggle sidebar_visible<enter>'
-bind index B bounce-message
 
 # GPG
 source /usr/share/doc/mutt/examples/gpg.rc
@@ -35,6 +34,31 @@ set folder           = ~/Mail/fastmail # mailbox location
 
 # Default inbox.
 set spoolfile = "+INBOX"
+
+# PGP {{{
+set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
+set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
+set pgp_decrypt_command="gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
+set pgp_sign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_clearsign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
+set pgp_import_command="gpg --no-verbose --import -v %f"
+set pgp_export_command="gpg --no-verbose --export --armor %r"
+set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
+set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r"
+set crypt_verify_sig=yes
+set pgp_use_gpg_agent = yes
+set pgp_sign_as = DF8AAEA5
+set pgp_timeout = 3600
+set crypt_autosign = yes
+set crypt_replyencrypt = yes
+message-hook '!(~g|~G) ~b"^-----BEGIN\ PGP\ (SIGNED\ )?MESSAGE"' "exec check-traditional-pgp"
+
+# set these in .mutt-local with the appropriate encrypt-to key id
+set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 0xDF8AAEA5 -- -r %r -- %f"
+set pgp_encrypt_sign_command="pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0xDF8AAEA5 -- -r %r -- %f"
+
+# }}}
 
 
 # Basic Options --------------------------------------
@@ -146,9 +170,8 @@ set editor = "/usr/bin/vim -c 'normal! }' -c 'redraw'"
 
 # Sending email.
 set from     = "matt@iflowfor8hours.info"
-set sendmail = "/usr/local/bin/msmtp -a matt"
+set sendmail = "/usr/bin/msmtp -a fastmail"
 set sendmail_wait = 0 # no please don't silently fail, email is important
 unset record
-
 
 macro index S "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt -p -o ~/Mail/temporary/search search<enter><change-folder-readonly>+temporary/search<enter>"
