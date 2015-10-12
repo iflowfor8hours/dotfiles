@@ -15,3 +15,4 @@ ln -sn ~/dotfiles/.Xresources ~/.Xresources
 ln -sn ~/dotfiles/.config/terminator ~/.config/terminator
 ln -sn ~/dotfiles/muttrc ~/.muttrc
 ln -sn ~/dotfiles/offlineimaprc ~/.offlineimaprc
+ln -sn ~/dotfiles/.taskrc ~/.taskrc

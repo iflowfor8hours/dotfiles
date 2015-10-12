@@ -20,6 +20,8 @@ cmake -DCMAKE_BUILD_TYPE=release .
 make
 sudo make install
 
+mkdir -p /home/matt/.task/
+
 # rbenv
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
