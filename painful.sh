@@ -1,14 +1,12 @@
 #!/bin/bash
 
-# install fzf rbenv ruby-build
 # automate ctrl to caps rebind
 # map f1 to escape somehow
-# add notmuch config
 
 sudo add-apt-repo ppa:git-core/ppa
 sudo apt-get update
 
-sudo apt-get install mc gnome-commander git vim zsh htop kupfer libgnutls-dev build-essential cmake libuuid1 libuu-dev libuu0 uuid-dev terminator autojump mutt-patched exuberant-ctags offlineimap redshift sqlite notmuch-mutt
+sudo apt-get install mc gnome-commander git vim zsh htop kupfer libgnutls-dev build-essential cmake libuuid1 libuu-dev libuu0 uuid-dev terminator autojump mutt-patched exuberant-ctags offlineimap redshift sqlite notmuch-mutt urlview pgp abook tmux python-pip ack-grep
 
 # Taskwarrior
 mkdir -p /home/matt/.task/
@@ -34,6 +32,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 # mail stuff
 mkdir -p ~/Mail/fastmail
+mkdir -p /home/matt/Mail/.mutt/mailboxes
 mkdir -p /home/matt/Mail/.offlineimap
 mkdir -p ~/.config/offlineimap/
 touch ~/.config/offlineimap/matt.iflowfor8hours.info

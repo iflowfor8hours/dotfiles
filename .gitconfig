@@ -20,6 +20,15 @@
   incoming = !git fetch && git log master ^origin/master
   outgoing = !git fetch && git log origin/master ^master
   sed = ! git grep -z --full-name -l '.' | xargs -0 sed -i -e
+
+  root = rev-parse --show-toplevel
+  d = "!sh -c 'git diff $* | vim -R -' -"
+  di = !git diff --cached | vim -R -
+
+
+    shelve = stash save --include-untracked
+    unshelve = stash pop
+              
 [difftool]
   prompt = false
 [core]
@@ -32,6 +41,10 @@
      summary = true
 [color]
  ui = true
+ branch = auto
+ diff = auto
+ interactive = auto
+ status = auto
 [color "branch"]
  current = yellow black
  local = yellow
@@ -42,7 +55,7 @@
  untracked = cyan reverse
  branch = magenta
 [push]
-	default = matching
+  default = current
 [credential]
 	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 [gitreview]
