@@ -1,3 +1,0 @@
-#!/bin/bash
-PWD=$HOME
-tarsnap -v -c -f `date +"%m-%d-%y"` dotfiles Documents  .git .history_zsh irclogs mails .mutt .muttrc .muttrc-online passwords .offlineimap .profile .purple/ .rtorrent.rc src .task .taskrc .tmux.conf work .zprofile Dropbox/documents

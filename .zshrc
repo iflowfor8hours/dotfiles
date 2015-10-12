@@ -369,6 +369,7 @@ alias dockercleanimages='docker rmi $(docker images -q --filter "dangling=true")
 alias dockercleanps='docker rm `docker ps --no-trunc -aq`'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
+alias mutt 'cd ~/Desktop && mutt-patched'
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 

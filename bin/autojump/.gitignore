@@ -1,6 +1,0 @@
-tags
-bin/autojump.py
-*.pyc
-*~
-*.tar.gz
-*.patch

@@ -28,7 +28,7 @@ set folder           = ~/Mail/fastmail # mailbox location
 #set header_cache     = ~/.mutt/cache/headers # where to store headers
 #set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
 #set certificate_file = ~/.mutt/certificates  # where to store certs
-#set mailcap_path     = ~/.mutt/mailcap       # entries for filetypes
+set mailcap_path     = ~/.mutt/mailcap       # entries for filetypes
 #set tmpdir           = ~/.mutt/temp          # where to keep temp files
 #set signature        = ~/.mutt/sig           # my signature file
 
@@ -48,16 +48,15 @@ set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys
 set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r"
 set crypt_verify_sig=yes
 set pgp_use_gpg_agent = yes
-set pgp_sign_as = DF8AAEA5
+set pgp_sign_as = 0xDF8AAEA5
 set pgp_timeout = 3600
-set crypt_autosign = yes
+#set crypt_autosign = yes
 set crypt_replyencrypt = yes
 message-hook '!(~g|~G) ~b"^-----BEGIN\ PGP\ (SIGNED\ )?MESSAGE"' "exec check-traditional-pgp"
 
 # set these in .mutt-local with the appropriate encrypt-to key id
 set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 0xDF8AAEA5 -- -r %r -- %f"
 set pgp_encrypt_sign_command="pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0xDF8AAEA5 -- -r %r -- %f"
-
 # }}}
 
 
@@ -115,12 +114,18 @@ macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "ma
 
 # Sync email
 macro index O "<shell-escape>offlineimap -o<enter>"           "run offlineimap to sync all mail"
-macro index o "<shell-escape>offlineimap -oqf INBOX<enter>" "run offlineimap to sync inbox"
+macro index o "<shell-escape>offlineimap -oqf INBOX,INBOX.Sent,INBOX.Drafts<enter>" "run offlineimap to sync inbox"
 macro index p "<shell-escape>offlineimap --dry-run -oqf INBOX<enter>" "run offlineimap to sync inbox"
 
 # Saner copy/move dialogs
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+
+# Quickly change mailboxes
+macro index c "<change-folder>?<toggle-mailboxes>"     "change folder"
+macro index \' "<change-folder>+INBOX<enter>"   "go to INBOX"
+macro index \" "<change-folder>+archive<enter>" "go to archive"
 
 # Sidebar Navigation ---------------------------------
 bind index,pager <down>   sidebar-next

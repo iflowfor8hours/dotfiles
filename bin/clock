@@ -1,6 +1,0 @@
-TZ=Africa/Johannesburg date "+Joburg :   %Y/%m/%d %a — %I:%M %p"
-TZ=US/Eastern date "+New York : %Y/%m/%d %a — %I:%M %p"
-TZ=US/Pacific date "+Cali :     %Y/%m/%d %a — %I:%M %p"
-TZ=US/Central date "+Chicago :  %Y/%m/%d %a — %I:%M %p"
-TZ=Europe/London date "+London :   %Y/%m/%d %a — %I:%M %p"
-TZ=Japan date "+Tokyo :    %Y/%m/%d %a — %I:%M %p"
