@@ -102,20 +102,30 @@ set sort_re                                # thread based on regex
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
 # Index Key Bindings ---------------------------------
-bind index gg       first-entry
-bind index G        last-entry
-
+bind index \#       noop
 bind index R        group-reply
 bind index <tab>    sync-mailbox
+bind index k        previous-entry
+bind index j        next-entry
+bind index gg       first-entry
+bind index G        last-entry
+bind index p        recall-message
 bind index <space>  collapse-thread
+bind index N        search-opposite
+macro index s "<pipe-message>cat > ~/Desktop/"  "save message as"
+
 
 # Ctrl-R to mark all as read
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 
+# Compose 
+bind compose p postpone-message
+bind compose P pgp-menu
+
 # Sync email
 macro index O "<shell-escape>offlineimap -o<enter>"           "run offlineimap to sync all mail"
 macro index o "<shell-escape>offlineimap -oqf INBOX,INBOX.Sent,INBOX.Drafts<enter>" "run offlineimap to sync inbox"
-macro index p "<shell-escape>offlineimap --dry-run -oqf INBOX<enter>" "run offlineimap to sync inbox"
+# macro index p "<shell-escape>offlineimap --dry-run -oqf INBOX<enter>" "run offlineimap to sync inbox"
 
 # Saner copy/move dialogs
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
@@ -177,6 +187,8 @@ set editor = "/usr/bin/vim -c 'normal! }' -c 'redraw'"
 set from     = "matt@iflowfor8hours.info"
 set sendmail = "/usr/bin/msmtp -a fastmail"
 set sendmail_wait = 0 # no please don't silently fail, email is important
-unset record
+
+macro index E ":set confirmappend=no delete=yes\n<save-message>=+fastmail/INBOX.Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"unset record
 
 macro index S "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt -p -o ~/Mail/temporary/search search<enter><change-folder-readonly>+temporary/search<enter>"
+

@@ -40,6 +40,8 @@ set ruler                     " show the line number on the bar
 set autoread                  " watch for file changes
 set noautowrite               " don't automagically write on :next
 set nocompatible              " vim, not vi
+set showbreak=↪
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set autoindent 
 set nosmartindent    " auto/smart indent
 set expandtab                 " expand tabs to spaces (except java, see autocmd below)
@@ -72,6 +74,18 @@ set noswapfile
 set ai
 "set textwidth=79
 set comments=b:#
+
+augroup cline
+    au!
+    au WinLeave,InsertEnter * set nocursorline
+    au WinEnter,InsertLeave * set cursorline
+augroup END
+
+" Save when losing focus
+au FocusLost * :silent! wall
+
+" Resize splits when the window is resized
+au VimResized * :wincmd =
 
 " jump to the beginning and end of functions
 
@@ -134,6 +148,7 @@ set mousehide                 " hide the mouse when typing
 " this makes the mouse paste a block of text without formatting it 
 " (good for code)
 map <MouseMiddle> <esc>"*p
+set mouse=a
 
 " ---------------------------------------------------------------------------
 "  backup options
@@ -212,8 +227,23 @@ au! BufRead,BufNewFile *.md       set filetype=mkd
 au BufNewFile,BufRead *.less set filetype=less
 au BufRead,BufNewFile {Vagrantfile,Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 
+" Wildmenu completion {{{
+set wildmenu
+set wildmode=list:longest
+
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX bullshit
+set wildignore+=*.luac                           " Lua byte code
+set wildignore+=migrations                       " Django migrations
+set wildignore+=*.pyc                            " Python byte code
+set wildignore+=*.orig                           " Merge resolution files
+
 " Command-T plugin
-set wildignore+=*.o,*.so,*.6,*.pyc,build,tmp,.git
 nnoremap <silent> <LocalLeader>t :execute "CommandT " . b:gitroot<CR>
 nnoremap <silent> <LocalLeader>b :CommandTBuffer<CR>
 
@@ -229,3 +259,29 @@ set nofoldenable
 let g:vim_markdown_folding_disabled=1
 
 set rtp+=~/.fzf
+
+
+" Make sure Vim returns to the same line when you reopen a file.
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
+command! -bang E e<bang>
+command! -bang Q q<bang>
+command! -bang W w<bang>
+command! -bang QA qa<bang>
+command! -bang Qa qa<bang>
+command! -bang Wa wa<bang>
+command! -bang WA wa<bang>
+command! -bang Wq wq<bang>
+command! -bang WQ wq<bang>
+
+augroup ft_mail
+    au!
+
+    au Filetype mail setlocal spell
+augroup END
