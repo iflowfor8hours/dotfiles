@@ -1,10 +1,8 @@
- #!/bin/sh
+#!/bin/bash
 
 cd ..
 
-ln -sn ~/dotfiles/.bash ~/.bash
 ln -sn ~/dotfiles/.bashrc ~/.bashrc
-ln -sn ~/dotfiles/.bash_profile ~/.bash_profile
 ln -sn ~/dotfiles/.vim ~/.vim
 ln -sn ~/dotfiles/.vimrc ~/.vimrc
 ln -sn ~/dotfiles/.irssi ~/.irssi
@@ -19,3 +17,5 @@ ln -sn ~/dotfiles/.offlineimaprc ~/.offlineimaprc
 ln -sn ~/dotfiles/.taskrc ~/.taskrc
 ln -sn ~/dotfiles/.msmtprc ~/.msmtprc
 ln -sn ~/dotfiles/.mutt ~/.mutt
+
+chmod 600 ~/.msmtprc

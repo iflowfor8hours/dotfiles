@@ -198,8 +198,10 @@ nmap q: :q
 cmap w!! w !sudo tee %
 " Fix the # at the start of the line
 inoremap # X<BS>#
-" When I forget I'm in Insert mode, how often do you type 'jj' anyway?:
+" When I forget I'm in Insert mode, how often do you type 'jj' anyway?
 imap jj <Esc>
+" W usually means w
+nmap W w
 
 " improved formatting for markdown
 autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:>

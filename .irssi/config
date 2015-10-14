@@ -32,14 +32,6 @@ servers = (
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
-  },
-  {
-    address = "clojure";
-    chatnet = "freenode";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
-    autoconnect = "yes";
   }
 );
 
