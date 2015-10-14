@@ -1,1 +1,0 @@
-Enable a color scheme in Sublime Text 2 via `Preferences -> Color Scheme -> User`.
