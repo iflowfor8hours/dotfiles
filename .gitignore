@@ -1,2 +1,7 @@
-.ssh/id_rsa
-.ssh/mpedigree
+bundle/vim-fugitive
+bundle/vermilion
+weechat/logs
+weechat/weechat.log
+weechat/python/autoload/servers.py
+weechat/urls.log
+weechat/irc.conf
