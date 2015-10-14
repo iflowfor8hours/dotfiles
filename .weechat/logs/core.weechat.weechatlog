@@ -1,0 +1,6 @@
+2015-10-14 15:44:16	=!=	Warning: /home/matt/.weechat/script.conf, line 49: unknown option for section "scripts": url_force_https = on
+2015-10-14 15:44:16	=!=	Warning: /home/matt/.weechat/xfer.conf, line 33: unknown option for section "file": auto_check_crc32 = off
+2015-10-14 15:44:16		Plugins loaded: alias, aspell, charset, fifo, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2015-10-14 15:46:49		fifo: pipe closed
+2015-10-14 15:46:50		Plugins loaded: alias, aspell, charset, fifo, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2015-10-14 15:48:59		fifo: pipe closed
