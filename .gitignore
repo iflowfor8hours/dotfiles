@@ -1,7 +1,8 @@
-bundle/vim-fugitive
-bundle/vermilion
-weechat/logs
-weechat/weechat.log
-weechat/python/autoload/servers.py
-weechat/urls.log
-weechat/irc.conf
+./.weechat/logs/*
+./.weechat/logs
+./.weechat/weechat.log
+./.weechat/python/autoload/servers.py
+./.weechat/urls.log
+./.weechat/irc.conf
+.ropeproject
+.ipython/profile_default/history.sqlite

@@ -23,23 +23,20 @@ c = get_config()
 # Execute the given command string.
 # c.InteractiveShellApp.code_to_run = ''
 
-# Pre-load matplotlib and numpy for interactive use, selecting a particular
-# matplotlib backend and loop integration.
-# c.InteractiveShellApp.pylab = None
-
 # Run the file referenced by the PYTHONSTARTUP environment variable at IPython
 # startup.
 # c.InteractiveShellApp.exec_PYTHONSTARTUP = True
 
 # lines of code to run at IPython startup.
-c.InteractiveShellApp.exec_lines = ['%autoreload 2']
+# c.InteractiveShellApp.exec_lines = []
 
-# Enable GUI event loop integration with any of ('glut', 'gtk', 'gtk3', 'osx',
-# 'pyglet', 'qt', 'qt5', 'tk', 'wx').
+# Enable GUI event loop integration with any of ('glut', 'gtk', 'gtk3', 'none',
+# 'osx', 'pyglet', 'qt', 'qt4', 'tk', 'wx').
 # c.InteractiveShellApp.gui = None
 
-# Reraise exceptions encountered loading IPython extensions?
-# c.InteractiveShellApp.reraise_ipython_extension_failures = False
+# Pre-load matplotlib and numpy for interactive use, selecting a particular
+# matplotlib backend and loop integration.
+# c.InteractiveShellApp.pylab = None
 
 # Configure matplotlib for interactive use with the default matplotlib backend.
 # c.InteractiveShellApp.matplotlib = None
@@ -51,7 +48,7 @@ c.InteractiveShellApp.exec_lines = ['%autoreload 2']
 # c.InteractiveShellApp.pylab_import_all = True
 
 # A list of dotted module names of IPython extensions to load.
-c.InteractiveShellApp.extensions = ['autoreload']
+# c.InteractiveShellApp.extensions = []
 
 # Run the module as a script.
 # c.InteractiveShellApp.module_to_run = ''
@@ -142,7 +139,7 @@ c.InteractiveShellApp.extensions = ['autoreload']
 
 # The name of the IPython directory. This directory is used for logging
 # configuration (through profiles), history storage, etc. The default is usually
-# $HOME/.ipython. This option can also be specified through the environment
+# $HOME/.ipython. This options can also be specified through the environment
 # variable IPYTHONDIR.
 # c.TerminalIPythonApp.ipython_dir = u''
 
@@ -158,12 +155,9 @@ c.InteractiveShellApp.extensions = ['autoreload']
 # List of files to run at IPython startup.
 # c.TerminalIPythonApp.exec_files = []
 
-# Enable GUI event loop integration with any of ('glut', 'gtk', 'gtk3', 'osx',
-# 'pyglet', 'qt', 'qt5', 'tk', 'wx').
+# Enable GUI event loop integration with any of ('glut', 'gtk', 'gtk3', 'none',
+# 'osx', 'pyglet', 'qt', 'qt4', 'tk', 'wx').
 # c.TerminalIPythonApp.gui = None
-
-# Reraise exceptions encountered loading IPython extensions?
-# c.TerminalIPythonApp.reraise_ipython_extension_failures = False
 
 # A list of dotted module names of IPython extensions to load.
 # c.TerminalIPythonApp.extensions = []
@@ -203,10 +197,6 @@ c.InteractiveShellApp.extensions = ['autoreload']
 
 # Set the color scheme (NoColor, Linux, or LightBG).
 # c.TerminalInteractiveShell.colors = 'Linux'
-
-# If True, anything that would be passed to the pager will be displayed as
-# regular output instead.
-# c.TerminalInteractiveShell.display_page = False
 
 # Autoindent IPython code entered interactively.
 # c.TerminalInteractiveShell.autoindent = True
@@ -248,7 +238,7 @@ c.InteractiveShellApp.extensions = ['autoreload']
 # c.TerminalInteractiveShell.prompts_pad_left = True
 
 # The part of the banner to be printed before the profile
-# c.TerminalInteractiveShell.banner1 = 'Python 2.7.6 (default, Mar 22 2014, 22:59:56) \nType "copyright", "credits" or "license" for more information.\n\nIPython 3.1.0 -- An enhanced Interactive Python.\n?         -> Introduction and overview of IPython\'s features.\n%quickref -> Quick reference.\nhelp      -> Python\'s own help system.\nobject?   -> Details about \'object\', use \'object??\' for extra details.\n'
+# c.TerminalInteractiveShell.banner1 = 'Python 2.7.6 (default, Jun 22 2015, 17:58:13) \nType "copyright", "credits" or "license" for more information.\n\nIPython 2.3.0 -- An enhanced Interactive Python.\n?         -> Introduction and overview of IPython\'s features.\n%quickref -> Quick reference.\nhelp      -> Python\'s own help system.\nobject?   -> Details about \'object\', use \'object??\' for extra details.\n'
 
 #
 # c.TerminalInteractiveShell.readline_parse_and_bind = ['tab: complete', '"\\C-l": clear-screen', 'set show-all-if-ambiguous on', '"\\C-o": tab-insert', '"\\C-r": reverse-search-history', '"\\C-s": forward-search-history', '"\\C-p": history-search-backward', '"\\C-n": history-search-forward', '"\\e[A": history-search-backward', '"\\e[B": history-search-forward', '"\\C-k": kill-line', '"\\C-u": unix-line-discard']
@@ -276,8 +266,7 @@ c.InteractiveShellApp.extensions = ['autoreload']
 #
 # c.TerminalInteractiveShell.readline_remove_delims = '-/~'
 
-# Start logging to the default log file in overwrite mode. Use `logappend` to
-# specify a log file to **append** logs to.
+# Start logging to the default log file.
 # c.TerminalInteractiveShell.logstart = False
 
 # The name of the logfile to use.
@@ -303,8 +292,7 @@ c.InteractiveShellApp.extensions = ['autoreload']
 # normal reload(), but deep_reload will still be available as dreload().
 # c.TerminalInteractiveShell.deep_reload = False
 
-# Start logging to the given file in append mode. Use `logfile` to specify a log
-# file to **overwrite** logs to.
+# Start logging to the given file in append mode.
 # c.TerminalInteractiveShell.logappend = ''
 
 #
@@ -446,10 +434,8 @@ c.InteractiveShellApp.extensions = ['autoreload']
 #
 # c.PlainTextFormatter.type_printers = {}
 
-# Truncate large collections (lists, dicts, tuples, sets) to this size.
 #
-# Set to 0 to disable truncation.
-# c.PlainTextFormatter.max_seq_length = 1000
+# c.PlainTextFormatter.newline = '\n'
 
 #
 # c.PlainTextFormatter.float_precision = ''
@@ -461,13 +447,10 @@ c.InteractiveShellApp.extensions = ['autoreload']
 # c.PlainTextFormatter.deferred_printers = {}
 
 #
-# c.PlainTextFormatter.newline = '\n'
+# c.PlainTextFormatter.pprint = True
 
 #
 # c.PlainTextFormatter.max_width = 79
-
-#
-# c.PlainTextFormatter.pprint = True
 
 #
 # c.PlainTextFormatter.singleton_printers = {}
@@ -547,3 +530,6 @@ c.InteractiveShellApp.extensions = ['autoreload']
 # If True, any %store-d variables will be automatically restored when IPython
 # starts.
 # c.StoreMagics.autorestore = False
+c.InteractiveShellApp.exec_lines = []
+c.InteractiveShellApp.exec_lines.append('%load_ext autoreload')
+c.InteractiveShellApp.exec_lines.append('%autoreload 2')
