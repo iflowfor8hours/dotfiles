@@ -4,7 +4,10 @@ set sidebar_width=24
 set sidebar_delim=' |'
 mailboxes =fastmail/INBOX
 macro index b '<enter-command>toggle sidebar_visible<enter>'
+macro index,pager Y "<save-message>+INBOX.Archive<enter>" "move message to the archive"
 macro pager b '<enter-command>toggle sidebar_visible<enter>'
+set query_command = “/home/matt/goobook ‘%s’”
+bind editor complete-query bind editor ^T complete
 
 # GPG
 source /usr/share/doc/mutt/examples/gpg.rc

@@ -121,8 +121,8 @@ fi
 # Otherwise we've been told what to use.  So do an open -a.
 
 if [ -z $open_with ]; then
-    open $newfile
+    see $newfile
 else
-    open -a "$open_with" $newfile
+    see -a "$open_with" $newfile
 fi
 
