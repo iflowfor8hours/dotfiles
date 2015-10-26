@@ -3,8 +3,8 @@ accounts = FastMail
 metadata = ~/Mail/.offlineimap
 maxsyncaccounts = 1
 
-#ui = quiet
-ui = ttyui
+ui = quiet
+#ui = ttyui
 
 [Account FastMail]
 localrepository = LocalFM

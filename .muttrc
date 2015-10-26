@@ -6,8 +6,11 @@ mailboxes =fastmail/INBOX
 macro index b '<enter-command>toggle sidebar_visible<enter>'
 macro index,pager Y "<save-message>+INBOX.Archive<enter>" "move message to the archive"
 macro pager b '<enter-command>toggle sidebar_visible<enter>'
-set query_command = “/home/matt/goobook ‘%s’”
-bind editor complete-query bind editor ^T complete
+
+set query_command="abook --mutt-query '%s'"
+macro index,pager A "abook –add-email-query" "add the sender to the address book" 
+bind editor <tab> complete-query
+bind editor ^T    complete
 
 # GPG
 source /usr/share/doc/mutt/examples/gpg.rc
@@ -16,7 +19,7 @@ source /usr/share/doc/mutt/examples/gpg.rc
 mailboxes +fastmail/INBOX.Archive \
           +fastmail/INBOX.Sent \
           +fastmail/INBOX.Drafts \
-          +temporary/allmail \
+          +fastmail/allmail \
           +temporary/search \
 
 
