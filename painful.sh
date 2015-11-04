@@ -6,7 +6,7 @@ sudo sed -i 's/^XKBOPTIONS.*/XKBOPTIONS="ctrl:nocaps"/' /etc/default/keyboard
 sudo apt-get -y install python-software-properties
 sudo add-apt-repository -y ppa:git-core/ppa
 sudo apt-get update
-sudo apt-get -y install mc gnome-commander git vim zsh htop kupfer libgnutls-dev build-essential cmake libuuid1 libuu-dev libuu0 uuid-dev terminator autojump mutt-patched exuberant-ctags offlineimap redshift sqlite notmuch-mutt urlview pgp abook tmux python-pip ack-grep arandr python-virtualenv msmtp curl weechat-curses libncurses5-dev  automake libreadline-dev gnupg2 libgpgme11 libgpgme11-dev resolvconf dnsmasq python-dev unrar
+sudo apt-get -y install mc gnome-commander git vim zsh htop kupfer libgnutls-dev build-essential cmake libuuid1 libuu-dev libuu0 uuid-dev terminator autojump mutt-patched exuberant-ctags offlineimap redshift sqlite notmuch-mutt urlview pgp abook tmux python-pip ack-grep arandr python-virtualenv msmtp curl weechat-curses libncurses5-dev  automake libreadline-dev gnupg2 libgpgme11 libgpgme11-dev resolvconf dnsmasq python-dev unrar autoconf bison libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
 
 # node
 curl --silent --location https://deb.nodesource.com/setup_0.12 | sudo bash -
