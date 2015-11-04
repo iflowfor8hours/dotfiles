@@ -434,3 +434,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export ANSIBLE_NOCOWS=1
 setxkbmap -option caps:ctrl_modifier
 source ~/.fzf.zsh
+
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+    eval `ssh-agent -s`
+      ssh-add
+    fi
