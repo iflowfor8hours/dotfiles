@@ -15,7 +15,7 @@ export LANG=en_US.utf8
 # go stuff
 export GOROOT="$HOME/dev/go"
 export GOPATH="$HOME/dev/gospace"
-export PATH="/home/matt/dev/go/bin:$HOME/src/gospace/bin:$PATH"
+export PATH="$HOME/dev/go/bin:$HOME/dev/gospace/bin:$PATH"
 export PKG_CONFIG_PATH=/usr/bin/pkg-config
 export VAGRANT_DEFALT_PROVIDER="virtualbox"
 
