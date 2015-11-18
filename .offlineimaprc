@@ -3,8 +3,8 @@ accounts = FastMail
 metadata = ~/Mail/.offlineimap
 maxsyncaccounts = 1
 
-ui = quiet
-#ui = ttyui
+# ui = quiet
+ui = ttyui
 
 [Account FastMail]
 localrepository = LocalFM
@@ -35,3 +35,21 @@ expunge = no
 folderfilter = lambda foldername: foldername not in ['INBOX.Trash']
 maxconnections = 10
 createfolders = False
+
+[Account riseup]
+localrepository = localriseup
+remoterepository = remoteriseup
+autorefresh = 10
+
+[Repository localriseup]
+type = Maildir
+localfolders = ~/Mail/riseup
+
+[Repository remoteriseup]
+type = IMAP
+ssl = yes
+remotehost = mail.riseup.net
+remoteuser = mxs@riseup.net
+cert_fingerprint = bf27ee9ea504355fc9e933e7b624082329ea1003
+remotepassfile = ~/.config/offlineimap/mxs.riseup.net
+folderfilter = lambda foldername: foldername in ['INBOX','INBOX.Sent', 'INBOX.Drafts', 'INBOX.Mistakes']

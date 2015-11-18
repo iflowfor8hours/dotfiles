@@ -1,11 +1,4 @@
-#Lots of command examples (especially heroku) lead command docs with '$' which
-# make it kind of annoying to copy/paste, especially when there's multiple
-# commands to copy.
-#
-# This hacks around the problem by making a '$' command that simply runs
-# whatever arguments are passed to it. So you can copy
-#   '$ echo hello world'
-# and it will run 'echo hello world'
+# Allow to copy paste commands with preceeding $
 function \$() { 
   "$@"
 }
@@ -63,9 +56,6 @@ setopt nocdable_vars               # Let me do cd ~foo if $foo is a directory
 
 WORDCHARS='*?_-[]~=&;!#$%^(){}<>' # chars as part of filename
 
-autoload -U compinit && compinit # enables extra auto-completion
-setopt prompt_subst
-autoload -U colors && colors
 
 # -- Bindings --
 bindkey -e # emacs mode line editting
@@ -370,6 +360,8 @@ alias dockercleanps='docker rm `docker ps --no-trunc -aq`'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias mutt 'cd ~/Desktop && mutt-patched'
+alias vdu 'vagrant destroy -f && vagrant up'
+alias reload 'exec $SHELL -l'
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
@@ -439,3 +431,9 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent -s`
       ssh-add
     fi
+
+fpath=(~/.zsh/completion $fpath)
+
+autoload -U compinit && compinit # enables extra auto-completion
+setopt prompt_subst
+autoload -U colors && colors
