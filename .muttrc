@@ -2,7 +2,7 @@
 set sidebar_visible=yes
 set sidebar_width=24
 set sidebar_delim=' |'
-mailboxes =fastmail/INBOX
+mailboxes +fastmail/INBOX
 macro index b '<enter-command>toggle sidebar_visible<enter>'
 macro index,pager Y "<save-message>+INBOX.Archive<enter>" "move message to the archive"
 macro pager b '<enter-command>toggle sidebar_visible<enter>'
@@ -24,8 +24,12 @@ mailboxes +fastmail/INBOX.Archive \
 
 
 # Other special folders.
-set mbox      = "+fastmail/INBOX.Archive"
-set postponed = "+fastmail/INBOX.Drafts"
+set mbox      = +fastmail/INBOX
+set postponed = +fastmail/INBOX.Drafts
+set record    = +fastmail/INBOX.Sent
+
+# Default inbox.
+set spoolfile = +fastmail/INBOX
 
 
 # Paths ----------------------------------------------
@@ -37,9 +41,6 @@ set folder           = ~/Mail/fastmail # mailbox location
 set mailcap_path     = ~/.mutt/mailcap       # entries for filetypes
 #set tmpdir           = ~/.mutt/temp          # where to keep temp files
 #set signature        = ~/.mutt/sig           # my signature file
-
-# Default inbox.
-set spoolfile = "+INBOX"
 
 # PGP {{{
 set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
@@ -94,10 +95,6 @@ set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)
 # Alternate email addresses.
 alternates ur.matt@gmail.com matt@iflowfor8hours.info 
 
-# Other special folders.
-set mbox      = "archive"
-set postponed = "drafts"
-
 # Index View Options ---------------------------------
 set date_format = "%m/%d"
 set index_format = "[%Z]  %D  %-20.20F  %s"
@@ -129,8 +126,8 @@ bind compose p postpone-message
 bind compose P pgp-menu
 
 # Sync email
-macro index O "<shell-escape>offlineimap -o<enter>"           "run offlineimap to sync all mail"
-macro index o "<shell-escape>offlineimap -oqf INBOX,INBOX.Sent,INBOX.Drafts<enter>" "run offlineimap to sync inbox"
+macro index O "<shell-escape>offlineimap -o 2>&1 | tee -a ~/.logs/offlineimap.log <enter>"           "run offlineimap to sync all mail"
+macro index o "<shell-escape>offlineimap -oqf INBOX,INBOX.Sent,INBOX.Drafts,INBOX.Archive 2>&1 | tee -a ~/.logs/offlineimap.log <enter>" "run offlineimap to sync inbox"
 # macro index p "<shell-escape>offlineimap --dry-run -oqf INBOX<enter>" "run offlineimap to sync inbox"
 
 # Saner copy/move dialogs
@@ -193,6 +190,7 @@ set editor = "/usr/bin/vim -c 'normal! }' -c 'redraw'"
 set from     = "matt@iflowfor8hours.info"
 set sendmail = "/usr/bin/msmtp -a fastmail"
 set sendmail_wait = 0 # no please don't silently fail, email is important
+
 
 macro index E ":set confirmappend=no delete=yes\n<save-message>=+fastmail/INBOX.Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"unset record
 
