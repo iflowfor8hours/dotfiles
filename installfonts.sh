@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 mkdir /tmp/adodefont
 cd /tmp/adodefont
 wget https://github.com/adobe-fonts/source-code-pro/archive/2.010R-ro/1.030R-it.zip
