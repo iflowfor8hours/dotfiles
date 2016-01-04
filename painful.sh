@@ -42,6 +42,8 @@ sudo service dnsmasq restart
 # homedir setup
 mkdir -p ~/.logs
 mkdir -p ~/bin
+mkdir -p /home/matt/src
+mkdir -p /home/matt/projects
 #
 ## mail stuff
 mkdir -p ~/Mail/fastmail
