@@ -361,7 +361,8 @@ alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias mutt 'cd ~/Desktop && mutt-patched'
 alias vdu 'vagrant destroy -f && vagrant up'
-alias reload 'exec $SHELL -l'
+alias reloadshell 'exec $SHELL -l'
+alias wifi 'exec nmtui'
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
