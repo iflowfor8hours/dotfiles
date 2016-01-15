@@ -359,10 +359,10 @@ alias dockercleanimages='docker rmi $(docker images -q --filter "dangling=true")
 alias dockercleanps='docker rm `docker ps --no-trunc -aq`'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
-alias mutt 'cd ~/Desktop && mutt-patched'
-alias vdu 'vagrant destroy -f && vagrant up'
-alias reloadshell 'exec $SHELL -l'
-alias wifi 'exec nmtui'
+alias mutt='cd ~/Desktop && mutt-patched'
+alias vdu='vagrant destroy -f && vagrant up'
+alias reloadshell='exec $SHELL -l'
+alias wifi='exec nmtui'
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
