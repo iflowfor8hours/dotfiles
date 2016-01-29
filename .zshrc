@@ -363,6 +363,7 @@ alias mutt='cd ~/Desktop && mutt-patched'
 alias vdu='vagrant destroy -f && vagrant up'
 alias reloadshell='exec $SHELL -l'
 alias wifi='exec nmtui'
+alias nosleep='xset -dpms; xset s noblank; xset s off'
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 

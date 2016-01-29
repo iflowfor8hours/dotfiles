@@ -115,3 +115,4 @@ shopt -s histappend
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+alias epsxe='~/epsxe/epsxe'
