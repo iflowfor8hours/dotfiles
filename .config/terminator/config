@@ -26,7 +26,7 @@
     foreground_color = "#839496"
     scroll_on_output = False
     show_titlebar = False
-    font = Source Code Pro Semi-Bold 14
+    font = Source Code Pro Semi-Bold 12
     background_color = "#002b36"
     scrollback_infinite = True
   [[solarized-dark]]
