@@ -276,6 +276,7 @@ function datelog() {
 }
 
 # From petef's zshrc
+# make scp error if I forget to put the target host
 function scp() {
   found=false
   for arg; do
@@ -439,3 +440,5 @@ fpath=(~/.zsh/completion $fpath)
 autoload -U compinit && compinit # enables extra auto-completion
 setopt prompt_subst
 autoload -U colors && colors
+
+

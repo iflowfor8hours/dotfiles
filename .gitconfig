@@ -66,3 +66,5 @@
 
 [rebase]
   stat = true
+[diff]
+	tool = meld

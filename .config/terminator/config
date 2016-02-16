@@ -3,7 +3,7 @@
   suppress_multiple_term_dialog = True
   borderless = True
 [keybindings]
-  toggle_zoom = <Primary><Shift>x
+  toggle_zoom = <Alt>f
   go_up = <Alt>k
   switch_to_tab_10 = XF86WakeUp
   switch_to_tab_4 = <Alt>4
