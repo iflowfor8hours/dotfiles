@@ -12,9 +12,6 @@ export PATH="$HOME/dev/go/bin:$HOME/dev/gospace/bin:$PATH"
 export PKG_CONFIG_PATH=/usr/bin/pkg-config
 export VAGRANT_DEFALT_PROVIDER="virtualbox"
 
-# java stuff
-export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:bin/javac::")
-
 # Defaults
 PSARGS=-ax
 
@@ -55,7 +52,6 @@ setopt auto_pushd                # Automatically pushd when I cd
 setopt nocdable_vars               # Let me do cd ~foo if $foo is a directory
 
 WORDCHARS='*?_-[]~=&;!#$%^(){}<>' # chars as part of filename
-
 
 # -- Bindings --
 bindkey -e # emacs mode line editting
@@ -111,6 +107,15 @@ function delpaths {
   done
 }
 
+function nosleep {
+xset -dpms
+xset s noblank
+xset s off
+}
+
+function normalsleep {
+}
+
 # Make sure things are in my paths
 BASE_PATHS="/bin /usr/bin /sbin /usr/sbin"
 X_PATHS="/usr/X11R6/bin /usr/dt/bin /usr/X/bin"
@@ -118,16 +123,6 @@ LOCAL_PATHS="/usr/local/bin /usr/local/gnu/bin"
 HOME_PATHS="~/bin ~/.screenlayout ~/.local/bin"
 addpaths $=BASE_PATHS $=X_PATHS $=LOCAL_PATHS $=SOLARIS_PATHS $=HOME_PATHS
 PATH="$HOME/bin:$HOME/local/bin:$PATH"
-
-# Completion
-function screen-sessions {
-  typeset -a sessions
-  for i in /tmp/screens/S-${USER}/*(p:t);  do
-    sessions+=(${i#*.})
-  done
-
-  reply=($sessions)
-}
 
 compctl -g '*(-/D)' cd 
 compctl -c which
@@ -140,139 +135,12 @@ HOST="$(hostname)"
 HOST="${HOST%%.*}"
 UNAME="$(uname)"
 
-function preexec() {
-  # The full command line comes in as "$1"
-  local cmd="$1"
-  local -a args
-
-  # add '--' in case $1 is only one word to work around a bug in ${(z)foo}
-  # in zsh 4.3.9.
-  tmpcmd="$1 --"
-  args=${(z)tmpcmd}
-
-  # remove the '--' we added as a bug workaround..
-  # per zsh manpages, removing an element means assigning ()
-  args[${#args}]=()
-  if [ "${args[1]}" = "fg" ] ; then
-    local jobnum="${args[2]}"
-    if [ -z "$jobnum" ] ; then
-      # If no jobnum specified, find the current job.
-      for i in ${(k)jobtexts}; do
-        [ -z "${jobstates[$i]%%*:+:*}" ] && jobnum=$i
-      done
-    fi
-    cmd="${jobtexts[${jobnum#%}]}"
-  fi
-
-  # These are used in precmd
-  cmd_start_time=$(date +%s)
-  lastcmd="$cmd"
-
-  title "$cmd"
-}
-
-function title() {
-  # This is madness.
-  # We replace literal '%' with '%%'
-  # Also use ${(V) ...} to make nonvisible chars printable (think cat -v)
-  # Replace newlines with '; '
-  local value="${${${(V)1//\%/\%\%}//'\n'/; }//'\t'/ }"
-  local location
-
-  location="$HOST"
-  [ "$USERNAME" != "$LOGNAME" ] && location="${USERNAME}@${location}"
-
-  # Special format for use with print -Pn
-  value="%70>...>$value%<<"
-  unset PROMPT_SUBST
-  case $TERM in
-    screen|screen-256color)
-      # Put this in your .screenrc:
-      # hardstatus string "[%n] %h - %t"
-      # termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen (not title yet)\007'
-      print -Pn "\ek${value}\e\\"     # screen title (in windowlist)
-      print -Pn "\e_${location}\e\\"  # screen location
-      ;;
-    xterm*)
-      print -Pn "\e]0;$value\a"
-      ;;
-  esac
-  setopt LOCAL_OPTIONS
-}
-
 function config_Linux() {
   PSARGS=ax
 }
 
-case $UNAME in
-  FreeBSD) config_FreeBSD ;;
-  SunOS) config_SunOS ;;
-  Linux) config_Linux ;;
-esac
-
-## Useful functions
-
 function psg() {
   ps $PSARGS | egrep "$@" | fgrep -v egrep
-}
-
-function findenv() {
-  ps aexww | sed -ne "/$1/ { s/.*\($1[^ ]*\).*/\1/; p; }" | sort | uniq -c $2
-}
-
-function _awk_col() {
-  echo "$1" | egrep -v '^[0-9]+$' || echo "\$$1"
-}
-
-function sum() {
-  [ "${1#-F}" != "$1" ] && SP=${1} && shift
-  [ "$#" -eq 0 ] && set -- 0
-  key="$(_awk_col "$1")"
-  awk $SP "{ x+=$key } END { printf(\"%d\n\", x) }"
-}
-
-function sumby() {
-  [ "${1#-F}" != "$1" ] && SP=${1} && shift
-  [ "$#" -lt 0 ] && set -- 0 1
-  key="$(_awk_col "$1")"
-  val="$(_awk_col "$2")"
-  awk $SP "{ a[$key] += $val } END { for (i in a) { printf(\"%d %s\\n\", a[i], i) } }"
-}
-
-function countby() {
-  [ "${1#-F}" != "$1" ] && SP=${1} && shift
-  [ "$#" -eq 0 ] && set -- 0
-  key="$(_awk_col "$1")"
-  awk $SP "{ a[$key]++ } END { for (i in a) { printf(\"%d %s\\n\", a[i], i) } }"
-}
-
-function bytes() {
-  if [ $# -gt 0 ]; then
-    while [ $# -gt 0 ]; do
-      echo -n "${1}B = "
-      byteconv "$1"
-      shift
-    done
-  else
-    while read a; do
-      byteconv "$a"
-    done
-  fi
-}
-
-function byteconv() {
-  a=$1
-  ORDER=BKMGTPE
-  while [ $(echo "$a >= 1024" | bc) -eq 1 -a $#ORDER -gt 1 ]; do
-    a=$(echo "scale=2; $a / 1024" | bc)
-    ORDER="${ORDER#?}"
-  done
-  echo "${a}$(echo "$ORDER" | cut -b1)"
-}
-
-function datelog() {
-  [ $# -eq 0 ] && set -- "%F %H:%M:%S]"
-  perl -MPOSIX -e 'while (sysread(STDIN,$_,1,length($_)) > 0) { while (s/^(.*?\n)//) { printf("%s %s", strftime($ARGV[0], localtime), $1); } }' "$@"
 }
 
 # From petef's zshrc
@@ -365,28 +233,11 @@ alias vdu='vagrant destroy -f && vagrant up'
 alias reloadshell='exec $SHELL -l'
 alias wifi='exec nmtui'
 alias nosleep='xset -dpms; xset s noblank; xset s off'
+alias thesaurus='dict -d moby-thesaurus'
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
 which vim > /dev/null 2>&1 && alias vi=vim
-
-# Keyboard nonsense
-function apple_keys() {
-echo 1 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd
-}
-
-function no_apple_keys() {
-echo 0 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd
-}
-
-function colemak() {
-  setxkbmap us -variant colemak
-}
-
-function qwfpg() {
-  setxkbmap us
-  xset -r 66
-}
 
 autoload -Uz vcs_info
 
