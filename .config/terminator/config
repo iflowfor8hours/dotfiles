@@ -1,80 +1,81 @@
 [global_config]
+  borderless = True
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, Logger, LaunchpadBugURLHandler
   suppress_multiple_term_dialog = True
-  borderless = True
 [keybindings]
-  toggle_zoom = <Alt>f
+  go_down = <Alt>j
+  go_left = <Alt>h
+  go_right = <Alt>l
   go_up = <Alt>k
+  layout_launcher = <Primary><Shift><Alt>q
+  switch_to_tab_1 = <Alt>1
   switch_to_tab_10 = XF86WakeUp
+  switch_to_tab_2 = <Alt>2
+  switch_to_tab_3 = <Alt>3
   switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
   switch_to_tab_6 = <Alt>6
   switch_to_tab_7 = <Alt>7
-  go_down = <Alt>j
-  switch_to_tab_5 = <Alt>5
-  switch_to_tab_2 = <Alt>2
-  go_right = <Alt>l
-  switch_to_tab_1 = <Alt>1
-  go_left = <Alt>h
-  switch_to_tab_9 = <Alt>8
   switch_to_tab_8 = <Alt>8
-  switch_to_tab_3 = <Alt>3
+  switch_to_tab_9 = <Alt>8
+  toggle_zoom = <Alt>f
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+  [[perfect]]
+    [[[child0]]]
+      order = 0
+      parent = ""
+      position = 0:0
+      size = 1366, 719
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 682
+      type = HPaned
+    [[[child3]]]
+      order = 1
+      parent = child1
+      position = 359
+      type = VPaned
+    [[[terminal2]]]
+      order = 0
+      parent = child1
+      profile = default
+      type = Terminal
+    [[[terminal4]]]
+      order = 0
+      parent = child3
+      profile = default
+      type = Terminal
+    [[[terminal5]]]
+      order = 1
+      parent = child3
+      profile = default
+      type = Terminal
+[plugins]
 [profiles]
   [[default]]
-    scrollbar_position = hidden
-    use_system_font = False
+    background_color = "#002b36"
     background_image = None
+    font = Source Code Pro Semi-Bold 12
     foreground_color = "#839496"
     scroll_on_output = False
-    show_titlebar = False
-    font = Source Code Pro Semi-Bold 12
-    background_color = "#002b36"
     scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
   [[solarized-dark]]
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
     background_color = "#eee8d5"
     background_image = None
     cursor_color = "#002b36"
     foreground_color = "#002b36"
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
   [[solarized-light]]
     background_image = None
-[layouts]
-  [[default]]
-    [[[child1]]]
-      type = Terminal
-      parent = window0
-    [[[window0]]]
-      type = Window
-      parent = ""
-  [[perfect]]
-    [[[child0]]]
-      position = 0:0
-      type = Window
-      order = 0
-      parent = ""
-      size = 1366, 719
-    [[[child1]]]
-      position = 682
-      type = HPaned
-      order = 0
-      parent = child0
-    [[[child3]]]
-      position = 359
-      type = VPaned
-      order = 1
-      parent = child1
-    [[[terminal2]]]
-      profile = default
-      type = Terminal
-      order = 0
-      parent = child1
-    [[[terminal5]]]
-      profile = default
-      type = Terminal
-      order = 1
-      parent = child3
-    [[[terminal4]]]
-      profile = default
-      type = Terminal
-      order = 0
-      parent = child3
-[plugins]

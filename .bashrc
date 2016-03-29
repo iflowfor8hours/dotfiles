@@ -107,11 +107,7 @@ fi
 
 declare -x PATH="/home/matt/android-sdks/tools:/home/matt/bin:/usr/sbin:/sbin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/games"
 
-declare -x PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-source ~/.rvm/scripts/rvm
-
 shopt -s histappend
-
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

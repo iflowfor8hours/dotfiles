@@ -4,7 +4,7 @@ cd ..
 
 ln -sn ~/dotfiles/.bashrc ~/.bashrc
 ln -sn ~/dotfiles/.notmuch-config ~/.notmuch-config
-ln -sn ~/dotfiles/.vim ~/.vim
+ln -sn ~/dotfiles/.vim ~/.vim/
 ln -sn ~/dotfiles/.vimrc ~/.vimrc
 ln -sn ~/dotfiles/.irssi ~/.irssi
 ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
