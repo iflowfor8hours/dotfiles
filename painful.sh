@@ -38,12 +38,9 @@ vagrant plugin install landrush
 sudo sh -c 'echo "server=/vagrant.dev/127.0.0.1#10053" > /etc/dnsmasq.d/vagrant-landrush'
 sudo service dnsmasq restart
 
-# blackvpn
+# vpn
 mkdir -p /home/matt/dev
 cd /home/matt/projects
-wget https://www.blackvpn.com/content/uploads/blackvpn_linux.zip
-unzip blackvpn_linux.zip
-rm blackvpn_linux.zip
 
 # homedir setup
 mkdir -p ~/.logs
@@ -62,4 +59,4 @@ mkdir -p ~/.mutt/temp
 touch ~/.logs/msmtp/fastmail.log
 touch ~/.config/offlineimap/matt.iflowfor8hours.info
 echo "Add your password to ~/.config/offlineimap/matt.iflowfor8hours.info"
-echo "Setup your blackvpn credentials too"
+echo "Setup your vpn credentials"
