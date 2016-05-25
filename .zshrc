@@ -223,7 +223,7 @@ alias be='bundle exec'
 alias t='task'
 alias dim='redshift -o'
 alias undim='redshift -x'
-alias mandim='redshift -c /home/matt/.config/redshift.conf'
+alias mandim='redshift -c ~/.config/redshift.conf'
 alias dockercleanimages='docker rmi $(docker images -q --filter "dangling=true")'
 alias dockercleanps='docker rm `docker ps --no-trunc -aq`'
 alias pbcopy='xsel --clipboard --input'
@@ -265,7 +265,7 @@ PROMPT3='{ … }  '
 . /usr/share/autojump/autojump.zsh
 
 # fish highlighting
-source /home/matt/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -292,4 +292,14 @@ autoload -U compinit && compinit # enables extra auto-completion
 setopt prompt_subst
 autoload -U colors && colors
 
+_apex()  {
+  COMPREPLY=()
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  local opts="$(apex autocomplete -- ${COMP_WORDS[@]:1})"
+  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+  return 0
+}
+
+# Add this to /etc/zsh/zshenv in frustration too sometimes
+/usr/bin/setxkbmap -option altwin:ctrl_win
 
