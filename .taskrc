@@ -30,8 +30,8 @@ include /usr/local/share/doc/task/rc/solarized-dark-256.theme
 #include /usr/local/share/doc/task/rc/no-color.theme
 #
 taskd.server=taskwarrior.inthe.am:53589
-taskd.key=/home/matt/.task/private.key
-taskd.certificate=/home/matt/.task/private.cert
-taskd.ca=/home/matt/.task/ca.cert.pem
+taskd.key=/home/celery/.task/private.key
+taskd.certificate=/home/celery/.task/private.cert
+taskd.ca=/home/celery/.task/ca.cert.pem
 taskd.credentials=inthe_am/ur.matt/03a342da-5f33-4c82-b676-b2768599a748
 taskd.trust=ignore hostname
