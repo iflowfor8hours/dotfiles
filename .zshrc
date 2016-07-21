@@ -119,7 +119,7 @@ function normalsleep {
 # Make sure things are in my paths
 BASE_PATHS="/bin /usr/bin /sbin /usr/sbin"
 X_PATHS="/usr/X11R6/bin /usr/dt/bin /usr/X/bin"
-LOCAL_PATHS="/usr/local/bin /usr/local/gnu/bin"
+LOCAL_PATHS="/usr/local/bin /usr/local/gnu/bin /usr/local/aws/bin"
 HOME_PATHS="~/bin ~/.screenlayout ~/.local/bin"
 addpaths $=BASE_PATHS $=X_PATHS $=LOCAL_PATHS $=SOLARIS_PATHS $=HOME_PATHS
 PATH="$HOME/bin:$HOME/local/bin:$PATH"
@@ -234,6 +234,7 @@ alias reloadshell='exec $SHELL -l'
 alias wifi='exec nmtui'
 alias nosleep='xset -dpms; xset s noblank; xset s off'
 alias thesaurus='dict -d moby-thesaurus'
+alias bfg="java -jar ${HOME}/bin/bfg.jar"
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
@@ -276,7 +277,6 @@ eval "$(rbenv init -)"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# aws crap
 export ANSIBLE_NOCOWS=1
 setxkbmap -option caps:ctrl_modifier
 source ~/.fzf.zsh
@@ -303,3 +303,8 @@ _apex()  {
 # Add this to /etc/zsh/zshenv in frustration too sometimes
 /usr/bin/setxkbmap -option altwin:ctrl_win
 
+# aws crap
+source /usr/local/aws/bin/aws_zsh_completer.sh
+
+export NVM_DIR="/home/celery/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
