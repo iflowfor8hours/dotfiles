@@ -39,20 +39,20 @@ sudo sh -c 'echo "server=/vagrant.dev/127.0.0.1#10053" > /etc/dnsmasq.d/vagrant-
 sudo service dnsmasq restart
 
 # vpn
-mkdir -p /home/matt/dev
-cd /home/matt/projects
+mkdir -p /home/${USER}/dev
+cd /home/${USER}/projects
 
 # homedir setup
 mkdir -p ~/.logs
 mkdir -p ~/bin
-mkdir -p /home/matt/src
-mkdir -p /home/matt/projects
+mkdir -p /home/${USER}/src
+mkdir -p /home/${USER}/projects
 #
 ## mail stuff
 mkdir -p ~/Mail/fastmail
-mkdir -p /home/matt/Mail/.mutt/mailboxes
-mkdir -p /home/matt/Mail/temporary/search
-mkdir -p /home/matt/Mail/.offlineimap
+mkdir -p /home/${USER}/Mail/.mutt/mailboxes
+mkdir -p /home/${USER}/Mail/temporary/search
+mkdir -p /home/${USER}/Mail/.offlineimap
 mkdir -p ~/.config/offlineimap/
 mkdir -p ~/.logs/msmtp
 mkdir -p ~/.mutt/temp
@@ -60,3 +60,4 @@ touch ~/.logs/msmtp/fastmail.log
 touch ~/.config/offlineimap/matt.iflowfor8hours.info
 echo "Add your password to ~/.config/offlineimap/matt.iflowfor8hours.info"
 echo "Setup your vpn credentials"
+echo "setup backups! rsync -avhW --progress --exclude-from=/var/tmp/ignorelist /home/${USER}/ /media/${USER}/${TARGET}/${USER}/"
