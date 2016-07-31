@@ -61,3 +61,5 @@ touch ~/.config/offlineimap/matt.iflowfor8hours.info
 echo "Add your password to ~/.config/offlineimap/matt.iflowfor8hours.info"
 echo "Setup your vpn credentials"
 echo "setup backups! rsync -avhW --progress --exclude-from=/var/tmp/ignorelist /home/${USER}/ /media/${USER}/${TARGET}/${USER}/"
+
+echo "nothing permanent, ownership is ephemeral, work to make that happen"
