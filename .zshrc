@@ -7,8 +7,9 @@ export LANG=en_US.utf8
 
 # go stuff
 export GOROOT="$HOME/dev/go"
+export GOBIN="$GOROOT/bin"
 export GOPATH="$HOME/dev/gospace"
-export PATH="$HOME/dev/go/bin:$HOME/dev/gospace/bin:$PATH"
+export PATH="$GOROOT/bin:$PATH"
 export PKG_CONFIG_PATH=/usr/bin/pkg-config
 export VAGRANT_DEFALT_PROVIDER="virtualbox"
 
@@ -226,6 +227,7 @@ alias undim='redshift -x'
 alias mandim='redshift -c ~/.config/redshift.conf'
 alias dockercleanimages='docker rmi $(docker images -q --filter "dangling=true")'
 alias dockercleanps='docker rm `docker ps --no-trunc -aq`'
+alias dockercleanvolumes='docker volume rm $(docker volume ls -qf dangling=true)'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias mutt='cd ~/Desktop && mutt-patched'
@@ -308,3 +310,6 @@ source /usr/local/aws/bin/aws_zsh_completer.sh
 
 export NVM_DIR="/home/celery/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+source /home/celery/.dvm/dvm.sh
+

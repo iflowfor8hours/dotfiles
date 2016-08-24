@@ -9,7 +9,7 @@ sudo add-apt-repository -y ppa:git-core/ppa
 sudo add-apt-repository "deb http://deb.bitmask.net/debian vivid main"
 wget -O- https://dl.bitmask.net/apt.key | sudo apt-key add -
 sudo apt-get update
-sudo apt-get -y install mc gnome-commander git vim zsh htop kupfer libgnutls-dev build-essential cmake libuuid1 libuu-dev libuu0 uuid-dev terminator autojump mutt-patched exuberant-ctags offlineimap redshift sqlite notmuch-mutt urlview pgp abook tmux python-pip ack-grep arandr python-virtualenv msmtp curl weechat-curses libncurses5-dev  automake libreadline-dev gnupg2 libgpgme11 libgpgme11-dev resolvconf dnsmasq python-dev unrar autoconf bison libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev xsel libc6:i386  w3m libaudio2 libmysqlclient18 libqt4-declarative libqt4-network libqt4-opengl libqt4-script libqt4-sql libqt4-sql-mysql libqt4-xml libqt4-xmlpatterns libqtcore4 libqtdbus4 libqtgui4 mysql-common qtcore4-l10n bitmask leap-keyring openvpn dconf-editor
+sudo apt-get -y install mc gnome-commander git vim zsh htop kupfer libgnutls-dev build-essential cmake libuuid1 libuu-dev libuu0 uuid-dev terminator autojump mutt-patched exuberant-ctags offlineimap redshift sqlite notmuch-mutt urlview pgp abook tmux python-pip ack-grep arandr python-virtualenv msmtp curl weechat-curses libncurses5-dev  automake libreadline-dev gnupg2 libgpgme11 libgpgme11-dev resolvconf dnsmasq python-dev unrar autoconf bison libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev xsel libc6:i386  w3m libaudio2 libmysqlclient18 libqt4-declarative libqt4-network libqt4-opengl libqt4-script libqt4-sql libqt4-sql-mysql libqt4-xml libqt4-xmlpatterns libqtcore4 libqtdbus4 libqtgui4 mysql-common qtcore4-l10n bitmask leap-keyring openvpn dconf-editor ranger
 
 # node
 curl --silent --location https://deb.nodesource.com/setup_0.12 | sudo bash -
@@ -42,6 +42,9 @@ sudo service dnsmasq restart
 mkdir -p /home/${USER}/dev
 cd /home/${USER}/projects
 
+# dvm. sigh.
+curl -sL https://download.getcarina.com/dvm/latest/install.sh | sh
+
 # homedir setup
 mkdir -p ~/.logs
 mkdir -p ~/bin
@@ -61,5 +64,15 @@ touch ~/.config/offlineimap/matt.iflowfor8hours.info
 echo "Add your password to ~/.config/offlineimap/matt.iflowfor8hours.info"
 echo "Setup your vpn credentials"
 echo "setup backups! rsync -avhW --progress --exclude-from=/var/tmp/ignorelist /home/${USER}/ /media/${USER}/${TARGET}/${USER}/"
+echo "Install keybase \
+              lastpass \ 
+              authy \
+              aws tools \
+              aws credentials \
+              gpg tools \
+              git crypt \
+              ansible"
 
 echo "nothing permanent, ownership is ephemeral, work to make that happen"
+
+# Se
