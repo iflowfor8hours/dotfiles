@@ -310,6 +310,3 @@ source /usr/local/aws/bin/aws_zsh_completer.sh
 
 export NVM_DIR="/home/celery/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-source /home/celery/.dvm/dvm.sh
-
