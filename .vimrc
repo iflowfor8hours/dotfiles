@@ -215,13 +215,7 @@ cmap w!! w !sudo tee %
 inoremap # X<BS>#
 " When I forget I'm in Insert mode, how often do you type 'jj' anyway?
 imap jj <Esc>
-" W usually means w
-nmap W w
-
-" improved formatting for markdown
-"autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:>
-"au! BufRead,BufNewFile *.markdown set filetype=mkd
-"au! BufRead,BufNewFile *.md       set filetype=mkd
+imap jk <Esc>
 
 " set list to activate whitespace detection mode
 au BufNewFile,BufRead *.less set filetype=less
@@ -285,3 +279,9 @@ augroup ft_mail
 
     au Filetype mail setlocal spell
 augroup END
+
+" for scrolling up and down quickly
+nnoremap J 7j
+nnoremap K 7k
+vnoremap J 7j
+vnoremap K 7k
