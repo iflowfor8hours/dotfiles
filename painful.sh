@@ -12,7 +12,7 @@ sudo apt-get update
 sudo apt-get -y install mc gnome-commander git vim zsh htop kupfer libgnutls-dev build-essential cmake libuuid1 libuu-dev libuu0 uuid-dev terminator autojump mutt-patched exuberant-ctags offlineimap redshift sqlite notmuch-mutt urlview pgp abook tmux python-pip ack-grep arandr python-virtualenv msmtp curl weechat-curses libncurses5-dev  automake libreadline-dev gnupg2 libgpgme11 libgpgme11-dev resolvconf dnsmasq python-dev unrar autoconf bison libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev xsel libc6:i386  w3m libaudio2 libqt4-declarative libqt4-network libqt4-opengl libqt4-script libqt4-sql libqt4-sql-mysql libqt4-xml libqt4-xmlpatterns libqtcore4 libqtdbus4 libqtgui4 mysql-common qtcore4-l10n bitmask leap-keyring openvpn dconf-editor ranger nfs-common nfs-kernel-server
 
 # node
-curl --silent --location https://deb.nodesource.com/setup_0.12 | sudo bash -
+curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 sudo apt-get install --yes nodejs
 
 # rbenv
@@ -25,32 +25,24 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 # vbox and vagrant
-cd /tmp
-wget http://download.virtualbox.org/virtualbox/5.0.8/virtualbox-5.0_5.0.8-103449~Ubuntu~trusty_amd64.deb
-sudo dpkg --install virtualbox-5.0_5.0.8-103449\~Ubuntu\~trusty_amd64.deb
-sudo apt-get -f install
+#cd /tmp
+#wget http://download.virtualbox.org/virtualbox/5.0.8/virtualbox-5.0_5.0.8-103449~Ubuntu~trusty_amd64.deb
+#sudo dpkg --install virtualbox-5.0_5.0.8-103449\~Ubuntu\~trusty_amd64.deb
+#sudo apt-get -f install
 
 cd /tmp
-wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb
-sudo dpkg --install vagrant_1.7.4_x86_64.deb
-vagrant plugin install landrush
-
-sudo sh -c 'echo "server=/vagrant.dev/127.0.0.1#10053" > /etc/dnsmasq.d/vagrant-landrush'
-sudo service dnsmasq restart
+wget https://releases.hashicorp.com/vagrant/1.8.6/vagrant_1.8.6_x86_64.deb
+sudo dpkg --install vagrant_1.8.6_x86_64.deb
 
 # vpn
 mkdir -p /home/${USER}/dev
 cd /home/${USER}/projects
 
-# dvm. sigh.
-curl -sL https://download.getcarina.com/dvm/latest/install.sh | sh
-
 # homedir setup
 mkdir -p ~/.logs
-mkdir -p ~/bin
 mkdir -p /home/${USER}/src
 mkdir -p /home/${USER}/projects
-#
+
 ## mail stuff
 mkdir -p ~/Mail/fastmail
 mkdir -p /home/${USER}/Mail/.mutt/mailboxes
@@ -65,14 +57,12 @@ echo "Add your password to ~/.config/offlineimap/matt.iflowfor8hours.info"
 echo "Setup your vpn credentials"
 echo "setup backups! rsync -avhW --progress --exclude-from=/var/tmp/ignorelist /home/${USER}/ /media/${USER}/${TARGET}/${USER}/"
 echo "Install keybase \
-              lastpass \ 
-              authy \
-              aws tools \
-              aws credentials \
-              gpg tools \
-              git crypt \
-              ansible"
+lastpass \ 
+authy \
+aws tools \
+aws credentials \
+gpg tools \
+git crypt \
+ansible"
 
 echo "nothing permanent, ownership is ephemeral, work to make that happen"
-
-# Se
