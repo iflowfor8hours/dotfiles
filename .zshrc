@@ -122,7 +122,8 @@ BASE_PATHS="/bin /usr/bin /sbin /usr/sbin"
 X_PATHS="/usr/X11R6/bin /usr/dt/bin /usr/X/bin"
 LOCAL_PATHS="/usr/local/bin /usr/local/gnu/bin /usr/local/aws/bin"
 HOME_PATHS="~/bin ~/.screenlayout ~/.local/bin"
-addpaths $=BASE_PATHS $=X_PATHS $=LOCAL_PATHS $=SOLARIS_PATHS $=HOME_PATHS
+ANDROID_TOOLS="~/dev/android-sdk-linux/platform-tools ~/dev/android-sdk-linux/tools ~/dev/android-sdk-linux/build-tools/22.0.1/"
+addpaths $=BASE_PATHS $=X_PATHS $=LOCAL_PATHS $=HOME_PATHS $=ANDROID_TOOLS
 PATH="$HOME/bin:$HOME/local/bin:$PATH"
 
 compctl -g '*(-/D)' cd 
@@ -237,10 +238,11 @@ alias wifi='exec nmtui'
 alias nosleep='xset -dpms; xset s noblank; xset s off'
 alias thesaurus='dict -d moby-thesaurus'
 alias bfg="java -jar ${HOME}/bin/bfg.jar"
+alias vi="emacsclient -nw"
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
-which vim > /dev/null 2>&1 && alias vi=vim
+# which vim > /dev/null 2>&1 && alias vi=vim
 
 autoload -Uz vcs_info
 
@@ -310,3 +312,5 @@ source /usr/local/aws/bin/aws_zsh_completer.sh
 
 export NVM_DIR="/home/celery/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+autoload zmv
