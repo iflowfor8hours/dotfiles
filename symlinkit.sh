@@ -19,5 +19,6 @@ ln -sn ~/dotfiles/.taskrc ~/.taskrc
 ln -sn ~/dotfiles/.msmtprc ~/.msmtprc
 ln -sn ~/dotfiles/.mutt ~/.mutt
 ln -sn ~/dotfiles/.ipython ~/.ipython
+ln -sn ~/dotfiles/.hgrc ~/.hgrc
 
 chmod 600 ~/.msmtprc
