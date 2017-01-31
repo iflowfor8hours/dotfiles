@@ -191,8 +191,6 @@ zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 zstyle ':completion:*' hosts off
 
-compdef pkill=kill
-compdef pkill=killall
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:processes' command 'ps -au$USER'
 
@@ -207,7 +205,7 @@ zstyle ':completion:*:*:hg:*' script ~/dotfiles/zsh/hg-completion.zsh
 
 
 # -- Aliases --
-alias ls='ls -G --color=auto'
+alias ls='ls -G'
 alias ll='ls -alh'
 alias mkdir='mkdir -p'
 alias cp='cp -R'
@@ -268,14 +266,14 @@ PROMPT2='{%_}  '
 PROMPT3='{ … }  '
 
 # autojump
-. /usr/share/autojump/autojump.zsh
+# . /usr/share/autojump/autojump.zsh
 
 # fish highlighting
 source ~/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 
 # no one cares, none of this matters.
 
@@ -283,8 +281,8 @@ eval "$(rbenv init -)"
 export PATH="/usr/local/heroku/bin:$PATH"
 
 export ANSIBLE_NOCOWS=1
-setxkbmap -option caps:ctrl_modifier
-source ~/.fzf.zsh
+# setxkbmap -option caps:ctrl_modifier
+# source ~/.fzf.zsh
 
 if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent -s`
@@ -306,10 +304,10 @@ _apex()  {
 }
 
 # Add this to /etc/zsh/zshenv in frustration too sometimes
-/usr/bin/setxkbmap -option altwin:ctrl_win
+# /usr/bin/setxkbmap -option altwin:ctrl_win
 
 # aws crap
-source /usr/local/aws/bin/aws_zsh_completer.sh
+# source /usr/local/aws/bin/aws_zsh_completer.sh
 
 export NVM_DIR="/home/celery/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

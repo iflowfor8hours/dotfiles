@@ -10,6 +10,7 @@ let NERDTreeWinPos="left"
 let NERDTreeWinSize=20
 " fold the numbers column
 map <F2> :set invnumber<CR>
+set encoding=utf-8
 
 call pathogen#infect() 
 
@@ -40,7 +41,7 @@ set ruler                     " show the line number on the bar
 set autoread                  " watch for file changes
 set noautowrite               " don't automagically write on :next
 set nocompatible              " vim, not vi
-" set showbreak=↪
+set showbreak=↪
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set autoindent 
 set nosmartindent    " auto/smart indent
