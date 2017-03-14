@@ -73,31 +73,6 @@ compctl -g '*(-/D)' cd
 compctl -j -P '%' kill bg fg
 compctl -v export unset vared
 
-# Set up $PATH
-function notinpath {
-  for tmp in $path; do
-    [ $tmp = $1 ] && return 1
-  done
-
-  return 0
-}
-
-function addpaths {
-  for i in $*; do
-    i=${~i}
-    if [ -d "$i" ]; then
-      notinpath $i && path+=$i
-    fi
-  done
-}
-
-function delpaths {
-  for i in $*; do
-    i=${~i}
-    PATH="$(echo "$PATH" | tr ':' '\n' | grep -v "$i" | tr '\n' ':')"
-  done
-}
-
 function nosleep {
 xset -dpms
 xset s noblank
@@ -108,13 +83,11 @@ function normalsleep {
 }
 
 # Make sure things are in my paths
-BASE_PATHS="/bin /usr/bin /sbin /usr/sbin"
-X_PATHS="/usr/X11R6/bin /usr/dt/bin /usr/X/bin"
-LOCAL_PATHS="/usr/local/bin /usr/local/gnu/bin /usr/local/aws/bin"
-HOME_PATHS="~/bin ~/.screenlayout ~/.local/bin"
-ANDROID_TOOLS="~/dev/android-sdk-linux/platform-tools ~/dev/android-sdk-linux/tools ~/dev/android-sdk-linux/build-tools/22.0.1/"
-addpaths $=BASE_PATHS $=X_PATHS $=LOCAL_PATHS $=HOME_PATHS $=ANDROID_TOOLS
-PATH="$HOME/bin:$HOME/local/bin:$PATH"
+BASE_PATHS="/bin:/usr/bin:/sbin:/usr/sbin"
+LOCAL_PATHS="/usr/local/bin:/usr/local/aws/bin"
+HOME_PATHS="~/bin:~/.screenlayout:~/.local/bin"
+#ANDROID_TOOLS="~/dev/android-sdk-linux/platform-tools:~/dev/android-sdk-linux/tools:~/dev/android-sdk-linux/build-tools/22.0.1/"
+PATH="$BASE_PATHS:$LOCAL_PATHS:$HOME_PATHS:$PATH"
 
 compctl -g '*(-/D)' cd 
 compctl -c which
@@ -154,7 +127,6 @@ function scp() {
   =scp "$@"
 }
 
-# Any special local config?
 if [ -r ~/.zshrc_local ] ; then
   . ~/.zshrc_local
 fi
@@ -175,23 +147,18 @@ zstyle ':completion:*:*:default' force-list always
 zmodload  zsh/complist
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 zstyle ':completion:*' hosts off
-
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:processes' command 'ps -au$USER'
-
 zstyle ':completion:*:matches' group 'yes'
 zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*:options' auto-description '%d'
 zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m'
 zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
 zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
-#zstyle ':completion:*:*:git:*' script ~/dotfiles/zsh/git-completion.zsh
-#zstyle ':completion:*:*:hg:*' script ~/dotfiles/zsh/hg-completion.zsh           
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
@@ -258,18 +225,15 @@ PROMPT3='{ … }  '
 # fish highlighting
 source ~/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# kubernetes completion
+source <(kubectl completion zsh)
+
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 # no one cares, none of this matters.
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 export ANSIBLE_NOCOWS=1
-# setxkbmap -option caps:ctrl_modifier
-# source ~/.fzf.zsh
 
 if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent -s`
@@ -278,28 +242,23 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
 
 fpath=(~/dotfiles/zsh $fpath)
 
-# Add this to /etc/zsh/zshenv in frustration too sometimes
-# /usr/bin/setxkbmap -option altwin:ctrl_win
+case `uname` in
+  Darwin)
+    # autojump
+    [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+    source ~/.local/lib/aws/bin/aws_zsh_completer.sh
+    alias ls='ls -FG'
+    # nvm
+    export NVM_DIR="$HOME/.nvm"
+    . "/usr/local/opt/nvm/nvm.sh"
+    ;;
+  Linux)
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    alias ls='ls -F --color=auto'
+    alias pbcopy='xsel --clipboard --input'
+    alias pbpaste='xsel --clipboard --output'
+    source /usr/local/aws/bin/aws_zsh_completer.sh
+    ;;
+esac
 
-export NVM_DIR="/home/celery/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-
-# autojump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
-# aws, osx only
-source ~/.local/lib/aws/bin/aws_zsh_completer.sh
-
-# QT stuff
-#echo 'export PATH="/usr/local/opt/qt5/bin:$PATH"' >> ~/.zshrc
-
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-
-# alias pbcopy='xsel --clipboard --input'
-# alias pbpaste='xsel --clipboard --output'
-
-source <(kubectl completion zsh)

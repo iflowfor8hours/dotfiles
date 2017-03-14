@@ -44,7 +44,7 @@ set nocompatible              " vim, not vi
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set autoindent 
 set nosmartindent    " auto/smart indent
-set expandtab                 " expand tabs to spaces (except java, see autocmd below)
+set expandtab                 " expand tabs to spaces (except java, see autocmd below
 set softtabstop=2
 set smarttab                  " tab and backspace are smart
 set tabstop=2                 " 4 spaces
