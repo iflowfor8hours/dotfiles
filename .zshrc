@@ -7,9 +7,9 @@ export LANG=en_US.utf8
 
 # go stuff
 export GOROOT="$HOME/dev/go"
-export GOBIN="$GOROOT/bin"
+#export GOBIN="$GOROOT/bin"
 export GOPATH="$HOME/dev/gospace"
-export PATH="$GOROOT/bin:$PATH"
+#export PATH="$GOROOT/bin:$PATH"
 export PKG_CONFIG_PATH=/usr/bin/pkg-config
 export VAGRANT_DEFALT_PROVIDER="virtualbox"
 
@@ -24,6 +24,11 @@ HISTFILE=~/.history_zsh
 # ^S and ^Q cause problems and I don't use them. Disable stty stop.
 stty stop ""
 stty start ""
+
+autoload -U colors && colors
+autoload zmv
+autoload -U compinit && compinit # enables extra auto-completion
+setopt prompt_subst
 
 # Some environment defaults
 export EDITOR=vim
@@ -67,21 +72,6 @@ bindkey '^[[1;5C' forward-word
 compctl -g '*(-/D)' cd
 compctl -j -P '%' kill bg fg
 compctl -v export unset vared
-
-function up {
-  if [ "$#" -eq 0 ] ; then
-    echo "Up to where?"
-    return 1
-  fi
-
-  times=$1
-  target="$2"
-  while [ $times -gt 0 ] ; do
-    target="../$target"
-    times=$((times - 1))
-  done
-  cd $target
-}
 
 # Set up $PATH
 function notinpath {
@@ -200,8 +190,10 @@ zstyle ':completion:*:options' auto-description '%d'
 zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m'
 zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
 zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
-zstyle ':completion:*:*:git:*' script ~/dotfiles/zsh/git-completion.zsh           
-zstyle ':completion:*:*:hg:*' script ~/dotfiles/zsh/hg-completion.zsh           
+#zstyle ':completion:*:*:git:*' script ~/dotfiles/zsh/git-completion.zsh
+#zstyle ':completion:*:*:hg:*' script ~/dotfiles/zsh/hg-completion.zsh           
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 
 # -- Aliases --
@@ -228,8 +220,6 @@ alias mandim='redshift -c ~/.config/redshift.conf'
 alias dockercleanimages='docker rmi $(docker images -q --filter "dangling=true")'
 alias dockercleanps='docker rm `docker ps --no-trunc -aq`'
 alias dockercleanvolumes='docker volume rm $(docker volume ls -qf dangling=true)'
-alias pbcopy='xsel --clipboard --input'
-alias pbpaste='xsel --clipboard --output'
 alias mutt='cd ~/Desktop && mutt-patched'
 alias vdu='vagrant destroy -f && vagrant up'
 alias reloadshell='exec $SHELL -l'
@@ -265,15 +255,12 @@ PROMPT2='{%_}  '
 # -- Selection prompt --
 PROMPT3='{ … }  '
 
-# autojump
-# . /usr/share/autojump/autojump.zsh
-
 # fish highlighting
 source ~/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # rbenv
-# export PATH="$HOME/.rbenv/bin:$PATH"
-# eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 # no one cares, none of this matters.
 
@@ -289,27 +276,30 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
       ssh-add
     fi
 
-fpath=(~/.zsh/completion $fpath)
-
-autoload -U compinit && compinit # enables extra auto-completion
-setopt prompt_subst
-autoload -U colors && colors
-
-_apex()  {
-  COMPREPLY=()
-  local cur="${COMP_WORDS[COMP_CWORD]}"
-  local opts="$(apex autocomplete -- ${COMP_WORDS[@]:1})"
-  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-  return 0
-}
+fpath=(~/dotfiles/zsh $fpath)
 
 # Add this to /etc/zsh/zshenv in frustration too sometimes
 # /usr/bin/setxkbmap -option altwin:ctrl_win
 
-# aws crap
-# source /usr/local/aws/bin/aws_zsh_completer.sh
-
 export NVM_DIR="/home/celery/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-autoload zmv
+
+# autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+# aws, osx only
+source ~/.local/lib/aws/bin/aws_zsh_completer.sh
+
+# QT stuff
+#echo 'export PATH="/usr/local/opt/qt5/bin:$PATH"' >> ~/.zshrc
+
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+# alias pbcopy='xsel --clipboard --input'
+# alias pbpaste='xsel --clipboard --output'
+
+source <(kubectl completion zsh)
