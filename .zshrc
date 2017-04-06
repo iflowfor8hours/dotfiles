@@ -25,6 +25,8 @@ HISTFILE=~/.history_zsh
 stty stop ""
 stty start ""
 
+fpath=(~/dotfiles/zsh $fpath)
+
 autoload -U colors && colors
 autoload zmv
 autoload -U compinit && compinit # enables extra auto-completion
@@ -228,6 +230,9 @@ source ~/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # kubernetes completion
 source <(kubectl completion zsh)
 
+# helm bash completion
+# source <(helm completion)
+
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
@@ -240,7 +245,6 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
       ssh-add
     fi
 
-fpath=(~/dotfiles/zsh $fpath)
 
 case `uname` in
   Darwin)
