@@ -12,6 +12,7 @@ export GOPATH="$HOME/dev/gospace"
 #export PATH="$GOROOT/bin:$PATH"
 export PKG_CONFIG_PATH=/usr/bin/pkg-config
 export VAGRANT_DEFALT_PROVIDER="virtualbox"
+export PATH=/home/matt/.local/bin:$PATH
 
 # Defaults
 PSARGS=-ax
@@ -230,8 +231,24 @@ source ~/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # kubernetes completion
 source <(kubectl completion zsh)
 
+bash_source() {
+  alias shopt=':'
+  alias _expand=_bash_expand
+  alias _complete=_bash_comp
+  emulate -L sh
+  setopt kshglob noshglob braceexpand
+
+  source "$@"
+}
+
 # helm bash completion
-# source <(helm completion)
+# bash_source <(~/.zsh/completion/_helm)
+# bash_source <(~/.zsh/completion/_helm)
+
+# kops bash completion
+# bash_source <(kops completion bash)
+
+# autoload bashcompinit
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -246,6 +263,7 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
     fi
 
 
+# This is where were should start factoring into seperate files.
 case `uname` in
   Darwin)
     # autojump
@@ -257,6 +275,8 @@ case `uname` in
     . "/usr/local/opt/nvm/nvm.sh"
     ;;
   Linux)
+    # autojump
+    [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     alias ls='ls -F --color=auto'

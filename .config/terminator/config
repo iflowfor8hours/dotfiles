@@ -19,6 +19,7 @@
   switch_to_tab_8 = <Alt>8
   switch_to_tab_9 = <Alt>8
   toggle_zoom = <Alt>x
+  ungroup_tab = <Primary><Shift>t
 [layouts]
   [[default]]
     [[[child1]]]
