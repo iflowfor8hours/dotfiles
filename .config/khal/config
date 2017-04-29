@@ -1,0 +1,32 @@
+[calendars]
+
+[[tripit]]
+path = ~/.calendars/a68168fd-d588-47e7-b6e8-9073afb06ab1/
+type = calendar
+color = light blue
+
+[[fastmailcal]]
+path = ~/.calendars/6aeb1090-f0bd-481c-ba64-db4fd0b2a1a4/
+type = calendar
+color = dark green
+
+[[holidays]]
+path = ~/.calendars/5f84e1de-a8b3-4316-82e8-e0478458d5ec/
+type = calendar
+color = light cyan
+
+[locale]
+timeformat = %H:%M
+dateformat = %Y-%m-%d
+longdateformat = %Y-%m-%d
+datetimeformat = %Y-%m-%d %H:%M
+longdatetimeformat = %Y-%m-%d %H:%M
+
+[view]
+theme = dark
+
+[default]
+default_command = calendar
+default_calendar = fastmailcal
+highlight_event_days = True
+
