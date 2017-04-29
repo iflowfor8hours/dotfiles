@@ -14,8 +14,6 @@ weechat
 
 tmux
 
-urxvt is a pain
-
 sent maill in mutt goes to a weird directory
 
 mutt archived messages don't get moved 
