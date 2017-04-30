@@ -8,6 +8,8 @@
   go_right = <Alt>l
   go_up = <Alt>k
   layout_launcher = <Primary><Shift>asciitilde
+  page_down = <Shift><Alt>j
+  page_up = <Shift><Alt>k
   switch_to_tab_1 = <Alt>1
   switch_to_tab_10 = XF86WakeUp
   switch_to_tab_2 = <Alt>2

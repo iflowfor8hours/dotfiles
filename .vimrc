@@ -148,7 +148,7 @@ set mousehide                 " hide the mouse when typing
 " this makes the mouse paste a block of text without formatting it 
 " (good for code)
 map <MouseMiddle> <esc>"*p
-" set mouse=a
+set mouse=a
 
 " ---------------------------------------------------------------------------
 "  backup options
