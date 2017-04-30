@@ -1,5 +1,7 @@
 [
     {
+        "caption": "View",
+        "mnemonic": "V",
         "id": "view",
         "children":
         [
@@ -28,9 +30,14 @@
                                 "command": "git_gutter_compare_commit"
                             },
                             {
+                                "caption": "File Commit",
+                                "command": "git_gutter_compare_file_commit"
+                            },
+                            {
                                 "caption": "Branch",
                                 "command": "git_gutter_compare_branch"
-                            },{
+                            },
+                            {
                                 "caption": "Tag",
                                 "command": "git_gutter_compare_tag"
                             }
@@ -41,17 +48,20 @@
         ]
     },
     {
+        "caption": "Goto",
+        "mnemonic": "G",
         "id": "goto",
         "children":
         [
             {
-                "caption": "Previous Change",
+                "caption": "Goto Previous Git Difference",
                 "command": "git_gutter_prev_change"
             },
             {
-                "caption": "Next Change",
+                "caption": "Goto Next Git Difference",
                 "command": "git_gutter_next_change"
-            }
+            },
+            { "caption": "-" }
         ]
     },
     {
@@ -71,63 +81,60 @@
                         "children":
                         [
                             {
-                                "command": "open_file",
-                                "args": {"file": "${packages}/GitGutter/GitGutter.sublime-settings"},
-                                "caption": "Settings – Default"
+                                "caption": "Settings",
+                                "command": "git_gutter_edit_settings",
+                                "args": {
+                                    "base_file": "${packages}/GitGutter/GitGutter.sublime-settings",
+                                    "default": "// GitGutter Settings - User\n{\n\t$0\n}\n"
+                                }
                             },
                             {
-                                "command": "open_file",
-                                "args": {"file": "${packages}/User/GitGutter.sublime-settings"},
-                                "caption": "Settings – User"
+                                "caption": "Settings - Default",
+                                "command": "git_gutter_open_file",
+                                "args": {"file": "${packages}/GitGutter/GitGutter.sublime-settings"}
+                            },
+                            {
+                                "caption": "Settings - User",
+                                "command": "git_gutter_open_file",
+                                "args": {"file": "${packages}/User/GitGutter.sublime-settings"}
                             },
                             { "caption": "-" },
                             {
-                                "command": "open_file",
+                                "caption": "Key Bindings",
+                                "command": "git_gutter_edit_settings",
                                 "args": {
-                                    "file": "${packages}/GitGutter/Default (OSX).sublime-keymap",
-                                    "platform": "OSX"
-                                },
-                                "caption": "Key Bindings – Default"
+                                    "base_file": "${packages}/GitGutter/Default (${platform}).sublime-keymap",
+                                    "default": "// GitGutter Key Bindings - User\n{\n\t$0\n}\n"
+                                }
                             },
                             {
-                                "command": "open_file",
-                                "args": {
-                                    "file": "${packages}/GitGutter/Default (Linux).sublime-keymap",
-                                    "platform": "Linux"
-                                },
-                                "caption": "Key Bindings – Default"
+                                "caption": "Key Bindings - Default",
+                                "command": "git_gutter_open_file",
+                                "args": {"file": "${packages}/GitGutter/Default (${platform}).sublime-keymap"}
                             },
                             {
-                                "command": "open_file",
+                                "caption": "Key Bindings - User",
+                                "command": "git_gutter_open_file",
+                                "args": {"file": "${packages}/User/Default (${platform}).sublime-keymap"}
+                            },
+                            { "caption": "-" },
+                            {
+                                "caption": "Popup Stylesheet",
+                                "command": "git_gutter_edit_settings",
                                 "args": {
-                                    "file": "${packages}/GitGutter/Default (Windows).sublime-keymap",
-                                    "platform": "Windows"
-                                },
-                                "caption": "Key Bindings – Default"
+                                    "base_file": "${packages}/GitGutter/gitgutter_popup.css",
+                                    "default": "/* GitGutter Popup Stylesheet - User */\n\n"
+                                }
                             },
                             {
-                                "command": "open_file",
-                                "args": {
-                                    "file": "${packages}/User/Default (OSX).sublime-keymap",
-                                    "platform": "OSX"
-                                },
-                                "caption": "Key Bindings – User"
+                                "caption": "Popup Stylesheet - Default",
+                                "command": "git_gutter_open_file",
+                                "args": {"file": "${packages}/GitGutter/gitgutter_popup.css"}
                             },
                             {
-                                "command": "open_file",
-                                "args": {
-                                    "file": "${packages}/User/Default (Linux).sublime-keymap",
-                                    "platform": "Linux"
-                                },
-                                "caption": "Key Bindings – User"
-                            },
-                            {
-                                "command": "open_file",
-                                "args": {
-                                    "file": "${packages}/User/Default (Windows).sublime-keymap",
-                                    "platform": "Windows"
-                                },
-                                "caption": "Key Bindings – User"
+                                "caption": "Popup Stylesheet - User",
+                                "command": "git_gutter_open_file",
+                                "args": {"file": "${packages}/User/gitgutter_popup.css"}
                             }
                         ]
                     }

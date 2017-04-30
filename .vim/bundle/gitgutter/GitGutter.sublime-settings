@@ -1,4 +1,9 @@
 {
+  // Enable/Disable GitGutter
+  // Set false to disable evaluation of changes and hide all gutter icons,
+  // status message and minimap marker.
+  "enable": true,
+
   // Custom path to git binary when not in PATH.  An empty string will search
   // PATH for "git".  The setting may be a direct string to a git binary, e.g.:
   //
@@ -33,44 +38,68 @@
   // changed lines.
   "enable_hover_diff_popup": true,
 
+  // (ST3 only) The default mode to open the diff popup. This will be
+  // used for the hover popup, the command palette entry,
+  // and the default key binding.
+  // Possible modes are:
+  // "default": Show the previous git state in the popup
+  // "diff": Compare the git state to the working state and highlight
+  //         the differences in the popup
+  "diff_popup_default_mode": "default",
+
   // (ST3 only)
   // Whether the the diff popup should use icons (true) or
   // text (false) buttons
   "diff_popup_use_icon_buttons": true,
 
-  // When set to true GitGutter runs asynchronously in a seperate thread
-  // This may cause a small delay between a modification and the icon change
-  // but can increase performance greatly if needed.
-  "non_blocking": true,
-
-  // When using non_blocking mode, delay update of gutter icons by the
-  // following amount (in milliseconds).
+  // Delay update of gutter icons by the following amount (in milliseconds).
   "debounce_delay": 1000,
 
   // Determines whether GitGutter ignores whitespace in modified files.
   // Set "none" to ensure whitespace is considered in the diff
-  // Set "all" to ignore all white space
   // Set "eol" to only ignore whitespace at the end of lines
+  // Set "space" to ignore changes in amount of white space
+  // Set "all" to ignore all white space
   "ignore_whitespace": "none",
 
   // Add a special marker on untracked files
-  "show_markers_on_untracked_file": false,
+  "show_markers_on_untracked_file": true,
 
   // Add --patience switch to git diff command. See
   // http://bramcohen.livejournal.com/73318.html for
   // an example of why you might need this.
   "patience": true,
 
-  // Determines whether GitGutter will show informations in the status bar
-  // Set "none" to hide these informations
-  // Set "default" to show in the status bar what you are comparing
-  // against, how many lines have been inserted or modified and how many regions
-  // have been deleted.
-  // Set "all" to also show on what branch you are
-  "show_status": "default",
+  // Determines whether GitGutter shows status information in the status bar.
+  // Set false to disable status information.
+  // Set true to show information using the "status_bar_text" template.
+  "show_status_bar_text": true,
+
+  // STATUS BAR TEXT TEMPLATE
+  // The array is joined to a single string and passed to jinja2 template
+  // engine to render the status message text. The template can be modified using
+  // jinja2 supported syntax. GitGutter provides the following variables:
+  //   {{repo}}     -- repository name / folder name containing the .git directory
+  //   {{branch}}   -- checked out branch you are working on
+  //   {{compare}}  -- commit/branch/HEAD the file is compared to
+  //   {{state}}    -- One of committed/modified/ignored/untracked
+  //   {{deleted}}  -- number of deleted regions
+  //   {{inserted}} -- number of inserted lines
+  //   {{modified}} -- number of modified lines
+  "status_bar_text": [
+    "In {{repo}} on {{branch}}",
+    "{% if compare not in ('HEAD', branch) %}, Comparing against {{compare}}{% endif %}",
+    ", File is {{state}}",
+    "{% if deleted != 0 %}, {{deleted}}-{% endif %}",
+    "{% if inserted != 0 %}, {{inserted}}+{% endif %}",
+    "{% if modified != 0 %}, {{modified}}≠{% endif %}"
+  ],
 
   // Show GitGutter information in the minimap
-  "show_in_minimap": true,
+  // =0: hide markers
+  // >0: width of markers
+  // -1: highlight full line
+  "show_in_minimap": 1,
 
   // Determines whether the git_gutter_next_change and git_gutter_prev_change
   // commands wrap around on reaching the beginning/ending of the file.
@@ -83,5 +112,8 @@
     "sublimelinter-warning-gutter-marks",
     "sublimelinter-error-gutter-marks",
     "bookmarks"
-  ]
+  ],
+
+  // The gutter theme defines the icons to show for the different events.
+  "theme": "Default.gitgutter-theme"
 }

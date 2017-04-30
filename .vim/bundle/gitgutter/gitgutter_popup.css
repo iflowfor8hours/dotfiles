@@ -1,0 +1,49 @@
+/*
+    Jinja2 css template. Provided values are:
+        - st_version: the version of Sublime Text;
+    Copy the values you want to change into your user directory
+    and change them there to overwrite the stylesheet.
+*/
+
+.git-gutter .gitgutter-button {
+    font-size: 1.15rem;
+}
+
+/* Don't underline button links. */
+.git-gutter .gitgutter-button a {
+    text-decoration: none;
+}
+
+/* Size of button, if they are an image. */
+.git-gutter .gitgutter-button img {
+    height: 1.15rem;
+    width: 1.15rem;
+}
+
+/*
+    The following entries apply to the "difference highlight"
+    mode of the popup.
+*/
+/* Highlight text, that has not changed. */
+.git-gutter .gitgutter-hi-equal {
+}
+
+/* Highlight text, that has been inserted. */
+.git-gutter .gitgutter-hi-inserted {
+    color: green;
+}
+
+/* Highlight text, that has been deleted. */
+.git-gutter .gitgutter-hi-deleted {
+    color: red;
+    text-decoration: underline;
+}
+
+/* Highlight text, that has been inserted and substitutes other text. */
+.git-gutter .gitgutter-hi-changed .gitgutter-hi-inserted {
+}
+
+/* Highlight text, that has been deleted and is substituted by other text. */
+.git-gutter .gitgutter-hi-changed .gitgutter-hi-deleted {
+    color: yellow;
+}
