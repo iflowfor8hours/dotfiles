@@ -8,3 +8,8 @@ git subtree add --prefix .vim/bundle/vim-rsi https://github.com/tpope/vim-rsi.gi
 git subtree add --prefix .vim/bundle/vim-surround https://github.com/tpope/vim-surround.git master --squash
 git subtree add --prefix .vim/bundle/ack-vim https://github.com/mileszs/ack.vim.git master --squash
 git subtree add --prefix .vim/bundle/ctrlp https://github.com/ctrlpvim/ctrlp.vim.git --squash
+git subtree add --prefix .vim/bundle/command-t https://github.com/wincent/command-t.git --squash
+git subtree add --prefix .vim/bundle/vim-bracketed-paste https://github.com/ConradIrwin/vim-bracketed-paste.git --squash
+git subtree add --prefix .vim/bundle/vim-unimpaired https://github.com/tpope/vim-unimpaired.git --squash
+git subtree add --prefix .vim/bundle/vim-sensible https://github.com/tpope/vim-sensible.git --squash
+

@@ -27,3 +27,9 @@ git zsh stuff
 mutt contacts don't work
 
 gpg stuff
+
+# Manual stuff
+
+Key repeat rate
+[light locker bug](https://unix.stackexchange.com/questions/224775/keyboard-locked-after-resume-until-i-type-in-a-terminal?newreg=c25084d5035241a3bd49f8b02dd8de0c)
+
