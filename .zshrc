@@ -241,6 +241,9 @@ bash_source() {
   source "$@"
 }
 
+# Requires sudo pip install virtualenvwrapper
+source /usr/local/bin/virtualenvwrapper.sh 
+
 # helm bash completion
 # bash_source <(~/.zsh/completion/_helm)
 # bash_source <(~/.zsh/completion/_helm)
@@ -261,7 +264,6 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent -s`
       ssh-add
     fi
-
 
 # This is where were should start factoring into seperate files.
 case `uname` in

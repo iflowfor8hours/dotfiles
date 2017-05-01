@@ -10,6 +10,7 @@ let NERDTreeWinPos="left"
 let NERDTreeWinSize=20
 " fold the numbers column
 map <F2> :set invnumber<CR>
+map <F3> call ToggleErrors()<CR>
 set encoding=utf-8
 
 call pathogen#infect() 
@@ -120,11 +121,8 @@ set laststatus=2
 if has('statusline')
   function! SetStatusLineStyle()
     let &stl="%F%m%r%h%w\ [%{&ff}]\ [%Y]\ %P [%{SyntasticStatuslineFlag()}] [%#warningmsg]\ #%=[a=\%03.3b]\ [h=\%02.2B]\ [%l,%v]"
-    set statusline+=
-    set statusline+=
-    set statusline+=%*
   endfunc
-  " Not using it at the moment, using a different one
+
   call SetStatusLineStyle()
 
   if has('title')
@@ -132,6 +130,18 @@ if has('statusline')
   endif
 
 endif
+
+function! ToggleErrors()
+    if empty(filter(tabpagebuflist(), 'getbufvar(v:val, "&buftype") is# "quickfix"'))
+         " No location/quickfix list shown, open syntastic error location panel
+         Errors
+    else
+        lclose
+nnoremap <silent> <C-e> :<C-u>call ToggleErrors()<CR>
+    endif
+endfunction
+
+
 
 " ---------------------------------------------------------------------------
 "  searching
@@ -194,7 +204,7 @@ let g:surround_{char2nr('8')} = "/* \r */"
 let g:surround_{char2nr('s')} = " \r"
 let g:surround_{char2nr('^')} = "/^\r$/"
 let g:surround_indent = 1
-" ---------------------------------------------------------------------------
+
 " some useful mappings
 " Y yanks from cursor to $
 map Y y$
@@ -297,9 +307,35 @@ vnoremap K 7k
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
+let g:syntastic_loc_list_height = 5
 let g:syntastic_check_on_wq = 0
+let g:syntastic_shell = "/bin/zsh"
+let g:syntastic_auto_loc_list = 0
 
-" Tpope craziness need to learn what I can get rid of.
+let g:syntastic_debug_file = "~/syntastic.log"
+
+let g:syntastic_checkers_markdown = ['syntastic-markdown-proselint']
+let g:syntastic_checkers_text = ['syntastic-text-proselint']
+"let g:syntastic_checkers_vim
+let g:syntastic_checkers_yaml = ['syntastic-yaml-yamllint']
+let g:syntastic_checkers_zsh = ['syntastic-zsh-zsh']
+
+"let g:syntastic_checkers_c
+"let g:syntastic_checkers_cpp
+"let g:syntastic_checkers_cmake
+"let g:syntastic_checkers_dockerfile = [
+"let g:syntastic_checkers_eruby
+"let g:syntastic_checkers_go
+"let g:syntastic_checkers_javascript
+"let g:syntastic_checkers_json
+"let g:syntastic_checkers_perl
+"let g:syntastic_checkers_php
+"let g:syntastic_checkers_python
+"let g:syntastic_checkers_ruby
+"let g:syntastic_checkers_sh
+"let g:syntastic_checkers_sql
+
+" Tpope craziness need to sort
 augroup Misc " {{{2
     autocmd!
 
@@ -308,16 +344,6 @@ augroup Misc " {{{2
     autocmd FocusLost   * silent! wall
     autocmd FocusGained * if !has('win32') | silent! call fugitive#reload_status() | endif
     autocmd SourcePre */macros/less.vim set laststatus=0 cmdheight=1
-    if v:version >= 700 && isdirectory(expand("~/.trash"))
-      autocmd BufWritePre,BufWritePost * if exists("s:backupdir") | set backupext=~ | let &backupdir = s:backupdir | unlet s:backupdir | endif
-      autocmd BufWritePre ~/*
-            \ let s:path = expand("~/.trash").strpart(expand("<afile>:p:~:h"),1) |
-            \ if !isdirectory(s:path) | call mkdir(s:path,"p") | endif |
-            \ let s:backupdir = &backupdir |
-            \ let &backupdir = escape(s:path,'\,').','.&backupdir |
-            \ let &backupext = strftime(".%Y%m%d%H%M%S~",getftime(expand("<afile>:p")))
-    endif
-
     autocmd User Fugitive
           \ if filereadable(fugitive#buffer().repo().dir('fugitive.vim')) |
           \   source `=fugitive#buffer().repo().dir('fugitive.vim')` |
@@ -337,59 +363,57 @@ augroup Misc " {{{2
           \ exe "gl/^\\s*\\d\\+\\s*;\\s*Serial$/normal ^\<C-A>" |
           \ exe "normal g`tztg`s" |
           \ endif
-    autocmd CursorHold,BufWritePost,BufReadPost,BufLeave *
-      \ if !$VIMSWAP && isdirectory(expand("<amatch>:h")) | let &swapfile = &modified | endif
   augroup END " }}}2
-  augroup FTCheck " {{{2
-    autocmd!
-    autocmd BufNewFile,BufRead *named.conf*       set ft=named
-    autocmd BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == ""|set ft=text|endif
-  augroup END " }}}2
-  augroup FTOptions " {{{2
-    autocmd!
-    autocmd FileType c,cpp,cs,java          setlocal commentstring=//\ %s
-    autocmd Syntax   javascript             setlocal isk+=$
-    autocmd FileType xml,xsd,xslt,javascript setlocal ts=2
-    autocmd FileType text,txt,mail          setlocal ai com=fb:*,fb:-,n:>
-    autocmd FileType sh,zsh,csh,tcsh        inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
-    autocmd FileType sh,zsh,csh,tcsh        let &l:path = substitute($PATH, ':', ',', 'g')
-    autocmd FileType perl,python,ruby       inoremap <silent> <buffer> <C-X>! #!/usr/bin/env<Space><C-R>=&ft<CR>
-    autocmd FileType c,cpp,cs,java,perl,javscript,php,aspperl,tex,css let b:surround_101 = "\r\n}"
-    autocmd FileType apache       setlocal commentstring=#\ %s
-    autocmd FileType cucumber let b:dispatch = 'cucumber %' | imap <buffer><expr> <Tab> pumvisible() ? "\<C-N>" : (CucumberComplete(1,'') >= 0 ? "\<C-X>\<C-O>" : (getline('.') =~ '\S' ? ' ' : "\<C-I>"))
-    autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
-    autocmd FileType gitcommit setlocal spell
-    autocmd FileType gitrebase nnoremap <buffer> S :Cycle<CR>
-    autocmd FileType help setlocal ai fo+=2n | silent! setlocal nospell
-    autocmd FileType help nnoremap <silent><buffer> q :q<CR>
-    autocmd FileType html setlocal iskeyword+=~ | let b:dispatch = ':OpenURL %'
-    autocmd FileType java let b:dispatch = 'javac %'
-    autocmd FileType lua  setlocal includeexpr=substitute(v:fname,'\\.','/','g').'.lua'
-    autocmd FileType perl let b:dispatch = 'perl -Wc %'
-    autocmd FileType ruby setlocal tw=79 comments=:#\  isfname+=:
-    autocmd FileType ruby
-          \ let b:start = executable('pry') ? 'pry -r "%:p"' : 'irb -r "%:p"' |
-          \ if expand('%') =~# '_test\.rb$' |
-          \   let b:dispatch = 'testrb %' |
-          \ elseif expand('%') =~# '_spec\.rb$' |
-          \   let b:dispatch = 'rspec %' |
-          \ elseif !exists('b:dispatch') |
-          \   let b:dispatch = 'ruby -wc %' |
-          \ endif
-    autocmd FileType liquid,markdown,text,txt setlocal tw=78 linebreak nolist
-    autocmd FileType tex let b:dispatch = 'latex -interaction=nonstopmode %' | setlocal formatoptions+=l
-          \ | let b:surround_{char2nr('x')} = "\\texttt{\r}"
-          \ | let b:surround_{char2nr('l')} = "\\\1identifier\1{\r}"
-          \ | let b:surround_{char2nr('e')} = "\\begin{\1environment\1}\n\r\n\\end{\1\1}"
-          \ | let b:surround_{char2nr('v')} = "\\verb|\r|"
-          \ | let b:surround_{char2nr('V')} = "\\begin{verbatim}\n\r\n\\end{verbatim}"
-    autocmd FileType vim  setlocal keywordprg=:help |
-          \ if exists(':Runtime') |
-          \   let b:dispatch = ':Runtime' |
-          \   let b:start = ':Runtime|PP' |
-          \ else |
-          \   let b:dispatch = ":unlet! g:loaded_{expand('%:t:r')}|source %" |
-          \ endif
+"  augroup FTCheck " {{{2
+"    autocmd!
+"    autocmd BufNewFile,BufRead *named.conf*       set ft=named
+"    autocmd BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == ""|set ft=text|endif
+"  augroup END " }}}2
+"  augroup FTOptions " {{{2
+"    autocmd!
+"    autocmd FileType c,cpp,cs,java          setlocal commentstring=//\ %s
+"    autocmd Syntax   javascript             setlocal isk+=$
+"    autocmd FileType xml,xsd,xslt,javascript setlocal ts=2
+"    autocmd FileType text,txt,mail          setlocal ai com=fb:*,fb:-,n:>
+"    autocmd FileType sh,zsh,csh,tcsh        inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
+"    autocmd FileType sh,zsh,csh,tcsh        let &l:path = substitute($PATH, ':', ',', 'g')
+"    autocmd FileType perl,python,ruby       inoremap <silent> <buffer> <C-X>! #!/usr/bin/env<Space><C-R>=&ft<CR>
+"    autocmd FileType c,cpp,cs,java,perl,javscript,php,aspperl,tex,css let b:surround_101 = "\r\n}"
+"    autocmd FileType apache       setlocal commentstring=#\ %s
+"    autocmd FileType cucumber let b:dispatch = 'cucumber %' | imap <buffer><expr> <Tab> pumvisible() ? "\<C-N>" : (CucumberComplete(1,'') >= 0 ? "\<C-X>\<C-O>" : (getline('.') =~ '\S' ? ' ' : "\<C-I>"))
+"    autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
+"    autocmd FileType gitcommit setlocal spell
+"    autocmd FileType gitrebase nnoremap <buffer> S :Cycle<CR>
+"    autocmd FileType help setlocal ai fo+=2n | silent! setlocal nospell
+"    autocmd FileType help nnoremap <silent><buffer> q :q<CR>
+"    autocmd FileType html setlocal iskeyword+=~ | let b:dispatch = ':OpenURL %'
+"    autocmd FileType java let b:dispatch = 'javac %'
+"    autocmd FileType lua  setlocal includeexpr=substitute(v:fname,'\\.','/','g').'.lua'
+"    autocmd FileType perl let b:dispatch = 'perl -Wc %'
+"    autocmd FileType ruby setlocal tw=79 comments=:#\  isfname+=:
+"    autocmd FileType ruby
+"          \ let b:start = executable('pry') ? 'pry -r "%:p"' : 'irb -r "%:p"' |
+"          \ if expand('%') =~# '_test\.rb$' |
+"          \   let b:dispatch = 'testrb %' |
+"          \ elseif expand('%') =~# '_spec\.rb$' |
+"          \   let b:dispatch = 'rspec %' |
+"          \ elseif !exists('b:dispatch') |
+"          \   let b:dispatch = 'ruby -wc %' |
+"          \ endif
+"    autocmd FileType liquid,markdown,text,txt setlocal tw=78 linebreak nolist
+"    autocmd FileType tex let b:dispatch = 'latex -interaction=nonstopmode %' | setlocal formatoptions+=l
+"          \ | let b:surround_{char2nr('x')} = "\\texttt{\r}"
+"          \ | let b:surround_{char2nr('l')} = "\\\1identifier\1{\r}"
+"          \ | let b:surround_{char2nr('e')} = "\\begin{\1environment\1}\n\r\n\\end{\1\1}"
+"          \ | let b:surround_{char2nr('v')} = "\\verb|\r|"
+"          \ | let b:surround_{char2nr('V')} = "\\begin{verbatim}\n\r\n\\end{verbatim}"
+"    autocmd FileType vim  setlocal keywordprg=:help |
+"          \ if exists(':Runtime') |
+"          \   let b:dispatch = ':Runtime' |
+"          \   let b:start = ':Runtime|PP' |
+"          \ else |
+"          \   let b:dispatch = ":unlet! g:loaded_{expand('%:t:r')}|source %" |
+"          \ endif
     autocmd FileType timl let b:dispatch = ':w|source %' | let b:start = b:dispatch . '|TLrepl' | command! -bar -bang Console Wepl
     autocmd FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
     autocmd FileType * if exists("+completefunc") && &completefunc == "" | setlocal completefunc=syntaxcomplete#Complete | endif
