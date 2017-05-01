@@ -197,7 +197,7 @@ alias wifi='exec nmtui'
 alias nosleep='xset -dpms; xset s noblank; xset s off'
 alias thesaurus='dict -d moby-thesaurus'
 alias bfg="java -jar ${HOME}/bin/bfg.jar"
-alias vi="emacsclient -nw"
+#alias vi="emacsclient -nw"
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
@@ -276,7 +276,9 @@ case `uname` in
     ;;
   Linux)
     # autojump
-    [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+    [[ -s /home/matt/.autojump/etc/profile.d/autojump.sh ]] && source /home/matt/.autojump/etc/profile.d/autojump.sh
+	  autoload -U compinit && compinit -u
+    #NVM
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     alias ls='ls -F --color=auto'

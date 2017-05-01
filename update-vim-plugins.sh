@@ -12,4 +12,6 @@ git subtree pull --prefix .vim/bundle/command-t https://github.com/wincent/comma
 git subtree pull --prefix .vim/bundle/vim-bracketed-paste https://github.com/ConradIrwin/vim-bracketed-paste.git --squash master
 git subtree pull --prefix .vim/bundle/vim-unimpaired https://github.com/tpope/vim-unimpaired.git --squash master
 git subtree pull --prefix .vim/bundle/vim-sensible https://github.com/tpope/vim-sensible.git --squash master
-
+git subtree pull --prefix .vim/bundle/vim-commentary https://github.com/tpope/vim-commentary.git --squash master
+git subtree pull --prefix .vim/bundle/vim-repeat https://github.com/tpope/vim-repeat.git --squash master
+git subtree pull --prefix .vim/bundle/vim-tbone https://github.com/tpope/vim-tbone.git --squash master

@@ -145,10 +145,8 @@ set diffopt=filler,iwhite     " ignore all whitespace and sync
 " ---------------------------------------------------------------------------
 "  mouse stuffs
 set mousehide                 " hide the mouse when typing
-" this makes the mouse paste a block of text without formatting it 
-" (good for code)
 map <MouseMiddle> <esc>"*p
-set mouse=a
+set mouse=nvi
 
 " ---------------------------------------------------------------------------
 "  backup options
@@ -175,18 +173,27 @@ map <LocalLeader>s? z=
 " When I'm pretty sure that the first suggestion is correct
 map <LocalLeader>s! 1z=
 
-" ---------------------------------------------------------------------------
-" Turn on omni-completion for the appropriate file types.
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1  " Rails support
-
+if v:version >= 700
+let g:is_bash = 1
+let g:sh_noisk = 1
+let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eruby.html', 'bash=sh', 'sh']
+let g:liquid_highlight_types = g:markdown_fenced_languages + ['jinja=liquid', 'html+erb=eruby.html', 'html+jinja=liquid.html']
+let g:spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
+let g:CSApprox_verbose_level = 0
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_working_path_mode = ''
+let g:NERDTreeHijackNetrw = 0
+let g:ragtag_global_maps = 1
+let g:space_disable_select_mode = 1
+let g:splitjoin_normalize_whitespace = 1
+let g:VCSCommandDisableMappings = 1
+let g:showmarks_enable = 0
+let g:surround_{char2nr('-')} = "<% \r %>"
+let g:surround_{char2nr('=')} = "<%= \r %>"
+let g:surround_{char2nr('8')} = "/* \r */"
+let g:surround_{char2nr('s')} = " \r"
+let g:surround_{char2nr('^')} = "/^\r$/"
+let g:surround_indent = 1
 " ---------------------------------------------------------------------------
 " some useful mappings
 " Y yanks from cursor to $
@@ -238,8 +245,10 @@ set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.orig                           " Merge resolution files
 
 " Command-T plugin
-nnoremap <silent> <LocalLeader>t :execute "CommandT " . b:gitroot<CR>
-nnoremap <silent> <LocalLeader>b :CommandTBuffer<CR>
+"
+nmap <silent> <Leader>t <Plug>(CommandT)
+nmap <silent> <Leader>b <Plug>(CommandTBuffer)
+nmap <silent> <Leader>j <Plug>(CommandTJump)
 
 " Format json
 nmap <LocalLeader>js  :%!python -m json.tool<cr>
@@ -253,7 +262,6 @@ set nofoldenable
 let g:vim_markdown_folding_disabled=1
 
 set rtp+=~/.fzf
-
 
 " Make sure Vim returns to the same line when you reopen a file.
 augroup line_return
@@ -276,7 +284,6 @@ command! -bang WQ wq<bang>
 
 augroup ft_mail
     au!
-
     au Filetype mail setlocal spell
 augroup END
 
@@ -285,3 +292,106 @@ nnoremap J 7j
 nnoremap K 7k
 vnoremap J 7j
 vnoremap K 7k
+
+" Add syntastic warnings
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Tpope craziness need to learn what I can get rid of.
+augroup Misc " {{{2
+    autocmd!
+
+    autocmd FileType netrw call s:scratch_maps()
+    autocmd FileType gitcommit if getline(1)[0] ==# '#' | call s:scratch_maps() | endif
+    autocmd FocusLost   * silent! wall
+    autocmd FocusGained * if !has('win32') | silent! call fugitive#reload_status() | endif
+    autocmd SourcePre */macros/less.vim set laststatus=0 cmdheight=1
+    if v:version >= 700 && isdirectory(expand("~/.trash"))
+      autocmd BufWritePre,BufWritePost * if exists("s:backupdir") | set backupext=~ | let &backupdir = s:backupdir | unlet s:backupdir | endif
+      autocmd BufWritePre ~/*
+            \ let s:path = expand("~/.trash").strpart(expand("<afile>:p:~:h"),1) |
+            \ if !isdirectory(s:path) | call mkdir(s:path,"p") | endif |
+            \ let s:backupdir = &backupdir |
+            \ let &backupdir = escape(s:path,'\,').','.&backupdir |
+            \ let &backupext = strftime(".%Y%m%d%H%M%S~",getftime(expand("<afile>:p")))
+    endif
+
+    autocmd User Fugitive
+          \ if filereadable(fugitive#buffer().repo().dir('fugitive.vim')) |
+          \   source `=fugitive#buffer().repo().dir('fugitive.vim')` |
+          \ endif
+
+    autocmd BufNewFile */init.d/*
+          \ if filereadable("/etc/init.d/skeleton") |
+          \   keepalt read /etc/init.d/skeleton |
+          \   1delete_ |
+          \ endif |
+          \ set ft=sh
+
+    autocmd BufReadPost * if getline(1) =~# '^#!' | let b:dispatch = getline(1)[2:-1] . ' %' | let b:start = b:dispatch | endif
+    autocmd BufReadPost ~/.Xdefaults,~/.Xresources let b:dispatch = 'xrdb -load %'
+    autocmd BufWritePre,FileWritePre /etc/* if &ft == "dns" |
+          \ exe "normal msHmt" |
+          \ exe "gl/^\\s*\\d\\+\\s*;\\s*Serial$/normal ^\<C-A>" |
+          \ exe "normal g`tztg`s" |
+          \ endif
+    autocmd CursorHold,BufWritePost,BufReadPost,BufLeave *
+      \ if !$VIMSWAP && isdirectory(expand("<amatch>:h")) | let &swapfile = &modified | endif
+  augroup END " }}}2
+  augroup FTCheck " {{{2
+    autocmd!
+    autocmd BufNewFile,BufRead *named.conf*       set ft=named
+    autocmd BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == ""|set ft=text|endif
+  augroup END " }}}2
+  augroup FTOptions " {{{2
+    autocmd!
+    autocmd FileType c,cpp,cs,java          setlocal commentstring=//\ %s
+    autocmd Syntax   javascript             setlocal isk+=$
+    autocmd FileType xml,xsd,xslt,javascript setlocal ts=2
+    autocmd FileType text,txt,mail          setlocal ai com=fb:*,fb:-,n:>
+    autocmd FileType sh,zsh,csh,tcsh        inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
+    autocmd FileType sh,zsh,csh,tcsh        let &l:path = substitute($PATH, ':', ',', 'g')
+    autocmd FileType perl,python,ruby       inoremap <silent> <buffer> <C-X>! #!/usr/bin/env<Space><C-R>=&ft<CR>
+    autocmd FileType c,cpp,cs,java,perl,javscript,php,aspperl,tex,css let b:surround_101 = "\r\n}"
+    autocmd FileType apache       setlocal commentstring=#\ %s
+    autocmd FileType cucumber let b:dispatch = 'cucumber %' | imap <buffer><expr> <Tab> pumvisible() ? "\<C-N>" : (CucumberComplete(1,'') >= 0 ? "\<C-X>\<C-O>" : (getline('.') =~ '\S' ? ' ' : "\<C-I>"))
+    autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
+    autocmd FileType gitcommit setlocal spell
+    autocmd FileType gitrebase nnoremap <buffer> S :Cycle<CR>
+    autocmd FileType help setlocal ai fo+=2n | silent! setlocal nospell
+    autocmd FileType help nnoremap <silent><buffer> q :q<CR>
+    autocmd FileType html setlocal iskeyword+=~ | let b:dispatch = ':OpenURL %'
+    autocmd FileType java let b:dispatch = 'javac %'
+    autocmd FileType lua  setlocal includeexpr=substitute(v:fname,'\\.','/','g').'.lua'
+    autocmd FileType perl let b:dispatch = 'perl -Wc %'
+    autocmd FileType ruby setlocal tw=79 comments=:#\  isfname+=:
+    autocmd FileType ruby
+          \ let b:start = executable('pry') ? 'pry -r "%:p"' : 'irb -r "%:p"' |
+          \ if expand('%') =~# '_test\.rb$' |
+          \   let b:dispatch = 'testrb %' |
+          \ elseif expand('%') =~# '_spec\.rb$' |
+          \   let b:dispatch = 'rspec %' |
+          \ elseif !exists('b:dispatch') |
+          \   let b:dispatch = 'ruby -wc %' |
+          \ endif
+    autocmd FileType liquid,markdown,text,txt setlocal tw=78 linebreak nolist
+    autocmd FileType tex let b:dispatch = 'latex -interaction=nonstopmode %' | setlocal formatoptions+=l
+          \ | let b:surround_{char2nr('x')} = "\\texttt{\r}"
+          \ | let b:surround_{char2nr('l')} = "\\\1identifier\1{\r}"
+          \ | let b:surround_{char2nr('e')} = "\\begin{\1environment\1}\n\r\n\\end{\1\1}"
+          \ | let b:surround_{char2nr('v')} = "\\verb|\r|"
+          \ | let b:surround_{char2nr('V')} = "\\begin{verbatim}\n\r\n\\end{verbatim}"
+    autocmd FileType vim  setlocal keywordprg=:help |
+          \ if exists(':Runtime') |
+          \   let b:dispatch = ':Runtime' |
+          \   let b:start = ':Runtime|PP' |
+          \ else |
+          \   let b:dispatch = ":unlet! g:loaded_{expand('%:t:r')}|source %" |
+          \ endif
+    autocmd FileType timl let b:dispatch = ':w|source %' | let b:start = b:dispatch . '|TLrepl' | command! -bar -bang Console Wepl
+    autocmd FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
+    autocmd FileType * if exists("+completefunc") && &completefunc == "" | setlocal completefunc=syntaxcomplete#Complete | endif
+  augroup END "}}}2
+endif " has("autocmd")
