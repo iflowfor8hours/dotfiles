@@ -12,7 +12,7 @@ export GOPATH="$HOME/dev/gospace"
 #export PATH="$GOROOT/bin:$PATH"
 export PKG_CONFIG_PATH=/usr/bin/pkg-config
 export VAGRANT_DEFALT_PROVIDER="virtualbox"
-export PATH=/home/matt/.local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:$PATH
 
 # Defaults
 PSARGS=-ax
@@ -197,6 +197,7 @@ alias wifi='exec nmtui'
 alias nosleep='xset -dpms; xset s noblank; xset s off'
 alias thesaurus='dict -d moby-thesaurus'
 alias bfg="java -jar ${HOME}/bin/bfg.jar"
+alias listeningports="lsof -Pnl +M -i4"
 #alias vi="emacsclient -nw"
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
@@ -228,9 +229,6 @@ PROMPT3='{ … }  '
 # fish highlighting
 source ~/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# kubernetes completion
-source <(kubectl completion zsh)
-
 bash_source() {
   alias shopt=':'
   alias _expand=_bash_expand
@@ -242,7 +240,7 @@ bash_source() {
 }
 
 # Requires sudo pip install virtualenvwrapper
-source /usr/local/bin/virtualenvwrapper.sh 
+if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then source "/usr/local/bin/virtualenvwrapper.sh"; fi
 
 # helm bash completion
 # bash_source <(~/.zsh/completion/_helm)
@@ -278,7 +276,7 @@ case `uname` in
     ;;
   Linux)
     # autojump
-    [[ -s /home/matt/.autojump/etc/profile.d/autojump.sh ]] && source /home/matt/.autojump/etc/profile.d/autojump.sh
+    [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 	  autoload -U compinit && compinit -u
     #NVM
     export NVM_DIR="$HOME/.nvm"
@@ -290,3 +288,35 @@ case `uname` in
     ;;
 esac
 
+export NVM_DIR="/home/celery/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+
+# autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+# aws, osx only
+source ~/.local/lib/aws/bin/aws_zsh_completer.sh
+
+# QT stuff
+#echo 'export PATH="/usr/local/opt/qt5/bin:$PATH"' >> ~/.zshrc
+
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+# alias pbcopy='xsel --clipboard --input'
+# alias pbpaste='xsel --clipboard --output'
+
+# kubernetes completion
+source <(kubectl completion zsh)
+# kops bash completion
+# bash_source <(kops completion bash)
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/Downloads/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/Downloads/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc"; fi
