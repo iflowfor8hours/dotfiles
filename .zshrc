@@ -258,6 +258,9 @@ eval "$(rbenv init -)"
 # no one cares, none of this matters.
 export ANSIBLE_NOCOWS=1
 
+# no one cares, none of this matters.
+export PROJECT_HOME=${HOME}/dev/venvs
+
 if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent -s`
       ssh-add
@@ -288,27 +291,6 @@ case `uname` in
     ;;
 esac
 
-export NVM_DIR="/home/celery/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-
-# autojump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
-# aws, osx only
-source ~/.local/lib/aws/bin/aws_zsh_completer.sh
-
-# QT stuff
-#echo 'export PATH="/usr/local/opt/qt5/bin:$PATH"' >> ~/.zshrc
-
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-
-# alias pbcopy='xsel --clipboard --input'
-# alias pbpaste='xsel --clipboard --output'
-
 # kubernetes completion
 source <(kubectl completion zsh)
 # kops bash completion
@@ -320,3 +302,14 @@ if [ -f "$HOME/Downloads/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/Do
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc"; fi
+
+# pip zsh completion 
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip

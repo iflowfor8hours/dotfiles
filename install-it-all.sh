@@ -13,6 +13,8 @@ sudo add-apt-repository \
    stable"
 sudo add-apt-repository -y ppa:git-core/ppa
 sudo add-apt-repository "deb http://deb.bitmask.net/debian vivid main"
+sudo add-apt-repository -y ppa:gnome-terminator/nightly-gtk3
+
 
 wget -O- https://dl.bitmask.net/apt.key | sudo apt-key add -
 sudo apt-get update

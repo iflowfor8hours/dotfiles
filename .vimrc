@@ -156,7 +156,7 @@ set diffopt=filler,iwhite     " ignore all whitespace and sync
 "  mouse stuffs
 set mousehide                 " hide the mouse when typing
 map <MouseMiddle> <esc>"*p
-set mouse=nvi
+"set mouse=nvi
 
 " ---------------------------------------------------------------------------
 "  backup options
@@ -233,6 +233,7 @@ inoremap # X<BS>#
 " When I forget I'm in Insert mode, how often do you type 'jj' anyway?
 imap jj <Esc>
 imap jk <Esc>
+imap <Tab><Tab> <Esc>
 
 " set list to activate whitespace detection mode
 au BufNewFile,BufRead *.less set filetype=less
@@ -310,16 +311,15 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_loc_list_height = 5
 let g:syntastic_check_on_wq = 0
 let g:syntastic_shell = "/bin/zsh"
-let g:syntastic_auto_loc_list = 0
 
 let g:syntastic_debug_file = "~/syntastic.log"
 
 let g:syntastic_checkers_markdown = ['syntastic-markdown-proselint']
 let g:syntastic_checkers_text = ['syntastic-text-proselint']
-"let g:syntastic_checkers_vim
 let g:syntastic_checkers_yaml = ['syntastic-yaml-yamllint']
 let g:syntastic_checkers_zsh = ['syntastic-zsh-zsh']
 
+"let g:syntastic_checkers_vim
 "let g:syntastic_checkers_c
 "let g:syntastic_checkers_cpp
 "let g:syntastic_checkers_cmake
