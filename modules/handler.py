@@ -5,7 +5,6 @@ import os
 import re
 import subprocess
 import tempfile
-import zipfile
 
 try:
     from io import BytesIO
@@ -23,6 +22,7 @@ except ImportError:
 import sublime
 
 from . import path
+from . import utils
 from .promise import Promise
 
 # The view class has a method called 'change_count()'
@@ -35,6 +35,12 @@ except AttributeError:
 
 
 class GitGutterHandler(object):
+
+    # The list of all instances' binaries which don't work properly.
+    # For each view/project a unique "git_binary" setting can be applied.
+    # To display error messages only once per binary, none working binaries
+    # need to be tracked here.
+    _missing_binaries = set()
 
     # The working tree / compare target map as class wide attribute.
     # It is initialized once and keeps the values of all object instantces.
@@ -67,6 +73,8 @@ class GitGutterHandler(object):
         self._git_compared_commit = None
         # cached git diff result for diff popup
         self._git_diff_cache = ''
+        # PEP-440 conform git version (major, minor, patch)
+        self._git_version = None
 
     def __del__(self):
         """Delete temporary files."""
@@ -74,6 +82,42 @@ class GitGutterHandler(object):
             os.unlink(self._git_temp_file)
         if self._view_temp_file:
             os.unlink(self._view_temp_file)
+
+    def version(self, validate):
+        """Return git executable version.
+
+        The version string is used to check, whether git executable exists and
+        works properly. It may also be used to enable functions with newer git
+        versions.
+
+        As the "git_binary" setting may be view/project specific and may change
+        at each time it needs to be checked in proper situations to validate
+        whether git still works properly.
+
+        Arguments:
+            validate (bool): If True force updating version string. Use cached
+                value otherwise.
+        Returns:
+            tuple: PEP-440 conform git version (major, minor, patch)
+        """
+        if validate:
+            git_binary = self.settings.git_binary
+            # Query git version synchronously
+            git_version = self.execute([git_binary, '--version']) or ''
+            # Parse version string like (git version 2.12.2.windows.1)
+            match = re.match(r'git version (\d+)\.(\d+)\.(\d+)', git_version)
+            if match:
+                # PEP-440 conform git version (major, minor, patch)
+                self._git_version = tuple(int(g) for g in match.groups())
+                if git_binary in self._missing_binaries:
+                    utils.log_message(git_binary + ' is back on duty!')
+                    self._missing_binaries.discard(git_binary)
+            else:
+                self._git_version = None
+                if git_binary not in self._missing_binaries:
+                    utils.log_message(git_binary + ' not found or working!')
+                    self._missing_binaries.add(git_binary)
+        return self._git_version
 
     @staticmethod
     def tmp_file():
@@ -314,24 +358,20 @@ class GitGutterHandler(object):
             bool: True if file was written to disc successfully.
         """
         try:
-            # Mangle end of lines
-            contents = contents.replace(b'\r\n', b'\n')
-            contents = contents.replace(b'\r', b'\n')
-            # Create temporary file
-            if not self._git_temp_file:
-                self._git_temp_file = self.tmp_file()
-            # Write content to temporary file
-            with open(self._git_temp_file, 'wb') as file:
-                file.write(contents)
+            self.git_tracked = bool(contents)
+            if self.git_tracked:
+                # Mangle end of lines
+                contents = contents.replace(b'\r\n', b'\n')
+                contents = contents.replace(b'\r', b'\n')
+                # Create temporary file
+                if not self._git_temp_file:
+                    self._git_temp_file = self.tmp_file()
+                # Write content to temporary file
+                with open(self._git_temp_file, 'wb') as file:
+                    file.write(contents)
             # Indicate success.
             self._git_compared_commit = compared_id
-            self.git_tracked = True
-            return True
-        except AttributeError:
-            # Git returned empty output, file is not tracked
-            self._git_compared_commit = compared_id
-            self.git_tracked = False
-            return False
+            return self.git_tracked
         except OSError as error:
             print('GitGutter failed to create git cache: %s' % error)
             return False
@@ -364,7 +404,7 @@ class GitGutterHandler(object):
             self.settings.git_binary,
             'diff', '-U0', '--no-color', '--no-index',
             self.settings.ignore_whitespace,
-            self.settings.patience_switch,
+            self.settings.diff_algorithm,
             self._git_temp_file,
             self._view_temp_file,
         )))
@@ -649,44 +689,25 @@ class GitGutterHandler(object):
     def git_read_file(self, commit):
         """Read the content of the file from specific commit.
 
-        This method uses `git archive` to read the file content from git index
-        to enable support of smudge filters (fixes Issue #74). Git applies
-        smudge filters to some commands like `archive`, `diff` and `checkout`
-        only, but not to commands like `show`.
+        This method uses `git cat-files` to read the file content from git
+        index to enable support of smudge filters (fixes Issue #74). Git
+        applies smudge filters to some commands like `archive`, `diff`,
+        `checkout` and `cat-file` only, but not to commands like `show`.
 
         Arguments:
             commit (string): The identifier of the commit to read file from.
 
         Returns:
-            Promise: A promise to read and unzip the content of a file from git
-                index which will be resolved with the inflated file content.
+            Promise: A promise to read the content of a file from git index.
         """
-        def unzip(output):
-            """Unzip file binary content from git output.
-
-            Arguments:
-                output (string): Binary output returned by git containing the
-                    zipped content of the read file or None on error.
-
-            Returns:
-                string: Unzipped file content or None if git didn't return
-                    zipped file content. Error is already printed in that case.
-            """
-            try:
-                # Extract file contents from zipped archive.
-                # The `filelist` contains numerous directories finalized
-                # by exactly one file whose content we are interested in.
-                archive = zipfile.ZipFile(BytesIO(output))
-                return archive.read(archive.filelist[-1])
-            except:
-                return None
-
         args = [
             self.settings.git_binary,
-            'archive', '--format=zip',
-            commit, self._git_path
+            'cat-file',
+            # smudge filters are supported with git 2.11.0+ only
+            '--filters' if self._git_version >= (2, 11, 0) else '-p',
+            ':'.join((commit, self._git_path))
         ]
-        return self.execute_async(args=args, decode=False).then(unzip)
+        return self.execute_async(args=args, decode=False)
 
     def execute_async(self, args, decode=True):
         """Execute a git command asynchronously and return a Promise.
@@ -730,15 +751,17 @@ class GitGutterHandler(object):
             else:
                 stdout, stderr = proc.communicate()
         except OSError as error:
-            # print out system error message
-            print('GitGutter: "git %s" failed with "%s"' % (args[1], error))
+            # Print out system error message in debug mode.
+            if self.settings.get('debug'):
+                utils.log_message(
+                    '"git %s" failed with "%s"' % (args[1], error))
         except TimeoutExpired:
             proc.kill()
             stdout, stderr = proc.communicate()
         # handle empty git output
         if not stdout:
             if stderr and self.settings.get('debug'):
-                print('GitGutter: "git %s" failed with "%s"' % (
+                utils.log_message('"git %s" failed with "%s"' % (
                     args[1], stderr.decode('utf-8').strip()))
             return stdout
         # return decoded ouptut using utf-8 or binary output

@@ -84,7 +84,7 @@ class GitGutterShowDiff(object):
                 Scheme: (first, last, [inserted], [modified], [deleted])
         """
         self._update_status(
-            'modified' if contents[0] else 'commited', contents)
+            'modified' if contents[0] else 'committed', contents)
         view = self.git_handler.view
         self._line_height = view.line_height()
         self._minimap_size = self.git_handler.settings.show_in_minimap
@@ -346,7 +346,7 @@ class GitGutterShowDiff(object):
         Arguments:
             event (string): The element of self.region_names to bind
         """
-        if self._line_height > 15 and event.startswith('del'):
+        if self._line_height > 16 and event.startswith('del'):
             arrow = '_arrow'
         else:
             arrow = ''
