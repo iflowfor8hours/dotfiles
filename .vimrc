@@ -233,7 +233,7 @@ inoremap # X<BS>#
 " When I forget I'm in Insert mode, how often do you type 'jj' anyway?
 imap jj <Esc>
 imap jk <Esc>
-imap <Tab><Tab> <Esc>
+" imap <Tab><Tab> <Esc>
 
 " set list to activate whitespace detection mode
 au BufNewFile,BufRead *.less set filetype=less

@@ -198,6 +198,7 @@ alias nosleep='xset -dpms; xset s noblank; xset s off'
 alias thesaurus='dict -d moby-thesaurus'
 alias bfg="java -jar ${HOME}/bin/bfg.jar"
 alias listeningports="lsof -Pnl +M -i4"
+alias less="less -X"
 #alias vi="emacsclient -nw"
 
 unalias rm mv cp 2> /dev/null || true # no -i madness

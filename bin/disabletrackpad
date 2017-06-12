@@ -1,0 +1,6 @@
+#!/bin/sh
+# This script disables the touchpad without disabling buttons by setting Hysteresis
+# to an impossible value.
+
+# /usr/share/X11/xorg.conf.d/90-libinput.conf
+

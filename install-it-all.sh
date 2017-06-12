@@ -14,12 +14,13 @@ sudo add-apt-repository \
 sudo add-apt-repository -y ppa:git-core/ppa
 sudo add-apt-repository "deb http://deb.bitmask.net/debian vivid main"
 sudo add-apt-repository -y ppa:gnome-terminator/nightly-gtk3
-
-
+sudo add-apt-repository -y ppa:linrunner/tlp
 wget -O- https://dl.bitmask.net/apt.key | sudo apt-key add -
+
 sudo apt-get update
 sudo apt-get -y install \
 abook \
+acpi-call-dkms \
 apt-transport-https \
 ack-grep \
 arandr \
@@ -70,13 +71,13 @@ openvpn \
 pgp \
 python-dev \
 python-pip \
-python-virtualenv \
 ranger \
 redshift \
 resolvconf \
 software-properties-common \
 sqlite \
 terminator \
+tlp \
 tmux \
 unrar \
 urlview \
