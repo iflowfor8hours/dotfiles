@@ -67,6 +67,3 @@ then
 fi
 
 chmod 600 ~/.msmtprc
-
-
-chmod 600 ~/.msmtprc

@@ -2,24 +2,44 @@ SHELL := /bin/bash
 
 DIR=$(pwd)
 
-ubuntu: update dev_packages git vim dotFiles customBins shutter omz
-	sudo apt-get install -qy tmux
-	# remmina preferred remote desktop client
-	sudo ln -sf /usr/bin/remmina /usr/bin/rdp
-	# system tray when trying to run apps on dwm that need a tray
-	# preferred terminal emulator
-	sudo apt-get install -y xbindkeys
-	# xdotool - move mouse programmatically
-	sudo apt-get install -y xdotool
-	# screensaver
-	sudo apt-get install -q -y build-essential libx11-dev libxinerama-dev sharutils suckless-tools
-	# dependencies for display battery and cpu temp
-	sudo apt-get install -y acpi lm-sensors
-	sudo apt purge notify-osd
-	sudo apt install -y i3 dunst
+ubuntu: directories dev_packages apt_fast_setup packages keyboard adobefont vim update_vim_plugins dotfiles virtualenvwrapper ruby_dev sysdig disable_services install_golang taskwarrior manual_steps
 
-shutter:
-	sudo apt-get install -y libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
+dev_packages: update
+	sudo apt-get install -q=2 -y ack-grep python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs zsh
+	sudo pip install virtualenvwrapper
+
+directories:
+	@mkdir -p ~/.logs
+	@mkdir -p /home/${USER}/src
+	@mkdir -p /home/${USER}/projects
+	@mkdir -p /home/${USER}/bin
+	@mkdir -p /home/${USER}/media
+	@mkdir -p /home/${USER}/dev
+	@mkdir -p /home/${USER}/dev/venvs
+	@## mail stuff
+	@mkdir -p /home/${USER}/Mail/fastmail
+	@mkdir -p /home/${USER}/Mail/.mutt/mailboxes
+	@mkdir -p /home/${USER}/Mail/temporary/search
+	@mkdir -p /home/${USER}/Mail/.offlineimap
+	@mkdir -p /home/${USER}/.config/offlineimap/
+	@mkdir -p /home/${USER}/.logs/msmtp
+	@mkdir -p /home/${USER}/.mutt/temp
+	@touch /home/${USER}/.logs/msmtp/fastmail.log
+	@touch /home/${USER}/.config/offlineimap/matt.iflowfor8hours.info
+
+manual_steps:
+	echo "install npm/node, virtualbox/vagrant, configure your stuff from the secrets repo"
+	echo "Add your password to ~/.config/offlineimap/matt.iflowfor8hours.info"
+	echo "Setup your vpn credentials"
+	echo "setup backups! rsync -avhW --progress --exclude-from=/var/tmp/ignorelist /home/${USER}/ /media/${USER}/${TARGET}/${USER}/"
+	echo "Install keybase \
+	lastpass \
+	authy \
+	aws tools \
+	aws credentials \
+	git crypt \
+	PIA \
+	ansible"
 
 taskwarrior:
 	echo "Setting up Taskwarrior" \
@@ -32,47 +52,66 @@ taskwarrior:
 		&& make \
 		&& sudo make install
 
-save-my-eyes: update
-	sudo apt-get install -y gtk-redshift
-
-power-management:
+power_management:
 	# dependencies for display battery and cpu temp
 	sudo apt-get install -y tlp powertop acpi lm-sensors
 	sudo tlp bat
-	sudo powertop
-
-forticlient_vpn_ubuntu: update
-	sudo apt-get install -y lib32gcc1 libc6-i386
-	sudo dpkg -i ./pkgs/forticlient-sslvpn_4.4.2323-1_amd64.deb
+	sudo powertop --auto-tune
 
 update:
 	sudo apt-get update -y
 	sudo apt-get install -f -y
 
-macbookpro_keyboard:
-	echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode
-	echo 0 | sudo tee /sys/module/hid_apple/parameters/iso_layout
-	echo 1 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd
-	xmodmap ~/.xmodmaprc
+keyboard:
+	sudo sed -i 's/^XKBOPTIONS.*/XKBOPTIONS="ctrl:nocaps"/' /etc/default/keyboard
 
-dotFiles:
-	for f in .*; do test -f $$f && ln -sf "$$(pwd)/$$f" ~/$$f; done
-	ln -sf $$(pwd)/.xinitrc ~/.xsessionrc
-	ln -sf $$(pwd)/.i3 ~/.i3
-	- unlink .i3/.i3
-	ln -sf $$(pwd)/xchat-config/.xchat2 ~/.xchat2
+dotfiles:
+	rm -rf ~/.bashrc
+	rm -rf ~/.notmuch-config
+	rm -rf ~/.vim/
+	rm -rf ~/.vimrc
+	rm -rf ~/.irssi
+	rm -rf ~/.gitconfig
+	rm -rf ~/.zshrc
+	rm -rf ~/.tmux.conf
+	rm -rf ~/.config/redshift.conf
+	rm -rf ~/.Xresources
+	rm -rf ~/.config/terminator
+	rm -rf ~/.config/khal
+	rm -rf ~/.muttrc
+	rm -rf ~/.offlineimaprc
+	rm -rf ~/.taskrc
+	rm -rf ~/.msmtprc
+	rm -rf ~/.mutt
+	rm -rf ~/.ipython
+	rm -rf ~/.hgrc
+	ln -sn ~/dotfiles/.bashrc ~/.bashrc
+	ln -sn ~/dotfiles/.notmuch-config ~/.notmuch-config
+	ln -sn ~/dotfiles/.vim ~/.vim/
+	ln -sn ~/dotfiles/.vimrc ~/.vimrc
+	ln -sn ~/dotfiles/.irssi ~/.irssi
+	ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
+	ln -sn ~/dotfiles/.zshrc ~/.zshrc
+	ln -sn ~/dotfiles/.tmux.conf ~/.tmux.conf
+	ln -sn ~/dotfiles/redshift.conf ~/.config/redshift.conf
+	ln -sn ~/dotfiles/.Xresources ~/.Xresources
+	ln -sn ~/dotfiles/.config/terminator ~/.config/terminator
+	ln -sn ~/dotfiles/.config/khal ~/.config/khal
+	ln -sn ~/dotfiles/.muttrc ~/.muttrc
+	ln -sn ~/dotfiles/.offlineimaprc ~/.offlineimaprc
+	ln -sn ~/dotfiles/.taskrc ~/.taskrc
+	ln -sn ~/dotfiles/.msmtprc ~/.msmtprc
+	ln -sn ~/dotfiles/.mutt ~/.mutt
+	ln -sn ~/dotfiles/.ipython ~/.ipython
+	ln -sn ~/dotfiles/.hgrc ~/.hgrc
 
-dev_packages: update
-	sudo apt-get install -y ack-grep python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs zsh
-	sudo pip install virtualenvwrapper
-
-vim: dev_packages
+vim: 
 	sudo apt-get install -q=2 -y vim-nox exuberant-ctags cmake python-dev
 	@if [ ! -e ~/.vim/.mine ]; then echo "Deleting existing vim configuration"; rm -fr ~/.vim/ ~/.vimrc; fi
 	-@ln -sn $$(pwd)/.vimrc ~/.vimrc; true
 	-@ln -sn $$(pwd)/.vim ~/.vim; true
 
-update_vim_plugins:
+update_vim_plugins: dev_packages vim
 	git stash --all
 	git subtree pull -q -m 'update vim plugins' --prefix .vim/bundle/nerdtree https://github.com/scrooloose/nerdtree.git  --squash master
 	git subtree pull -q -m 'update vim plugins' --prefix .vim/bundle/syntastic https://github.com/scrooloose/syntastic.git --squash master 
@@ -93,43 +132,30 @@ update_vim_plugins:
 	git subtree pull -q -m 'update vim plugins' --prefix .vim/bundle/vim-tbone https://github.com/tpope/vim-tbone.git --squash master
 	git stash pop
 
-customBins:
-	if [ ! -d ~/bin/ ]; then \
-		mkdir ~/bin/; \
-	fi
-	@ln -sf $$(pwd)/bin/* ~/bin/
-	@sudo ln -sf /home/rramirez/.dotfiles/bin/trackpad-toggle.sh /usr/bin/trackpad-toggle.sh
-
-sshConfig:
-	pushd ssh; for f in *; do ln -sf "$$(pwd)/$$f" ~/.ssh/$$f; done; popd
-	chmod 600 ~/.ssh/id_rsa
-
-docker: update
-	- sudo apt-get purge -y docker.io
-	wget -qO- https://get.docker.com/ | sh
-	sudo pip install docker-compose
-	sudo bash -c "curl -L https://github.com/docker/machine/releases/download/v0.5.4/docker-machine_linux-amd64 > /usr/local/bin/docker-machine && \
-	  sudo chmod +x /usr/local/bin/docker-machine"
-
-docker-ubuntu-1610:
-	sudo apt-get update
-	sudo apt-get install docker-engine -qy
-	sudo systemctl enable docker.service
-	sudo systemctl start docker.service
-	pip install docker-compose
-	sudo usermod -aG docker matt
-
 virtualenvwrapper:
 	- sudo apt-get remove python-pip
 	sudo easy_install pip
 	- sudo pip uninstall virtualenvwrapper
 	sudo pip install virtualenvwrapper
-	echo "export WORKON_HOME=~/Envs"
+	echo "export WORKON_HOME=~/dev/venvs"
 	echo "mkdir -p $WORKON_HOME"
 	echo "source /usr/local/bin/virtualenvwrapper.sh"
 	echo "mkvirtualenv env_name"
 
-adobeSourceCodeProFont:
+disable_services:
+	sudo bash -c "systemctl disable bluetooth.service \
+		&& systemctl disable isc-dhcp-server.service \
+		&& systemctl disable isc-dhcp-server6.service \
+		&& systemctl disable openvpn.service \
+		&& systemctl disable postgresql.service \
+		&& systemctl disable transmission-daemon.service \
+		&& systemctl disable whoopsie.service \
+		&& systemctl disable ModemManager.service \
+		&& systemctl disable bluetooth.target \
+		&& rfkill block bluetooth \
+		&& rfkill block wwan"
+
+adobefont:
 	wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
 		&& unzip 1.017R.zip \
 		&& sudo mkdir -p /usr/share/fonts/truetype/source-code-pro \
@@ -137,30 +163,25 @@ adobeSourceCodeProFont:
 		&& rm 1.017R.zip \
 		&& rm -fr source-code-pro-1.017R
 
-install-i3-window-manager:
-	#sudo bash -c 'echo "deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe" >> /etc/apt/sources.list'
-	sudo apt-get update
-	sudo apt-get --allow-unauthenticated install sur5r-keyring
-	sudo apt-get update
-	sudo apt-get install i3 xautolock gnome-screensaver -qy
-
-ruby-dev:
+ruby_dev:
 	rm -fr ~/.rbenv
 	git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 	sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
 	mkdir -p ~/.rbenv/plugins
 	git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins
 	git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+	rbenv install 2.3.1
+	rbenv global 2.3.1
 
 sysdig:
 	curl -s https://s3.amazonaws.com/download.draios.com/stable/install-sysdig | sudo bash
 
-install-golang:
+install_golang:
 	sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
 	sudo apt-get update
 	sudo apt-get install golang
 
-apt-fast-setup:
+apt_fast_setup:
 	sudo bash -c "apt-get install -y aria2 git && \
 		if ! [[ -f /usr/bin/apt-fast ]]; then \
 		  git clone https://github.com/ilikenwf/apt-fast /tmp/apt-fast; \
@@ -178,28 +199,21 @@ apt-fast-setup:
 			chown root:root /usr/share/zsh/functions/Completion/Debian/_apt-fast"; \
 		source /usr/share/zsh/functions/Completion/Debian/_apt-fast; \
 	fi
-	# Man page installation
-	sudo bash -c "cp /tmp/apt-fast/man/apt-fast.8 /usr/share/man/man8 && \
-		gzip -f9 /usr/share/man/man8/apt-fast.8 && \
-		cp /tmp/apt-fast/man/apt-fast.conf.5 /usr/share/man/man5 && \
-		gzip -f9 /usr/share/man/man5/apt-fast.conf.5"
 	# configure ubuntu apt mirrors
 	sudo sed -r -i.bak "s/#MIRRORS=\( 'none' \)/MIRRORS=( 'http:\/\/mirrors.wikimedia.org\/ubuntu\/, ftp:\/\/ftp.utexas.edu\/pub\/ubuntu\/, http:\/\/mirrors.xmission.com\/ubuntu\/, http:\/\/mirrors.usinternet.com\/ubuntu\/archive\/, http:\/\/mirrors.ocf.berkeley.edu\/ubuntu\/\' )/" /etc/apt-fast.conf
 
-packages: update
-	sudo apt-get -y install python-software-properties curl
+packages:
+	sudo apt-get -q=2 -y install python-software-properties curl
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	sudo apt-key fingerprint 0EBFCD88
-	sudo add-apt-repository \
-	   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-	   $(lsb_release -cs) \
-	   stable"
+	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
 	sudo add-apt-repository -y ppa:git-core/ppa
 	sudo add-apt-repository -y "deb http://deb.bitmask.net/debian vivid main"
 	sudo add-apt-repository -y ppa:gnome-terminator/nightly-gtk3
 	sudo add-apt-repository -y ppa:linrunner/tlp
 	wget -O- https://dl.bitmask.net/apt.key | sudo apt-key add -
-	sudo apt-get -y install \
+	sudo apt-get update
+	sudo apt-get -qy install \
 	abook \
 	acpi-call-dkms \
 	apt-transport-https \
@@ -269,4 +283,4 @@ packages: update
 	weechat-curses \
 	xsel \
 	zlib1g-dev \
-	zsh \
+	zsh
