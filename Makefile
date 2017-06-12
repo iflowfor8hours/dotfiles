@@ -2,34 +2,36 @@ SHELL := /bin/bash
 
 DIR=$(pwd)
 
-ubuntu: directories dev_packages apt_fast_setup packages keyboard adobefont vim update_vim_plugins dotfiles virtualenvwrapper ruby_dev sysdig disable_services install_golang taskwarrior manual_steps
+ubuntu: directories dev_packages apt_fast_setup packages keyboard adobefont vim dotfiles virtualenvwrapper ruby_dev sysdig disable_services install_golang taskwarrior power_management manual_steps
+
+test: directories dev_packages apt_fast_setup packages keyboard adobefont vim dotfiles virtualenvwrapper install_golang taskwarrior manual_steps
 
 dev_packages: update
-	sudo apt-get install -q=2 -y ack-grep python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs zsh
+	sudo apt-get install -q=2 -y ack-grep python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs zsh software-properties-common python-software-properties unzip
 	sudo pip install virtualenvwrapper
 
 directories:
-	@mkdir -p ~/.logs
-	@mkdir -p /home/${USER}/src
-	@mkdir -p /home/${USER}/projects
-	@mkdir -p /home/${USER}/bin
-	@mkdir -p /home/${USER}/media
-	@mkdir -p /home/${USER}/dev
-	@mkdir -p /home/${USER}/dev/venvs
-	@## mail stuff
-	@mkdir -p /home/${USER}/Mail/fastmail
-	@mkdir -p /home/${USER}/Mail/.mutt/mailboxes
-	@mkdir -p /home/${USER}/Mail/temporary/search
-	@mkdir -p /home/${USER}/Mail/.offlineimap
-	@mkdir -p /home/${USER}/.config/offlineimap/
-	@mkdir -p /home/${USER}/.logs/msmtp
-	@mkdir -p /home/${USER}/.mutt/temp
-	@touch /home/${USER}/.logs/msmtp/fastmail.log
-	@touch /home/${USER}/.config/offlineimap/matt.iflowfor8hours.info
+	@mkdir -p ${HOME}/.logs
+	@mkdir -p ${HOME}/src
+	@mkdir -p ${HOME}/projects
+	@mkdir -p ${HOME}/bin
+	@mkdir -p ${HOME}/media
+	@mkdir -p ${HOME}/dev
+	@mkdir -p ${HOME}/dev/venvs
+	@mkdir -p ${HOME}
+	@mkdir -p ${HOME}/Mail/fastmail
+	@mkdir -p ${HOME}/Mail/.mutt/mailboxes
+	@mkdir -p ${HOME}/Mail/temporary/search
+	@mkdir -p ${HOME}/Mail/.offlineimap
+	@mkdir -p ${HOME}/.config/offlineimap/
+	@mkdir -p ${HOME}/.logs/msmtp
+	@mkdir -p ${HOME}/.mutt/temp
+	@touch ${HOME}/.logs/msmtp/fastmail.log
+	@touch ${HOME}/.config/offlineimap/matt.iflowfor8hours.info
 
 manual_steps:
 	echo "install npm/node, virtualbox/vagrant, configure your stuff from the secrets repo"
-	echo "Add your password to ~/.config/offlineimap/matt.iflowfor8hours.info"
+	echo "Add your password to ${HOME}/.config/offlineimap/matt.iflowfor8hours.info"
 	echo "Setup your vpn credentials"
 	echo "setup backups! rsync -avhW --progress --exclude-from=/var/tmp/ignorelist /home/${USER}/ /media/${USER}/${TARGET}/${USER}/"
 	echo "Install keybase \
@@ -54,7 +56,7 @@ taskwarrior:
 
 power_management:
 	# dependencies for display battery and cpu temp
-	sudo apt-get install -y tlp powertop acpi lm-sensors
+	sudo apt-get -y -q=2 install tlp powertop acpi lm-sensors
 	sudo tlp bat
 	sudo powertop --auto-tune
 
@@ -63,53 +65,57 @@ update:
 	sudo apt-get install -f -y
 
 keyboard:
-	sudo sed -i 's/^XKBOPTIONS.*/XKBOPTIONS="ctrl:nocaps"/' /etc/default/keyboard
+	sudo bash -c 'echo XKBMODEL=\"pc105\"\
+		XKBLAYOUT=\"us\"\
+		XKBVARIANT=\"\"\
+		XKBOPTIONS=\"ctrl:nocaps\"\
+		BACKSPACE=\"guess\" > /etc/default/keyboard' 
 
 dotfiles:
-	rm -rf ~/.bashrc
-	rm -rf ~/.notmuch-config
-	rm -rf ~/.vim/
-	rm -rf ~/.vimrc
-	rm -rf ~/.irssi
-	rm -rf ~/.gitconfig
-	rm -rf ~/.zshrc
-	rm -rf ~/.tmux.conf
-	rm -rf ~/.config/redshift.conf
-	rm -rf ~/.Xresources
-	rm -rf ~/.config/terminator
-	rm -rf ~/.config/khal
-	rm -rf ~/.muttrc
-	rm -rf ~/.offlineimaprc
-	rm -rf ~/.taskrc
-	rm -rf ~/.msmtprc
-	rm -rf ~/.mutt
-	rm -rf ~/.ipython
-	rm -rf ~/.hgrc
-	ln -sn ~/dotfiles/.bashrc ~/.bashrc
-	ln -sn ~/dotfiles/.notmuch-config ~/.notmuch-config
-	ln -sn ~/dotfiles/.vim ~/.vim/
-	ln -sn ~/dotfiles/.vimrc ~/.vimrc
-	ln -sn ~/dotfiles/.irssi ~/.irssi
-	ln -sn ~/dotfiles/.gitconfig ~/.gitconfig
-	ln -sn ~/dotfiles/.zshrc ~/.zshrc
-	ln -sn ~/dotfiles/.tmux.conf ~/.tmux.conf
-	ln -sn ~/dotfiles/redshift.conf ~/.config/redshift.conf
-	ln -sn ~/dotfiles/.Xresources ~/.Xresources
-	ln -sn ~/dotfiles/.config/terminator ~/.config/terminator
-	ln -sn ~/dotfiles/.config/khal ~/.config/khal
-	ln -sn ~/dotfiles/.muttrc ~/.muttrc
-	ln -sn ~/dotfiles/.offlineimaprc ~/.offlineimaprc
-	ln -sn ~/dotfiles/.taskrc ~/.taskrc
-	ln -sn ~/dotfiles/.msmtprc ~/.msmtprc
-	ln -sn ~/dotfiles/.mutt ~/.mutt
-	ln -sn ~/dotfiles/.ipython ~/.ipython
-	ln -sn ~/dotfiles/.hgrc ~/.hgrc
+	rm -rf ${HOME}/.bashrc
+	rm -rf ${HOME}/.notmuch-config
+	rm -rf ${HOME}/.vim
+	rm -rf ${HOME}/.vimrc
+	rm -rf ${HOME}/.irssi
+	rm -rf ${HOME}/.gitconfig
+	rm -rf ${HOME}/.zshrc
+	rm -rf ${HOME}/.tmux.conf
+	rm -rf ${HOME}/.config/redshift.conf
+	rm -rf ${HOME}/.Xresources
+	rm -rf ${HOME}/.config/terminator
+	rm -rf ${HOME}/.config/khal
+	rm -rf ${HOME}/.muttrc
+	rm -rf ${HOME}/.offlineimaprc
+	rm -rf ${HOME}/.taskrc
+	rm -rf ${HOME}/.msmtprc
+	rm -rf ${HOME}/.mutt
+	rm -rf ${HOME}/.ipython
+	rm -rf ${HOME}/.hgrc
+	ln -sn $(PWD)/.bashrc ${HOME}/.bashrc
+	ln -sn $(PWD)/.notmuch-config ${HOME}/.notmuch-config
+	ln -sn $(PWD)/.vim ${HOME}/.vim
+	ln -sn $(PWD)/.vimrc ${HOME}/.vimrc
+	ln -sn $(PWD)/.gitconfig ${HOME}/.gitconfig
+	ln -sn $(PWD)/.zshrc ${HOME}/.zshrc
+	ln -sn $(PWD)/.tmux.conf ${HOME}/.tmux.conf
+	ln -sn $(PWD)/redshift.conf ${HOME}/.config/redshift.conf
+	ln -sn $(PWD)/.Xresources ${HOME}/.Xresources
+	ln -sn $(PWD)/.config/terminator ${HOME}/.config/terminator
+	ln -sn $(PWD)/.config/khal ${HOME}/.config/khal
+	ln -sn $(PWD)/.muttrc ${HOME}/.muttrc
+	ln -sn $(PWD)/.offlineimaprc ${HOME}/.offlineimaprc
+	ln -sn $(PWD)/.taskrc ${HOME}/.taskrc
+	ln -sn $(PWD)/.msmtprc ${HOME}/.msmtprc
+	ln -sn $(PWD)/.mutt ${HOME}/.mutt
+	ln -sn $(PWD)/.ipython ${HOME}/.ipython
+	ln -sn $(PWD)/.hgrc ${HOME}/.hgrc
+	chsh -s /bin/zsh
 
 vim: 
-	sudo apt-get install -q=2 -y vim-nox exuberant-ctags cmake python-dev
-	@if [ ! -e ~/.vim/.mine ]; then echo "Deleting existing vim configuration"; rm -fr ~/.vim/ ~/.vimrc; fi
-	-@ln -sn $$(pwd)/.vimrc ~/.vimrc; true
-	-@ln -sn $$(pwd)/.vim ~/.vim; true
+	sudo apt-get -y -q=2 install vim-nox exuberant-ctags cmake python-dev
+	@if [ ! -e ${HOME}/.vim/.mine ]; then echo "Deleting existing vim configuration"; rm -fr ${HOME}/.vim ${HOME}/.vimrc; fi
+	-@ln -sn $(PWD)/.vimrc ${HOME}/.vimrc; true
+	-@ln -sn $(PWD)/.vim ${HOME}/.vim; true
 
 update_vim_plugins: dev_packages vim
 	git stash --all
@@ -133,17 +139,17 @@ update_vim_plugins: dev_packages vim
 	git stash pop
 
 virtualenvwrapper:
-	- sudo apt-get remove python-pip
+	- sudo apt-get remove -y python-pip
 	sudo easy_install pip
 	- sudo pip uninstall virtualenvwrapper
 	sudo pip install virtualenvwrapper
-	echo "export WORKON_HOME=~/dev/venvs"
+	echo "export WORKON_HOME=${HOME}/dev/venvs"
 	echo "mkdir -p $WORKON_HOME"
 	echo "source /usr/local/bin/virtualenvwrapper.sh"
 	echo "mkvirtualenv env_name"
 
 disable_services:
-	sudo bash -c "systemctl disable bluetooth.service \
+	sudo /bin/bash -c "systemctl disable bluetooth.service \
 		&& systemctl disable isc-dhcp-server.service \
 		&& systemctl disable isc-dhcp-server6.service \
 		&& systemctl disable openvpn.service \
@@ -156,7 +162,7 @@ disable_services:
 		&& rfkill block wwan"
 
 adobefont:
-	wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
+	curl -O -L https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
 		&& unzip 1.017R.zip \
 		&& sudo mkdir -p /usr/share/fonts/truetype/source-code-pro \
 		&& sudo cp source-code-pro-1.017R/TTF/*.ttf /usr/share/fonts/truetype/source-code-pro \
@@ -164,46 +170,38 @@ adobefont:
 		&& rm -fr source-code-pro-1.017R
 
 ruby_dev:
-	rm -fr ~/.rbenv
-	git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-	sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
-	mkdir -p ~/.rbenv/plugins
-	git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins
-	git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-	rbenv install 2.3.1
-	rbenv global 2.3.1
+	rm -fr ${HOME}/.rbenv
+	git clone https://github.com/rbenv/rbenv.git ${HOME}/.rbenv
+	sudo apt-get install -y -q=2 libssl-dev libreadline-dev zlib1g-dev
+	mkdir -p ${HOME}/.rbenv/plugins
+	git clone git://github.com/sstephenson/ruby-build.git ${HOME}/.rbenv/plugins
+	git clone https://github.com/sstephenson/ruby-build.git ${HOME}/.rbenv/plugins/ruby-build
+	cd ${HOME}/.rbenv && src/configure && make -C src
+	bash -c "PATH=\"${HOME}/.rbenv/bin:${PATH}\" && rbenv init - && rbenv install 2.3.1 && rbenv global 2.3.1"
 
 sysdig:
 	curl -s https://s3.amazonaws.com/download.draios.com/stable/install-sysdig | sudo bash
 
 install_golang:
-	sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
+	sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable
 	sudo apt-get update
-	sudo apt-get install golang
+	sudo apt-get install -y golang
 
 apt_fast_setup:
-	sudo bash -c "apt-get install -y aria2 git && \
+	sudo bash -c "apt-get install -q=2 -y aria2 git && \
 		if ! [[ -f /usr/bin/apt-fast ]]; then \
 		  git clone https://github.com/ilikenwf/apt-fast /tmp/apt-fast; \
 		  cp /tmp/apt-fast/apt-fast /usr/bin; \
 		  chmod +x /usr/bin/apt-fast; \
 		  cp /tmp/apt-fast/apt-fast.conf /etc; \
 		fi"
-	# bash autocompletion
-	sudo bash -c "cp /tmp/apt-fast/completions/bash/apt-fast /etc/bash_completion.d/ && \
-		chown root:root /etc/bash_completion.d/apt-fast"
-	. /etc/bash_completion
-	# zsh autocompletion
-	if ! [[ -f /usr/bin/zsh ]]; then \
-		sudo bash -c "cp /tmp/apt-fast/completions/zsh/_apt-fast /usr/share/zsh/functions/Completion/Debian/ && \
-			chown root:root /usr/share/zsh/functions/Completion/Debian/_apt-fast"; \
-		source /usr/share/zsh/functions/Completion/Debian/_apt-fast; \
-	fi
 	# configure ubuntu apt mirrors
 	sudo sed -r -i.bak "s/#MIRRORS=\( 'none' \)/MIRRORS=( 'http:\/\/mirrors.wikimedia.org\/ubuntu\/, ftp:\/\/ftp.utexas.edu\/pub\/ubuntu\/, http:\/\/mirrors.xmission.com\/ubuntu\/, http:\/\/mirrors.usinternet.com\/ubuntu\/archive\/, http:\/\/mirrors.ocf.berkeley.edu\/ubuntu\/\' )/" /etc/apt-fast.conf
 
 packages:
-	sudo apt-get -q=2 -y install python-software-properties curl
+	echo "resolvconf resolvconf/linkify-resolvconf boolean false" | debconf-set-selections
+	sudo apt-get -q=2 -y install python-software-properties apt-transport-https curl software-properties-common resolvconf tzdata
+	ln -fs /usr/share/zoneinfo/US/Eastern /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	sudo apt-key fingerprint 0EBFCD88
 	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
@@ -211,9 +209,9 @@ packages:
 	sudo add-apt-repository -y "deb http://deb.bitmask.net/debian vivid main"
 	sudo add-apt-repository -y ppa:gnome-terminator/nightly-gtk3
 	sudo add-apt-repository -y ppa:linrunner/tlp
-	wget -O- https://dl.bitmask.net/apt.key | sudo apt-key add -
+	curl -fsSL https://dl.bitmask.net/apt.key | sudo apt-key add -
 	sudo apt-get update
-	sudo apt-get -qy install \
+	sudo apt-get -qy --no-install-recommends install \
 	abook \
 	acpi-call-dkms \
 	apt-transport-https \
@@ -238,7 +236,6 @@ packages:
 	htop \
 	kupfer \
 	leap-keyring \
-	libc6:i386 \
 	libffi-dev \
 	libgdbm-dev \
 	libgdbm3 \
@@ -269,7 +266,6 @@ packages:
 	python-pip \
 	ranger \
 	redshift \
-	resolvconf \
 	software-properties-common \
 	sqlite \
 	terminator \
