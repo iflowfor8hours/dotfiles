@@ -114,7 +114,39 @@ Some functions of GitGutter depend on the following external libraries to work p
 
 ## 🔫 Troubleshooting
 
-The most common reason for the icons to not show up is likely a problem with GitGutter finding the `git` executable on your [PATH](https://en.wikipedia.org/wiki/PATH_(variable)). Please read the section on the [git_binary](#git-path) setting for how to fix that.
+
+#### Is git working?
+
+The most common reason for the icons to not show up is likely a problem with GitGutter finding the `git` executable on [PATH](https://en.wikipedia.org/wiki/PATH_(variable)).
+
+To check, whether git is found and working properly ...
+
+1. Open the command palette (<kbd>Ctrl+Shift+P</kbd> for Windows/Linux, <kbd>Cmd+Shift+P</kbd> for Mac)
+2. Search for _GitGutter: Support Info_ and hit <kbd>Enter</kbd>.
+
+An dialog is displayed with version information of Sublime Text and all packages being used by GitGutter. 
+
+If git is working properly, the dialog contains a line like _git version 2.10.0.windows.1_. Otherwise some  more detailed information about the reason for git not to work may be found in the console window, then.
+
+
+#### Git works in shell but is not found by GitGutter!
+
+Some operating systems (especially OSX) may not run Sublime Text within the login shell. As a result Sublime Text and all its packages don't have access to some of the user's environment variables including the [PATH](https://en.wikipedia.org/wiki/PATH_(variable)) to git.
+
+In some cases the package providing git, simply required some user confirmation due to license changes and thus simply refuses to run git.
+
+_With [SublimeFixMacPath](https://github.com/int3h/SublimeFixMacPath) package Sublime Text loads the PATH environment from the login shell. If git is working there, it will be found by GitGutter, too, then._
+
+_GitGutter can work with a certain binary, too. Please read the section on the [git_binary](#git-path) setting._
+
+
+#### GitGutter no longer works after upgrade
+
+_Please check if GitGutter works after restarting Sublime Text._
+
+All modules of GitGutter were moved to `modules` sub directory to present them to Sublime Text as one package to avoid creating multiple instances of some modules and objects and reduce package loading time by about 50%.
+
+GitGutter handles Package Control's `post_upgrade` event to reload all its submodules once after upgrading. In rare cases some modules might not be recovered properly and thus require a restart of ST to make GitGutter work again.
 
 
 ## 🚀 Advanced Features
@@ -123,9 +155,7 @@ The most common reason for the icons to not show up is likely a problem with Git
 
 The diff popup appears by hovering the mouse over the gutter changes on Sublime Text 3 or can be called from command palette by `GitGutter: Show Diff Popup` or via a key binding.
 
-ⓘ _popups require Sublime Text 3 Build 3080+_
-
-ⓘ _mouse hover feature requires Sublime Text 3 Build 3116+_
+ⓘ requires Sublime Text 3 Build 3119+ and mdpopups 1.9.0+_
 
 ![diff_popup_screenshot](https://cloud.githubusercontent.com/assets/12573621/17908698/ccbecd24-6981-11e6-8f56-edd0faaed9ec.png)
 
@@ -218,7 +248,7 @@ GitGutter evaluates changes every time the file is modified by default. Set `fal
 
 `"enable_hover_diff_popup": true`
 
-ⓘ _requires Sublime Text 3 Build 3116+_
+ⓘ requires Sublime Text 3 Build 3119+ and mdpopups 1.9.0+_
 
 GitGutter shows a diff popup, when hovering over changes in the gutter. Set `false` to disable this popup. You can still open it with a key binding and from the command palette.
 
@@ -227,14 +257,14 @@ GitGutter shows a diff popup, when hovering over changes in the gutter. Set `fal
 
 `"diff_popup_default_mode": "default"`
 
-ⓘ _requires Sublime Text 3 Build 3080+_
+ⓘ requires Sublime Text 3 Build 3119+ and mdpopups 1.9.0+_
 
 The popup displays the previous state of the content under the cursor by `"default"` but can be set to `"diff"` to highlight the differences between the git state and the editor state.
 
 
 #### Diff Popup Appearance
 
-ⓘ _requires Sublime Text 3 Build 3080+_
+ⓘ requires Sublime Text 3 Build 3119+ and mdpopups 1.9.0+_
 
 The popup uses the [mdpopups](https://github.com/facelessuser/sublime-markdown-popups) library and the corresponding settings are global and not only for GitGutter. Syntax highlighting can be set to match the active color scheme by adding `"mdpopups.use_sublime_highlighter": true` to the User settings.
 
@@ -290,6 +320,22 @@ or it may be a dictionary keyed off what sublime.platform() returns, so it may b
 It is valid to use environment variables in the setting value, and they will be expanded appropriately.
 
 In a POSIX environment you can run `which git` to find the path to git if it is in your path.  On Windows, you can use `where git` to do the equivalent.
+
+
+#### Diff Algorithm
+
+`"diff_algorithm": "patience"`
+
+GitGutter uses the "patience" diff algorithm by default. Set`diff_algorithm` to one of the follwoing values to change this behavior.
+
+value       | description
+------------|-----------------------------------------------
+"default"   | The basic greedy diff algorithm. Currently, this is the default.
+"minimal"   | Spend extra time to make sure the smallest possible diff is produced.
+"patience"  | Use "patience diff" algorithm when generating patches.
+"histogram" | This algorithm extends the patience algorithm to "support low-occurrence common elements".
+
+👉 The value determines which command line argument to pass to `git diff`.
 
 
 #### Ignore Whitespace

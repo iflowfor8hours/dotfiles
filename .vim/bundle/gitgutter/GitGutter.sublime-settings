@@ -33,7 +33,7 @@
   // Set false to disable evaluation when changing views
   "focus_change_mode": true,
 
-  // (ST3, Build 3116+ only)
+  // (ST3, Build 3119+ only)
   // Enable an hover popup, which shows an diff of the
   // changed lines.
   "enable_hover_diff_popup": true,
@@ -47,13 +47,16 @@
   //         the differences in the popup
   "diff_popup_default_mode": "default",
 
-  // (ST3 only)
-  // Whether the the diff popup should use icons (true) or
-  // text (false) buttons
-  "diff_popup_use_icon_buttons": true,
-
   // Delay update of gutter icons by the following amount (in milliseconds).
   "debounce_delay": 1000,
+
+  // The algorithm used by git diff to determine the differences.
+  // "default": let git decide (don't pass an algorithm)
+  // "minimal": use minimal diff algorithm
+  // "patience": use patience diff algorithm
+  //             see: http://bramcohen.livejournal.com/73318.html
+  // "histogram": use histogram diff algorithm
+  "diff_algorithm": "patience",
 
   // Determines whether GitGutter ignores whitespace in modified files.
   // Set "none" to ensure whitespace is considered in the diff
@@ -64,11 +67,6 @@
 
   // Add a special marker on untracked files
   "show_markers_on_untracked_file": true,
-
-  // Add --patience switch to git diff command. See
-  // http://bramcohen.livejournal.com/73318.html for
-  // an example of why you might need this.
-  "patience": true,
 
   // Determines whether GitGutter shows status information in the status bar.
   // Set false to disable status information.
