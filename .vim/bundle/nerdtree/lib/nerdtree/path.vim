@@ -52,7 +52,7 @@ function! s:Path.cacheDisplayString() abort
             call add(self._bookmarkNames, i.name)
         endif
     endfor
-    if !empty(self._bookmarkNames)
+    if !empty(self._bookmarkNames) && g:NERDTreeMarkBookmarks == 1
         let self.cachedDisplayString .= ' {' . join(self._bookmarkNames) . '}'
     endif
 
@@ -544,7 +544,7 @@ function! s:Path.readInfoFromDisk(fullpath)
         throw "NERDTree.InvalidFiletypeError: Cant handle FIFO files: " . a:fullpath
     endif
 
-    let self.pathSegments = split(fullpath, '/')
+    let self.pathSegments = filter(split(fullpath, '/'), '!empty(v:val)')
 
     let self.isReadOnly = 0
     if isdirectory(a:fullpath)
