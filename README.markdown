@@ -8,35 +8,21 @@ _/    _/  _/    _/    _/        _/      _/  _/  _/            _/_/
 
 ifl8's dotfiles. What a timesink.
 
-# TODO
+# How to use this
 
-weechat
-
-tmux
-
-sent maill in mutt goes to a weird directory
-
-mutt archived messages don't get moved 
-
-pgpewrap
-
-git zsh stuff
-
-# DONE
-
-mutt contacts don't work
-
-gpg stuff
+`make ubuntu`
 
 # Manual stuff
 
 Key repeat rate
-[light locker bug](https://unix.stackexchange.com/questions/224775/keyboard-locked-after-resume-until-i-type-in-a-terminal?newreg=c25084d5035241a3bd49f8b02dd8de0c)
+`make manual_steps`
 
-# How to use this
+`curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -`
+`sudo apt-get install --yes nodejs`
+`wget http://download.virtualbox.org/virtualbox/5.0.8/virtualbox-5.0_5.0.8-103449~Ubuntu~trusty_amd64.deb`
+`wget https://releases.hashicorp.com/vagrant/1.8.6/vagrant_1.8.6_x86_64.deb`
 
-./installfonts.sh
-./install-it-all.sh
-./taskwarrior.sh
-./symlinkit.sh
-./update-vim-plugins.sh
+# TODO
+
+# DONE
+
