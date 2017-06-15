@@ -17,7 +17,7 @@ directories:
 	@mkdir -p ${HOME}/bin
 	@mkdir -p ${HOME}/media
 	@mkdir -p ${HOME}/dev
-	@mkdir -p ${HOME}/dev/venvs
+	@mkdir -p ${HOME}/src/pythonprojects
 	@mkdir -p ${HOME}
 	@mkdir -p ${HOME}/Mail/fastmail
 	@mkdir -p ${HOME}/Mail/.mutt/mailboxes

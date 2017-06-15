@@ -199,6 +199,8 @@ alias thesaurus='dict -d moby-thesaurus'
 alias bfg="java -jar ${HOME}/bin/bfg.jar"
 alias listeningports="lsof -Pnl +M -i4"
 alias less="less -X"
+alias cryptmount='sudo cryptsetup luksOpen /dev/mmcblk0p1 L0CKD0WN && sudo mount /dev/mapper/L0CKD0WN /home/matt/tomb'
+alias cryptunmount='sudo umount /dev/mapper/L0CKD0WN && sudo cryptsetup luksClose L0CKD0WN'
 #alias vi="emacsclient -nw"
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
@@ -240,17 +242,8 @@ bash_source() {
   source "$@"
 }
 
-# Requires sudo pip install virtualenvwrapper
-if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then source "/usr/local/bin/virtualenvwrapper.sh"; fi
-
 # helm bash completion
 # bash_source <(~/.zsh/completion/_helm)
-# bash_source <(~/.zsh/completion/_helm)
-
-# kops bash completion
-# bash_source <(kops completion bash)
-
-# autoload bashcompinit
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -259,8 +252,12 @@ eval "$(rbenv init -)"
 # no one cares, none of this matters.
 export ANSIBLE_NOCOWS=1
 
-# no one cares, none of this matters.
-export PROJECT_HOME=${HOME}/dev/venvs
+# you'll need this sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.5 100
+# Requires sudo pip install virtualenvwrapper
+export PROJECT_HOME=${HOME}/src/pythonprojects
+export WORKON_HOME=${HOME}/.virtualenvs
+##
+if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then source "/usr/local/bin/virtualenvwrapper.sh"; fi
 
 if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent -s`
