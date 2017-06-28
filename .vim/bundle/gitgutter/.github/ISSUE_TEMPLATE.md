@@ -30,14 +30,14 @@ _2. an open issue exists for your problem._
 
 ...
 
-> Run the following command from the menu: 
-> 
+> Run the following command from the menu:
+>
 >   `Preferences->Package Settings->GitGutter->Support Info`.
-> 
+>
 > or from the command pallet:
-> 
+>
 >   `GitGutter: Support Info`
-> 
+>
 > Paste the result here.
 
 

@@ -124,7 +124,7 @@ To check, whether git is found and working properly ...
 1. Open the command palette (<kbd>Ctrl+Shift+P</kbd> for Windows/Linux, <kbd>Cmd+Shift+P</kbd> for Mac)
 2. Search for _GitGutter: Support Info_ and hit <kbd>Enter</kbd>.
 
-An dialog is displayed with version information of Sublime Text and all packages being used by GitGutter. 
+An dialog is displayed with version information of Sublime Text and all packages being used by GitGutter.
 
 If git is working properly, the dialog contains a line like _git version 2.10.0.windows.1_. Otherwise some  more detailed information about the reason for git not to work may be found in the console window, then.
 

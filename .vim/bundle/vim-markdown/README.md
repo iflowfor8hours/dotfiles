@@ -244,7 +244,7 @@ let g:vim_markdown_no_extensions_in_markdown = 1
 ```
 This is super useful for GitLab and GitHub wiki repositories.
 
-Normal behaviour would be that vim-markup required you to do this `[link text](link-url.md)`, but this is not how the Gitlab and GitHub wiki repositories work. So this option adds some consistency between the two. 
+Normal behaviour would be that vim-markup required you to do this `[link text](link-url.md)`, but this is not how the Gitlab and GitHub wiki repositories work. So this option adds some consistency between the two.
 
 ### Auto-write when following link
 

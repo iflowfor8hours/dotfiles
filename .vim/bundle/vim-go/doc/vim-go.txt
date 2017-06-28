@@ -574,7 +574,7 @@ CTRL-t
                                                             *:GoSameIdsToggle*
 :GoSameIdsToggle
 
-    Toggle between |:GoSameIds| and |:GoSameIdsClear|. 
+    Toggle between |:GoSameIds| and |:GoSameIdsClear|.
 
                                                         *:GoSameIdsAutoToggle*
 :GoSameIdsAutoToggle

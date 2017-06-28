@@ -1,4 +1,6 @@
--   repo: git@github.com:iflowfor8hours/dotfiles.git
-    sha: HEAD
+-   repo: git://github.com/pre-commit/pre-commit-hooks
+    sha: v0.8.0
     hooks:
     -   id: trailing-whitespace
+    -   id: check-json
+    -   id: check-yaml
