@@ -37,6 +37,7 @@ setopt prompt_subst
 export EDITOR=vim
 export PAGER=less
 export LESS="-RnX"
+export USE_CCACHE=1
 
 ## zsh options settings
 setopt no_beep                   # Beeping is annoying. Die.
