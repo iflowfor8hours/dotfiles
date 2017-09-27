@@ -41,7 +41,14 @@ manual_steps:
 	aws credentials \
 	git crypt \
 	PIA \
-	ansible"
+	ansible
+	gcloud tools \
+	kubectl \
+	minikube"
+
+brew packages:
+	brew install nvm docker-machine-driver-xhyve ansible task python3 pstree rbenv ruby ruby-build tmux tree vim kubernetes-cli cmake autojump go jq readline
+	brew install docker-machine-driver-xhyve
 
 taskwarrior:
 	echo "Setting up Taskwarrior" \
@@ -117,7 +124,7 @@ vim:
 	-@ln -sn $(PWD)/.vimrc ${HOME}/.vimrc; true
 	-@ln -sn $(PWD)/.vim ${HOME}/.vim; true
 
-update_vim_plugins: dev_packages vim
+update_vim_plugins:
 	git stash --all
 	git subtree pull -q -m 'update vim plugins' --prefix .vim/bundle/nerdtree https://github.com/scrooloose/nerdtree.git  --squash master
 	git subtree pull -q -m 'update vim plugins' --prefix .vim/bundle/syntastic https://github.com/scrooloose/syntastic.git --squash master 

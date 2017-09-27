@@ -12,7 +12,7 @@ export GOPATH="$HOME/dev/gospace"
 #export PATH="$GOROOT/bin:$PATH"
 export PKG_CONFIG_PATH=/usr/bin/pkg-config
 export VAGRANT_DEFALT_PROVIDER="virtualbox"
-export PATH=$HOME/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/dev:$HOME/bin:$HOME/.local/bin:$PATH
 
 # Defaults
 PSARGS=-ax
@@ -85,13 +85,6 @@ xset s off
 
 function normalsleep {
 }
-
-# Make sure things are in my paths
-BASE_PATHS="/bin:/usr/bin:/sbin:/usr/sbin"
-LOCAL_PATHS="/usr/local/bin:/usr/local/aws/bin"
-HOME_PATHS="~/bin:~/.screenlayout:~/.local/bin"
-#ANDROID_TOOLS="~/dev/android-sdk-linux/platform-tools:~/dev/android-sdk-linux/tools:~/dev/android-sdk-linux/build-tools/22.0.1/"
-PATH="$BASE_PATHS:$LOCAL_PATHS:$HOME_PATHS:$PATH"
 
 compctl -g '*(-/D)' cd 
 compctl -c which
@@ -233,6 +226,10 @@ PROMPT3='{ … }  '
 # fish highlighting
 source ~/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Google Cloud SDK.
+if [ -f "$HOME/dev/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/dev/google-cloud-sdk/path.zsh.inc"; fi
+if [ -f "$HOME/dev/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/dev/google-cloud-sdk/completion.zsh.inc"; fi
+
 bash_source() {
   alias shopt=':'
   alias _expand=_bash_expand
@@ -270,7 +267,7 @@ case `uname` in
   Darwin)
     # autojump
     [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-    source ~/.local/lib/aws/bin/aws_zsh_completer.sh
+    [ -f ~/.local/lib/aws/bin/aws_zsh_completer.sh ] && . ~/.local/lib/aws/bin/aws_zsh_completer.sh
     alias ls='ls -FG'
     # nvm
     export NVM_DIR="$HOME/.nvm"
@@ -294,13 +291,6 @@ esac
 source <(kubectl completion zsh)
 # kops bash completion
 # bash_source <(kops completion bash)
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/Downloads/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/Downloads/google-cloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc"; fi
 
 # pip zsh completion 
 function _pip_completion {
