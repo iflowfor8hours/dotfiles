@@ -6,13 +6,16 @@ function \$() {
 export LANG=en_US.utf8
 
 # go stuff
-export GOROOT="$HOME/dev/go"
+#export GOROOT="$HOME/dev/go"
 #export GOBIN="$GOROOT/bin"
-export GOPATH="$HOME/dev/gospace"
+#export GOPATH="$HOME/dev/gospace"
 #export PATH="$GOROOT/bin:$PATH"
+
+export GOPATH=$HOME/go
+
 export PKG_CONFIG_PATH=/usr/bin/pkg-config
 export VAGRANT_DEFALT_PROVIDER="virtualbox"
-export PATH=$HOME/dev:$HOME/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/dev:$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$HOME/titan_tools/bin:$PATH 
 
 # Defaults
 PSARGS=-ax
@@ -43,7 +46,7 @@ export USE_CCACHE=1
 setopt no_beep                   # Beeping is annoying. Die.
 setopt no_prompt_cr              # Don't print a carraige return before the prompt 
 setopt interactivecomments       # Enable comments in interactive mode (useful)
-setopt extended_glob             # More powerful glob features
+# setopt extended_glob             # More powerful glob features
 
 # history settings
 setopt append_history            # Append to history on exit, don't overwrite it.
@@ -175,15 +178,17 @@ alias du='du -sh'
 alias cls='clear'
 alias less='less -FXR'
 alias tasks='task ls | sort -n'
-alias open='gnome-open'
+# alias open='gnome-open'
 alias be='bundle exec'
 alias t='task'
 alias dim='redshift -o'
 alias undim='redshift -x'
 alias mandim='redshift -c ~/.config/redshift.conf'
 alias dockercleanimages='docker rmi $(docker images -q --filter "dangling=true")'
-alias dockercleanps='docker rm `docker ps --no-trunc -aq`'
+alias dockercleanps='docker rm -f `docker ps --no-trunc -aq`'
 alias dockercleanvolumes='docker volume rm $(docker volume ls -qf dangling=true)'
+alias dockercleanservices='docker service rm $(docker service ls -q)'
+alias dockercleannetworks='docker network rm $(docker network ls -q)'
 alias mutt='cd ~/Desktop && mutt-patched'
 alias vdu='vagrant destroy -f && vagrant up'
 alias reloadshell='exec $SHELL -l'
@@ -247,6 +252,10 @@ bash_source() {
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
 # no one cares, none of this matters.
 export ANSIBLE_NOCOWS=1
 
@@ -259,6 +268,7 @@ if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then source "/usr/local/bin/vir
 
 if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent -s`
+    echo "Added key"
       ssh-add
     fi
 
@@ -305,3 +315,9 @@ compctl -K _pip_completion pip
 
 # set turbo typing
 xset r rate 250 60
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+source $HOME/dotfiles/sensitive.sh

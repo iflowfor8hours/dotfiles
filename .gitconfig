@@ -1,16 +1,16 @@
 [user]
 	name = matt urbanski
-	email = matt.urbanski@iflowfor8hours.info
+  email = matt@iflowfor8hours.info
 [alias]
   ll = log --oneline --graph --decorate --all
-	addall = !git add . && git add -u
-	lg = !"git lg1"
-	lg1 = !"git lg1-specific --all"
-	lg2 = !"git lg2-specific --all"
-	lg3 = !"git lg3-specific --all"
-	lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
-	lg2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
-	lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
+  addall = !git add . && git add -u
+  lg = !"git lg1"
+  lg1 = !"git lg1-specific --all"
+  lg2 = !"git lg2-specific --all"
+  lg3 = !"git lg3-specific --all"
+  lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+  lg2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+  lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
   co = checkout
   dt = difftool
   st = status
@@ -30,43 +30,58 @@
   root = rev-parse --show-toplevel
   d = "!sh -c 'git diff $* | vim -R -' -"
   di = !git diff --cached | vim -R -
-	shelve = stash save --include-untracked
-	unshelve = stash pop
-              
-[difftool]
-  prompt = false
+  shelve = stash save --include-untracked
+  unshelve = stash pop
+  pg = push origin HEAD:refs/for/master
 [core]
   editor = /usr/bin/vim
   quotepath = false
-	autocrlf = input
+  autocrlf = input
+	excludesfile = /Users/matt/.gitignore_global
 [gc]
-     auto = 1
-[merge]
-     summary = true
+  auto = 1
 [color]
- ui = true
- branch = auto
- diff = auto
- interactive = auto
- status = auto
+  ui = true
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
 [color "branch"]
- current = yellow black
- local = yellow
- remote = magenta
+  current = yellow black
+  local = yellow
+  remote = magenta
 [color "status"]
- added = yellow
- changed = green
- untracked = cyan reverse
- branch = magenta
+  added = yellow
+  changed = green
+  untracked = cyan reverse
+  branch = magenta
 [push]
   default = current
 [gitreview]
-	username = iflowfor8hours
-
+  username = murbanski
+	remote = origin
 [pull]
   rebase = true
-
 [rebase]
   stat = true
 [diff]
-	tool = meld
+  tool = meld
+[difftool]
+  prompt = false
+[difftool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
+[merge]
+  summary = true
+  tool = meld
+[mergetool]
+  prompt = false
+[mergetool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
