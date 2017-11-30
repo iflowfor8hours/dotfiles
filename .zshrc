@@ -200,6 +200,8 @@ alias listeningports="lsof -Pnl +M -i4"
 alias less="less -X"
 alias cryptmount='sudo cryptsetup luksOpen /dev/mmcblk0p1 L0CKD0WN && sudo mount /dev/mapper/L0CKD0WN /home/matt/tomb'
 alias cryptunmount='sudo umount /dev/mapper/L0CKD0WN && sudo cryptsetup luksClose L0CKD0WN'
+alias pyenv_install='CFLAGS="-I$(xcrun --show-sdk-path)/usr/include -I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install -v '
+alias nonascii='ag "[\x80-\xFF]"'
 #alias vi="emacsclient -nw"
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
@@ -294,6 +296,8 @@ case `uname` in
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
     source /usr/local/aws/bin/aws_zsh_completer.sh
+    # set turbo typing
+    xset r rate 250 60
     ;;
 esac
 
@@ -312,9 +316,6 @@ function _pip_completion {
              PIP_AUTO_COMPLETE=1 $words[1] ) )
 }
 compctl -K _pip_completion pip
-
-# set turbo typing
-xset r rate 250 60
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
