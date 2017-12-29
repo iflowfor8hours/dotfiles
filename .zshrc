@@ -5,17 +5,11 @@ function \$() {
 
 export LANG=en_US.utf8
 
-# go stuff
-#export GOROOT="$HOME/dev/go"
-#export GOBIN="$GOROOT/bin"
-#export GOPATH="$HOME/dev/gospace"
-#export PATH="$GOROOT/bin:$PATH"
-
-export GOPATH=$HOME/go
-
+export GOROOT=$HOME/go
+export GOPATH=/home/matt/dev/go/ 
 export PKG_CONFIG_PATH=/usr/bin/pkg-config
 export VAGRANT_DEFALT_PROVIDER="virtualbox"
-export PATH=$HOME/dev:$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$HOME/titan_tools/bin:$PATH 
+export PATH=$HOME/dev:$HOME/bin:$HOME/.local/bin:$GOROOT/bin:$HOME/titan_tools/bin:$PATH 
 
 # Defaults
 PSARGS=-ax
@@ -298,6 +292,8 @@ case `uname` in
     source /usr/local/aws/bin/aws_zsh_completer.sh
     # set turbo typing
     xset r rate 250 60
+    setxkbmap -option 'caps:ctrl_modifier'
+    xcape -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
     ;;
 esac
 
@@ -320,5 +316,6 @@ compctl -K _pip_completion pip
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
 
 source $HOME/dotfiles/sensitive.sh
