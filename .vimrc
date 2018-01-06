@@ -30,8 +30,8 @@ noremap <C-p> :tabprev<CR>
 set guicursor=a:block-blinkoff1
 
 " Use the arrows to something usefull
-map <right> :bnext!<cr>
-map <left> :bprevious!<cr>
+"map <right> :bnext!<cr>
+"map <left> :bprevious!<cr>
 map <C-D> :bd<cr>
 
 " operational settings
@@ -111,7 +111,7 @@ if has("gui_running")
       set guioptions-=R        " no right scrollbar
       set lines=40
       set columns=115
-end
+endif
 
 set t_Co=256 
 colorscheme zenburn
@@ -120,7 +120,7 @@ colorscheme zenburn
 set laststatus=2
 if has('statusline')
   function! SetStatusLineStyle()
-    let &stl="%F%m%r%h%w\ [%{&ff}]\ [%Y]\ %P [%{SyntasticStatuslineFlag()}] [%#warningmsg]\ #%=[a=\%03.3b]\ [h=\%02.2B]\ [%l,%v]"
+    let &stl="%F%m%r%h%w\ [%{&ff}]\ [%Y]\ %P [%#warningmsg]\ #%=[a=\%03.3b]\ [h=\%02.2B]\ [%l,%v]"
   endfunc
 
   call SetStatusLineStyle()
@@ -130,18 +130,6 @@ if has('statusline')
   endif
 
 endif
-
-function! ToggleErrors()
-    if empty(filter(tabpagebuflist(), 'getbufvar(v:val, "&buftype") is# "quickfix"'))
-         " No location/quickfix list shown, open syntastic error location panel
-         Errors
-    else
-        lclose
-nnoremap <silent> <C-e> :<C-u>call ToggleErrors()<CR>
-    endif
-endfunction
-
-
 
 " ---------------------------------------------------------------------------
 "  searching
@@ -166,12 +154,11 @@ set history=2000
 " ---------------------------------------------------------------------------
 " spelling checker, toggle with ,ss or F6
 if v:version >= 700
-
       setlocal spell spelllang=en
       nmap <LocalLeader>ss :set spell!<CR>
       nmap <F6> :set spell!<CR>
-
 endif
+
 " default to no spelling
 set nospell
 
@@ -183,20 +170,14 @@ map <LocalLeader>s? z=
 " When I'm pretty sure that the first suggestion is correct
 map <LocalLeader>s! 1z=
 
-if v:version >= 700
 let g:is_bash = 1
 let g:sh_noisk = 1
-let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eruby.html', 'bash=sh', 'sh']
-let g:liquid_highlight_types = g:markdown_fenced_languages + ['jinja=liquid', 'html+erb=eruby.html', 'html+jinja=liquid.html']
 let g:spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
-let g:CSApprox_verbose_level = 0
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:ctrlp_working_path_mode = ''
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:NERDTreeHijackNetrw = 1
 let g:netrw_dirhistmax=0
 let g:ragtag_global_maps = 1
-let g:space_disable_select_mode = 1
-let g:splitjoin_normalize_whitespace = 1
 let g:VCSCommandDisableMappings = 1
 let g:showmarks_enable = 0
 let g:surround_{char2nr('-')} = "<% \r %>"
@@ -219,18 +200,12 @@ nmap <LocalLeader>lcd :lcd%:p:h<cr>
 nmap q: :q
 " save and build
 nmap <LocalLeader>wm  :w<cr>:make<cr>
-" open all folds
-nmap <LocalLeader>o  :%foldopen!<cr>
-" close all folds
-nmap <LocalLeader>c  :%foldclose!<cr>
-" ,tt will toggle taglist on and off
-nmap <LocalLeader>tt :Tlist<cr>
 " q: sucks
 nmap q: :q
 " If I forgot to sudo vim a file, do that with :w!!
 cmap w!! w !sudo tee %
 " Fix the # at the start of the line
-inoremap # X<BS>#
+"inoremap # X<BS>#
 " When I forget I'm in Insert mode, how often do you type 'jj' anyway?
 imap jj <Esc>
 imap jk <Esc>
@@ -239,6 +214,10 @@ imap jk <Esc>
 " set list to activate whitespace detection mode
 au BufNewFile,BufRead *.less set filetype=less
 au BufRead,BufNewFile {Vagrantfile,Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
+au BufRead,BufNewFile */*playbooks*/*.yml set filetype=ansible
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType ansible setlocal ts=2 sts=2 sw=2 expandtab
+
 
 " Wildmenu completion {{{
 set wildmenu
@@ -255,12 +234,6 @@ set wildignore+=*.luac                           " Lua byte code
 set wildignore+=migrations                       " Django migrations
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.orig                           " Merge resolution files
-
-" Command-T plugin
-"
-nmap <silent> <Leader>t <Plug>(CommandT)
-nmap <silent> <Leader>b <Plug>(CommandTBuffer)
-nmap <silent> <Leader>j <Plug>(CommandTJump)
 
 " Format json
 nmap <LocalLeader>js  :%!python -m json.tool<cr>
@@ -305,118 +278,5 @@ nnoremap K 7k
 vnoremap J 7j
 vnoremap K 7k
 
-" Add syntastic warnings
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_check_on_wq = 0
-let g:syntastic_shell = "/bin/zsh"
-
-let g:syntastic_debug_file = "~/syntastic.log"
-
-let g:syntastic_checkers_markdown = ['syntastic-markdown-proselint']
-let g:syntastic_checkers_text = ['syntastic-text-proselint']
-let g:syntastic_checkers_yaml = ['syntastic-yaml-yamllint']
-let g:syntastic_checkers_zsh = ['syntastic-zsh-zsh']
-
-"let g:syntastic_checkers_vim
-"let g:syntastic_checkers_c
-"let g:syntastic_checkers_cpp
-"let g:syntastic_checkers_cmake
-"let g:syntastic_checkers_dockerfile = [
-"let g:syntastic_checkers_eruby
-"let g:syntastic_checkers_go
-"let g:syntastic_checkers_javascript
-"let g:syntastic_checkers_json
-"let g:syntastic_checkers_perl
-"let g:syntastic_checkers_php
-"let g:syntastic_checkers_python
-"let g:syntastic_checkers_ruby
-"let g:syntastic_checkers_sh
-"let g:syntastic_checkers_sql
-
-" Tpope craziness need to sort
-augroup Misc " {{{2
-    autocmd!
-
-    autocmd FileType netrw call s:scratch_maps()
-    autocmd FileType gitcommit if getline(1)[0] ==# '#' | call s:scratch_maps() | endif
-    autocmd FocusLost   * silent! wall
-    autocmd FocusGained * if !has('win32') | silent! call fugitive#reload_status() | endif
-    autocmd SourcePre */macros/less.vim set laststatus=0 cmdheight=1
-    autocmd User Fugitive
-          \ if filereadable(fugitive#buffer().repo().dir('fugitive.vim')) |
-          \   source `=fugitive#buffer().repo().dir('fugitive.vim')` |
-          \ endif
-
-    autocmd BufNewFile */init.d/*
-          \ if filereadable("/etc/init.d/skeleton") |
-          \   keepalt read /etc/init.d/skeleton |
-          \   1delete_ |
-          \ endif |
-          \ set ft=sh
-
-    autocmd BufReadPost * if getline(1) =~# '^#!' | let b:dispatch = getline(1)[2:-1] . ' %' | let b:start = b:dispatch | endif
-    autocmd BufReadPost ~/.Xdefaults,~/.Xresources let b:dispatch = 'xrdb -load %'
-    autocmd BufWritePre,FileWritePre /etc/* if &ft == "dns" |
-          \ exe "normal msHmt" |
-          \ exe "gl/^\\s*\\d\\+\\s*;\\s*Serial$/normal ^\<C-A>" |
-          \ exe "normal g`tztg`s" |
-          \ endif
-  augroup END " }}}2
-"  augroup FTCheck " {{{2
-"    autocmd!
-"    autocmd BufNewFile,BufRead *named.conf*       set ft=named
-"    autocmd BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == ""|set ft=text|endif
-"  augroup END " }}}2
-"  augroup FTOptions " {{{2
-"    autocmd!
-"    autocmd FileType c,cpp,cs,java          setlocal commentstring=//\ %s
-"    autocmd Syntax   javascript             setlocal isk+=$
-"    autocmd FileType xml,xsd,xslt,javascript setlocal ts=2
-"    autocmd FileType text,txt,mail          setlocal ai com=fb:*,fb:-,n:>
-"    autocmd FileType sh,zsh,csh,tcsh        inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
-"    autocmd FileType sh,zsh,csh,tcsh        let &l:path = substitute($PATH, ':', ',', 'g')
-"    autocmd FileType perl,python,ruby       inoremap <silent> <buffer> <C-X>! #!/usr/bin/env<Space><C-R>=&ft<CR>
-"    autocmd FileType c,cpp,cs,java,perl,javscript,php,aspperl,tex,css let b:surround_101 = "\r\n}"
-"    autocmd FileType apache       setlocal commentstring=#\ %s
-"    autocmd FileType cucumber let b:dispatch = 'cucumber %' | imap <buffer><expr> <Tab> pumvisible() ? "\<C-N>" : (CucumberComplete(1,'') >= 0 ? "\<C-X>\<C-O>" : (getline('.') =~ '\S' ? ' ' : "\<C-I>"))
-"    autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
-"    autocmd FileType gitcommit setlocal spell
-"    autocmd FileType gitrebase nnoremap <buffer> S :Cycle<CR>
-"    autocmd FileType help setlocal ai fo+=2n | silent! setlocal nospell
-"    autocmd FileType help nnoremap <silent><buffer> q :q<CR>
-"    autocmd FileType html setlocal iskeyword+=~ | let b:dispatch = ':OpenURL %'
-"    autocmd FileType java let b:dispatch = 'javac %'
-"    autocmd FileType lua  setlocal includeexpr=substitute(v:fname,'\\.','/','g').'.lua'
-"    autocmd FileType perl let b:dispatch = 'perl -Wc %'
-"    autocmd FileType ruby setlocal tw=79 comments=:#\  isfname+=:
-"    autocmd FileType ruby
-"          \ let b:start = executable('pry') ? 'pry -r "%:p"' : 'irb -r "%:p"' |
-"          \ if expand('%') =~# '_test\.rb$' |
-"          \   let b:dispatch = 'testrb %' |
-"          \ elseif expand('%') =~# '_spec\.rb$' |
-"          \   let b:dispatch = 'rspec %' |
-"          \ elseif !exists('b:dispatch') |
-"          \   let b:dispatch = 'ruby -wc %' |
-"          \ endif
-"    autocmd FileType liquid,markdown,text,txt setlocal tw=78 linebreak nolist
-"    autocmd FileType tex let b:dispatch = 'latex -interaction=nonstopmode %' | setlocal formatoptions+=l
-"          \ | let b:surround_{char2nr('x')} = "\\texttt{\r}"
-"          \ | let b:surround_{char2nr('l')} = "\\\1identifier\1{\r}"
-"          \ | let b:surround_{char2nr('e')} = "\\begin{\1environment\1}\n\r\n\\end{\1\1}"
-"          \ | let b:surround_{char2nr('v')} = "\\verb|\r|"
-"          \ | let b:surround_{char2nr('V')} = "\\begin{verbatim}\n\r\n\\end{verbatim}"
-"    autocmd FileType vim  setlocal keywordprg=:help |
-"          \ if exists(':Runtime') |
-"          \   let b:dispatch = ':Runtime' |
-"          \   let b:start = ':Runtime|PP' |
-"          \ else |
-"          \   let b:dispatch = ":unlet! g:loaded_{expand('%:t:r')}|source %" |
-"          \ endif
-    autocmd FileType timl let b:dispatch = ':w|source %' | let b:start = b:dispatch . '|TLrepl' | command! -bar -bang Console Wepl
-    autocmd FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
-    autocmd FileType * if exists("+completefunc") && &completefunc == "" | setlocal completefunc=syntaxcomplete#Complete | endif
-  augroup END "}}}2
-endif " has("autocmd")
+let g:ansible_options = {'ignore_blank_lines': 0}
+let g:ansible_options = {'documentation_mapping': '<C-K>'}

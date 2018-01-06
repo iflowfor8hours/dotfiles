@@ -5,12 +5,23 @@ function \$() {
 
 export LANG=en_US.utf8
 
-export GOROOT=$HOME/go
-export GOPATH=/home/matt/dev/go/ 
+# go stuff
+#export GOROOT="$HOME/dev/go"
+#export GOBIN="$GOROOT/bin"
+#export GOPATH="$HOME/dev/gospace"
+#export PATH="$GOROOT/bin:$PATH"
+#
+# rbenv
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export GOPATH=$HOME/go
+
 export PKG_CONFIG_PATH=/usr/bin/pkg-config
 export VAGRANT_DEFALT_PROVIDER="virtualbox"
-export PATH=$HOME/dev:$HOME/bin:$HOME/.local/bin:$GOROOT/bin:$HOME/titan_tools/bin:$PATH 
+export PATH=$PYENV_ROOT/bin:$HOME/.rbenv/bin:$HOME/dev:$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$HOME/titan_tools/bin:$PATH 
 
+eval "$(rbenv init -)"
 # Defaults
 PSARGS=-ax
 
@@ -228,8 +239,8 @@ PROMPT3='{ … }  '
 source ~/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Google Cloud SDK.
-if [ -f "$HOME/dev/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/dev/google-cloud-sdk/path.zsh.inc"; fi
-if [ -f "$HOME/dev/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/dev/google-cloud-sdk/completion.zsh.inc"; fi
+#if [ -f "$HOME/dev/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/dev/google-cloud-sdk/path.zsh.inc"; fi
+#if [ -f "$HOME/dev/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/dev/google-cloud-sdk/completion.zsh.inc"; fi
 
 bash_source() {
   alias shopt=':'
@@ -243,14 +254,6 @@ bash_source() {
 
 # helm bash completion
 # bash_source <(~/.zsh/completion/_helm)
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 
 # no one cares, none of this matters.
 export ANSIBLE_NOCOWS=1
@@ -278,6 +281,7 @@ case `uname` in
     # nvm
     export NVM_DIR="$HOME/.nvm"
     . "/usr/local/opt/nvm/nvm.sh"
+    source $HOME/dotfiles/sensitive.sh
     ;;
   Linux)
     # autojump
@@ -316,6 +320,3 @@ compctl -K _pip_completion pip
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
-
-
-source $HOME/dotfiles/sensitive.sh

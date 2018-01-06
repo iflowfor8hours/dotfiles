@@ -6,3 +6,4 @@
 ./.weechat/irc.conf
 .ropeproject
 .ipython/profile_default/history.sqlite
+sensitive.sh
