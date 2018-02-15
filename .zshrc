@@ -330,18 +330,25 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-function basher() {
+function dockerwrap() {
     if [[ $1 = 'run' ]]
     then
         shift
-        /usr/local/bin/docker run -e \
-            HIST_FILE=/root/.bash_history \
-            -v $HOME/.bash_history:/root/.bash_history \
+        /usr/bin/docker run \
+            -e SHELL=/bin/bash \
+            -e LINES=$(tput lines) \
+            -e COLUMNS=$(tput cols) \
             "$@"
-    else
-        /usr/local/bin/docker "$@"
+    fi
+    if [[ $1 = 'exec' ]]
+    then
+        shift
+        /usr/bin/docker exec \
+            -e SHELL=/bin/bash \
+            -e LINES=$(tput lines) \
+            -e COLUMNS=$(tput cols) \
+            "$@"
+
+        /usr/bin/docker "$@"
     fi
 }
-alias docker=basher
-#!/bin/bash
-cp /etc/haproxy/haproxy.cfg ~/haback/haproxy-$NOW.cfg
