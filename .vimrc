@@ -218,6 +218,12 @@ au BufRead,BufNewFile */*playbooks*/*.yml set filetype=ansible
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType ansible setlocal ts=2 sts=2 sw=2 expandtab
 
+" don't believe me just watch the config changes in .vimrc
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
+
 
 " Wildmenu completion {{{
 set wildmenu
@@ -277,6 +283,10 @@ nnoremap J 7j
 nnoremap K 7k
 vnoremap J 7j
 vnoremap K 7k
+
+" Enable cursor line position tracking with ,c
+:set cursorline
+nmap <LocalLeader>c :set cursorline nocursorline!<CR>
 
 let g:ansible_options = {'ignore_blank_lines': 0}
 let g:ansible_options = {'documentation_mapping': '<C-K>'}

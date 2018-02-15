@@ -113,6 +113,13 @@ function psg() {
   ps $PSARGS | egrep "$@" | fgrep -v egrep
 }
 
+function assh() {
+  ipaddress=`grep "$@" ${HOME}/workspace/services/swarm/inventory | sed 's/^.*ansible_host=//' | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}'`
+  # ipaddress=`grep "$@" ${HOME}/workspace/services/swarm/inventory | awk '/dr:/{gsub(/.*:/,"",$2);print$2}'`
+  echo $ipaddress
+  ssh $ipaddress
+}
+
 # From petef's zshrc
 # make scp error if I forget to put the target host
 function scp() {
@@ -205,7 +212,8 @@ alias listeningports="lsof -Pnl +M -i4"
 alias less="less -X"
 alias cryptmount='sudo cryptsetup luksOpen /dev/mmcblk0p1 L0CKD0WN && sudo mount /dev/mapper/L0CKD0WN /home/matt/tomb'
 alias cryptunmount='sudo umount /dev/mapper/L0CKD0WN && sudo cryptsetup luksClose L0CKD0WN'
-alias pyenv_install='CFLAGS="-I$(xcrun --show-sdk-path)/usr/include -I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install -v '
+alias now=$(date +'%F-%H:%M:%S')
+#alias pyenv_install='CFLAGS="-I$(xcrun --show-sdk-path)/usr/include -I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install -v'"
 alias nonascii='ag "[\x80-\xFF]"'
 #alias vi="emacsclient -nw"
 
@@ -214,6 +222,7 @@ unalias rm mv cp 2> /dev/null || true # no -i madness
 # which vim > /dev/null 2>&1 && alias vi=vim
 
 autoload -Uz vcs_info
+
 
 function prompt_char {
    WARN="%{$fg[green]%}"
@@ -320,3 +329,19 @@ compctl -K _pip_completion pip
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+function basher() {
+    if [[ $1 = 'run' ]]
+    then
+        shift
+        /usr/local/bin/docker run -e \
+            HIST_FILE=/root/.bash_history \
+            -v $HOME/.bash_history:/root/.bash_history \
+            "$@"
+    else
+        /usr/local/bin/docker "$@"
+    fi
+}
+alias docker=basher
+#!/bin/bash
+cp /etc/haproxy/haproxy.cfg ~/haback/haproxy-$NOW.cfg
