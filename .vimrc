@@ -43,8 +43,8 @@ set autoread                  " watch for file changes
 set noautowrite               " don't automagically write on :next
 set nocompatible              " vim, not vi
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
-set autoindent 
-set nosmartindent    " auto/smart indent
+"set autoindent 
+"set nosmartindent    " auto/smart indent
 set expandtab                 " expand tabs to spaces (except java, see autocmd below
 set softtabstop=2
 set smarttab                  " tab and backspace are smart
@@ -148,7 +148,7 @@ map <MouseMiddle> <esc>"*p
 
 " ---------------------------------------------------------------------------
 "  backup options
-set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
+"set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
 set history=2000
 
 " ---------------------------------------------------------------------------
@@ -214,8 +214,9 @@ imap jk <Esc>
 " set list to activate whitespace detection mode
 au BufNewFile,BufRead *.less set filetype=less
 au BufRead,BufNewFile {Vagrantfile,Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
-au BufRead,BufNewFile */*playbooks*/*.yml set filetype=ansible
+au BufRead,BufNewFile {*/*playbooks*/*.yml,*/*playbooks*/*.yaml,*/*roles*/*.yaml,*/*roles*/*.yml} set filetype=ansible
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType ansible setlocal ts=2 sts=2 sw=2 expandtab
 
 " don't believe me just watch the config changes in .vimrc

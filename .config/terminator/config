@@ -1,5 +1,4 @@
 [global_config]
-  borderless = True
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, Logger, LaunchpadBugURLHandler
   suppress_multiple_term_dialog = True
 [keybindings]
@@ -66,19 +65,17 @@
 [profiles]
   [[default]]
     background_color = "#002b36"
-    background_image = None
-    font = Source Code Pro Semi-Bold 14
+    copy_on_selection = True
+    cursor_color = "#839496"
+    font = Source Code Pro Semi-Bold 10
     foreground_color = "#839496"
-    scroll_on_output = False
     scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
   [[solarized-dark]]
     background_color = "#eee8d5"
-    background_image = None
     cursor_color = "#002b36"
     foreground_color = "#002b36"
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
   [[solarized-light]]
-    background_image = None

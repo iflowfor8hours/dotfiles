@@ -42,7 +42,7 @@ autoload -U compinit && compinit # enables extra auto-completion
 setopt prompt_subst
 
 # Some environment defaults
-export EDITOR=vim
+export EDITOR=/usr/bin/nvim
 export PAGER=less
 export LESS="-RnX"
 export USE_CCACHE=1
@@ -190,7 +190,9 @@ alias du='du -sh'
 alias cls='clear'
 alias less='less -FXR'
 alias tasks='task ls | sort -n'
+alias sudo='sudo -E'
 # alias open='gnome-open'
+alias chtty='chvt'
 alias be='bundle exec'
 alias t='task'
 alias dim='redshift -o'
@@ -216,6 +218,7 @@ alias now=$(date +'%F-%H:%M:%S')
 #alias pyenv_install='CFLAGS="-I$(xcrun --show-sdk-path)/usr/include -I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install -v'"
 alias nonascii='ag "[\x80-\xFF]"'
 #alias vi="emacsclient -nw"
+alias vim=nvim
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
@@ -295,6 +298,7 @@ case `uname` in
   Linux)
     # autojump
     [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
+    [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.local/share/autojump.sh
 	  autoload -U compinit && compinit -u
     #NVM
     export NVM_DIR="$HOME/.nvm"
@@ -302,10 +306,10 @@ case `uname` in
     alias ls='ls -F --color=auto'
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
-    source /usr/local/aws/bin/aws_zsh_completer.sh
-    # set turbo typing
-    xset r rate 250 60
+    [ -f "/usr/local/aws/bin/aws_zsh_completer.sh" ] && . /usr/local/aws/bin/aws_zsh_completer.sh
     setxkbmap -option 'caps:ctrl_modifier'
+    # set turbo typing
+    # xset r rate 250 60
     xcape -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
     ;;
 esac
@@ -352,3 +356,9 @@ function dockerwrap() {
         /usr/bin/docker "$@"
     fi
 }
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/matt/dev/google-cloud-sdk/path.zsh.inc' ]; then source '/home/matt/dev/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/matt/dev/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/matt/dev/google-cloud-sdk/completion.zsh.inc'; fi
