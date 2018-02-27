@@ -291,3 +291,5 @@ nmap <LocalLeader>c :set cursorline nocursorline!<CR>
 
 let g:ansible_options = {'ignore_blank_lines': 0}
 let g:ansible_options = {'documentation_mapping': '<C-K>'}
+
+vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>

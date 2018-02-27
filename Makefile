@@ -2,6 +2,8 @@ SHELL := /bin/bash
 
 DIR=$(pwd)
 
+fast: minidot keyboard
+
 ubuntu: directories dev_packages apt_fast_setup packages keyboard adobefont vim dotfiles virtualenvwrapper ruby_dev sysdig disable_services install_golang taskwarrior power_management manual_steps
 
 test: directories dev_packages apt_fast_setup packages keyboard adobefont vim dotfiles virtualenvwrapper install_golang taskwarrior manual_steps
@@ -77,6 +79,23 @@ keyboard:
 		XKBVARIANT=\"\"\
 		XKBOPTIONS=\"ctrl:nocaps\"\
 		BACKSPACE=\"guess\" > /etc/default/keyboard' 
+
+minidot:
+	rm -rf ${HOME}/.bashrc
+	rm -rf ${HOME}/.vim
+	rm -rf ${HOME}/.vimrc
+	rm -rf ${HOME}/.gitconfig
+	rm -rf ${HOME}/.zshrc
+	rm -rf ${HOME}/.tmux.conf
+	rm -rf ${HOME}/.config/terminator
+	ln -sn $(PWD)/.bashrc ${HOME}/.bashrc
+	ln -sn $(PWD)/.vim ${HOME}/.vim
+	ln -sn $(PWD)/.vimrc ${HOME}/.vimrc
+	ln -sn $(PWD)/.gitconfig ${HOME}/.gitconfig
+	ln -sn $(PWD)/.zshrc ${HOME}/.zshrc
+	ln -sn $(PWD)/.tmux.conf ${HOME}/.tmux.conf
+	ln -sn $(PWD)/.config/terminator ${HOME}/.config/terminator
+	chsh -s /bin/zsh
 
 dotfiles:
 	rm -rf ${HOME}/.bashrc

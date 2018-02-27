@@ -218,7 +218,6 @@ alias now=$(date +'%F-%H:%M:%S')
 #alias pyenv_install='CFLAGS="-I$(xcrun --show-sdk-path)/usr/include -I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install -v'"
 alias nonascii='ag "[\x80-\xFF]"'
 #alias vi="emacsclient -nw"
-alias vim=nvim
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
