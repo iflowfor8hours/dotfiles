@@ -38,6 +38,7 @@
   quotepath = false
   autocrlf = input
 	excludesfile = /Users/matt/.gitignore_global
+	pager = more -R
 [gc]
   auto = 1
 [color]

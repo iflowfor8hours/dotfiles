@@ -3,7 +3,9 @@ function \$() {
   "$@"
 }
 
-export LANG=en_US.utf8
+if [[ $TERM == "xterm" ]]; then
+    export TERM='xterm-256color'
+fi
 
 # go stuff
 #export GOROOT="$HOME/dev/go"
@@ -18,10 +20,12 @@ export PYENV_ROOT="$HOME/.pyenv"
 export GOPATH=$HOME/go
 
 export PKG_CONFIG_PATH=/usr/bin/pkg-config
-export VAGRANT_DEFALT_PROVIDER="virtualbox"
-export PATH=$PYENV_ROOT/bin:$HOME/.rbenv/bin:$HOME/dev:$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$HOME/titan_tools/bin:$PATH 
+export PATH=$PYENV_ROOT/bin:$HOME/.rbenv/bin:$HOME/dev:$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH 
+ 
+if command -v rbenv 1>/dev/null 2>&1; then
+  eval "$(rbenv init -)"
+fi
 
-eval "$(rbenv init -)"
 # Defaults
 PSARGS=-ax
 
@@ -42,9 +46,9 @@ autoload -U compinit && compinit # enables extra auto-completion
 setopt prompt_subst
 
 # Some environment defaults
-export EDITOR=/usr/bin/nvim
+export EDITOR=/usr/bin/vim
 export PAGER=less
-export LESS="-RnX"
+export LESS="RnX"
 export USE_CCACHE=1
 
 ## zsh options settings
@@ -182,7 +186,7 @@ alias mkdir='mkdir -p'
 alias cp='cp -R'
 alias chown='chown -R'
 alias chmod='chmod -R'
-alias grep='grep --color=auto --exclude-dir=.git --exclude-dir=.svn'
+#alias grep='grep --color=auto --exclude-dir=.git --exclude-dir=.svn'
 alias vm='VBoxManage'
 alias rspec='rspec --color --format documentation'
 alias df='df -h'
@@ -250,8 +254,8 @@ PROMPT3='{ … }  '
 source ~/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Google Cloud SDK.
-#if [ -f "$HOME/dev/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/dev/google-cloud-sdk/path.zsh.inc"; fi
-#if [ -f "$HOME/dev/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/dev/google-cloud-sdk/completion.zsh.inc"; fi
+if [ -f "$HOME/dev/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/dev/google-cloud-sdk/path.zsh.inc"; fi
+if [ -f "$HOME/dev/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/dev/google-cloud-sdk/completion.zsh.inc"; fi
 
 bash_source() {
   alias shopt=':'
@@ -289,34 +293,40 @@ case `uname` in
     [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
     [ -f ~/.local/lib/aws/bin/aws_zsh_completer.sh ] && . ~/.local/lib/aws/bin/aws_zsh_completer.sh
     alias ls='ls -FG'
-    # nvm
-    export NVM_DIR="$HOME/.nvm"
-    . "/usr/local/opt/nvm/nvm.sh"
-    source $HOME/dotfiles/sensitive.sh
+    [[ -f ${HOME}/dotfiles/sensitive.sh ]] && . ${HOME}/dotfiles/sensitive.sh
     ;;
   Linux)
-    # autojump
     [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
     [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.local/share/autojump.sh
 	  autoload -U compinit && compinit -u
-    #NVM
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     alias ls='ls -F --color=auto'
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
     [ -f "/usr/local/aws/bin/aws_zsh_completer.sh" ] && . /usr/local/aws/bin/aws_zsh_completer.sh
-    setxkbmap -option 'caps:ctrl_modifier'
-    # set turbo typing
-    # xset r rate 250 60
-    xcape -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
-    ;;
+    if [ ! -z $DISPLAY ]; then
+      # set turbo typing
+      if which xset 1>/dev/null 2>&1; then
+        xset r rate 250 60; 
+      fi
+      if which xcape 1>/dev/null 2>&1; then 
+        xcape -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape';
+      fi
+      if which setxkbmap 1>/dev/null 2>&1; then 
+        setxkbmap -option 'caps:ctrl_modifier'; 
+      fi
+    else;
+      loadkeys ~/dotfiles/
+    fi
 esac
 
 # kubernetes completion
-source <(kubectl completion zsh)
+if which kubectl 1>/dev/null 2>&1; then 
+  source <(kubectl completion zsh)
+fi
 # kops bash completion
-# bash_source <(kops completion bash)
+if which kubectl 1>/dev/null 2>&1; then 
+  bash_source <(kops completion bash)
+fi
 
 # pip zsh completion 
 function _pip_completion {

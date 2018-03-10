@@ -79,6 +79,8 @@ keyboard:
 		XKBVARIANT=\"\"\
 		XKBOPTIONS=\"ctrl:nocaps\"\
 		BACKSPACE=\"guess\" > /etc/default/keyboard' 
+	rm -rf ${HOME}/.Xmodmap
+	ln -sn $(PWD)/.Xmodmap ${HOME}/.Xmodmap
 
 minidot:
 	rm -rf ${HOME}/.bashrc
@@ -87,15 +89,12 @@ minidot:
 	rm -rf ${HOME}/.gitconfig
 	rm -rf ${HOME}/.zshrc
 	rm -rf ${HOME}/.tmux.conf
-	rm -rf ${HOME}/.config/terminator
 	ln -sn $(PWD)/.bashrc ${HOME}/.bashrc
 	ln -sn $(PWD)/.vim ${HOME}/.vim
 	ln -sn $(PWD)/.vimrc ${HOME}/.vimrc
 	ln -sn $(PWD)/.gitconfig ${HOME}/.gitconfig
 	ln -sn $(PWD)/.zshrc ${HOME}/.zshrc
 	ln -sn $(PWD)/.tmux.conf ${HOME}/.tmux.conf
-	ln -sn $(PWD)/.config/terminator ${HOME}/.config/terminator
-	chsh -s /bin/zsh
 
 dotfiles:
 	rm -rf ${HOME}/.bashrc
