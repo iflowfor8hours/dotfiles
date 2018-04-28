@@ -49,8 +49,54 @@ manual_steps:
 	minikube"
 
 brew packages:
-	brew install nvm docker-machine-driver-xhyve ansible task python3 pstree rbenv ruby ruby-build tmux tree vim kubernetes-cli cmake autojump go jq readline
-	brew install docker-machine-driver-xhyve
+	brew install \
+	abook \
+	ack \
+	ansible \
+	autojump \
+	bash-completion \
+	cask \
+	caskroom/cask/alfred \
+	caskroom/cask/firefox \
+	caskroom/fonts/font-source-code-pro \
+	caskroom/cask/karabiner \
+	caskroom/cask/vagrant \
+	caskroom/versions/google-chrome-canary \
+	cmake \
+	curl \
+	docker \
+	git \
+	go \
+	hh \
+	htop \
+	jq \
+	kubectl \
+	links \
+	mc \
+	mutt \
+	neovim \
+	netdata \
+	nmap \
+	pstree \
+	python3 \
+	ranger \
+	rbenv \
+	readline \
+	ruby \
+	ruby-build \
+	sysdig \
+	task \
+	tmate \
+	tmux \
+	tree \
+	unrar \
+	vim \
+	weechat \
+	wget \
+	zsh \
+	zsh-autosuggestions \
+	zsh-completions \
+	zsh-navigation-tools
 
 taskwarrior:
 	echo "Setting up Taskwarrior" \
