@@ -439,6 +439,14 @@ fu! ctrlp#addfile(ch, file)
 	cal s:BuildPrompt(1)
 endf
 
+fu! s:safe_printf(format, ...)
+	try
+		retu call('printf', [a:format] + a:000)
+	cat
+		retu a:format
+	endt
+endf
+
 fu! s:UserCmd(lscmd)
 	let [path, lscmd] = [s:dyncwd, a:lscmd]
 	let do_ign =
@@ -461,9 +469,9 @@ fu! s:UserCmd(lscmd)
 		let g:ctrlp_allfiles = []
 		let s:job = job_start([&shell, &shellcmdflag, printf(lscmd, path)], {'callback': 'ctrlp#addfile'})
 	elsei has('patch-7.4-597') && !(has('win32') || has('win64'))
-		let g:ctrlp_allfiles = systemlist(printf(lscmd, path))
+		let g:ctrlp_allfiles = systemlist(s:safe_printf(lscmd, path))
 	el
-		let g:ctrlp_allfiles = split(system(printf(lscmd, path)), "\n")
+		let g:ctrlp_allfiles = split(system(s:safe_printf(lscmd, path)), "\n")
 	en
 	if exists('+ssl') && exists('ssl')
 		let &ssl = ssl
@@ -532,7 +540,7 @@ fu! s:bufparts(bufnr)
 endf
 fu! ctrlp#buffers(...)
 	let ids = sort(filter(range(1, bufnr('$')), '(empty(getbufvar(v:val, "&bt"))'
-		\ .' || s:isneovimterminal(v:val)) && getbufvar(v:val, "&bl")'), 's:compmreb')
+		\ .' || s:isterminal(v:val)) && getbufvar(v:val, "&bl")'), 's:compmreb')
 	if a:0 && a:1 == 'id'
 		retu ids
 	el
@@ -555,7 +563,7 @@ fu! s:MatchIt(items, pat, limit, exc)
 	for item in a:items
 		let id += 1
 		try
-			if (s:matchcrfile || !( s:ispath && item == a:exc )) &&
+			if (s:matchcrfile || !( s:ispath && item ==# a:exc )) &&
 						\call(s:mfunc, [item, pat]) >= 0
 				cal add(lines, item)
 			en
@@ -1948,7 +1956,7 @@ endf
 
 fu! s:dictindex(dict, expr)
 	for key in keys(a:dict)
-		if a:dict[key] == a:expr | retu key | en
+		if a:dict[key] ==# a:expr | retu key | en
 	endfo
 	retu -1
 endf
@@ -2020,10 +2028,10 @@ fu! s:bufnrfilpath(line)
 endf
 
 fu! ctrlp#normcmd(cmd, ...)
-	let buftypes = [ 'quickfix', 'help' ]
+	let buftypes = [ 'quickfix', 'help', 'nofile' ]
 	if a:0 < 2 && s:nosplit() | retu a:cmd | en
 	let norwins = filter(range(1, winnr('$')),
-		\ 'index(buftypes, getbufvar(winbufnr(v:val), "&bt")) == -1 || s:isneovimterminal(winbufnr(v:val))')
+		\ 'index(buftypes, getbufvar(winbufnr(v:val), "&bt")) == -1 || s:isterminal(winbufnr(v:val))')
 	for each in norwins
 		let bufnr = winbufnr(each)
 		if empty(bufname(bufnr)) && empty(getbufvar(bufnr, '&ft'))
@@ -2297,8 +2305,8 @@ fu! s:delbuf()
 	cal s:PrtClearCache()
 endf
 
-fu! s:isneovimterminal(buf)
-	retu has('nvim') && getbufvar(a:buf, "&bt") == "terminal"
+fu! s:isterminal(buf)
+	retu getbufvar(a:buf, "&bt") == "terminal"
 endf
 " Entering & Exiting {{{2
 fu! s:getenv()
