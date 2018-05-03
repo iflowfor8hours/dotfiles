@@ -252,6 +252,7 @@ PROMPT3='{ … }  '
 
 # fish highlighting
 source ~/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/dotfiles/zsh/zsh-autosuggestions.zsh
 
 # Google Cloud SDK.
 if [ -f "$HOME/dev/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/dev/google-cloud-sdk/path.zsh.inc"; fi
@@ -272,6 +273,7 @@ bash_source() {
 
 # no one cares, none of this matters.
 export ANSIBLE_NOCOWS=1
+export DCOS_SSL_VERIFY=false
 
 # you'll need this sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.5 100
 # Requires sudo pip install virtualenvwrapper
@@ -371,3 +373,6 @@ if [ -f '/home/matt/dev/google-cloud-sdk/path.zsh.inc' ]; then source '/home/mat
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/matt/dev/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/matt/dev/google-cloud-sdk/completion.zsh.inc'; fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

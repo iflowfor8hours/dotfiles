@@ -37,8 +37,8 @@
   editor = /usr/bin/vim
   quotepath = false
   autocrlf = input
-	excludesfile = /Users/matt/.gitignore_global
-	pager = more -R
+	excludesfile = /Users/matturbanski/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [gc]
   auto = 1
 [color]
