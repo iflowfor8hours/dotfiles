@@ -57,6 +57,7 @@ then
   ln -sn ~/dotfiles/.Xresources ~/.Xresources
   ln -sn ~/dotfiles/.config/terminator ~/.config/terminator
   ln -sn ~/dotfiles/.config/khal ~/.config/khal
+  ln -sn ~/dotfiles/.config/nvim ~/.config/nvim
   ln -sn ~/dotfiles/.muttrc ~/.muttrc
   ln -sn ~/dotfiles/.offlineimaprc ~/.offlineimaprc
   ln -sn ~/dotfiles/.taskrc ~/.taskrc
@@ -65,5 +66,3 @@ then
   ln -sn ~/dotfiles/.ipython ~/.ipython
   ln -sn ~/dotfiles/.hgrc ~/.hgrc
 fi
-
-chmod 600 ~/.msmtprc

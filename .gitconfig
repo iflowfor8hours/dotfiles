@@ -1,6 +1,6 @@
 [user]
 	name = matt urbanski
-  email = matt@iflowfor8hours.info
+  email = murbanski@apple.com
 [alias]
   ll = log --oneline --graph --decorate --all
   addall = !git add . && git add -u

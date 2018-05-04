@@ -43,7 +43,9 @@ fpath=(~/dotfiles/zsh $fpath)
 autoload -U colors && colors
 autoload zmv
 autoload -U compinit && compinit # enables extra auto-completion
-setopt prompt_subst
+#setopt prompt_subst
+autoload -U promptinit; promptinit
+prompt pure
 
 # Some environment defaults
 export EDITOR=/usr/bin/vim
@@ -73,7 +75,7 @@ setopt inc_append_history
 setopt auto_pushd                # Automatically pushd when I cd
 setopt nocdable_vars               # Let me do cd ~foo if $foo is a directory
 
-WORDCHARS='*?_-[]~=&;!#$%^(){}<>' # chars as part of filename
+WORDCHARS='?_-&%^{}<>' # chars as part of filename
 
 # -- Bindings --
 bindkey -e # emacs mode line editting
@@ -227,28 +229,27 @@ unalias rm mv cp 2> /dev/null || true # no -i madness
 
 # which vim > /dev/null 2>&1 && alias vi=vim
 
-autoload -Uz vcs_info
+#autoload -Uz vcs_info
 
-
-function prompt_char {
-   WARN="%{$fg[green]%}"
-   if test "$UID" = 0; then
-      WARN="%{$fg[red]%}"
-   fi
-
-   git branch >/dev/null 2>/dev/null && echo "${WARN}$" && return
-   hg root >/dev/null 2>/dev/null && echo "${WARN}☿" && return
-   svn info >/dev/null 2>/dev/null && echo "${WARN}$" && return
-   echo "${WARN}$"
-}
-
-PROMPT='%m %{$fg[yellow]%}${PWD/#$HOME/~}${vcs_info_msg_0_}%{$reset_color%}%(!.%{$fg[green]%}.%{$fg[red]%}) $(prompt_char)%{$reset_color%} '
-
-# -- Loop prompt --
-PROMPT2='{%_}  '
-
-# -- Selection prompt --
-PROMPT3='{ … }  '
+#function prompt_char {
+#   WARN="%{$fg[green]%}"
+#   if test "$UID" = 0; then
+#      WARN="%{$fg[red]%}"
+#   fi
+#
+#   git branch >/dev/null 2>/dev/null && echo "${WARN}$" && return
+#   hg root >/dev/null 2>/dev/null && echo "${WARN}☿" && return
+#   svn info >/dev/null 2>/dev/null && echo "${WARN}$" && return
+#   echo "${WARN}$"
+#}
+#
+#PROMPT='%m %{$fg[yellow]%}${PWD/#$HOME/~}${vcs_info_msg_0_}%{$reset_color%}%(!.%{$fg[green]%}.%{$fg[red]%}) $(prompt_char)%{$reset_color%} '
+#
+## -- Loop prompt --
+#PROMPT2='{%_}  '
+#
+## -- Selection prompt --
+#PROMPT3='{ … }  '
 
 # fish highlighting
 source ~/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

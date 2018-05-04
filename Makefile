@@ -4,15 +4,16 @@ DIR=$(pwd)
 
 fast: minidot keyboard
 
-ubuntu: directories dev_packages apt_fast_setup packages keyboard adobefont vim dotfiles virtualenvwrapper ruby_dev sysdig disable_services install_golang taskwarrior power_management manual_steps
+ubuntu: directories dev_packages apt_fast_setup ubuntu_packages keyboard adobefont vim dotfiles virtualenvwrapper ruby_dev sysdig disable_services install_golang taskwarrior power_management manual_steps
 
-test: directories dev_packages apt_fast_setup packages keyboard adobefont vim dotfiles virtualenvwrapper install_golang taskwarrior manual_steps
+test: directories dev_packages apt_fast_setup ubuntu_packages keyboard adobefont vim dotfiles virtualenvwrapper install_golang taskwarrior manual_steps
 
 dev_packages: update
 	sudo apt-get install -q=2 -y ack-grep python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs zsh software-properties-common python-software-properties unzip
 	sudo pip install virtualenvwrapper
 
 directories:
+	@mkdir -p ${HOME}
 	@mkdir -p ${HOME}/.logs
 	@mkdir -p ${HOME}/src
 	@mkdir -p ${HOME}/projects
@@ -20,7 +21,6 @@ directories:
 	@mkdir -p ${HOME}/media
 	@mkdir -p ${HOME}/dev
 	@mkdir -p ${HOME}/src/pythonprojects
-	@mkdir -p ${HOME}
 	@mkdir -p ${HOME}/Mail/fastmail
 	@mkdir -p ${HOME}/Mail/.mutt/mailboxes
 	@mkdir -p ${HOME}/Mail/temporary/search
@@ -37,77 +37,84 @@ manual_steps:
 	echo "Setup your vpn credentials"
 	echo "setup backups! rsync -avhW --progress --exclude-from=/var/tmp/ignorelist /home/${USER}/ /media/${USER}/${TARGET}/${USER}/"
 	echo "Install keybase \
-	lastpass \
-	authy \
-	aws tools \
-	aws credentials \
-	git crypt \
-	PIA \
-	ansible
-	gcloud tools \
-	kubectl \
-	minikube"
+	    lastpass \
+	    authy \
+	    aws tools \
+	    aws credentials \
+	    git crypt \
+	    PIA \
+	    ansible \
+	    gcloud tools \
+	    kubectl \
+	    minikube"
 
-brew packages:
+osx_fonts:
+	brew tap caskroom/fonts
+	brew cask install \
+	    font-sourcecodepro-nerd-font \
+	    font-sourcecodepro-nerd-font-mono \
+	    font-hack-nerd-font \
+	    font-hack-nerd-font-mono
+
+osx_packages:
+	brew tap caskroom/fonts
 	brew install \
-	abook \
-	ack \
-	ansible \
-	autojump \
-	bash-completion \
-	cask \
-	caskroom/cask/alfred \
-	caskroom/cask/firefox \
-	caskroom/fonts/font-source-code-pro \
-	caskroom/cask/karabiner \
-	caskroom/cask/vagrant \
-	caskroom/versions/google-chrome-canary \
-	cmake \
-	curl \
-	docker \
-	git \
-	go \
-	hh \
-	htop \
-	jq \
-	kubectl \
-	links \
-	mc \
-	mutt \
-	neovim \
-	netdata \
-	nmap \
-	pstree \
-	python3 \
-	ranger \
-	rbenv \
-	readline \
-	ruby \
-	ruby-build \
-	sysdig \
-	task \
-	tmate \
-	tmux \
-	tree \
-	unrar \
-	vim \
-	weechat \
-	wget \
-	zsh \
-	zsh-autosuggestions \
-	zsh-completions \
-	zsh-navigation-tools
+	    abook \
+	    ack \
+	    ansible \
+	    autojump \
+	    cask \
+	    caskroom/cask/alfred \
+	    caskroom/cask/firefox \
+	    caskroom/cask/karabiner-elements \
+	    caskroom/cask/vagrant \
+	    caskroom/cask/virtualbox \
+	    caskroom/versions/google-chrome-canary \
+	    cmake \
+	    curl \
+	    docker \
+	    git \
+	    go \
+	    hh \
+	    htop \
+	    jq \
+	    kubectl \
+	    links \
+	    mc \
+	    mutt \
+	    neovim \
+	    netdata \
+	    nmap \
+	    pstree \
+	    python3 \
+	    ranger \
+	    rbenv \
+	    readline \
+	    ruby \
+	    ruby-build \
+	    task \
+	    tmate \
+	    tmux \
+	    tree \
+	    unrar \
+	    vim \
+	    weechat \
+	    wget \
+	    zsh \
+	    zsh-autosuggestions \
+	    zsh-completions \
+	    zsh-navigation-tools
 
 taskwarrior:
 	echo "Setting up Taskwarrior" \
-		&& mkdir -p /tmp/taskinstaller \
-		&& cd /tmp/taskinstaller \
-		&& curl -L -O http://taskwarrior.org/download/task-2.5.1.tar.gz \
-		&& tar xzvf task-2.5.1.tar.gz \
-		&& cd task-2.5.1 \
-		&& cmake -DCMAKE_BUILD_TYPE=release . \
-		&& make \
-		&& sudo make install
+	    && mkdir -p /tmp/taskinstaller \
+	    && cd /tmp/taskinstaller \
+	    && curl -L -O http://taskwarrior.org/download/task-2.5.1.tar.gz \
+	    && tar xzvf task-2.5.1.tar.gz \
+	    && cd task-2.5.1 \
+	    && cmake -DCMAKE_BUILD_TYPE=release . \
+	    && make \
+	    && sudo make install
 
 power_management:
 	# dependencies for display battery and cpu temp
@@ -120,13 +127,17 @@ update:
 	sudo apt-get install -f -y
 
 keyboard:
-	sudo bash -c 'echo XKBMODEL=\"pc105\"\
-		XKBLAYOUT=\"us\"\
-		XKBVARIANT=\"\"\
-		XKBOPTIONS=\"ctrl:nocaps\"\
-		BACKSPACE=\"guess\" > /etc/default/keyboard' 
+	sudo bash -c '[ -d /etc/default ] \
+	    echo XKBMODEL=\"pc105\"\
+	    XKBLAYOUT=\"us\"\
+	    XKBVARIANT=\"\"\
+	    XKBOPTIONS=\"ctrl:nocaps\"\
+	    BACKSPACE=\"guess\" > /etc/default/keyboard' 
 	rm -rf ${HOME}/.Xmodmap
 	ln -sn $(PWD)/.Xmodmap ${HOME}/.Xmodmap
+
+osx_keyboard:
+
 
 minidot:
 	rm -rf ${HOME}/.bashrc
@@ -183,7 +194,8 @@ dotfiles:
 	chsh -s /bin/zsh
 
 vim: 
-	sudo apt-get -y -q=2 install vim-nox exuberant-ctags cmake python-dev
+	@if [ -e /usr/bin/apt-get ]; then sudo apt-get -y -q=2 install vim-nox exuberant-ctags cmake python-dev; fi
+	@if [ -e /usr/local/bin/brew ]; then brew install vim neovim ctags cmake python2; fi
 	@if [ ! -e ${HOME}/.vim/.mine ]; then echo "Deleting existing vim configuration"; rm -fr ${HOME}/.vim ${HOME}/.vimrc; fi
 	-@ln -sn $(PWD)/.vimrc ${HOME}/.vimrc; true
 	-@ln -sn $(PWD)/.vim ${HOME}/.vim; true
@@ -217,24 +229,24 @@ virtualenvwrapper:
 
 disable_services:
 	sudo /bin/bash -c "systemctl disable bluetooth.service \
-		&& systemctl disable isc-dhcp-server.service \
-		&& systemctl disable isc-dhcp-server6.service \
-		&& systemctl disable openvpn.service \
-		&& systemctl disable postgresql.service \
-		&& systemctl disable transmission-daemon.service \
-		&& systemctl disable whoopsie.service \
-		&& systemctl disable ModemManager.service \
-		&& systemctl disable bluetooth.target \
-		&& rfkill block bluetooth \
-		&& rfkill block wwan"
+	    && systemctl disable isc-dhcp-server.service \
+	    && systemctl disable isc-dhcp-server6.service \
+	    && systemctl disable openvpn.service \
+	    && systemctl disable postgresql.service \
+	    && systemctl disable transmission-daemon.service \
+	    && systemctl disable whoopsie.service \
+	    && systemctl disable ModemManager.service \
+	    && systemctl disable bluetooth.target \
+	    && rfkill block bluetooth \
+	    && rfkill block wwan"
 
 adobefont:
 	curl -O -L https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
-		&& unzip 1.017R.zip \
-		&& sudo mkdir -p /usr/share/fonts/truetype/source-code-pro \
-		&& sudo cp source-code-pro-1.017R/TTF/*.ttf /usr/share/fonts/truetype/source-code-pro \
-		&& rm 1.017R.zip \
-		&& rm -fr source-code-pro-1.017R
+	    && unzip 1.017R.zip \
+	    && sudo mkdir -p /usr/share/fonts/truetype/source-code-pro \
+	    && sudo cp source-code-pro-1.017R/TTF/*.ttf /usr/share/fonts/truetype/source-code-pro \
+	    && rm 1.017R.zip \
+	    && rm -fr source-code-pro-1.017R
 
 ruby_dev:
 	rm -fr ${HOME}/.rbenv
@@ -256,16 +268,16 @@ install_golang:
 
 apt_fast_setup:
 	sudo bash -c "apt-get install -q=2 -y aria2 git && \
-		if ! [[ -f /usr/bin/apt-fast ]]; then \
-		  git clone https://github.com/ilikenwf/apt-fast /tmp/apt-fast; \
-		  cp /tmp/apt-fast/apt-fast /usr/bin; \
-		  chmod +x /usr/bin/apt-fast; \
-		  cp /tmp/apt-fast/apt-fast.conf /etc; \
-		fi"
+	    if ! [[ -f /usr/bin/apt-fast ]]; then \
+	    git clone https://github.com/ilikenwf/apt-fast /tmp/apt-fast; \
+	    cp /tmp/apt-fast/apt-fast /usr/bin; \
+	    chmod +x /usr/bin/apt-fast; \
+	    cp /tmp/apt-fast/apt-fast.conf /etc; \
+	    fi"
 	# configure ubuntu apt mirrors
 	sudo sed -r -i.bak "s/#MIRRORS=\( 'none' \)/MIRRORS=( 'http:\/\/mirrors.wikimedia.org\/ubuntu\/, ftp:\/\/ftp.utexas.edu\/pub\/ubuntu\/, http:\/\/mirrors.xmission.com\/ubuntu\/, http:\/\/mirrors.usinternet.com\/ubuntu\/archive\/, http:\/\/mirrors.ocf.berkeley.edu\/ubuntu\/\' )/" /etc/apt-fast.conf
 
-packages:
+ubuntu_packages:
 	echo "resolvconf resolvconf/linkify-resolvconf boolean false" | debconf-set-selections
 	sudo apt-get -q=2 -y install python-software-properties apt-transport-https curl software-properties-common resolvconf tzdata
 	ln -fs /usr/share/zoneinfo/US/Eastern /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
@@ -279,71 +291,71 @@ packages:
 	curl -fsSL https://dl.bitmask.net/apt.key | sudo apt-key add -
 	sudo apt-get update
 	sudo apt-get -qy --no-install-recommends install \
-	abook \
-	acpi-call-dkms \
-	apt-transport-https \
-	ack-grep \
-	arandr \
-	autoconf \
-	autojump \
-	automake \
-	bison \
-	bitmask \
-	build-essential \
-	ca-certificates \
-	cmake \
-	curl \
-	dconf-editor \
-	docker-ce \
-	dnsmasq \
-	exuberant-ctags \
-	git \
-	gnome-commander \
-	gnupg2 \
-	htop \
-	kupfer \
-	leap-keyring \
-	libffi-dev \
-	libgdbm-dev \
-	libgdbm3 \
-	libgnutls-dev \
-	libgpgme11 \
-	libgpgme11-dev \
-	libncurses5-dev \
-	libreadline-dev \
-	libreadline6-dev \
-	libssl-dev \
-	libuu-dev \
-	libuu0 \
-	libuuid1 \
-	libyaml-dev \
-	light-locker-settings \
-	mc \
-	msmtp \
-	meld \
-	mutt-patched \
-	mysql-common \
-	nfs-common \
-	nfs-kernel-server \
-	notmuch-mutt \
-	offlineimap \
-	openvpn \
-	pgp \
-	python-dev \
-	python-pip \
-	ranger \
-	redshift \
-	software-properties-common \
-	sqlite \
-	terminator \
-	tlp \
-	tmux \
-	unrar \
-	urlview \
-	uuid-dev \
-	vim \
-	w3m \
-	weechat-curses \
-	xsel \
-	zlib1g-dev \
-	zsh
+	    abook \
+	    acpi-call-dkms \
+	    apt-transport-https \
+	    ack-grep \
+	    arandr \
+	    autoconf \
+	    autojump \
+	    automake \
+	    bison \
+	    bitmask \
+	    build-essential \
+	    ca-certificates \
+	    cmake \
+	    curl \
+	    dconf-editor \
+	    docker-ce \
+	    dnsmasq \
+	    exuberant-ctags \
+	    git \
+	    gnome-commander \
+	    gnupg2 \
+	    htop \
+	    kupfer \
+	    leap-keyring \
+	    libffi-dev \
+	    libgdbm-dev \
+	    libgdbm3 \
+	    libgnutls-dev \
+	    libgpgme11 \
+	    libgpgme11-dev \
+	    libncurses5-dev \
+	    libreadline-dev \
+	    libreadline6-dev \
+	    libssl-dev \
+	    libuu-dev \
+	    libuu0 \
+	    libuuid1 \
+	    libyaml-dev \
+	    light-locker-settings \
+	    mc \
+	    msmtp \
+	    meld \
+	    mutt-patched \
+	    mysql-common \
+	    nfs-common \
+	    nfs-kernel-server \
+	    notmuch-mutt \
+	    offlineimap \
+	    openvpn \
+	    pgp \
+	    python-dev \
+	    python-pip \
+	    ranger \
+	    redshift \
+	    software-properties-common \
+	    sqlite \
+	    terminator \
+	    tlp \
+	    tmux \
+	    unrar \
+	    urlview \
+	    uuid-dev \
+	    vim \
+	    w3m \
+	    weechat-curses \
+	    xsel \
+	    zlib1g-dev \
+	    zsh
