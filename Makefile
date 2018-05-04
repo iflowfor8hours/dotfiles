@@ -191,11 +191,7 @@ vim:
 update_vim_plugins:
 	git stash --all
 	git subtree pull -q -m 'update vim plugins' --prefix .vim/bundle/nerdtree https://github.com/scrooloose/nerdtree.git  --squash master
-	git subtree pull -q -m 'update vim plugins' --prefix .vim/bundle/syntastic https://github.com/scrooloose/syntastic.git --squash master 
 	git subtree pull -q -m 'update vim plugins' --prefix .vim/bundle/vim-fugitive https://github.com/tpope/vim-fugitive.git  --squash master
-	git subtree pull -q -m 'update vim plugins' --prefix .vim/bundle/gitgutter https://github.com/jisaacks/GitGutter.git --squash master
-	git subtree pull -q -m 'update vim plugins' --prefix .vim/bundle/vim-markdown https://github.com/plasticboy/vim-markdown.git --squash master
-	git subtree pull -q -m 'update vim plugins' --prefix .vim/bundle/vim-markdown-preview https://github.com/JamshedVesuna/vim-markdown-preview.git --squash master
 	git subtree pull -q -m 'update vim plugins' --prefix .vim/bundle/vim-rsi https://github.com/tpope/vim-rsi.git --squash master
 	git subtree pull -q -m 'update vim plugins' --prefix .vim/bundle/vim-surround https://github.com/tpope/vim-surround.git --squash master
 	git subtree pull -q -m 'update vim plugins' --prefix .vim/bundle/ack-vim https://github.com/mileszs/ack.vim.git --squash master
