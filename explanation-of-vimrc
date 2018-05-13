@@ -1,15 +1,5 @@
 The interesting plugin are
 
-nerdtree - set this in your vimrc so that you can toggle it with a single keypress, you'll use it much more if you do: 
-
-" Open and close the NERDTree
-map <F4> :NERDTreeToggle<CR>
-map <F5> :NERDTreeClose<CR>
-let NERDTreeWinPos="left"
-let NERDTreeWinSize=20
-
-vim-ctrlp - really good fuzzy finder, that I'm trying to get myself to use more but I find myself using nerdtree much more.
-
 vim-fugitive - This allows you to git from inside vim. I mostly use it for doing Ggrep, then going through the quickfix windows and finding the thing I'm looking for in the code. 
 
 vim-rsi - The normal command line bindings, in vim. Definitely makes me less crazy switching between them, and I didn't realize how often I use them (like ctrl-a for beginning of line, etc)

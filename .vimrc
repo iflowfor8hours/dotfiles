@@ -1,19 +1,20 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Open and close the NERDTree
-map <F4> :NERDTreeToggle<CR>
-map <F5> :NERDTreeClose<CR>
+map <F4> <CR>
 map <F1> <Esc>
 imap <F1> <Esc>
-let NERDTreeWinPos="left"
-let NERDTreeWinSize=20
 " fold the numbers column
 map <F2> :set invnumber<CR>
-map <F3> call ToggleErrors()<CR>
+
 set encoding=utf-8
 
-call pathogen#infect() 
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+"let g:netrw_altv = 1
+let g:netrw_winsize = 20
+set autochdir
+let g:netrw_list_hide = &wildignore
 
 " Map space to / (search) and c-space to ? (backgwards search)
 map <space> /
@@ -82,11 +83,8 @@ augroup cline
     au WinEnter,InsertLeave * set cursorline
 augroup END
 
-" Save when losing focus
-au FocusLost * :silent! wall
-
 " Resize splits when the window is resized
-au VimResized * :wincmd =
+"au VimResized * :wincmd =
 
 " jump to the beginning and end of functions
 
@@ -175,7 +173,6 @@ let g:sh_noisk = 1
 let g:spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:NERDTreeHijackNetrw = 1
 let g:netrw_dirhistmax=0
 let g:ragtag_global_maps = 1
 let g:VCSCommandDisableMappings = 1
@@ -255,6 +252,18 @@ let g:vim_markdown_folding_disabled=1
 
 set rtp+=~/.fzf
 
+if &term =~ '256color'
+    " disable Background Color Erase (BCE) so that color schemes
+    " render properly when inside 256-color tmux and GNU screen.
+    " see also http://sunaku.github.io/vim-256color-bce.html
+    set t_ut=
+endif
+
+"set t_8f=^[[38;2;%lu;%lu;%lum        " set foreground color
+"set t_8b=^[[48;2;%lu;%lu;%lum        " set background color
+set t_Co=256                         " Enable 256 colors
+set termguicolors                    " Enable GUI colors for the terminal to get truecolor
+
 " Make sure Vim returns to the same line when you reopen a file.
 augroup line_return
     au!
@@ -279,12 +288,6 @@ augroup ft_mail
     au Filetype mail setlocal spell
 augroup END
 
-" for scrolling up and down quickly
-nnoremap J 7j
-nnoremap K 7k
-vnoremap J 7j
-vnoremap K 7k
-
 " Enable cursor line position tracking with ,c
 :set cursorline
 nmap <LocalLeader>c :set cursorline nocursorline!<CR>
@@ -293,3 +296,25 @@ let g:ansible_options = {'ignore_blank_lines': 0}
 let g:ansible_options = {'documentation_mapping': '<C-K>'}
 
 vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
+
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'airblade/vim-gitgutter'
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'dikiaap/minimalist'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/vim-plug'
+Plug 'junegunn/vim-easy-align'
+Plug 'mileszs/ack.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround/'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['html', 'css', 'sass', 'javascript', 'javascript.jsx', 'json', 'graphql'] }
+call plug#end()
+
+" You have to call :PlugInstall

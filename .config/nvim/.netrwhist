@@ -1,4 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/matturbanski'
 let g:netrw_dirhist_2='/Users/matturbanski/.config'
+let g:netrw_dirhist_3='/home/turtle/dotfiles'
+let g:netrw_dirhist_4='/home/turtle/dotfiles/.config'
+let g:netrw_dirhist_5='/home/turtle/dotfiles/.config/mc'
+let g:netrw_dirhist_6='/home/turtle/dotfiles/.config'
+let g:netrw_dirhist_7='/home/turtle'
+let g:netrw_dirhist_8='/home/turtle/dotfiles'

@@ -43,18 +43,22 @@ set wrapscan " Searches wrap around end of file
 
 " Plugin.
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'airblade/vim-gitgutter'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'dikiaap/minimalist'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/vim-plug'
-Plug 'scrooloose/nerdtree'
+Plug 'junegunn/vim-easy-align'
+Plug 'mileszs/ack.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
-Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-sensible'
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-surround/'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
 Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['html', 'css', 'sass', 'javascript', 'javascript.jsx', 'json', 'graphql'] }
 call plug#end()
 
@@ -75,42 +79,13 @@ map <C-l> <C-W>l
 noremap <C-n> :tabnext<CR>                                            
 noremap <C-p> :tabprev<CR>
 
+" bounce
+map <C-D> :bd<cr>
+
 " Directories.
 set backupdir=~/.local/share/nvim/backup
 set directory=~/.local/share/nvim/swap
 set undodir=~/.local/share/nvim/undo
-
-" NERDTree.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-let g:NERDTreeWinSize=20
-"let g:NERDTreeDirArrowExpandable = ''
-"let g:NERDTreeDirArrowCollapsible = ''
-"
-" undotree
-let g:undotree_WindowLayout = 4
-let g:undotree_SetFocusWhenToggle = 1
-let g:undotree_HelpLine = 0
-let g:undotree_ShortIndicators = 1
-let g:undotree_SplitWidth = 30
-nnoremap <Leader>u :UndotreeToggle<Enter>
-
-" git things
-
-" Only support git version system.
-let g:signify_vcs_list = ['git']
-
-" Define symbols for signs.
-let g:signify_sign_add = '│' " U+2502
-let g:signify_sign_delete = '│' " U+2502
-let g:signify_sign_delete_first_line = '│' " U+2502
-let g:signify_sign_change = '│' " U+2502
-let g:signify_sign_changedelete = '│' " U+2502
-
-" Code formatter prettier integration.
-let g:prettier#quickfix_enabled = 0
-let g:prettier#autoformat = 0
-let g:prettier#exec_cmd_async = 1
 
 augroup prettier
     autocmd!
@@ -127,8 +102,6 @@ set noautowrite               " don't automagically write on :next
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set autochdir
 
-map <F4> :NERDTreeToggle<CR>
-map <F3> call ToggleErrors()<CR>
 map <F1> <Esc>
 imap <F1> <Esc>
 " some useful mappings

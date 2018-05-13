@@ -6,6 +6,7 @@ function \$() {
 if [[ $TERM == "xterm" ]]; then
     export TERM='xterm-256color'
 fi
+export TERM='xterm-256color'
 
 # go stuff
 #export GOROOT="$HOME/dev/go"
@@ -301,6 +302,7 @@ case `uname` in
   Linux)
     [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
     [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.local/share/autojump.sh
+    [[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh 
 	  autoload -U compinit && compinit -u
     alias ls='ls -F --color=auto'
     alias pbcopy='xsel --clipboard --input'
