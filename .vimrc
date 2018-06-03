@@ -7,7 +7,6 @@ map <F2> :set invnumber<CR>
 map <F3> ToggleWhitespace<CR>
 map <F4> :NERDTreeToggle<CR>
 
-
 let g:netrw_winsize = -28
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -15,8 +14,8 @@ let g:netrw_sort_sequence = '[\/]$,*'
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 
+set t_ut=
 set termguicolors
-set t_ut=kkj
 
 "set t_8f=^[[38;2;%lu;%lu;%lum        " set foreground color
 "set t_8b=^[[48;2;%lu;%lu;%lum        " set background color
