@@ -5,7 +5,7 @@
 "
 " nnoremap <buffer><silent> <LocalLeader>r :call ftplugin#markdown#preview()<Enter>
 ""
-function! ftplugin#markdown#preview() abort
+function! markdown#preview() abort
 	if !has('nvim')
 		return v:false
 	endif

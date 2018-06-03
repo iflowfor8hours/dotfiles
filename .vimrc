@@ -1,120 +1,93 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <F4> <CR>
+
 map <F1> <Esc>
-imap <F1> <Esc>
-" fold the numbers column
 map <F2> :set invnumber<CR>
+map <F3> ToggleWhitespace<CR>
+map <F4> :NERDTreeToggle<CR>
 
-set encoding=utf-8
 
+let g:netrw_winsize = -28
+let g:netrw_banner = 0
 let g:netrw_liststyle = 3
+let g:netrw_sort_sequence = '[\/]$,*'
 let g:netrw_browse_split = 4
-"let g:netrw_altv = 1
-let g:netrw_winsize = 20
-set autochdir
-let g:netrw_list_hide = &wildignore
+let g:netrw_altv = 1
+
+set termguicolors
+set t_ut=kkj
+
+"set t_8f=^[[38;2;%lu;%lu;%lum        " set foreground color
+"set t_8b=^[[48;2;%lu;%lu;%lum        " set background color
 
 " Map space to / (search) and c-space to ? (backgwards search)
 map <space> /
 map <c-space> ?
-map <LocalLeader><cr> :noh<cr>
 
 " Smart way to move btw. windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-noremap <C-n> :tabnext<CR>                                            
-noremap <C-p> :tabprev<CR>
-set guicursor=a:block-blinkoff1
-
+noremap <C-n> :bn<CR>
+noremap <C-p> :bp<CR>
+"
 " Use the arrows to something usefull
 "map <right> :bnext!<cr>
 "map <left> :bprevious!<cr>
 map <C-D> :bd<cr>
 
-" operational settings
-syntax on
-set modeline
-set scrolloff=8
-set ruler                     " show the line number on the bar
-set autoread                  " watch for file changes
-set noautowrite               " don't automagically write on :next
-set nocompatible              " vim, not vi
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
-"set autoindent 
+"don't use the backup files or swap files, they are annoying to look at
+"set autoindent
+"set list                      " show whitespace where I care"
 "set nosmartindent    " auto/smart indent
-set expandtab                 " expand tabs to spaces (except java, see autocmd below
-set softtabstop=2
-set smarttab                  " tab and backspace are smart
-set tabstop=2                 " 4 spaces
-set shiftwidth=2              " shift width
-set backspace=indent,eol,start  " backspace over all kinds of things
-set showfulltag               " show full completion tags
-set noerrorbells              " no error bells please
-set undolevels=500            " 500 undos
-set complete=.,w,b,u,U,t,i,d  " do lots of scanning on tab completion
-set ttyfast                   " we have a fast terminal
-filetype on                   " Enable filetype detection
-filetype indent on            " Enable filetype-specific indenting
-filetype plugin on            " Enable filetype-specific plugins
+"set textwidth=79
+filetype plugin indent on            " Enable filetype-specific indenting
 let mapleader=','
 let maplocalleader=','        " all my shortcuts start with ,
-set whichwrap+=<,>,h,l        " backspaces and cursor keys wrap to
-set visualbell t_vb=          " Disable ALL bells
-set cursorline                " show the cursor line
-"set list                      " show whitespace where I care"
-set matchpairs+=<:>           " add < and > to match pairs
-set shell=bash
-
-"don't use the backup files or swap files, they are annoying to look at
-set nobackup
-set nowritebackup
-set noswapfile
 set ai
-"set textwidth=79
+"set autoread                  " watch for file changes
+set backspace=indent,eol,start  " backspace over all kinds of things
 set comments=b:#
-
-augroup cline
-    au!
-    au WinLeave,InsertEnter * set nocursorline
-    au WinEnter,InsertLeave * set cursorline
-augroup END
+set complete=.,w,b,u,U,t,i,d  " do lots of scanning on tab completion
+set cursorline                " show the cursor line
+set expandtab                 " expand tabs to spaces (except java, see autocmd below
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set matchpairs+=<:>           " add < and > to match pairs
+set modeline
+set noautowrite               " don't automagically write on :next
+set nobackup
+set nocompatible              " vim, not vi
+set noerrorbells              " no error bells please
+set noswapfile
+set nowritebackup
+set ruler                     " show the line number on the bar
+set scrolloff=8
+set shell=bash
+set shiftwidth=2              " shift width
+set showfulltag               " show full completion tags
+set smarttab                  " tab and backspace are smart
+set softtabstop=2
+set tabstop=2                 " 4 spaces
+set ttyfast                   " we have a fast terminal
+set switchbuf=""
+set undolevels=500            " 500 undos
+set wrapscan " Searches wrap around end of file
+set visualbell t_vb=          " Disable ALL bells
+set whichwrap+=<,>,h,l        " backspaces and cursor keys wrap to
+set wrapscan " Searches wrap around end of file
+syntax on
 
 " Resize splits when the window is resized
 "au VimResized * :wincmd =
 
 " jump to the beginning and end of functions
 
-nnoremap [[ ?{<CR>w99[{
-nnoremap ][ /}<CR>b99]}
-nnoremap ]] j0[[%/{<CR>
-nnoremap [] k$][%?}<CR>
-nnoremap ; :
-
 set dictionary=/usr/share/dict/words " more words!
 
-if has("gui_running")
-      colorscheme zenburn   
-      let rdark_current_line=1  " highlight current line
-      set background=dark
-      set noantialias
-      set guioptions-=T        " no toolbar
-      set guifont=Source\ Code\ Pro\ 10
-      set guioptions-=l        " no left scrollbar
-      set guioptions-=L        " no left scrollbar
-      set guioptions-=r        " no right scrollbar
-      set guioptions-=R        " no right scrollbar
-      set lines=40
-      set columns=115
-endif
 
-set t_Co=256 
-colorscheme zenburn
-
-" status line 
+" status line
 set laststatus=2
 if has('statusline')
   function! SetStatusLineStyle()
@@ -129,6 +102,7 @@ if has('statusline')
 
 endif
 
+
 " ---------------------------------------------------------------------------
 "  searching
 set incsearch                 " incremental search
@@ -139,54 +113,28 @@ set showmatch                 " show matching bracket
 set diffopt=filler,iwhite     " ignore all whitespace and sync
 
 " ---------------------------------------------------------------------------
-"  mouse stuffs
-set mousehide                 " hide the mouse when typing
-map <MouseMiddle> <esc>"*p
-"set mouse=nvi
-
-" ---------------------------------------------------------------------------
-"  backup options
-"set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
-set history=2000
-
-" ---------------------------------------------------------------------------
 " spelling checker, toggle with ,ss or F6
-if v:version >= 700
-      setlocal spell spelllang=en
-      nmap <LocalLeader>ss :set spell!<CR>
-      nmap <F6> :set spell!<CR>
-endif
+setlocal spell spelllang=en
+nmap <LocalLeader>ss :set spell!<CR>
+nmap <F6> :set spell!<CR>
 
 " default to no spelling
 set nospell
-
 "Shortcuts using <LocalLeader>
 map <LocalLeader>sn ]s
-map <LocalLeader>sp [s
+map <LocalLeader>sp [
 map <LocalLeader>sa zg
 map <LocalLeader>s? z=
 " When I'm pretty sure that the first suggestion is correct
 map <LocalLeader>s! 1z=
+" I don't know what ; does anyway
+map ; :
 
-let g:is_bash = 1
-let g:sh_noisk = 1
-let g:spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:netrw_dirhistmax=0
-let g:ragtag_global_maps = 1
-let g:VCSCommandDisableMappings = 1
-let g:showmarks_enable = 0
-let g:surround_{char2nr('-')} = "<% \r %>"
-let g:surround_{char2nr('=')} = "<%= \r %>"
-let g:surround_{char2nr('8')} = "/* \r */"
-let g:surround_{char2nr('s')} = " \r"
-let g:surround_{char2nr('^')} = "/^\r$/"
-let g:surround_indent = 1
+" nnoremap ~ :ls<cr>:b
 
 " some useful mappings
 " Y yanks from cursor to $
-map Y y$
+"map Y y$
 " toggle paste mode
 nmap <LocalLeader>pp :set paste!<cr>
 " change directory to that of current file
@@ -202,7 +150,7 @@ nmap q: :q
 " If I forgot to sudo vim a file, do that with :w!!
 cmap w!! w !sudo tee %
 " Fix the # at the start of the line
-"inoremap # X<BS>#
+inoremap # X<BS>#
 " When I forget I'm in Insert mode, how often do you type 'jj' anyway?
 imap jj <Esc>
 imap jk <Esc>
@@ -215,8 +163,8 @@ au BufRead,BufNewFile {*/*playbooks*/*.yml,*/*playbooks*/*.yaml,*/*roles*/*.yaml
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType ansible setlocal ts=2 sts=2 sw=2 expandtab
+autocmd QuickFixCmdPost *grep* cwindow
 
-" don't believe me just watch the config changes in .vimrc
 augroup myvimrc
     au!
     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
@@ -227,6 +175,10 @@ augroup END
 set wildmenu
 set wildmode=list:longest
 
+set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
+set wildignore+=*/bower_components/*,*/node_modules/*
+set wildignore+=*/smarty/*,*/vendor/*,*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*,*/doc/*,*/source_maps/*,*/dist/*
+set wildignore+=.DS_Store
 set wildignore+=.hg,.git,.svn                    " Version control
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
@@ -250,20 +202,6 @@ set foldlevelstart=10
 set nofoldenable
 let g:vim_markdown_folding_disabled=1
 
-set rtp+=~/.fzf
-
-if &term =~ '256color'
-    " disable Background Color Erase (BCE) so that color schemes
-    " render properly when inside 256-color tmux and GNU screen.
-    " see also http://sunaku.github.io/vim-256color-bce.html
-    set t_ut=
-endif
-
-"set t_8f=^[[38;2;%lu;%lu;%lum        " set foreground color
-"set t_8b=^[[48;2;%lu;%lu;%lum        " set background color
-set t_Co=256                         " Enable 256 colors
-set termguicolors                    " Enable GUI colors for the terminal to get truecolor
-
 " Make sure Vim returns to the same line when you reopen a file.
 augroup line_return
     au!
@@ -283,10 +221,16 @@ command! -bang WA wa<bang>
 command! -bang Wq wq<bang>
 command! -bang WQ wq<bang>
 
-augroup ft_mail
-    au!
-    au Filetype mail setlocal spell
-augroup END
+" Fugitive mapping
+nmap <leader>gb :Gblame<cr>
+nmap <leader>gc :Gcommit<cr>
+nmap <leader>gd :Gdiff<cr>
+nmap <leader>gg :Ggrep
+nmap <leader>gl :Glog<cr>
+nmap <leader>gp :Git pull<cr>
+nmap <leader>gP :Git push<cr>
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>gw :Gbrowse<cr>
 
 " Enable cursor line position tracking with ,c
 :set cursorline
@@ -297,14 +241,26 @@ let g:ansible_options = {'documentation_mapping': '<C-K>'}
 
 vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
 
-call plug#begin('~/.local/share/nvim/plugged')
+"command! -bang -nargs=* -complete=file -bar Grep silent! grep! <args>
+
+"nnoremap <BS> <C-^>
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
+Plug 'blindFS/vim-taskwarrior'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'dikiaap/minimalist'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/vim-plug'
-Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'plasticboy/vim-markdown'
+Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -314,7 +270,15 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround/'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
-Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['html', 'css', 'sass', 'javascript', 'javascript.jsx', 'json', 'graphql'] }
+Plug 'Yggdroot/LeaderF'
 call plug#end()
 
 " You have to call :PlugInstall
+
+function! SourceDirectory(file)
+  for s:fpath in split(globpath(a:file, '*.vim'), '\n')
+    exe 'source' s:fpath
+  endfor
+endfunction
+
+call SourceDirectory('~/.vim/functions')

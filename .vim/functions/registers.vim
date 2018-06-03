@@ -3,7 +3,7 @@
 "
 " command! Registers call commands#registers#()
 ""
-function! commands#registers#() abort
+function! registers#() abort
 	let l:buffercurrent = @%
 	let l:bufferalternate = @#
 

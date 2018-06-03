@@ -61,16 +61,15 @@ setopt interactivecomments       # Enable comments in interactive mode (useful)
 # setopt extended_glob             # More powerful glob features
 
 # history settings
+setopt inc_append_history
+setopt share_history
+
 setopt append_history            # Append to history on exit, don't overwrite it.
 setopt extended_history          # Save timestamps with history
 setopt hist_no_store             # Don't store history commands
 setopt hist_save_no_dups         # Don't save duplicate history entries
 #setopt hist_expire_dups_first
 setopt hist_ignore_all_dups      # Ignore old command duplicates (in current session)
-
-# These two history options don't flow with my history usage.
-setopt inc_append_history
-#setopt share_history
 
 # changing directories
 setopt auto_pushd                # Automatically pushd when I cd
@@ -329,7 +328,7 @@ if which kubectl 1>/dev/null 2>&1; then
   source <(kubectl completion zsh)
 fi
 # kops bash completion
-if which kubectl 1>/dev/null 2>&1; then 
+if which kops 1>/dev/null 2>&1; then 
   bash_source <(kops completion bash)
 fi
 
@@ -378,4 +377,12 @@ if [ -f '/home/matt/dev/google-cloud-sdk/path.zsh.inc' ]; then source '/home/mat
 if [ -f '/home/matt/dev/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/matt/dev/google-cloud-sdk/completion.zsh.inc'; fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# add this configuration to ~/.zshrc
+export HISTFILE=~/.zsh_history  # ensure history file visibility
+export HH_CONFIG=hicolor        # get more colors
+export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
+
+bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
 

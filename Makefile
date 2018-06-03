@@ -168,7 +168,7 @@ keyboard:
 		XKBLAYOUT=\"us\"\
 		XKBVARIANT=\"\"\
 		XKBOPTIONS=\"ctrl:nocaps\"\
-		BACKSPACE=\"guess\" > /etc/default/keyboard' 
+		BACKSPACE=\"guess\" > /etc/default/keyboard'
 	rm -rf ${HOME}/.Xmodmap
 	ln -sn $(PWD)/.Xmodmap ${HOME}/.Xmodmap
 
@@ -229,7 +229,7 @@ dotfiles:
 	ln -sn $(PWD)/.hgrc ${HOME}/.hgrc
 	chsh -s /bin/zsh
 
-vim: 
+vim:
 	@if [ -e /usr/bin/apt-get ]; then sudo apt-get -y -q=2 install vim-nox exuberant-ctags cmake python-dev; fi
 	@if [ -e /usr/local/bin/brew ]; then brew install vim neovim ctags cmake python2; fi
 	@if [ ! -e ${HOME}/.vim/.mine ]; then echo "Deleting existing vim configuration"; rm -fr ${HOME}/.vim ${HOME}/.vimrc; fi

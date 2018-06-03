@@ -5,7 +5,7 @@
 "
 " @param {boolean} [bang=v:false] Stop profiling and quit without triggering events.
 ""
-function! commands#profile#(bang) abort
+function! profile#(bang) abort
 	if !a:bang
 		profile start ~/.vim/cache/log/profile.log
 		profile func *
