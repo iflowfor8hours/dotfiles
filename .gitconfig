@@ -1,6 +1,8 @@
 [user]
-	name = matt urbanski
-  email = murbanski@apple.com
+	name = mxs
+  email = matt@iflowfor8hours.info
+[includeIf "gitdir:~/workspace/*"]
+    path = .gitconfig.work
 [alias]
   ll = log --oneline --graph --decorate --all
   addall = !git add . && git add -u

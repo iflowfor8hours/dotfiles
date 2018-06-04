@@ -12,10 +12,9 @@ dev_packages: update
 	sudo apt-get install -q=2 -y ack-grep python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs zsh software-properties-common python-software-properties unzip
 
 directories:
-	@mkdir -p ${HOME}
 	@mkdir -p ${HOME}/.logs
-	@mkdir -p ${HOME}/src
 	@mkdir -p ${HOME}/projects
+	@mkdir -p ${HOME}/workspace
 	@mkdir -p ${HOME}/bin
 	@mkdir -p ${HOME}/media
 	@mkdir -p ${HOME}/dev
@@ -28,6 +27,7 @@ directories:
 	@mkdir -p ${HOME}/.mutt/temp
 	@touch ${HOME}/.logs/msmtp/fastmail.log
 	@touch ${HOME}/.config/offlineimap/matt.iflowfor8hours.info
+
 
 manual_steps:
 	echo "install npm/node, virtualbox/vagrant, configure your stuff from the secrets repo"
