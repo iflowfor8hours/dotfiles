@@ -14,7 +14,6 @@ export TERM='xterm-256color'
 #export GOPATH="$HOME/dev/gospace"
 #export PATH="$GOROOT/bin:$PATH"
 #
-# rbenv
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -64,7 +63,7 @@ setopt interactivecomments       # Enable comments in interactive mode (useful)
 setopt inc_append_history
 setopt share_history
 
-setopt append_history            # Append to history on exit, don't overwrite it.
+#setopt append_history            # Append to history on exit, don't overwrite it.
 setopt extended_history          # Save timestamps with history
 setopt hist_no_store             # Don't store history commands
 setopt hist_save_no_dups         # Don't save duplicate history entries
@@ -100,7 +99,7 @@ xset s off
 function normalsleep {
 }
 
-compctl -g '*(-/D)' cd 
+compctl -g '*(-/D)' cd
 compctl -c which
 compctl -o setopt unsetopt
 compctl -v export unset vared
@@ -111,38 +110,14 @@ HOST="$(hostname)"
 HOST="${HOST%%.*}"
 UNAME="$(uname)"
 
-function config_Linux() {
-  PSARGS=ax
-}
-
 function psg() {
   ps $PSARGS | egrep "$@" | fgrep -v egrep
 }
 
 function assh() {
   ipaddress=`grep "$@" ${HOME}/workspace/services/swarm/inventory | sed 's/^.*ansible_host=//' | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}'`
-  # ipaddress=`grep "$@" ${HOME}/workspace/services/swarm/inventory | awk '/dr:/{gsub(/.*:/,"",$2);print$2}'`
   echo $ipaddress
   ssh $ipaddress
-}
-
-# From petef's zshrc
-# make scp error if I forget to put the target host
-function scp() {
-  found=false
-  for arg; do
-    if [ "${arg%%:*}" != "${arg}" ]; then
-      found=true
-      break
-    fi
-  done
-
-  if ! $found; then
-    echo "scp: no remote location specified" >&2
-    return 1
-  fi
-
-  =scp "$@"
 }
 
 if [ -r ~/.zshrc_local ] ; then
@@ -184,18 +159,14 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 # -- Aliases --
 alias ls='ls -G'
 alias ll='ls -alh'
-alias mkdir='mkdir -p'
 alias cp='cp -R'
 alias chown='chown -R'
 alias chmod='chmod -R'
 #alias grep='grep --color=auto --exclude-dir=.git --exclude-dir=.svn'
-alias vm='VBoxManage'
-alias rspec='rspec --color --format documentation'
 alias df='df -h'
 alias du='du -sh'
 alias cls='clear'
 alias less='less -FXR'
-alias tasks='task ls | sort -n'
 alias sudo='sudo -E'
 # alias open='gnome-open'
 alias chtty='chvt'
@@ -209,21 +180,14 @@ alias dockercleanps='docker rm -f `docker ps --no-trunc -aq`'
 alias dockercleanvolumes='docker volume rm $(docker volume ls -qf dangling=true)'
 alias dockercleanservices='docker service rm $(docker service ls -q)'
 alias dockercleannetworks='docker network rm $(docker network ls -q)'
-alias mutt='cd ~/Desktop && mutt-patched'
-alias vdu='vagrant destroy -f && vagrant up'
 alias reloadshell='exec $SHELL -l'
-alias wifi='exec nmtui'
-alias nosleep='xset -dpms; xset s noblank; xset s off'
-alias thesaurus='dict -d moby-thesaurus'
-alias bfg="java -jar ${HOME}/bin/bfg.jar"
 alias listeningports="lsof -Pnl +M -i4"
 alias less="less -X"
-alias cryptmount='sudo cryptsetup luksOpen /dev/mmcblk0p1 L0CKD0WN && sudo mount /dev/mapper/L0CKD0WN /home/matt/tomb'
-alias cryptunmount='sudo umount /dev/mapper/L0CKD0WN && sudo cryptsetup luksClose L0CKD0WN'
 alias now=$(date +'%F-%H:%M:%S')
-#alias pyenv_install='CFLAGS="-I$(xcrun --show-sdk-path)/usr/include -I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install -v'"
 alias nonascii='ag "[\x80-\xFF]"'
 #alias vi="emacsclient -nw"
+alias socks5toreno='ssh -D 8123 -f -C -q -N murbanski@staging-mr02-gerrit02.sg.apple.com'
+#
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
@@ -297,6 +261,7 @@ case `uname` in
     [ -f ~/.local/lib/aws/bin/aws_zsh_completer.sh ] && . ~/.local/lib/aws/bin/aws_zsh_completer.sh
     alias ls='ls -FG'
     [[ -f ${HOME}/dotfiles/sensitive.sh ]] && . ${HOME}/dotfiles/sensitive.sh
+	  autoload -U compinit && compinit -u
     ;;
   Linux)
     [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
@@ -310,13 +275,13 @@ case `uname` in
     if [ ! -z $DISPLAY ]; then
       # set turbo typing
       if which xset 1>/dev/null 2>&1; then
-        xset r rate 250 60; 
+        xset r rate 250 60;
       fi
-      if which xcape 1>/dev/null 2>&1; then 
+      if which xcape 1>/dev/null 2>&1; then
         xcape -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape';
       fi
-      if which setxkbmap 1>/dev/null 2>&1; then 
-        setxkbmap -option 'caps:ctrl_modifier'; 
+      if which setxkbmap 1>/dev/null 2>&1; then
+        setxkbmap -option 'caps:ctrl_modifier';
       fi
     else;
       loadkeys ~/dotfiles/
@@ -324,15 +289,15 @@ case `uname` in
 esac
 
 # kubernetes completion
-if which kubectl 1>/dev/null 2>&1; then 
+if which kubectl 1>/dev/null 2>&1; then
   source <(kubectl completion zsh)
 fi
 # kops bash completion
-if which kops 1>/dev/null 2>&1; then 
+if which kops 1>/dev/null 2>&1; then
   bash_source <(kops completion bash)
 fi
 
-# pip zsh completion 
+# pip zsh completion
 function _pip_completion {
   local words cword
   read -Ac words
@@ -384,5 +349,8 @@ export HISTFILE=~/.zsh_history  # ensure history file visibility
 export HH_CONFIG=hicolor        # get more colors
 export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 
-bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
+#bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
+  #
+# ssh-keygen -o -a 100 -t ed25519
+# sudo lsof -iTCP -sTCP:LISTEN -n -P
 

@@ -244,7 +244,9 @@ vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
 
 "command! -bang -nargs=* -complete=file -bar Grep silent! grep! <args>
 
-"nnoremap <BS> <C-^>
+" you should really leave comments for things you toggle on and off
+" all the time. I added this again for nvim, on osx
+nnoremap <BS> <C-^>
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -254,7 +256,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
-Plug 'blindFS/vim-taskwarrior'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'dikiaap/minimalist'
 Plug 'junegunn/vim-plug'

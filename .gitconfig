@@ -1,6 +1,6 @@
 [user]
-	name = mxs
-  email = matt@iflowfor8hours.info
+	name = matt urbanski
+  email = murbanski@apple.com
 [includeIf "gitdir:~/workspace/*"]
     path = .gitconfig.work
 [alias]
