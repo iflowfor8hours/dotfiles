@@ -1,5 +1,5 @@
 # Allow to copy paste commands with preceeding $
-function \$() { 
+function \$() {
   "$@"
 }
 
@@ -44,6 +44,7 @@ autoload -U colors && colors
 autoload zmv
 autoload -U compinit && compinit # enables extra auto-completion
 #setopt prompt_subst
+PURE_GIT_PULL=0
 autoload -U promptinit; promptinit
 prompt pure
 
@@ -187,7 +188,7 @@ alias now=$(date +'%F-%H:%M:%S')
 alias nonascii='ag "[\x80-\xFF]"'
 #alias vi="emacsclient -nw"
 alias socks5toreno='ssh -D 8123 -f -C -q -N murbanski@staging-mr02-gerrit02.sg.apple.com'
-#
+alias debugzsh='zsh -xv &> >(tee ~/omz-debug.log 2>/dev/null)'
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
@@ -217,7 +218,7 @@ unalias rm mv cp 2> /dev/null || true # no -i madness
 
 # fish highlighting
 source ~/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/dotfiles/zsh/zsh-autosuggestions.zsh
+#source ~/dotfiles/zsh/zsh-autosuggestions.zsh
 
 # Google Cloud SDK.
 if [ -f "$HOME/dev/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/dev/google-cloud-sdk/path.zsh.inc"; fi
@@ -233,25 +234,17 @@ bash_source() {
   source "$@"
 }
 
-# helm bash completion
-# bash_source <(~/.zsh/completion/_helm)
-
 # no one cares, none of this matters.
 export ANSIBLE_NOCOWS=1
 export DCOS_SSL_VERIFY=false
-
-# you'll need this sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.5 100
-# Requires sudo pip install virtualenvwrapper
-export PROJECT_HOME=${HOME}/src/pythonprojects
-export WORKON_HOME=${HOME}/.virtualenvs
 ##
 if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then source "/usr/local/bin/virtualenvwrapper.sh"; fi
 
 if [ -z "$SSH_AUTH_SOCK" ] ; then
-    eval `ssh-agent -s`
-    echo "Added key"
-      ssh-add
-    fi
+  eval `ssh-agent -s`
+  echo "Added key"
+  ssh-add
+fi
 
 # This is where were should start factoring into seperate files.
 case `uname` in
@@ -308,9 +301,9 @@ function _pip_completion {
 }
 compctl -K _pip_completion pip
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+#if command -v pyenv 1>/dev/null 2>&1; then
+#  eval "$(pyenv init -)"
+#fi
 
 function dockerwrap() {
     if [[ $1 = 'run' ]]
@@ -354,3 +347,9 @@ export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 # ssh-keygen -o -a 100 -t ed25519
 # sudo lsof -iTCP -sTCP:LISTEN -n -P
 
+export HOMEBREW_NO_INSECURE_REDIRECT=1
+
+
+#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
