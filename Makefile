@@ -1,3 +1,4 @@
+.PHONY: fast ubuntu test directories manual_steps arch_packages common_packages ubuntu_packages sysdig osx_fonts osx_packages taskwarrior power_management update xcape linux_keyboard minidot dotfiles vim virtualenvwrapper disable_services adobefont ruby_dev sysdig install_golang ubuntu_packages
 SHELL := /bin/bash
 
 DIR=$(pwd)
@@ -7,9 +8,6 @@ fast: minidot keyboard
 ubuntu: directories dev_packages apt_fast_setup ubuntu_packages keyboard adobefont vim dotfiles virtualenvwrapper ruby_dev sysdig disable_services install_golang taskwarrior power_management manual_steps
 
 test: directories dev_packages apt_fast_setup ubuntu_packages keyboard adobefont vim dotfiles virtualenvwrapper install_golang taskwarrior manual_steps
-
-dev_packages: update
-	sudo apt-get install -q=2 -y ack-grep python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs zsh software-properties-common python-software-properties unzip
 
 directories:
 	@mkdir -p ${HOME}/.logs
@@ -162,12 +160,16 @@ update:
 	sudo apt-get update -y
 	sudo apt-get install -f -y
 
-keyboard:
+xcape:
+	cd /tmp
+		git clone https://github.com/alols/xcape.git
+		cd xcape
+		make
+		sudo make install
+
+linux_keyboard:
 	sudo bash -c '[ -d /etc/default ] \
-		echo XKBMODEL=\"pc105\"\
-		XKBLAYOUT=\"us\"\
-		XKBVARIANT=\"\"\
-		XKBOPTIONS=\"ctrl:nocaps\"\
+		echo XKBMODEL=\"pc105\"\ XKBLAYOUT=\"us\"\ XKBVARIANT=\"\"\ XKBOPTIONS=\"ctrl:nocaps\"\
 		BACKSPACE=\"guess\" > /etc/default/keyboard'
 	rm -rf ${HOME}/.Xmodmap
 	ln -sn $(PWD)/.Xmodmap ${HOME}/.Xmodmap
@@ -324,20 +326,6 @@ ubuntu_packages:
 		htop \
 		kupfer \
 		leap-keyring \
-		libffi-dev \
-		libgdbm-dev \
-		libgdbm3 \
-		libgnutls-dev \
-		libgpgme11 \
-		libgpgme11-dev \
-		libncurses5-dev \
-		libreadline-dev \
-		libreadline6-dev \
-		libssl-dev \
-		libuu-dev \
-		libuu0 \
-		libuuid1 \
-		libyaml-dev \
 		light-locker-settings \
 		mc \
 		msmtp \
@@ -350,12 +338,8 @@ ubuntu_packages:
 		offlineimap \
 		openvpn \
 		pgp \
-		python-dev \
-		python-pip \
 		ranger \
 		redshift \
-		software-properties-common \
-		sqlite \
 		terminator \
 		tlp \
 		tmux \
@@ -364,7 +348,5 @@ ubuntu_packages:
 		uuid-dev \
 		vim \
 		w3m \
-		weechat-curses \
 		xsel \
-		zlib1g-dev \
 		zsh

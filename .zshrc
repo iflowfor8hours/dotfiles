@@ -15,16 +15,15 @@ export TERM='xterm-256color'
 #export PATH="$GOROOT/bin:$PATH"
 #
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
 export GOPATH=$HOME/go
 
 export PKG_CONFIG_PATH=/usr/bin/pkg-config
-export PATH=$PYENV_ROOT/bin:$HOME/.rbenv/bin:$HOME/dev:$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH 
+export PATH=$HOME/dev:$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH
+
  
-if command -v rbenv 1>/dev/null 2>&1; then
-  eval "$(rbenv init -)"
-fi
+#if command -v rbenv 1>/dev/null 2>&1; then
+#  eval "$(rbenv init -)"
+#fi
 
 # Defaults
 PSARGS=-ax
@@ -189,6 +188,8 @@ alias nonascii='ag "[\x80-\xFF]"'
 #alias vi="emacsclient -nw"
 alias socks5toreno='ssh -D 8123 -f -C -q -N murbanski@staging-mr02-gerrit02.sg.apple.com'
 alias debugzsh='zsh -xv &> >(tee ~/omz-debug.log 2>/dev/null)'
+alias listening='sudo lsof -iTCP -sTCP:LISTEN -n -P'
+#
 
 unalias rm mv cp 2> /dev/null || true # no -i madness
 
@@ -238,7 +239,6 @@ bash_source() {
 export ANSIBLE_NOCOWS=1
 export DCOS_SSL_VERIFY=false
 ##
-if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then source "/usr/local/bin/virtualenvwrapper.sh"; fi
 
 if [ -z "$SSH_AUTH_SOCK" ] ; then
   eval `ssh-agent -s`
@@ -261,6 +261,12 @@ case `uname` in
     [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.local/share/autojump.sh
     [[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh 
 	  autoload -U compinit && compinit -u
+    [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.local/share/autojump.sh
+    [[ -s /home/linuxbrew/.linuxbrew/bin ]] && export PATH=/home/linuxbrew/.linuxbrew/bin:${PATH}
+
+    if [ -f  ]
+    source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /home/linuxbrew/.linuxbrew/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
     alias ls='ls -F --color=auto'
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
@@ -301,9 +307,14 @@ function _pip_completion {
 }
 compctl -K _pip_completion pip
 
+# All python shit
 #if command -v pyenv 1>/dev/null 2>&1; then
 #  eval "$(pyenv init -)"
 #fi
+
+#if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then source "/usr/local/bin/virtualenvwrapper.sh"; fi
+#
+#export PYENV_ROOT="$HOME/.pyenv"
 
 function dockerwrap() {
     if [[ $1 = 'run' ]]
@@ -345,11 +356,7 @@ export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 #bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
   #
 # ssh-keygen -o -a 100 -t ed25519
-# sudo lsof -iTCP -sTCP:LISTEN -n -P
 
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 
-
 #test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
