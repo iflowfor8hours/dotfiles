@@ -186,9 +186,9 @@ alias less="less -X"
 alias now=$(date +'%F-%H:%M:%S')
 alias nonascii='ag "[\x80-\xFF]"'
 #alias vi="emacsclient -nw"
-alias socks5toreno='ssh -D 8123 -f -C -q -N murbanski@staging-mr02-gerrit02.sg.apple.com'
 alias debugzsh='zsh -xv &> >(tee ~/omz-debug.log 2>/dev/null)'
 alias listening='sudo lsof -iTCP -sTCP:LISTEN -n -P'
+alias vdu='vagrant destroy -f && vagrant up'
 #
 
 unalias rm mv cp 2> /dev/null || true # no -i madness

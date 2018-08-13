@@ -6,6 +6,8 @@
 	<false/>
 	<key>AllowClipboardAccess</key>
 	<true/>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
 	<key>AppleScrollAnimationEnabled</key>
@@ -22,6 +24,8 @@
 	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
+	<key>IRMemory</key>
+	<integer>4</integer>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>MaxVertically</key>
@@ -38,6 +42,11 @@
 	<false/>
 	<key>NSScrollViewShouldScrollUnderTitlebar</key>
 	<false/>
+	<key>NSSplitView Subview Frames NSColorPanelSplitView</key>
+	<array>
+		<string>0.000000, 0.000000, 224.000000, 263.000000, NO, NO</string>
+		<string>0.000000, 264.000000, 224.000000, 43.000000, NO, NO</string>
+	</array>
 	<key>NSTableView Columns v2 KeyBingingTable</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
@@ -61,12 +70,21 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
+	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
+	<dict>
+		<key>TB Is Shown</key>
+		<integer>1</integer>
+	</dict>
+	<key>NSWindow Frame ProfilesPanel</key>
+	<string>532 957 735 382 0 0 2560 1418 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>269 194 609 401 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>1417 839 796 473 0 0 2560 1418 </string>
+	<string>76 917 796 473 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 2560 1418 0 0 2560 1418 </string>
+	<string>536 334 1585 1028 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>212 101 570 452 0 0 1680 1027 </string>
+	<string>1600 561 585 452 0 0 2560 1418 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -761,7 +779,6 @@
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>B5ED747B-40AB-4FDA-8050-54459BBC0C49</string>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -831,6 +848,16 @@
 	<true/>
 	<key>UseLionStyleFullscreen</key>
 	<false/>
+	<key>SavePasteHistory</key>
+	<true/>
+	<key>Selection Respects Soft Boundaries</key>
+	<true/>
+	<key>SwitchPaneModifier</key>
+	<integer>5</integer>
+	<key>SwitchTabModifier</key>
+	<integer>4</integer>
+	<key>SwitchWindowModifier</key>
+	<integer>6</integer>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
