@@ -1,2 +1,3 @@
 sensitive.sh
 .netrw*
+.zshrc.private
