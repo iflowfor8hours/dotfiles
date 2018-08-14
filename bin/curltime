@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -e
+
+curl_format='
+              Downloaded (byte)  :  %{size_download}
+            Request sent (byte)  :  %{size_request}
+                Uploaded (byte)  :  %{size_upload}
+
+       Download speed (bytes/s)  :  %{speed_download}
+         Upload speed (bytes/s)  :  %{speed_upload}
+
+            DNS lookup time (s)  :  %{time_namelookup}
+  Connection establish time (s)  :  %{time_connect}
+           SSL connect time (s)  :  %{time_appconnect}
+          Pre-transfer time (s)  :  %{time_pretransfer}
+              Redirect time (s)  :  %{time_redirect}
+        Start-transfer time (s)  :  %{time_starttransfer}
+
+                 Total time (s)  :  %{time_total}
+
+'
+
+exec curl -w "$curl_format" -o /dev/null -s "$@"

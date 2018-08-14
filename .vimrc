@@ -4,15 +4,16 @@
 
 map <F1> <Esc>
 map <F2> :set invnumber<CR>
-map <F3> ToggleWhitespace<CR>
+map <F3> :ToggleWhitespace<CR>
 map <F4> :NERDTreeToggle<CR>
+map <F5> :GitGutterToggle<CR>
 
-let g:netrw_winsize = -28
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
+let g:netrw_winsize       = -28
+let g:netrw_banner        = 0
+let g:netrw_liststyle     = 3
 let g:netrw_sort_sequence = '[\/]$,*'
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
+let g:netrw_browse_split  = 4
+let g:netrw_altv          = 1
 
 set t_ut=
 set termguicolors
@@ -41,7 +42,7 @@ map <C-D> :bd<cr>
 
 "don't use the backup files or swap files, they are annoying to look at
 "set autoindent
-"set list                      " show whitespace where I care"
+"set list                      "show whitespace where I care
 "set nosmartindent    " auto/smart indent
 "set textwidth=79
 filetype plugin indent on            " Enable filetype-specific indenting
@@ -60,7 +61,6 @@ set modeline
 set noautowrite               " don't automagically write on :next
 set nobackup
 set nocompatible              " vim, not vi
-set noerrorbells              " no error bells please
 set noswapfile
 set nowritebackup
 set ruler                     " show the line number on the bar
@@ -155,7 +155,13 @@ inoremap # X<BS>#
 " When I forget I'm in Insert mode, how often do you type 'jj' anyway?
 imap jj <Esc>
 imap jk <Esc>
-" imap <Tab><Tab> <Esc>
+imap <Tab><Tab> <Esc>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " set list to activate whitespace detection mode
 au BufNewFile,BufRead *.less set filetype=less
@@ -164,12 +170,15 @@ au BufRead,BufNewFile {*/*playbooks*/*.yml,*/*playbooks*/*.yaml,*/*roles*/*.yaml
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType ansible setlocal ts=2 sts=2 sw=2 expandtab
+
+" quickfix window with fugitive
 autocmd QuickFixCmdPost *grep* cwindow
 
 augroup myvimrc
     au!
     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
+
 
 
 " Wildmenu completion {{{
@@ -234,7 +243,7 @@ nmap <leader>gs :Gstatus<cr>
 nmap <leader>gw :Gbrowse<cr>
 
 " Enable cursor line position tracking with ,c
-:set cursorline
+set cursorline
 nmap <LocalLeader>c :set cursorline nocursorline!<CR>
 
 let g:ansible_options = {'ignore_blank_lines': 0}

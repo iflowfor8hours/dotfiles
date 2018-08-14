@@ -346,6 +346,7 @@ if [ -f '/home/matt/dev/google-cloud-sdk/path.zsh.inc' ]; then source '/home/mat
 if [ -f '/home/matt/dev/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/matt/dev/google-cloud-sdk/completion.zsh.inc'; fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/dotfiles/.zshrc.private ] && source ~/dotfiles/.zshrc.private
 
 
 # add this configuration to ~/.zshrc

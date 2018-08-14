@@ -1,7 +1,7 @@
 ""
 " Toggle terminal buffer or create new one if there is none.
 "
-" nnoremap <silent> <C-z> :call mappings#normal#toggleterminal#()<Enter>
+" nnoremap <silent> <C-a> :call toggleterminal#()<Enter>
 " tnoremap <silent> <C-z> <C-\><C-n>:call mappings#normal#toggleterminal#()<Enter>
 ""
 function! toggleterminal#() abort
