@@ -27,7 +27,7 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dotfiles</string>
+	<string>~/.session-logs</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -74,11 +74,11 @@
 	<key>NSWindow Frame ProfilesPanel</key>
 	<string>532 957 735 382 0 0 2560 1418 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 194 609 401 0 0 1680 1027 </string>
+	<string>489 180 618 519 0 0 2560 1418 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>76 917 796 473 0 0 2560 1418 </string>
+	<string>76 534 918 494 0 0 1680 1028 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>536 334 1585 1028 0 0 2560 1418 </string>
+	<string>7 10 1680 1018 0 0 1680 1028 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1600 561 585 452 0 0 2560 1418 </string>
 	<key>New Bookmarks</key>
@@ -264,6 +264,8 @@
 				<key>Red Component</key>
 				<real>0.79607843137254897</real>
 			</dict>
+			<key>Automatically Log</key>
+			<true/>
 			<key>BM Growl</key>
 			<true/>
 			<key>Background Color</key>
@@ -682,6 +684,8 @@
 				<key>Red Component</key>
 				<real>0.0</real>
 			</dict>
+			<key>Log Directory</key>
+			<string>/Users/murbanski/.session-logs</string>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
