@@ -361,3 +361,11 @@ export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 
 #test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+function wholisten() {
+  sudo lsof -iTCP -sTCP:LISTEN
+  sudo lsof -iTCP -sTCP:LISTEN -P
+  sudo lsof -iTCP -sTCP:LISTEN -P -n
+  sudo lsof -iTCP -sTCP:LISTEN -n
+  }
+
