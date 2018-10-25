@@ -1,3 +1,5 @@
 sensitive.sh
 .netrw*
 .zshrc.private
+private.zsh
+.vim/plugged/*

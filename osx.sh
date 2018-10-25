@@ -150,22 +150,22 @@ run defaults write ~/Library/Preferences/com.apple.Safari BlockStoragePolicy -bo
 echo "Enable Safari warnings when visiting fradulent websites."
 run defaults write ~/Library/Preferences/com.apple.Safari WarnAboutFraudulentWebsites -bool true
 
-echo "Disable javascript in Safari."
-run defaults write ~/Library/Preferences/com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptEnabled -bool false
-run defaults write ~/Library/Preferences/com.apple.Safari WebKitJavaScriptEnabled -bool false
+#echo "Disable javascript in Safari."
+#run defaults write ~/Library/Preferences/com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptEnabled -bool false
+#run defaults write ~/Library/Preferences/com.apple.Safari WebKitJavaScriptEnabled -bool false
 
 echo "Block popups in Safari."
 run defaults write ~/Library/Preferences/com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool false
 run defaults write ~/Library/Preferences/com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false
 
-echo "Disable plugins and extensions in Safari."
-run defaults write ~/Library/Preferences/com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2WebGLEnabled -bool false
-run defaults write ~/Library/Preferences/com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled -bool false
-run defaults write ~/Library/Preferences/com.apple.Safari WebKitPluginsEnabled -bool false
-run defaults write ~/Library/Preferences/com.apple.Safari ExtensionsEnabled -bool false
-run defaults write ~/Library/Preferences/com.apple.Safari PlugInFirstVisitPolicy PlugInPolicyBlock
-run defaults write ~/Library/Preferences/com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false
-run defaults write ~/Library/Preferences/com.apple.Safari WebKitJavaEnabled -bool false
+#echo "Disable plugins and extensions in Safari."
+#run defaults write ~/Library/Preferences/com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2WebGLEnabled -bool false
+#run defaults write ~/Library/Preferences/com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled -bool false
+#run defaults write ~/Library/Preferences/com.apple.Safari WebKitPluginsEnabled -bool false
+#run defaults write ~/Library/Preferences/com.apple.Safari ExtensionsEnabled -bool false
+#run defaults write ~/Library/Preferences/com.apple.Safari PlugInFirstVisitPolicy PlugInPolicyBlock
+#run defaults write ~/Library/Preferences/com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false
+#run defaults write ~/Library/Preferences/com.apple.Safari WebKitJavaEnabled -bool false
 
 echo "Safari should treat SHA-1 certificates as insecure."
 run defaults write ~/Library/Preferences/com.apple.Safari TreatSHA1CertificatesAsInsecure -bool true
@@ -225,45 +225,8 @@ run defaults write com.apple.SoftwareUpdate AutomaticDownload -int 1
 echo "Install Mac App Store system data files & security updates."
 run defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
 
-echo "Turn on Mac App Store auto-update."
-run defaults write com.apple.commerce AutoUpdate -bool true
-
-# Blocklists
-
-echo "Block all Facebook domains."
-if ! grep --quiet facebook /etc/hosts; then
-    run cat block_facebook | sudo tee -a /etc/hosts
-else
-    echo "${dim}▹ Facebook domains already blocked. $reset"
-fi
-
-echo "Install exercism CLI."
-run brew install mas
-
-echo "Install exercism CLI."
-run brew install exercism
-
-echo "Install spectacle."
-run brew cask install spectacle
-
-echo "Install Things3."
-run mas install 904280696
-
-echo "Install Decompressor."
-run mas install 1033480833
-
-echo "Install Speedtest."
-run mas install 1153157709
-
-echo "Upgrade any Mac App Store applications."
-run mas upgrade
-
-echo "Run one final check to make sure software is up to date."
-run softwareupdate -i -a
-
 run killall Dock
 run killall Finder
 run killall SystemUIServer
 
 chapter "Some settings will not take effect until you restart your computer."
-headline " Your Mac is setup and ready!"

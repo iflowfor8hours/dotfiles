@@ -1,4 +1,4 @@
-.PHONY: fast ubuntu test directories manual_steps arch_packages common_packages ubuntu_packages sysdig osx_fonts osx_packages taskwarrior power_management update xcape linux_keyboard minidot dotfiles vim virtualenvwrapper disable_services adobefont ruby_dev sysdig install_golang ubuntu_packages
+.PHONY: fast ubuntu test directories manual_steps arch_packages common_packages ubuntu_packages sysdig osx_fonts osx_packages taskwarrior power_management update linux_keyboard minidot dotfiles vim virtualenvwrapper disable_services adobefont ruby_dev sysdig install_golang ubuntu_packages
 SHELL := /bin/bash
 
 DIR=$(pwd)
@@ -91,22 +91,18 @@ osx_fonts:
 		font-hack-nerd-font-mono
 
 osx_packages:
-	brew tap caskroom/fonts
 	brew install \
-		abook \
 		ack \
-		ansible \
 		autojump \
-		cask \
 		caskroom/cask/alfred \
 		caskroom/cask/firefox \
 		caskroom/cask/karabiner-elements \
 		caskroom/cask/vagrant \
 		caskroom/cask/virtualbox \
-		caskroom/versions/google-chrome-canary \
 		cmake \
 		curl \
-		docker \
+		docker-ce \
+		diff-so-fancy \
 		git \
 		go \
 		hh \
@@ -120,7 +116,6 @@ osx_packages:
 		netdata \
 		nmap \
 		pstree \
-		python3 \
 		ranger \
 		rbenv \
 		readline \
@@ -132,12 +127,9 @@ osx_packages:
 		tree \
 		unrar \
 		vim \
-		weechat \
 		wget \
 		zsh \
-		zsh-autosuggestions \
-		zsh-completions \
-		zsh-navigation-tools
+		zsh-completions
 
 taskwarrior:
 	echo "Setting up Taskwarrior" \
@@ -160,12 +152,6 @@ update:
 	sudo apt-get update -y
 	sudo apt-get install -f -y
 
-xcape:
-	cd /tmp
-		git clone https://github.com/alols/xcape.git
-		cd xcape
-		make
-		sudo make install
 
 linux_keyboard:
 	sudo bash -c '[ -d /etc/default ] \
@@ -233,7 +219,7 @@ dotfiles:
 
 vim:
 	@if [ -e /usr/bin/apt-get ]; then sudo apt-get -y -q=2 install vim-nox exuberant-ctags cmake python-dev; fi
-	@if [ -e /usr/local/bin/brew ]; then brew install vim neovim ctags cmake python2; fi
+	@if [ -e /usr/local/bin/brew ]; then brew install vim neovim ctags cmake; fi
 	@if [ ! -e ${HOME}/.vim/.mine ]; then echo "Deleting existing vim configuration"; rm -fr ${HOME}/.vim ${HOME}/.vimrc; fi
 	-@ln -sn $(PWD)/.vimrc ${HOME}/.vimrc; true
 	-@ln -sn $(PWD)/.vim ${HOME}/.vim; true
@@ -282,6 +268,12 @@ ruby_dev:
 
 sysdig:
 	curl -s https://s3.amazonaws.com/download.draios.com/stable/install-sysdig | sudo bash
+
+decrypt_private:
+	openssl aes-256-cbc -d -a -salt -in .zshrc.private.enc -out .zshrc.private
+
+encrypt_private:
+	openssl aes-256-cbc -a -salt -in .zshrc.private -out .zshrc.private.enc
 
 install_golang:
 	sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable

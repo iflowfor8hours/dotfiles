@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<channel name="pointers" version="1.0">
-  <property name="Atmel_maXTouch_Touchpad" type="empty">
-    <property name="Properties" type="empty">
-      <property name="Tap_Enable" type="int" value="0"/>
-    </property>
-  </property>
-</channel>

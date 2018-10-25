@@ -1,11 +1,9 @@
-[user]
-	name = matt
-	email = matt@iflowfor8hours.info
+[includeIf "gitdir:~/projects/*"]
+  path = .gitconfig.std
 [includeIf "gitdir:~/workspace/*"]
-    path = .gitconfig.work
+  path = .gitconfig.work
 [alias]
   ll = log --oneline --graph --decorate --all
-  addall = !git add . && git add -u
   lg = !"git lg1"
   lg1 = !"git lg1-specific --all"
   lg2 = !"git lg2-specific --all"
@@ -17,14 +15,10 @@
   dt = difftool
   st = status
   ss = status -s
-  ci = !git add -A && git pull --rebase && git commit
   amend = commit --amend
-  cp = cherry-pick -x
   unstage = reset HEAD
   uncommit = reset --soft HEAD^
   kill = reset --hard HEAD^
-  ps = push -u origin
-  br = branch
   pp = log --oneline --decorate --graph
   incoming = !git fetch && git log master ^origin/master
   outgoing = !git fetch && git log origin/master ^master
@@ -39,8 +33,6 @@
   editor = /usr/bin/vim
   quotepath = false
   autocrlf = input
-	excludesfile = /Users/matturbanski/.gitignore_global
-	pager = diff-so-fancy | less --tabs=4 -RFX
 [gc]
   auto = 1
 [color]
@@ -84,7 +76,6 @@
   cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

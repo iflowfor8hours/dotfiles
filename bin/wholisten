@@ -1,0 +1,4 @@
+sudo lsof -iTCP -sTCP:LISTEN
+sudo lsof -iTCP -sTCP:LISTEN -P
+sudo lsof -iTCP -sTCP:LISTEN -P -n
+sudo lsof -iTCP -sTCP:LISTEN -n
