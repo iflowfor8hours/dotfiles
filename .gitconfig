@@ -1,3 +1,5 @@
+[includeIf "gitdir:~/dotfiles"]
+  path = .gitconfig.std
 [includeIf "gitdir:~/projects/*"]
   path = .gitconfig.std
 [includeIf "gitdir:~/workspace/*"]
@@ -19,6 +21,7 @@
   unstage = reset HEAD
   uncommit = reset --soft HEAD^
   kill = reset --hard HEAD^
+  glog = log --graph --format=format:'%C(bold blue)%h%C(reset) -- %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)-%an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
   pp = log --oneline --decorate --graph
   incoming = !git fetch && git log master ^origin/master
   outgoing = !git fetch && git log origin/master ^master
