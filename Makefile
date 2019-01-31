@@ -3,11 +3,11 @@ SHELL := /bin/bash
 
 DIR=$(pwd)
 
-fast: minidot keyboard
+fast: minidot linux_keyboard
 
-ubuntu: directories dev_packages apt_fast_setup ubuntu_packages keyboard adobefont vim dotfiles virtualenvwrapper ruby_dev sysdig disable_services install_golang taskwarrior power_management manual_steps
+ubuntu: directories dev_packages apt_fast_setup ubuntu_packages linux_keyboard adobefont vim dotfiles virtualenvwrapper ruby_dev sysdig disable_services install_golang taskwarrior power_management manual_steps
 
-test: directories dev_packages apt_fast_setup ubuntu_packages keyboard adobefont vim dotfiles virtualenvwrapper install_golang taskwarrior manual_steps
+test: directories dev_packages apt_fast_setup ubuntu_packages linux_keyboard adobefont vim dotfiles virtualenvwrapper install_golang taskwarrior manual_steps
 
 directories:
 	@mkdir -p ${HOME}/.logs
@@ -174,6 +174,18 @@ minidot:
 	ln -sn $(PWD)/.vimrc ${HOME}/.vimrc
 	ln -sn $(PWD)/.gitconfig ${HOME}/.gitconfig
 	ln -sn $(PWD)/.zshrc ${HOME}/.zshrc
+	ln -sn $(PWD)/.tmux.conf ${HOME}/.tmux.conf
+	ln -sn $(PWD)/.config/nvim ${HOME}/.config/nvim
+
+nozshdot:
+	rm -rf ${HOME}/.vim
+	rm -rf ${HOME}/.vimrc
+	rm -rf ${HOME}/.gitconfig
+	rm -rf ${HOME}/.tmux.conf
+	rm -rf ${HOME}/.config/nvim
+	ln -sn $(PWD)/.vim ${HOME}/.vim
+	ln -sn $(PWD)/.vimrc ${HOME}/.vimrc
+	ln -sn $(PWD)/.gitconfig ${HOME}/.gitconfig
 	ln -sn $(PWD)/.tmux.conf ${HOME}/.tmux.conf
 	ln -sn $(PWD)/.config/nvim ${HOME}/.config/nvim
 

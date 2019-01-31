@@ -177,11 +177,11 @@ export ANSIBLE_NOCOWS=1
 export DCOS_SSL_VERIFY=false
 ##
 
-if [ -z "$SSH_AUTH_SOCK" ] ; then
-  eval `ssh-agent -s`
-  echo "Added key"
-  ssh-add
-fi
+#if [ -z "$SSH_AUTH_SOCK" ] ; then
+#  eval `ssh-agent -s`
+#  echo "Added key"
+#  ssh-add
+#fi
 
 # This is where were should start factoring into seperate files.
 case `uname` in
@@ -203,8 +203,6 @@ case `uname` in
     [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.local/share/autojump.sh
     #[[ -s /home/linuxbrew/.linuxbrew/bin ]] && export PATH=/home/linuxbrew/.linuxbrew/bin:${PATH}
     if [ -f  ]
-    source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source /home/linuxbrew/.linuxbrew/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
     alias ls='ls -F --color=auto'
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
