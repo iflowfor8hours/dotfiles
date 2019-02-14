@@ -5,7 +5,7 @@
 map <F1> <Esc>
 map <F2> :set invnumber<CR>
 map <F3> :ToggleWhitespace<CR>
-map <F4> :NERDTreeToggle<CR>
+map <F4> :Lexplore<CR>
 map <F5> :GitGutterToggle<CR>
 
 let g:netrw_winsize       = -28
@@ -40,7 +40,7 @@ noremap <C-p> :bp<CR>
 "map <left> :bprevious!<cr>
 map <C-D> :bd<cr>
 
-"don't use the backup files or swap files, they are annoying to look at
+"don't use the backup file or swap files, they are annoying to look at
 "set autoindent
 "set list                      "show whitespace where I care
 "set nosmartindent    " auto/smart indent
@@ -55,7 +55,7 @@ set comments=b:#
 set complete=.,w,b,u,U,t,i,d  " do lots of scanning on tab completion
 set cursorline                " show the cursor line
 set expandtab                 " expand tabs to spaces (except java, see autocmd below
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set listchars=tab:>-,trail:.,precedes:<,extends:>,eol:$
 set matchpairs+=<:>           " add < and > to match pairs
 set modeline
 set noautowrite               " don't automagically write on :next
@@ -270,7 +270,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'plasticboy/vim-markdown'
-Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
