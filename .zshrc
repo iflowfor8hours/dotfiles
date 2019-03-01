@@ -35,8 +35,15 @@ prompt pure
 # no globbing not on urls
 unsetopt nomatch
 
+if [ -x $(which nvim) ]; then 
+  export VIMEXEC=$(which nvim); 
+  alias vim=nvim
+else 
+  export VIMEXEC=$(which vim);
+fi
+
 # Some environment defaults
-export EDITOR=/usr/bin/vim
+export EDITOR=$VIMEXEC
 export PAGER=less
 export LESS="RnX"
 
@@ -81,10 +88,7 @@ xset s noblank
 xset s off
 }
 
-function normalsleep {
-}
-
-# horray curl works
+function normalsleep {}
 
 compctl -g '*(-/D)' cd
 compctl -c which
@@ -122,6 +126,22 @@ zstyle ':completion::complete:*' '\\'
 zstyle ':completion::prefix-1:*' completer _complete
 zstyle ':completion:incremental:*' completer _complete _correct
 zstyle ':completion:predict:*' completer _complete
+
+# Populate hostname completion.
+zstyle -e ':completion:*:hosts' hosts 'reply=(
+${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) 2>/dev/null)"}%%[#| ]*}//,/ }
+${=${(f)"$(cat /etc/hosts(|)(N) <<(ypcat hosts 2>/dev/null))"}%%\#*}
+${=${${${${(@M)${(f)"$(cat ~/.ssh/config 2>/dev/null)"}:#Host *}#Host }:#*\**}:#*\?*}}
+)'
+# Don't complete uninteresting users
+zstyle ':completion:*:*:*:users' ignored-patterns \
+        adm amanda apache avahi beaglidx bin cacti canna clamav daemon \
+        dbus distcache dovecot fax ftp games gdm gkrellmd gopher \
+        hacluster haldaemon halt hsqldb ident junkbust ldap lp mail \
+        mailman mailnull mldonkey mysql nagios \
+        named netdump news nfsnobody nobody nscd ntp nut nx openvpn \
+        operator pcap postfix postgres privoxy pulse pvm quagga radvd \
+        rpc rpcuser rpm shutdown squid sshd sync uucp vcsa xfs
 
 
 # -- Aliases --
@@ -188,7 +208,8 @@ case `uname` in
   Darwin)
     # autojump
     [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-    [ -f ~/.local/lib/aws/bin/aws_zsh_completer.sh ] && . ~/.local/lib/aws/bin/aws_zsh_completer.sh
+    [[ -f /usr/local/bin/aws ]] && export PATH=/usr/local/bin/aws/:$PATH
+    [[ -f /usr/local/bin/aws/bin/aws_zsh_completer.sh ]] && . /usr/local/bin/aws/bin/aws_zsh_completer.sh
     alias ls='ls -FG'
     [[ -f ${HOME}/dotfiles/sensitive.sh ]] && . ${HOME}/dotfiles/sensitive.sh
 	  autoload -U compinit && compinit -u

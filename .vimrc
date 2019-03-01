@@ -55,7 +55,9 @@ set comments=b:#
 set complete=.,w,b,u,U,t,i,d  " do lots of scanning on tab completion
 set cursorline                " show the cursor line
 set expandtab                 " expand tabs to spaces (except java, see autocmd below
+"set listchars=tab:>-,trail:.,precedes:<,extends:>,eol:$
 set listchars=tab:>-,trail:.,precedes:<,extends:>,eol:$
+"set listchars=tab:\|\ ,trail:-,extends:>,precedes:<,nbsp:+
 set matchpairs+=<:>           " add < and > to match pairs
 set modeline
 set noautowrite               " don't automagically write on :next
