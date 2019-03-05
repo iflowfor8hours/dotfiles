@@ -17,7 +17,10 @@ let g:netrw_altv          = 1
 
 set t_ut=
 set termguicolors
-
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
 "set t_8f=^[[38;2;%lu;%lu;%lum        " set foreground color
 "set t_8b=^[[48;2;%lu;%lu;%lum        " set background color
 
@@ -82,8 +85,11 @@ set whichwrap+=<,>,h,l        " backspaces and cursor keys wrap to
 set wrapscan " Searches wrap around end of file
 syntax on
 
+let g:indentLine_noConcealCursor=""
+
+tnoremap <Esc> <C-\><C-n>
 " Resize splits when the window is resized
-"au VimResized * :wincmd =
+au VimResized * :wincmd =
 
 " jump to the beginning and end of functions
 
@@ -281,7 +287,8 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround/'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
-Plug 'Yggdroot/LeaderF'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'https://github.com/elzr/vim-json.git'
 call plug#end()
 
 " You have to call :PlugInstall
